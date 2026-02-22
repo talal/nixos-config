@@ -1,0 +1,36 @@
+command = fish
+font-size = 14
+font-family = Maple Mono Normal NF
+theme = Catppuccin Macchiato
+background-opacity = 0.95
+background-blur = true
+mouse-hide-while-typing = true
+adjust-cell-height = 5%
+adjust-cell-width  = 0%
+window-padding-x = 6
+window-padding-y = 0
+
+quit-after-last-window-closed = true
+quit-after-last-window-closed-delay = 30m
+
+gtk-wide-tabs = false
+gtk-custom-css = tab-style.css
+
+# ══════════ Keybinds ══════════
+keybind = ctrl+enter=unbind
+keybind = ctrl+shift+q=unbind
+
+keybind = global:ctrl+backquote=toggle_quick_terminal
+
+# Tabs
+# ctrl+page_down/up will switch tabs by default.
+keybind = ctrl+shift+page_down=move_tab:1
+keybind = ctrl+shift+page_up=move_tab:-1
+keybind = ctrl+shift+alt+t=prompt_surface_title
+
+# Splits: use ctrl+shift+<key> combos; Helix uses ctrl+<key> instead.
+# ctrl+shift+enter will fullscreen a split by default.
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right

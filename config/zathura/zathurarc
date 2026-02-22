@@ -1,0 +1,21 @@
+include catppuccin-macchiato
+
+set adjust-open            "width"
+set font                   "monospace normal 12"
+set incremental-search     "true"
+set scroll-full-overlap    "0.01"
+set scroll-page-aware      "true"
+set scroll-step            "100"
+set selection-notification "false"
+
+# Fix link display since we use Catppuccin Macchiato without recolor.
+# highlight-active-color: active selection catppuccin-pink 50%
+# highlight-color: box-background catppuccin-lavender 50%
+# highlight-fg: text catppuccin-base 50%
+
+set recolor                "false"
+set highlight-active-color "rgba(245, 194, 231, 0.5)"
+set highlight-color        "rgba(183, 189, 248, 0.5)"
+set highlight-fg           "#24273a"
+
+map y exec "sh -c 'wl-paste --primary | wl-copy'"

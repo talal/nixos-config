@@ -1,0 +1,41 @@
+[
+  {
+    "bindings": {
+      "ctrl-q": null, // default: zed::Quit
+      "ctrl-p": null, // default: menu::SelectPrev
+
+      // Toggles via Hyper key (super+ctrl+alt+shift)
+      "super-ctrl-alt-shift-enter": "agent::ToggleFocus", // use enter, space+a is used for code actions
+      "super-ctrl-alt-shift-d": "debug_panel::ToggleFocus",
+      "super-ctrl-alt-shift-e": "project_panel::ToggleFocus",
+      "super-ctrl-alt-shift-g": "git_panel::ToggleFocus",
+      "super-ctrl-alt-shift-o": "outline_panel::ToggleFocus",
+      "super-ctrl-alt-shift-t": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "!Terminal",
+    "bindings": {
+      // Disable because I keep hitting this key combo accidentally.
+      "ctrl-shift-c": null // default: collab_panel::ToggleFocus
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-d": null, // default: debug_panel::ToggleFocus
+      "ctrl-~": "workspace::NewCenterTerminal", // default: workspace::NewTerminal
+
+      // Toggles via Meh key (ctrl+alt+shift)
+      "ctrl-alt-(": "workspace::ToggleLeftDock",
+      "ctrl-alt-)": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    // Needed for which_key popup to stay open.
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space": null
+    }
+  }
+]

@@ -1,0 +1,99 @@
+// Notifications
+layer-rule {
+    match namespace=r#"(?i)(notifications|dms:notification-popup|dms:slideout)"#
+    block-out-from "screen-capture"
+}
+
+// Passwords & 2FA
+window-rule {
+    match app-id=r#"(?i)(bitwarden|keepass|yubico|proton-authenticator)"#
+    default-column-width { proportion 0.66; } // custom size for easy copy-paste
+    block-out-from "screen-capture"
+}
+window-rule {
+    // Bitwarden browser extension
+    match app-id=r#"(?i)(nngceckbapebfimnlniiiahkandclblb)"#
+    open-floating true
+    block-out-from "screen-capture"
+}
+
+// Apps with personal data
+window-rule {
+    match app-id=r#"(?i)(obsidian|ente|planify|calcure)"#
+    match app-id="chrome" title=r#"(?i)(calendar)"#
+    block-out-from "screen-capture"
+}
+
+// Email & Comms
+window-rule {
+    match app-id=r#"(?i)(thunderbird|discord|vesktop|element|signal)"#
+    match app-id="chrome" title=r#"(?i)(whatsapp|tuta|proton|gmail)"#
+    open-maximized true
+    block-out-from "screen-capture"
+}
+
+// DMS
+window-rule {
+    match app-id=r#"org\.quickshell$"#
+    open-floating true
+}
+
+window-rule {
+    match title=r#"(?i)^picture-in-picture$"#
+    open-floating true
+    open-focused false
+    default-floating-position x=12 y=12 relative-to="top-right"
+    default-column-width  { proportion 0.3; }
+    default-window-height { proportion 0.3; }
+    border { off; }
+}
+
+// Temporary modal dialog windows
+window-rule {
+    match title=r#"(?i)(wants to open|wants to save|file to save to|print)"#
+    open-floating true
+}
+
+// Apps that occupy their own workspace are maximized to edges.
+window-rule {
+    // Web browsers
+    match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
+
+    // Productivity
+    match app-id=r#"(?i)(obsidian|zed|remnote)"#
+
+    open-maximized-to-edges true
+}
+
+// The media should dictate how wide the column should be.
+window-rule {
+    match app-id=r#"(?i)(mpv|showtime|imv|loupe)"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id="org.gnome.Calculator"
+    open-floating true
+    default-floating-position x=50 y=0 relative-to="right"
+}
+
+window-rule {
+    match app-id="org.gnome.Nautilus"
+    open-floating true
+    default-column-width  { proportion 0.55; }
+    default-window-height { proportion 0.6;  }
+}
+
+// Resource monitors
+window-rule {
+    match app-id=r#"(?i)(btop|bottom|resources)"#
+    match app-id="org.quickshell" title="System Monitor" // dgop
+    open-floating true
+    default-column-width  { proportion 0.65; }
+    default-window-height { proportion 0.75; }
+}
+
+window-rule {
+    match app-id="^gimp" title="^GIMP Startup$"
+    open-focused false
+}

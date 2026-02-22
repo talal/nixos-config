@@ -1,0 +1,31 @@
+output "Panasonic Industry Company Panasonic-TV 0x01010101" {
+    mode "1920x1080"
+    scale 1.25
+    position x=0 y=-864
+
+    layout {
+        // Use slightly larger width to compensate for the scaling difference with built-in display.
+        focus-ring { width 3; }
+
+        default-column-width { proportion 1.0; }
+        // default-window-height { proportion 0.92; } // TODO: this is broken for some reason
+
+        preset-column-widths {
+            proportion 0.5
+        }
+
+        preset-window-heights {
+            proportion 0.5
+            proportion 0.92  // TV cutoff height
+            proportion 1.0
+        }
+    }
+}
+
+window-rule {
+    match app-id=r#"(?i)(stremio|planify)"#
+    match app-id="chrome" title=r#"(?i)(calendar)"#
+
+    open-on-output "Panasonic Industry Company Panasonic-TV 0x01010101"
+    default-window-height { proportion 0.92; } // TODO: move to output.layout when fixed
+}

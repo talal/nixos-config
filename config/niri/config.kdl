@@ -1,0 +1,119 @@
+include "output-panasonic-tv.kdl"
+include "rules.kdl"
+include "binds.kdl"
+
+// Launching here instead of via systemd so that Vicinae inherits the environment variables.
+spawn-at-startup "vicinae" "server"
+
+// Workaround for initialising ssh-tpm-agent so that ssh keys are loaded at startup.
+spawn-sh-at-startup "ssh-add -l"
+
+hotkey-overlay { skip-at-startup; }
+
+screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
+
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+
+}
+
+// Built-in Display
+output "eDP-1" {
+    mode "1920x1200"
+    scale 1.25
+    position x=0 y=0
+}
+
+input {
+    disable-power-key-handling // managed by logind
+
+    keyboard {
+        xkb {
+            layout "us,pk"
+            options "compose:ralt"
+        }
+        numlock
+        repeat-delay 250 // in milliseconds (default 600)
+        repeat-rate  35  // characters per second (default 25)
+    }
+
+    focus-follows-mouse max-scroll-amount="20%"
+
+    touchpad { tap; dwt; }
+    trackpoint { accel-profile "flat"; }
+}
+
+// ════════════════════════════════ Appearance ════════════════════════════════
+
+animations { slowdown 0.5; }
+
+overview {
+    zoom 0.4
+    backdrop-color "#1e1e2e" // catppuccin mocha base
+}
+
+layout {
+    empty-workspace-above-first
+
+    gaps 6
+
+    border { off; }
+
+    focus-ring { width 2; }
+
+    tab-indicator {
+        gaps-between-tabs 6
+        corner-radius 6
+        position "top"
+        place-within-column
+        length total-proportion=0.33
+    }
+
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+}
+
+prefer-no-csd
+
+window-rule {
+    tiled-state true
+    draw-border-with-background false
+}
+
+// Show screen casted windows with custom window decorations for easier identification.
+window-rule {
+    match is-window-cast-target=true
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+    border {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+    shadow { color "#7d0d2d70"; }
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+recent-windows {
+    previews {
+        max-height 320
+    }
+}
+
+// Recommended to place at the end of the file
+include "dms/colors.kdl"
+include "dms/cursor.kdl"

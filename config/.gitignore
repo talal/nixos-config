@@ -1,0 +1,28 @@
+# ══════════ DankMaterialShell ══════════
+*dankcolors*
+/DankMaterialShell/*
+!/DankMaterialShell/settings.json
+
+# ══════════ niri ══════════
+/niri/dms/*
+!/niri/dms/colors.kdl
+!/niri/dms/cursor.kdl
+
+# ══════════ Misc. ══════════
+/**/themes
+!/helix/themes
+
+/calcure/**
+
+/espanso/match/packages
+
+/jj/repos
+
+/pika-backup/**
+!/pika-backup/backup.json
+
+/ssh/**
+!/ssh/config
+
+/television/cable
+!/television/themes

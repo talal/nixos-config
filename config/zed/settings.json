@@ -1,0 +1,142 @@
+{
+  "restore_on_startup": "launchpad",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "just": true,
+    "nix": true,
+    "superhtml": true,
+    "typst": true
+  },
+  "load_direnv": "shell_hook",
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ▄▀█ █
+  // █▀█ █
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5"
+    },
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-opus-4.6"
+    }
+  },
+  "edit_predictions": { "mode": "subtle" },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ▄▀█ █▀█ █▀█ █▀▀ ▄▀█ █▀█ ▄▀█ █▄ █ █▀▀ █▀▀
+  // █▀█ █▀▀ █▀▀ ██▄ █▀█ █▀▄ █▀█ █ ▀█ █▄▄ ██▄
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  "project_panel": { "dock": "right" },
+  "theme": "Catppuccin Macchiato",
+  "buffer_font_family": "Maple Mono NF",
+  "buffer_font_size": 18,
+  "ui_font_size": 19,
+  "agent_buffer_font_size": 17,
+  "agent_ui_font_size": 19,
+  "terminal": {
+    "dock": "right",
+    "font_family": "Maple Mono Normal NF",
+    "font_size": 17,
+    "blinking": "on",
+    "cursor_shape": "bar",
+    "shell": { "program": "fish" },
+    "env": {
+      "EDITOR": "zeditor --wait",
+      "VISUAL": "zeditor --wait"
+    }
+  },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // █▀▀ █▀▄ █ ▀█▀ █ █▄ █ █▀▀
+  // ██▄ █▄▀ █  █  █ █ ▀█ █▄█
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  "autosave": "on_focus_change",
+  "format_on_save": "off",
+  "inlay_hints": {
+    "toggle_on_modifiers_press": {
+      "control": true,
+      "alt": true
+    }
+  },
+  "wrap_guides": [80, 100],
+  "preferred_line_length": 90,
+  "go_to_definition_fallback": "none", // disable weird ctrl-click behavior
+
+  // Helix FTW
+  "helix_mode": true,
+  "relative_line_numbers": "enabled",
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 0
+  },
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // █   ▄▀█ █▄ █ █▀▀ █ █ ▄▀█ █▀▀ █▀▀ █▀
+  // █▄▄ █▀█ █ ▀█ █▄█ █▄█ █▀█ █▄█ ██▄ ▄█
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  "file_types": {
+    "YAML": ["base", ".clang-format", ".clang-tidy"]
+  },
+  "languages": {
+    "Fish": {
+      "formatter": { "external": { "command": "fish_indent" } }
+    },
+    "HTML": {
+      "language_servers": ["superhtml", "..."],
+      "formatter": { "language_server": { "name": "superhtml" } }
+    },
+    "Markdown": {
+      "formatter": {
+        "external": { "command": "mdformat", "arguments": ["--number", "-"] }
+      }
+    },
+    "Nix": {
+      "language_servers": ["nixd", "!nil", "..."],
+      "formatter": {
+        "external": { "command": "alejandra", "arguments": ["--quiet", "--"] }
+      }
+    },
+    "Python": {
+      "language_servers": ["ty", "!basedpyright", "..."]
+    },
+    "Shell Script": {
+      "formatter": {
+        "external": { "command": "shfmt", "arguments": ["--simplify"] }
+      }
+    },
+    "TOML": {
+      "formatter": {
+        "external": {
+          "command": "taplo",
+          "arguments": [
+            "format",
+            "--option=align_comments=false",
+            "--option=column_width=100",
+            "--option=inline_table_expand=false",
+            "-"
+          ]
+        }
+      }
+    },
+    "Typst": {
+      "allow_rewrap": "anywhere",
+      "soft_wrap": "editor_width",
+      "formatter": {
+        "external": { "command": "typstyle", "arguments": ["--line-width=90"] }
+      }
+    }
+  }
+}

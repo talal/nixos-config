@@ -1,0 +1,64 @@
+[[language]]
+name = "bash"
+formatter = { command = "shfmt", args = ["--simplify"] }
+
+[[language]]
+name = "html"
+language-servers = ["superhtml"]
+formatter = { command = "superhtml", args = ["fmt", "--stdin"] }
+
+[[language]]
+name = "json"
+formatter = { command = "prettier", args = ["--parser", "json"] }
+
+[[language]]
+name = "markdown"
+soft-wrap.enable = true
+formatter = { command = "mdformat", args = ["--number", "-"] }
+# Continue lists and blockquotes when enter or 'o' is pressed.
+comment-tokens = ["-", "- [ ]", ">"]
+
+[[language]]
+name = "nix"
+language-servers = ["nixd"]
+formatter = { command = "alejandra", args = ["--quiet"] }
+
+[[language]]
+name = "python"
+language-servers = ["ty", "ruff"]
+formatter = { command = "ruff", args = ["format", "-"] }
+
+[[language]]
+name = "rust"
+text-width = 100
+
+[[language]]
+name = "toml"
+formatter.command = "taplo"
+formatter.args = [
+  "format",
+  "--option=align_comments=false",
+  "--option=column_width=100",
+  "--option=inline_table_expand=false",
+  "-",
+]
+
+[[language]]
+name = "typst"
+soft-wrap.enable = true
+formatter = { command = "typstyle", args = ["--line-width=90"] }
+[language.auto-pairs]
+# defaults
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'$' = '$'
+'"' = '"'
+# convenience
+'*' = '*'
+'_' = '_'
+
+# TODO: default behavior in next release; remove
+[[language]]
+name = "yaml"
+formatter = { command = "yamlfmt", args = ["-"] }

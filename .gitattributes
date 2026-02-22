@@ -1,0 +1,11 @@
+# Prevent GitHub from displaying comments within JSON files as errors.
+*.json linguist-language=JSON-with-Comments
+
+# ══════════ Secrets ══════════
+**/nextdns.conf filter=git-crypt diff=git-crypt
+config/DankMaterialShell/** filter=git-crypt diff=git-crypt
+config/espanso/match/** filter=git-crypt diff=git-crypt
+config/git/** filter=git-crypt diff=git-crypt
+config/jj/** filter=git-crypt diff=git-crypt
+config/pika-backup/** filter=git-crypt diff=git-crypt
+config/ssh/** filter=git-crypt diff=git-crypt
