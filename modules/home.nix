@@ -220,6 +220,25 @@
 
     programs.mpv = {
       enable = true;
+      config = {
+        profile = "gpu-hq";
+        gpu-context = "wayland";
+        hwdec = "auto";
+        vo = "gpu-next";
+        ao = "pipewire";
+
+        osc = false;
+        hr-seek = true;
+        keep-open = true;
+        save-position-on-quit = true;
+        save-watch-history = true;
+
+        slang = "en,eng,de,deu,ger";
+        alang = "ja,jp,jpn,de,deu,ger,en,eng"; # Onii-Chan!
+
+        ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
+        screenshot-dir = "~/Pictures/Screenshots/mpv";
+      };
       scripts = with pkgs.mpvScripts; [mpris modernz thumbfast];
       scriptOpts = {
         thumbfast = {
@@ -233,6 +252,15 @@
           seekbarfg_color = "#8aadf4";
           seekbarbg_color = "#1e2030";
         };
+      };
+      bindings = {
+        UP = "add volume 2";
+        DOWN = "add volume -2";
+        "Alt+LEFT" = "seek -60";
+        "Alt+RIGHT" = "seek 60";
+        V = "cycle secondary-sub-visibility";
+        "Ctrl+j" = "cycle secondary-sid";
+        "Ctrl+J" = "cycle secondary-sid down";
       };
     };
 
