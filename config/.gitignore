@@ -1,18 +1,16 @@
-# ══════════ DankMaterialShell ══════════
+/**/themes
+
+# DankMaterialShell
 *dankcolors*
 /DankMaterialShell/*
 !/DankMaterialShell/settings.json
 
-# ══════════ niri ══════════
+# niri
 /niri/dms/*
 !/niri/dms/colors.kdl
 !/niri/dms/cursor.kdl
 
-# ══════════ Misc. ══════════
-/**/themes
 !/helix/themes
-
-/calcure/**
 
 /espanso/match/packages
 
@@ -23,6 +21,3 @@
 
 /ssh/**
 !/ssh/config
-
-/television/cable
-!/television/themes
