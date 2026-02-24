@@ -23,8 +23,8 @@ binds {
     Mod+V           hotkey-overlay-title="Clipboard Manager"    { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+Shift+V     hotkey-overlay-title=null                   { spawn "dms" "ipc" "call" "clipboard" "toggle";  }
     Mod+Space       hotkey-overlay-title="Window Switcher"      { spawn "vicinae" "vicinae://extensions/vicinae/wm/switch-windows"; }
-    Mod+Ctrl+Space  hotkey-overlay-title="File Picker"          { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
-    Mod+Shift+Space hotkey-overlay-title="Emoji Picker"         { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis"; }
+    Mod+Ctrl+Space  hotkey-overlay-title="Emoji Picker"         { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis"; }
+    Mod+Shift+Space hotkey-overlay-title="File Picker"          { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
 
     Mod+S                   { screenshot show-pointer=false; }
     Mod+Shift+S             { screenshot-screen show-pointer=false; }
