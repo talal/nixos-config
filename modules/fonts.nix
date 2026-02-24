@@ -4,7 +4,7 @@
     fontconfig.defaultFonts = {
       sansSerif = ["Inter" "Noto Naskh Arabic"];
       serif = ["Noto Serif" "Noto Naskh Arabic"];
-      monospace = ["JetBrains Mono" "Symbols Nerd Font"];
+      monospace = ["JetBrains Mono NL" "Symbols Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
     packages = with pkgs; [
