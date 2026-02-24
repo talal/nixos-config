@@ -49,6 +49,7 @@
         gh
         git-cliff
         git-crypt
+        git-filter-repo
         hunspell
         hunspellDicts.de_DE
         hunspellDicts.en_GB-ize
