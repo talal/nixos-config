@@ -8,17 +8,25 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
-      - name: Update flake inputs
-        run: |-
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Update Nix Flake
+        run: |
           nix flake update \
             --option access-tokens "github.com=${{ secrets.GITHUB_TOKEN }}" \
             --refresh \
-            --commit-lock-file \
-            --commit-lockfile-summary "flake: update all inputs" \
-            --flake .
-          git push
+            --flake . 2>&1 | tee /tmp/flake-update.log
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: "update-flake-lock-action"
+          title: "Update Nix flake inputs"
+          body-path: /tmp/flake-update.log
+          commit-message: "flake: update all inputs"
+          sign-commits: true
+          delete-branch: true
+          labels: |
+            automated
+            dependencies
