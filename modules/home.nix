@@ -40,7 +40,6 @@
       accent = "blue";
       eza.enable = false; # IFD
       ghostty.enable = false; # managed by stow
-      imv.enable = false; # IFD
       bottom.enable = false; # IFD
       mpv.enable = false; # don't like
       starship.enable = false; # IFD
@@ -208,15 +207,7 @@
     # and shell integrations are set up automatically.
     programs.ghostty.enable = true;
 
-    programs.imv = {
-      enable = true;
-      settings.options = {
-        # Catppuccin Macchiato
-        background = "24273a";
-        overlay_text_color = "cad3f5";
-        overlay_background_color = "181926";
-      };
-    };
+    programs.imv.enable = true;
 
     programs.mpv = {
       enable = true;

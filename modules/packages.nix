@@ -17,7 +17,6 @@
         gimp
         gnome-calculator
         gnome-text-editor
-        imv
         keepassxc
         libreoffice-still
         loupe
