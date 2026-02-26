@@ -57,6 +57,7 @@
         p7zip
         poppler-utils
         procs
+        scc
         scooter
         sd
         stow
