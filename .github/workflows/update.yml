@@ -1,7 +1,7 @@
 name: Update Flake Inputs
 on:
   schedule:
-    - cron: '0 4 * * *' # every day at 04:00 UTC
+    - cron: '1 0 * * *' # every day at 00:01 UTC
   workflow_dispatch: # allows manual triggering
 jobs:
   update:
@@ -12,17 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
-      - name: Update Nix Flake
-        run: |
-          nix flake update \
-            --option access-tokens "github.com=${{ secrets.GITHUB_TOKEN }}" \
-            --refresh \
-            --flake .
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v8
+      - name: Update flake.lock
+        id: update
+        uses: DeterminateSystems/update-flake-lock@main
         with:
-          branch: "update-flake-lock"
-          title: "flake: update all inputs"
-          commit-message: "flake: update all inputs"
-          sign-commits: true
-          delete-branch: true
+          branch: update-flake-inputs
+          commit-msg: "flake: update all inputs"
+          pr-title: "flake: update all inputs"
+          pr-body: |
+            ```
+            {{ env.GIT_COMMIT_MESSAGE }}
+            ```
+      - name: Merge Pull Request
+        run: gh pr merge --rebase --auto --delete-branch "$PR"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ steps.update.outputs.pull-request-url }}
