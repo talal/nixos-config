@@ -28,6 +28,7 @@ jobs:
             {{ env.GIT_COMMIT_MESSAGE }}
             ```
       - name: Merge Pull Request
+        if: steps.update.outputs.pull-request-url != ''
         run: gh pr merge --rebase --auto --delete-branch "$PR"
         env:
           GH_TOKEN: ${{ github.token }}
