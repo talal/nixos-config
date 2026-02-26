@@ -29,7 +29,6 @@
         resources
         signal-desktop
         yubioath-flutter
-        zathura
         zeal
         # keep-sorted end
 
