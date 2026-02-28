@@ -52,6 +52,17 @@ C-A-w = ":buffer-close" # don't use C-w since that is used for default keybinds
 # WARNING: you might lose your windows because a window is just a viewport on a buffer.
 space.w.O = ":buffer-close-others" # similar to what space.w.o does for windows
 
+# Open Yazi file explorer
+C-e = [
+  ':sh rm -f /tmp/hx-yazi-selection',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/hx-yazi-selection',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/hx-yazi-selection}',
+  ':redraw',
+  ':set-option mouse false',
+  ':set-option mouse true',
+]
+
 [keys.insert]
 S-tab = "move_parent_node_start"
 
@@ -69,33 +80,3 @@ i = ":toggle lsp.display-inlay-hints"
 q = ["extend_to_line_bounds", ":reflow"]
 s = ["split_selection_on_newline", ":sort -i", "keep_primary_selection", "collapse_selection"]
 z = ":toggle soft-wrap.enable"
-
-# use Yazi as file explorer
-[keys.normal.space.e]
-e = [
-  ":sh rm -f /tmp/hx-yazi-selection",
-  ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/hx-yazi-selection",
-  ":insert-output echo 'x1b[?1049h' > /dev/tty",
-  ":open %sh{cat /tmp/hx-yazi-selection}",
-  ":redraw",
-  ":set-option mouse false",
-  ":set-option mouse true",
-]
-v = [
-  ":sh rm -f /tmp/hx-yazi-selection",
-  ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/hx-yazi-selection",
-  ":insert-output echo 'x1b[?1049h' > /dev/tty",
-  ":vsplit %sh{cat /tmp/hx-yazi-selection}",
-  ":redraw",
-  ":set-option mouse false",
-  ":set-option mouse true",
-]
-h = [
-  ":sh rm -f /tmp/hx-yazi-selection",
-  ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/hx-yazi-selection",
-  ":insert-output echo 'x1b[?1049h' > /dev/tty",
-  ":hsplit %sh{cat /tmp/hx-yazi-selection}",
-  ":redraw",
-  ":set-option mouse false",
-  ":set-option mouse true",
-]
