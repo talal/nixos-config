@@ -70,13 +70,9 @@
         # ══════════ Dev ══════════
         # keep-sorted start prefix_order=inputs,unstable
         inputs.flox.packages.${pkgs.stdenv.hostPlatform.system}.default
-        # amp
         ast-grep
         devenv
-        # gemini-cli
-        # jjui
         jujutsu
-        # lazyjj
         watchman # for jj fsmonitor
         yaak
         zed-editor
@@ -92,7 +88,6 @@
         just-lsp
         marksman # Markdown LSP
         mdformat
-        # nil
         nixd
         prettier # JSON formatting
         shellcheck
