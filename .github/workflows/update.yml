@@ -21,8 +21,8 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@main
         with:
           branch: update-flake-inputs
-          commit-msg: "flake: update all inputs"
-          pr-title: "flake: update all inputs"
+          commit-msg: "flake.lock: update all inputs"
+          pr-title: "flake.lock: update all inputs"
           pr-body: |
             ```
             {{ env.GIT_COMMIT_MESSAGE }}

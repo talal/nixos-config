@@ -41,7 +41,7 @@ update *input:
       --option access-tokens "github.com=$(gh auth token)" \
       --refresh \
       --commit-lock-file \
-      --commit-lockfile-summary "flake: update {{ if input == "" { "all inputs" } else { input } }}" \
+      --commit-lockfile-summary "flake.lock: update {{ if input == "" { "all inputs" } else { input } }}" \
       --flake {{ flake }}
 
 # check the flake for errors
