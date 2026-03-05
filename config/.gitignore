@@ -21,3 +21,5 @@
 
 /ssh/**
 !/ssh/config
+
+/zed/settings_backup.json
