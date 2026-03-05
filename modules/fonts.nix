@@ -20,6 +20,8 @@
       maple-mono.NF
       maple-mono.Normal-NF
       noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-color-emoji
       # keep-sorted end
     ];
