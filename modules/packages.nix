@@ -35,6 +35,7 @@
         # ══════════ Utilities ══════════
         # keep-sorted start prefix_order=inputs,unstable
         inputs.starship-jj.packages.${pkgs.stdenv.hostPlatform.system}.default
+        unstable.amd-debug-tools
         unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
         choose
         delta
