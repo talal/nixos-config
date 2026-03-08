@@ -238,6 +238,9 @@
           hwdec = true;
         };
         modernz = {
+          window_top_bar = false;
+          osc_on_start = true;
+          showonpause = false;
           hover_effect = "color";
           hover_effect_color = "#8aadf4";
           seekbarfg_color = "#8aadf4";
