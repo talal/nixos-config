@@ -1,0 +1,16 @@
+include "%L"
+
+<Multi_key> <D> <period> : "Ḍ"   U1E0C
+<Multi_key> <d> <period> : "ḍ"   U1E0D
+<Multi_key> <H> <period> : "Ḥ"   U1E24
+<Multi_key> <h> <period> : "ḥ"   U1E25
+<Multi_key> <S> <period> : "Ṣ"   U1E62
+<Multi_key> <s> <period> : "ṣ"   U1E63
+<Multi_key> <T> <period> : "Ṭ"   U1E6C
+<Multi_key> <t> <period> : "ṭ"   U1E6D
+<Multi_key> <Z> <period> : "Ẓ"   U1E92
+<Multi_key> <z> <period> : "ẓ"   U1E93
+
+<Multi_key> <y> <e> : "✓"   U2713 # CHECK MARK
+<Multi_key> <n> <o> : "✗"   U2717 # BALLOT X
+<Multi_key> <O> <O> : "⭕"  U2B55 # HEAVY LARGE CIRCLE

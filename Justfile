@@ -11,7 +11,8 @@ default:
 [working-directory('config')]
 stow:
     stow --target='{{ home_directory() }}/.ssh' ssh
-    stow --target='{{ home_directory() }}/.config' --ignore=ssh .
+    stow --target='{{ home_directory() }}/.config' --ignore=ssh --ignore=.XCompose .
+    ln -sf '{{ flake }}/config/.XCompose' ~/.XCompose
     # TODO: temporary fix for GTK shenanigans
     echo '@import url("dank-colors.css");' > ~/.config/gtk-4.0/gtk.css
 
