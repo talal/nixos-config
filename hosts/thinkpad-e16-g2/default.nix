@@ -69,7 +69,7 @@
   };
 
   # ══════════ Performance ══════════
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_18; # new LTS
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # This ensures WiFi, Bluetooth, and CPU Microcode get the binary blobs they need.
   hardware.enableRedistributableFirmware = true;
