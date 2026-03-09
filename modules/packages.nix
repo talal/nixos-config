@@ -57,6 +57,7 @@
         jq
         just
         p7zip
+        pciutils
         poppler-utils
         procs
         scc
@@ -64,6 +65,7 @@
         sd
         stow
         trash-cli
+        usbutils
         watchexec
         wl-screenrec
         # keep-sorted end
