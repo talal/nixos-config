@@ -59,6 +59,7 @@
         p7zip
         pciutils
         poppler-utils
+        powertop
         procs
         scc
         scooter
