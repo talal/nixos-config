@@ -205,7 +205,10 @@
 
     # Using module instead of home.packages so that systemd/dbus services
     # and shell integrations are set up automatically.
-    programs.ghostty.enable = true;
+    programs.ghostty = {
+      enable = true;
+      package = pkgs.unstable.ghostty;
+    };
 
     programs.imv.enable = true;
 
