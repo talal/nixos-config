@@ -137,7 +137,7 @@
       "allow_rewrap": "anywhere",
       "soft_wrap": "editor_width",
       "formatter": {
-        "external": { "command": "typstyle", "arguments": ["--line-width=90"] }
+        "external": { "command": "typstyle", "arguments": ["--line-width=100"] }
       }
     }
   }
