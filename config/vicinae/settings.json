@@ -40,6 +40,9 @@
             ]
          }
       },
+      "browser-extension": {
+         "enabled": false
+      },
       "clipboard": {
          "preferences": {
             "monitoring": true
@@ -66,6 +69,9 @@
          "enabled": false
       },
       "raycast-compat": {
+         "enabled": false
+      },
+      "scripts": {
          "enabled": false
       },
       "system": {
