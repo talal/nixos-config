@@ -28,9 +28,6 @@
 
     flox.url = "github:flox/flox/latest";
 
-    # TODO: waiting for https://github.com/NixOS/nixpkgs/pull/466889
-    starship-jj.url = "gitlab:lanastara_foss/starship-jj/0.7.0";
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";

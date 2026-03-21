@@ -5,7 +5,6 @@ $username\
 $hostname\
 $shlvl\
 $directory\
-${custom.git}\
 ${custom.jj}\
 $docker_context\
 ${env_var.flox_env}\
@@ -47,21 +46,16 @@ format = " [$symbol$loaded/$allowed]($style) "
 format = "[$virtualenv](bold yellow) "
 
 [git_branch]
+disabled = true
 format = "[$branch(:$remote_branch)](bold overlay1) "
 
-[custom.git]
-format = "$output"
-ignore_timeout = true
-shell = ["sh", "--norc", "--noprofile"]
-command = "starship module git_branch; starship module git_state; starship module git_status"
-when = "! jj root --ignore-working-copy"
+[git_status]
+disabled = true
 
 [custom.jj]
-format = "$output"
-ignore_timeout = true
-shell = ["sh", "--norc", "--noprofile"]
-command = "starship-jj --ignore-working-copy starship prompt"
-when = "jj root --ignore-working-copy"
+when = "jj-starship detect"
+shell = ["jj-starship", "--no-symbol", "--no-jj-prefix", "--no-git-prefix"]
+format = "$output "
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
