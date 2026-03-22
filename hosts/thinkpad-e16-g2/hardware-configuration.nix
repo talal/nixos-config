@@ -19,7 +19,11 @@
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
-  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/764f542a-fe5d-4015-aabd-10d0b301b20f";
+  boot.initrd.luks.devices."crypted"= {
+    device = "/dev/disk/by-uuid/764f542a-fe5d-4015-aabd-10d0b301b20f";
+    allowDiscards = true;
+    bypassWorkqueues = true;
+  };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/A027-776D";
