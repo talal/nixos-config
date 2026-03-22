@@ -19,6 +19,8 @@
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
+  # TODO: recreate LUKS with --sector-size 4096 to match NVMe native sector size
+  # current 512-byte sectors cause read-modify-write amplification
   boot.initrd.luks.devices."crypted"= {
     device = "/dev/disk/by-uuid/764f542a-fe5d-4015-aabd-10d0b301b20f";
     allowDiscards = true;
