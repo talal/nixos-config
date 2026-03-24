@@ -33,7 +33,7 @@
     description = "Muhammad Talal Anwar";
     initialPassword = "CHANGEME";
     extraGroups =
-      ["wheel"]
+      ["wheel" "input"]
       ++ lib.optional config.networking.networkmanager.enable "networkmanager"
       # Some apps may need to adjust audio priority at runtime
       ++ lib.optional config.security.rtkit.enable "rtkit";
