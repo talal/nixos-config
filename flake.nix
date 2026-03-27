@@ -26,8 +26,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    flox.url = "github:flox/flox/latest";
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";

@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home-manager.users.talal = {
     home.packages =
       (with pkgs; [
@@ -73,7 +69,6 @@
       ++ (with pkgs.unstable; [
         # ══════════ Dev ══════════
         # keep-sorted start prefix_order=inputs,unstable
-        inputs.flox.packages.${pkgs.stdenv.hostPlatform.system}.default
         ast-grep
         devenv
         jj-starship
@@ -83,9 +78,9 @@
         zed-editor
         # keep-sorted end
 
-        # NOTE: do not install language related packages globally, use devenv or Flox instead.
+        # NOTE: do not install language related packages globally, use devenv instead.
         # Only install language servers, linters, and formatters for generic files (e.g. TOML, markdown, etc.)
-        # so we can edit them even when outside a devenv/Flox environment.
+        # so we can edit them even when outside a devenv environment.
 
         # keep-sorted start
         alejandra # nixfmt is yuck, alejandra is 👌

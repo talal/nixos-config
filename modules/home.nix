@@ -84,11 +84,6 @@
       ];
     };
 
-    xdg.configFile."flox/flox.toml".text = ''
-      disable_metrics = true
-      set_prompt = false
-    '';
-
     xdg.configFile."process-compose/settings.yaml".text = ''
       theme: Catppuccin Macchiato
       sort:
@@ -186,9 +181,6 @@
           echo
           starship module character
         end
-
-        # Don't set 'SHELL' var as that is meant to reflect the actual login shell itself.
-        set -x FLOX_SHELL "fish"
       '';
       binds."ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # Helix suspend/resume
     };

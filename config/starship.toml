@@ -7,7 +7,6 @@ $shlvl\
 $directory\
 ${custom.jj}\
 $docker_context\
-${env_var.flox_env}\
 $direnv\
 $python\
 $sudo\
@@ -33,10 +32,6 @@ format = " took [$duration]($style)"
 [directory]
 style = "bold lavender"
 truncation_length = 8
-
-[env_var.flox_env]
-variable = "FLOX_ENV_DESCRIPTION"
-format = " [flox](bold fg:99) [$env_value](bold fg:141) "
 
 [direnv]
 disabled = false
