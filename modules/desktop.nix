@@ -23,6 +23,9 @@
       enable = true;
       restartIfChanged = true;
     };
+    enableAudioWavelength = false;
+    enableCalendarEvents = false;
+    enableClipboardPaste = false;
   };
 
   # Login Manager
