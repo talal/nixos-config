@@ -24,7 +24,7 @@
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "gemini-3.1-pro-preview"
     },
     "default_profile": "write",
     "default_model": {
@@ -34,7 +34,7 @@
       "model": "gemini-3.1-pro-preview"
     }
   },
-  "edit_predictions": { "mode": "subtle" },
+  "edit_predictions": { "provider": "zed", "mode": "subtle" },
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ▄▀█ █▀█ █▀█ █▀▀ ▄▀█ █▀█ ▄▀█ █▄ █ █▀▀ █▀▀
