@@ -69,7 +69,7 @@
   };
 
   # ══════════ Performance ══════════
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_19;
 
   # This ensures WiFi, Bluetooth, and CPU Microcode get the binary blobs they need.
   hardware.enableRedistributableFirmware = true;
