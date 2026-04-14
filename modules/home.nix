@@ -202,8 +202,6 @@
       package = pkgs.unstable.ghostty;
     };
 
-    programs.imv.enable = true;
-
     programs.mpv = {
       enable = true;
       config = {
@@ -324,28 +322,6 @@
         require("full-border"):setup()
         require("folder-rules"):setup()
       '';
-    };
-
-    programs.zathura = {
-      enable = true;
-      options = {
-        adjust-open = "width";
-        font = "monospace normal 12";
-        incremental-search = true;
-        scroll-full-overlap = 0.01;
-        scroll-page-aware = true;
-        scroll-step = 100;
-        selection-notification = false;
-
-        # Tweak catpuccin theme for better readability.
-        recolor = false;
-        highlight-active-color = "rgba(245, 194, 231, 0.5)";
-        highlight-color = "rgba(183, 189, 248, 0.5)";
-        highlight-fg = "#24273a";
-      };
-      mappings = {
-        y = ''exec "sh -c 'wl-paste --primary | wl-copy'"'';
-      };
     };
 
     programs.zoxide = {
