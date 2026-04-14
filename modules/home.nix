@@ -65,7 +65,7 @@
       browser = "dms-open.desktop";
     in {
       enable = true;
-      defaultApplicationPackages = with pkgs; [helix imv mpv nautilus zathura];
+      defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus papers];
       defaultApplications = {
         "text/html" = browser;
         "text/markdown" = "org.gnome.TextEditor.desktop";
