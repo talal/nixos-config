@@ -114,7 +114,7 @@
       }
     },
     "Python": {
-      "language_servers": ["ty", "!basedpyright", "..."]
+      "language_servers": ["ty", "ruff"]
     },
     "Shell Script": {
       "formatter": {
