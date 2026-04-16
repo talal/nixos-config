@@ -114,7 +114,11 @@
       }
     },
     "Python": {
-      "language_servers": ["ty", "ruff"]
+      "language_servers": ["ty", "ruff"],
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+        "source.fixAll.ruff": true // Fix all auto-fixable lint violations
+      }
     },
     "Shell Script": {
       "formatter": {
