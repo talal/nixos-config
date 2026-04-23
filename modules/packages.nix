@@ -43,6 +43,7 @@
         git-cliff
         git-crypt
         git-filter-repo
+        glow
         hexyl
         hunspell
         hunspellDicts.de_DE
