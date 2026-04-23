@@ -39,7 +39,6 @@ switch *args: (builder "switch" "sudo" args)
 [group('dev')]
 update *input:
     nix flake update {{ input }} \
-      --option access-tokens "github.com=$(gh auth token)" \
       --refresh \
       --commit-lock-file \
       --commit-lockfile-summary "flake.lock: update {{ if input == "" { "all inputs" } else { input } }}" \

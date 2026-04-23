@@ -40,7 +40,6 @@
         exiftool
         ffmpeg-full
         fzf
-        gh
         git-cliff
         git-crypt
         git-filter-repo
