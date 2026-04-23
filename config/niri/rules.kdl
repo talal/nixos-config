@@ -52,6 +52,7 @@ window-rule {
 // Temporary modal dialog windows
 window-rule {
     match title=r#"(?i)(wants to open|wants to save|file to save to|print)"#
+    match app-id="dev.zed.Zed" title=r#"Settings$"#
     open-floating true
 }
 
@@ -60,8 +61,12 @@ window-rule {
     // Web browsers
     match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
 
-    // Productivity
-    match app-id=r#"(?i)(obsidian|zed|remnote)"#
+    // Notes
+    match app-id=r#"(?i)(obsidian|remnote)"#
+
+    // Zed
+    match app-id="dev.zed.Zed"
+    exclude app-id="dev.zed.Zed" title=r#"Settings$"#
 
     open-maximized-to-edges true
 }
