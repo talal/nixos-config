@@ -14,7 +14,10 @@
   '';
 
   # Compositor
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs.unstable.niri;
+  };
 
   # Shell
   programs.dank-material-shell = {
