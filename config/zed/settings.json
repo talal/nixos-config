@@ -19,6 +19,7 @@
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   "agent": {
+    "dock": "right",
     "tool_permissions": {
       "default": "allow"
     },
@@ -41,7 +42,6 @@
   // █▀█ █▀▀ █▀▀ ██▄ █▀█ █▀▄ █▀█ █ ▀█ █▄▄ ██▄
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  "project_panel": { "dock": "right" },
   "theme": "Catppuccin Macchiato",
   "buffer_font_family": "Maple Mono NF",
   "buffer_font_size": 18,
@@ -108,7 +108,7 @@
       }
     },
     "Nix": {
-      "language_servers": ["nixd", "!nil", "..."],
+      "language_servers": ["nixd"],
       "formatter": {
         "external": { "command": "alejandra", "arguments": ["--quiet", "--"] }
       }
