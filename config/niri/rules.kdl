@@ -52,7 +52,7 @@ window-rule {
 // Temporary modal dialog windows
 window-rule {
     match title=r#"(?i)(wants to open|wants to save|file to save to|print)"#
-    match app-id="dev.zed.Zed" title=r#"Settings$"#
+    match app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
     open-floating true
 }
 
