@@ -191,7 +191,10 @@
         main.pad = "6x0 center";
         main.font = "Maple Mono Normal NF:size=14";
         mouse.hide-when-typing = "yes";
-        colors.alpha = 0.95;
+        colors = {
+          alpha = 0.90;
+          # blur = true; # TODO: enable when foot is updated to latest version
+        };
       };
     };
 

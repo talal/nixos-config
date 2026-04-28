@@ -84,7 +84,7 @@
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start prefix_order=unstable
-    unstable.vicinae # TODO: switch to home-manager module after NixOS 26.05
+    unstable.vicinae
     adw-gtk3 # GTK theme
     adwaita-icon-theme
     apple-cursor

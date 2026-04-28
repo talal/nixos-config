@@ -103,3 +103,12 @@ window-rule {
     match app-id="^gimp" title="^GIMP Startup$"
     open-focused false
 }
+
+// Enable blur behind the Ghostty terminal.
+window-rule {
+    match app-id="com.mitchellh.ghostty"
+
+    background-effect {
+        blur true
+    }
+}
