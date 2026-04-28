@@ -66,8 +66,8 @@
         wl-screenrec
         # keep-sorted end
       ])
+      # ══════════ Dev ══════════
       ++ (with pkgs.unstable; [
-        # ══════════ Dev ══════════
         # keep-sorted start prefix_order=inputs,unstable
         ast-grep
         devenv
@@ -78,9 +78,8 @@
         zed-editor
         # keep-sorted end
 
-        # NOTE: do not install language related packages globally, use devenv instead.
-        # Only install language servers, linters, and formatters for generic files (e.g. TOML, markdown, etc.)
-        # so we can edit them even when outside a devenv environment.
+        # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts
+        # globally. For everything else, use devenv.
 
         # keep-sorted start
         alejandra # nixfmt is yuck, alejandra is 👌
@@ -92,12 +91,14 @@
         prettier # JSON formatting
         shellcheck
         shfmt
+        superhtml
         taplo # TOML LSP
         tinymist
         treefmt
         typst # I use Typst alot so installing globally instead of devenv
         typstyle
-        uv # needed for scripts: `#!/usr/bin/env -S uv run --script`
+        uv # for Python scripts
+        vscode-css-languageserver
         vscode-json-languageserver
         yaml-language-server
         yamlfmt
