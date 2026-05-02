@@ -35,8 +35,8 @@
 
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
-    treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+    latestPkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
+    treefmtEval = inputs.treefmt-nix.lib.evalModule latestPkgs ./treefmt.nix;
 
     overlays = [
       (final: prev: {
