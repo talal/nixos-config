@@ -1,45 +1,41 @@
-// Notifications
-layer-rule {
-    match namespace=r#"(?i)(notifications|dms:notification-popup|dms:slideout)"#
-    block-out-from "screen-capture"
-}
-
-// Passwords & 2FA
-window-rule {
-    match app-id=r#"(?i)(bitwarden|keepass|yubico|proton-authenticator)"#
-    default-column-width { proportion 0.66; } // custom size for easy copy-paste
-    block-out-from "screen-capture"
-}
-window-rule {
-    // Bitwarden browser extension
-    match app-id=r#"(?i)(nngceckbapebfimnlniiiahkandclblb)"#
-    open-floating true
-    block-out-from "screen-capture"
-}
-
-// Apps with personal data
-window-rule {
+// keep-sorted start block=yes newline_separated=yes by_regex=(?-s)^(?:layer|window)-rule\s+{\s+//\s+(.*) prefix_order=Block,Float,,App
+window-rule { // Block: apps with personal data
     match app-id=r#"(?i)(obsidian|ente|planify|calcure)"#
     match app-id="chrome" title=r#"(?i)(calendar)"#
     block-out-from "screen-capture"
 }
 
-// Email & Comms
-window-rule {
+window-rule { // Block: email & comms
     match app-id=r#"(?i)(thunderbird|discord|vesktop|element|signal)"#
     match app-id="chrome" title=r#"(?i)(whatsapp|tuta|proton|gmail)"#
     open-maximized true
     block-out-from "screen-capture"
 }
 
-// DMS
-window-rule {
+layer-rule { // Block: notifications
+    match namespace=r#"(?i)(notifications|dms:notification-popup|dms:slideout)"#
+    block-out-from "screen-capture"
+}
+
+window-rule { // Block: password managers & 2FA
+    match app-id=r#"(?i)(bitwarden|keepass|yubico|proton-authenticator)"#
+    default-column-width { proportion 0.66; } // custom size for easy copy-paste
+    block-out-from "screen-capture"
+}
+
+window-rule { // Block: passwords (bitwarden browser extension)
+    match app-id=r#"(?i)(nngceckbapebfimnlniiiahkandclblb)"#
+    open-floating true
+    block-out-from "screen-capture"
+}
+
+window-rule { // Float: DMS windows
     match app-id=r#"org.quickshell$"#
     match app-id=r#"com.danklinux.dms$"#
     open-floating true
 }
 
-window-rule {
+window-rule { // Float: picture-in-picture
     match title=r#"(?i)^picture-in-picture$"#
     open-floating true
     open-focused false
@@ -49,15 +45,19 @@ window-rule {
     border { off; }
 }
 
-// Temporary modal dialog windows
-window-rule {
+window-rule { // Float: temporary modal dialog windows
     match title=r#"(?i)(wants to open|wants to save|file to save to|print)"#
     match app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
     open-floating true
 }
 
-// Apps that occupy their own workspace are maximized to edges.
-window-rule {
+window-rule { // Media
+    match app-id=r#"(?i)(mpv|showtime|imv|loupe)"#
+    // The media itself should dictate how wide the column should be.
+    default-column-width {}
+}
+
+window-rule { // Productivity: apps that occupy their own workspace and are maximized to edges
     // Web browsers
     match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
 
@@ -66,32 +66,30 @@ window-rule {
 
     // Zed
     match app-id="dev.zed.Zed"
-    exclude app-id="dev.zed.Zed" title=r#"Settings$"#
+    exclude app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
 
     open-maximized-to-edges true
 }
 
-// The media should dictate how wide the column should be.
-window-rule {
-    match app-id=r#"(?i)(mpv|showtime|imv|loupe)"#
-    default-column-width {}
+window-rule { // App: GIMP
+    match app-id="^gimp" title="^GIMP Startup$"
+    open-focused false
 }
 
-window-rule {
+window-rule { // App: calculator
     match app-id="org.gnome.Calculator"
     open-floating true
     default-floating-position x=50 y=0 relative-to="right"
 }
 
-window-rule {
+window-rule { // App: file manager
     match app-id="org.gnome.Nautilus"
     open-floating true
     default-column-width  { proportion 0.55; }
     default-window-height { proportion 0.6;  }
 }
 
-// Resource monitors
-window-rule {
+window-rule { // App: resource monitors
     match app-id=r#"(?i)(btop|bottom|resources)"#
     match app-id="org.quickshell" title="System Monitor" // dgop
     open-floating true
@@ -99,16 +97,12 @@ window-rule {
     default-window-height { proportion 0.75; }
 }
 
-window-rule {
-    match app-id="^gimp" title="^GIMP Startup$"
-    open-focused false
-}
-
-// Enable blur behind the Ghostty terminal.
-window-rule {
+window-rule { // App: terminals
     match app-id="com.mitchellh.ghostty"
+    match app-id="foot"
 
     background-effect {
         blur true
     }
 }
+// keep-sorted end
