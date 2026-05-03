@@ -13,7 +13,7 @@ window-rule { // Block: email & comms
 }
 
 layer-rule { // Block: notifications
-    match namespace=r#"(?i)(notifications|dms:notification-popup|dms:slideout)"#
+    match namespace=r#"(?i)(notifications|dms:notification|dms:slideout)"#
     block-out-from "screen-capture"
 }
 

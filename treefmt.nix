@@ -4,11 +4,10 @@
   settings.global.excludes = [
     # Auto-generated files
     "**/hardware-configuration.nix"
-    "config/DankMaterialShell/**"
     "config/vicinae/**"
     # Secrets
     "**/nextdns.conf"
-    "config/DankMaterialShell/**"
+    "config/DankMaterialShell/**" # also auto-generated
     "config/espanso/match/**"
     "config/git/**"
     "config/jj/**"
