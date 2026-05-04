@@ -71,10 +71,6 @@
   environment.variables = {
     EDITOR = "hx";
     VISUAL = "hx";
-    PAGER = "moor";
-    MOOR = "--quit-if-one-screen --no-linenumbers --wrap --statusbar=bold --terminal-fg";
-    MANPAGER = "sh -c 'col -bx | bat --language man --style plain'";
-    MANROFFOPT = "-c";
   };
 
   # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.

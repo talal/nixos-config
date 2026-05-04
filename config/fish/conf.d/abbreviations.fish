@@ -3,12 +3,15 @@ status is-interactive || exit
 # Define here instead of programs.fish.shellAliases so that it expands as expected.
 abbr -a e "$EDITOR"
 
+abbr -a cat bat
 abbr -a cp 'cp -r'
+abbr -a diff difft
 abbr -a mkdir 'mkdir -p'
 abbr -a sc "systemctl --user"
 abbr -a shred 'shred --verbose --zero --remove --iterations 100'
 abbr -a ssc "sudo systemctl"
 
+# eza
 abbr -a ls eza
 abbr -a ll "eza --long --all"
 abbr -a tree 'eza --tree --all --ignore-glob=".git|.jj"'
