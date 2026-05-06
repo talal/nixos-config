@@ -20,11 +20,11 @@ binds {
     Mod+Shift+M     hotkey-overlay-title=null                   { spawn "dms" "ipc" "call" "processlist" "toggle"; }
     Mod+N           hotkey-overlay-title="Notepad"              { spawn "dms" "ipc" "call" "notepad" "toggle"; }
     Mod+Shift+N     hotkey-overlay-title="Notification Center"  { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-    Mod+V           hotkey-overlay-title="Clipboard Manager"    { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    Mod+V           hotkey-overlay-title="Clipboard Manager"    { spawn "vicinae" "vicinae://launch/clipboard/history"; }
     Mod+Shift+V     hotkey-overlay-title=null                   { spawn "dms" "ipc" "call" "clipboard" "toggle";  }
-    Mod+Space       hotkey-overlay-title="Window Switcher"      { spawn "vicinae" "vicinae://extensions/vicinae/wm/switch-windows"; }
-    Mod+Ctrl+Space  hotkey-overlay-title="Emoji Picker"         { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis"; }
-    Mod+Shift+Space hotkey-overlay-title="File Picker"          { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
+    Mod+Space       hotkey-overlay-title="Window Switcher"      { spawn "vicinae" "vicinae://launch/wm/switch-windows"; }
+    Mod+Ctrl+Space  hotkey-overlay-title="Emoji Picker"         { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
+    Mod+Shift+Space hotkey-overlay-title="File Picker"          { spawn "vicinae" "vicinae://launch/files/search"; }
 
     Mod+S                   { screenshot show-pointer=false; }
     Mod+Shift+S             { screenshot-screen show-pointer=false; }
