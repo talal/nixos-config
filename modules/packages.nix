@@ -71,6 +71,7 @@
         # keep-sorted start prefix_order=inputs,unstable
         ast-grep
         devenv
+        exercism
         jj-starship
         jujutsu
         watchman # for jj fsmonitor
