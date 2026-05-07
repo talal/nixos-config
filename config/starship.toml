@@ -35,10 +35,10 @@ truncation_length = 8
 
 [direnv]
 disabled = false
-format = " [$symbol$loaded/$allowed]($style) "
+format = " [direnv:$loaded/$allowed]($style) "
 
 [python]
-format = "[$virtualenv](bold yellow) "
+format = "[py:$virtualenv](bold yellow) "
 
 [git_branch]
 disabled = true
