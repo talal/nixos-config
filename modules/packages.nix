@@ -103,6 +103,7 @@
         vscode-json-languageserver
         yaml-language-server
         yamlfmt
+        zizmor
         # keep-sorted end
       ]);
   };
