@@ -16,7 +16,8 @@
   {
     "context": "Workspace",
     "unbind": {
-      "ctrl-shift-d": "debug_panel::ToggleFocus"
+      "ctrl-shift-d": "debug_panel::ToggleFocus",
+      "ctrl-alt-s": "workspace::SaveAll"
     },
     "bindings": {
       "ctrl-~": "workspace::NewCenterTerminal", // default: workspace::NewTerminal
@@ -38,6 +39,20 @@
     "context": "VimControl && !menu",
     "unbind": {
       "space": "vim::WrappingRight"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "ctrl-s": "editor::SaveLocation"
+    },
+    "bindings": {
+      "ctrl-alt-s": "editor::SaveLocation",
+      "ctrl-alt-w": "pane::CloseActiveItem",
+      // Create a new minor mode (space.l) for text formatting.
+      "space l f": "editor::Format",
+      "space l q": "editor::Rewrap",
+      "space l s": "editor::SortLinesCaseInsensitive"
     }
   }
 ]
