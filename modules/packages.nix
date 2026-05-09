@@ -35,6 +35,7 @@
         choose
         delta
         difftastic
+        doggo
         duf
         dust
         exiftool
