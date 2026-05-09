@@ -8,17 +8,18 @@
       emoji = ["Noto Color Emoji"];
     };
     packages = with pkgs; [
-      # keep-sorted start prefix_order=nerd-fonts
-      nerd-fonts.symbols-only
-      cascadia-code
+      # keep-sorted start
+      eb-garamond
       ibm-plex
       inter
       iosevka
       jetbrains-mono
+      lato
       libertinus
-      lilex # better version of IBM Plex Mono
+      lilex # IBM Plex Mono with ligatures
       maple-mono.NF
       maple-mono.Normal-NF
+      nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
