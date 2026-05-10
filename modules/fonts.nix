@@ -9,14 +9,14 @@
     };
     packages = with pkgs; [
       # keep-sorted start
+      commit-mono
+      departure-mono
       ibm-plex
       inter
       iosevka
-      jetbrains-mono
       lato
       libertinus
-      maple-mono.NF
-      maple-mono.Normal-NF
+      lilex
       merriweather
       nerd-fonts.symbols-only
       noto-fonts
