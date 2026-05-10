@@ -186,8 +186,11 @@
     programs.foot = {
       enable = true;
       settings = {
-        main.pad = "6x0 center";
-        main.font = "Maple Mono Normal NF:size=14";
+        main = {
+          font = "TX\\-02:size=14, Symbols Nerd Font:size=14";
+          underline-offset = 3;
+          pad = "6x0 center";
+        };
         mouse.hide-when-typing = "yes";
         colors = {
           alpha = 0.90;

@@ -1,12 +1,15 @@
 command = fish
 font-size = 14
-font-family = Maple Mono Normal NF
+font-family = TX-02
+font-family = Symbols Nerd Font
 theme = Catppuccin Macchiato
 background-opacity = 0.90
 background-blur = true
 mouse-hide-while-typing = true
-adjust-cell-height = 5%
-adjust-cell-width  = 0%
+adjust-cell-height = 15%
+adjust-cell-width = 0%
+adjust-underline-position = 2
+adjust-underline-thickness = -1
 window-padding-x = 6
 window-padding-y = 0
 

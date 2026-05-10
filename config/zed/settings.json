@@ -43,14 +43,16 @@
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   "theme": "Catppuccin Macchiato",
-  "buffer_font_family": "Maple Mono NF",
+  "buffer_font_family": "TX-02",
+  "buffer_font_fallbacks": ["Symbols Nerd Font"],
   "buffer_font_size": 18,
   "ui_font_size": 19,
   "agent_buffer_font_size": 17,
   "agent_ui_font_size": 19,
   "terminal": {
     "dock": "right",
-    "font_family": "Maple Mono Normal NF",
+    "font_family": "TX-02",
+    "font_fallbacks": ["Symbols Nerd Font"],
     "font_size": 17,
     "blinking": "on",
     "cursor_shape": "bar",
