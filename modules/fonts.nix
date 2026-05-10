@@ -4,7 +4,7 @@
     fontconfig.defaultFonts = {
       sansSerif = ["Inter" "Noto Naskh Arabic"];
       serif = ["Noto Serif" "Noto Naskh Arabic"];
-      monospace = ["JetBrains Mono NL" "Symbols Nerd Font"];
+      monospace = ["IBM Plex Mono" "Symbols Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
     packages = with pkgs; [
@@ -15,7 +15,6 @@
       jetbrains-mono
       lato
       libertinus
-      lilex # IBM Plex Mono with ligatures
       maple-mono.NF
       maple-mono.Normal-NF
       merriweather
