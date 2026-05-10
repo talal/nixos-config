@@ -19,9 +19,9 @@ in {
       ExtensionInstallAllowlist = [
         "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
         "khncfooichmfjbepaaaebmommgaepoid" # Unhook
-        "phmcfcbljjdlomoipaffekhgfnpndbef" # Hide YouTube Thumbnails
         "cnjifjpddelmedmihgijeibhnjfabmlf" # Obsidian Web Clipper
         "ghbmnnjooekpmoecnnnilnnbdlolhkhi" # Google Docs Offline
+        "jabopobgcpjmedljpbcaablpmlmfcogm" # WhatFont
         "cmpdlhmnmjhihmcfnigoememnffkimlk" # Catppuccin Macchiato theme
       ];
       # keep-sorted start
