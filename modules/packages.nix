@@ -87,6 +87,7 @@
         alejandra # nixfmt is yuck, alejandra is 👌
         bash-language-server
         just-lsp
+        keep-sorted
         marksman # Markdown LSP
         mdformat
         nixd
