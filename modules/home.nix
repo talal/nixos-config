@@ -220,6 +220,7 @@
         keep-open = true;
         save-position-on-quit = true;
         save-watch-history = true;
+        volume = 20;
 
         slang = "en,eng,de,deu,ger";
         alang = "ja,jp,jpn,de,deu,ger,en,eng"; # Onii-Chan!
