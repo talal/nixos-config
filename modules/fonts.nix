@@ -9,7 +9,6 @@
     };
     packages = with pkgs; [
       # keep-sorted start
-      eb-garamond
       ibm-plex
       inter
       iosevka
@@ -19,6 +18,7 @@
       lilex # IBM Plex Mono with ligatures
       maple-mono.NF
       maple-mono.Normal-NF
+      merriweather
       nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
