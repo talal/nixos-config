@@ -27,7 +27,6 @@ error_symbol = "[✗](bold red)"
 
 [cmd_duration]
 min_time = 120_000
-format = " took [$duration]($style)"
 
 [directory]
 style = "bold lavender"
@@ -35,10 +34,10 @@ truncation_length = 8
 
 [direnv]
 disabled = false
-format = " [direnv:$loaded/$allowed]($style) "
 
 [python]
-format = "[py:$virtualenv](bold yellow) "
+format = "[$symbol$virtualenv](bold peach) "
+symbol = "py "
 
 [git_branch]
 disabled = true
