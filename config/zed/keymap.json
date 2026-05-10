@@ -1,7 +1,8 @@
 [
   {
     "unbind": {
-      "ctrl-q": "zed::Quit"
+      "ctrl-q": "zed::Quit",
+      "ctrl-shift-w": "workspace::CloseWindow"
     },
     "bindings": {
       // Toggles via Hyper key (super+ctrl+alt+shift)
@@ -25,6 +26,15 @@
       // Toggles via Meh key (ctrl+alt+shift)
       "ctrl-alt-(": "workspace::ToggleLeftDock",
       "ctrl-alt-)": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "unbind": {
+      "ctrl-shift-w": "pane::CloseActiveItem"
+    },
+    "bindings": {
+      "ctrl-alt-w": "pane::CloseActiveItem"
     }
   },
   {

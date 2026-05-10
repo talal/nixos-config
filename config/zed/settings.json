@@ -51,9 +51,6 @@
   "agent_ui_font_size": 19,
   "terminal": {
     "dock": "right",
-    "font_family": "TX-02",
-    "font_fallbacks": ["Symbols Nerd Font"],
-    "font_size": 17,
     "blinking": "on",
     "cursor_shape": "bar",
     "shell": { "program": "fish" },
