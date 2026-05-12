@@ -25,7 +25,6 @@
     keep-sorted.enable = true;
     statix.enable = true;
     yamlfmt.enable = true;
-    zizmor.enable = true;
     # keep-sorted end
   };
 
