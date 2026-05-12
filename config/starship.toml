@@ -5,7 +5,7 @@ $username\
 $hostname\
 $shlvl\
 $directory\
-${custom.jj}\
+${custom.vcs}\
 $docker_context\
 $direnv\
 $python\
@@ -36,17 +36,9 @@ truncation_length = 8
 disabled = false
 
 [python]
-format = "[$symbol$virtualenv](bold peach) "
-symbol = "py "
+format = "[(venv $virtualenv)](bold peach) "
 
-[git_branch]
-disabled = true
-format = "[$branch(:$remote_branch)](bold overlay1) "
-
-[git_status]
-disabled = true
-
-[custom.jj]
+[custom.vcs]
 when = "jj-starship detect"
 shell = ["jj-starship", "--no-symbol", "--no-jj-prefix", "--no-git-prefix"]
 format = "$output "
