@@ -19,7 +19,7 @@ tabbar {
 }
 
 tabbar tabbox {
-  font-family: monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 tabbar tabbox tab {
