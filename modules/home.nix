@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -34,7 +35,6 @@
       ghostty.enable = false; # managed by stow
       bottom.enable = false; # IFD
       mpv.enable = false; # don't like
-      starship.enable = false; # IFD
       thunderbird.profile = "default";
     };
 
@@ -165,6 +165,7 @@
     programs.fish = {
       enable = true;
       preferAbbrs = true;
+      binds."ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # Helix suspend/resume
       interactiveShellInit = ''
         # Disable fish greeting.
         set fish_greeting
@@ -180,7 +181,6 @@
         set -x MANPAGER "sh -c 'col -bx | bat --language man --style plain'"
         set -x MANROFFOPT "-c"
       '';
-      binds."ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # Helix suspend/resume
     };
 
     programs.foot = {
@@ -271,6 +271,42 @@
       enable = true;
       enableBashIntegration = false;
       enableTransience = true;
+      settings = {
+        format = lib.concatStrings [
+          "$username"
+          "$hostname"
+          "$shlvl"
+          "$directory"
+          "\${custom.vcs}"
+          "$docker_context"
+          "$direnv"
+          "$python"
+          "$sudo"
+          "$cmd_duration"
+          "$line_break"
+          "$jobs"
+          "$battery"
+          "$os"
+          "$container"
+          "$character"
+        ];
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[✗](bold red)";
+        };
+        cmd_duration.min_time = 120000;
+        directory = {
+          truncation_length = 8;
+          style = "bold lavender";
+        };
+        direnv.disabled = false;
+        python.format = "[(venv $virtualenv)](bold peach) ";
+        custom.vcs = {
+          when = "jj-starship detect";
+          shell = ["jj-starship" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
+          format = "$output ";
+        };
+      };
     };
 
     programs.tealdeer = {
