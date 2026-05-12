@@ -9,11 +9,11 @@
     };
     packages = with pkgs; [
       # keep-sorted start
-      commit-mono
       departure-mono
       ibm-plex
       inter
       iosevka
+      jetbrains-mono
       lato
       libertinus
       lilex
