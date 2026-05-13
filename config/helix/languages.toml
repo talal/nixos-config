@@ -1,3 +1,6 @@
+[language-server.phpantom]
+command = "phpantom_lsp"
+
 # keep-sorted start group_start_regex=['^\[\[language\]\]'] by_regex=['name = "([^"]+)"'] newline_separated=yes sticky_comments=no
 [[language]]
 name = "bash"
@@ -23,6 +26,10 @@ comment-tokens = ["-", "- [ ]", ">"]
 name = "nix"
 language-servers = ["nixd"]
 formatter = { command = "alejandra", args = ["--quiet"] }
+
+[[language]]
+name = "php"
+language-servers = ["phpantom"]
 
 [[language]]
 name = "python"
