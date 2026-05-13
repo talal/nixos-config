@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dgop = {
-      url = "github:AvengeMedia/dgop/v0.2.2";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -40,7 +35,7 @@
 
     overlays = [
       (final: prev: {
-        dgop = inputs.dgop.packages.${final.stdenv.hostPlatform.system}.default;
+        dgop = inputs.nixpkgs-unstable.legacyPackages.${final.stdenv.hostPlatform.system}.dgop;
 
         # Make unstable packages available via pkgs.unstable.<package>
         unstable = import inputs.nixpkgs-unstable {
