@@ -9,6 +9,7 @@
     };
     packages = with pkgs; [
       # keep-sorted start
+      atkinson-hyperlegible-next
       departure-mono
       ibm-plex
       inter
