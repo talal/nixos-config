@@ -1,3 +1,4 @@
+# keep-sorted start group_start_regex=['^\[\[language\]\]'] by_regex=['name = "([^"]+)"'] newline_separated=yes sticky_comments=no
 [[language]]
 name = "bash"
 formatter = { command = "shfmt", args = ["--simplify"] }
@@ -54,11 +55,12 @@ formatter = { command = "typstyle", args = ["--line-width=90"] }
 '[' = ']'
 '$' = '$'
 '"' = '"'
-# convenience
+# additional pairs
 '*' = '*'
 '_' = '_'
 
-# TODO: default behavior in next release; remove
 [[language]]
+# TODO: default behavior in next Helix release.
 name = "yaml"
 formatter = { command = "yamlfmt", args = ["-"] }
+# keep-sorted end
