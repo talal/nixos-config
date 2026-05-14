@@ -9,7 +9,6 @@
       "ghostty" = {recursive = true;};
       "helix" = {recursive = true;};
       "jj/conf.d/commit-template.toml" = {};
-      "jj/conf.d/scopes.toml" = {};
       "jj/config.toml" = {};
       "niri" = {recursive = true;};
       "vicinae" = {recursive = true;};
