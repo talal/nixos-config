@@ -3,9 +3,9 @@
 > [!WARNING]
 > Personal repository; not intended for general use.
 
-## Installation
+## Fresh Install
 
-Boot into a live graphical NixOS image, ensure network connection works, open a terminal and then follow the steps down below.
+Boot into a live graphical NixOS image, ensure network connection works, open a terminal and then follow the steps below.
 
 ### Step 1: Set up
 
@@ -18,13 +18,16 @@ nix-env -iA nixos.git
 ```
 
 ```bash
-git clone https://github.com/talal/nixos-config /tmp/nix-config && cd /tmp/nix-config
+git clone https://github.com/talal/nixos-config /tmp/nixos-config && cd /tmp/nixos-config
 ```
 
-### Step 2: Use Disko to partition and mount
+### Step 2: Partition and mount disks
+
+> [!WARNING]
+> The `destroy` mode will erase all data on the target disk. Double-check that the device path is correct before running this.
 
 ```bash
-nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./system/disko.nix --arg device '"/dev/nvme0n1"'
+nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./hosts/thinkpad-e16-g2/disko.nix --arg device '"/dev/nvme0n1"'
 ```
 
 ### Step 3: Generate hardware configuration
@@ -34,12 +37,11 @@ nixos-generate-config --root /mnt
 ```
 
 ```bash
-cp /mnt/etc/nixos/hardware-configuration.nix ./hosts/<host>/hardware-configuration.nix
+cp /mnt/etc/nixos/hardware-configuration.nix ./hosts/thinkpad-e16-g2/hardware-configuration.nix
 ```
 
-`nixos-generate-config` doesn't capture btrfs mount options, so add them manually.
-
-Verify that `filesystems.<partition>.mountOptions` in `hardware-configuration.nix` match what we'd expect (see `disk-config.nix`).
+> [!NOTE]
+> `nixos-generate-config` doesn't capture btrfs mount options. Verify that the `mountOptions` for each subvolume in `hardware-configuration.nix` match those defined in `disko.nix` and add them manually if missing.
 
 ### Step 4: Install
 
@@ -48,7 +50,7 @@ git add --intent-to-add --all
 ```
 
 ```bash
-nixos-install --flake .#<hostname>
+nixos-install --flake .#thinkpad
 ```
 
 ```bash
