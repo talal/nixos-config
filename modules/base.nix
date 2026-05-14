@@ -21,12 +21,13 @@
     # Set legacy nixpkgs path to flake reference.
     # Adds the path to NIX_PATH for legacy tool compatibility.
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-  };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
+    # Cleanup
+    optimise.automatic = true;
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
   };
 
   nix.settings = {
@@ -39,7 +40,6 @@
     ];
     # allow-import-from-derivation = false; # TODO: this breaks devenv
     auto-allocate-uids = true;
-    auto-optimise-store = true;
     download-buffer-size = 268435456; # 256 MiB (default is 64 MiB)
     use-cgroups = true;
 
