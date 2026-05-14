@@ -128,7 +128,6 @@
   # DNS
   services.resolved.enable = true;
   networking.networkmanager.dns = "systemd-resolved";
-  # NextDNS config rendered from sops template (see sops.templates."nextdns.conf" above).
 
   # ══════════ Bluetooth ══════════
   hardware.bluetooth = {

@@ -60,10 +60,8 @@ window-rule { // Media
 window-rule { // Productivity: apps that occupy their own workspace and are maximized to edges
     // Web browsers
     match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
-
     // Notes
     match app-id=r#"(?i)(obsidian|remnote)"#
-
     // Zed
     match app-id="dev.zed.Zed"
     exclude app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
@@ -100,7 +98,6 @@ window-rule { // App: resource monitors
 window-rule { // App: terminals
     match app-id="com.mitchellh.ghostty"
     match app-id="foot"
-
     background-effect {
         blur true
     }
