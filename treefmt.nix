@@ -6,6 +6,7 @@
     "**/hardware-configuration.nix"
     "config/vicinae/**"
     # Secrets
+    "secrets/**"
     "**/nextdns.conf"
     "config/DankMaterialShell/**" # also auto-generated
     "config/espanso/match/**"
