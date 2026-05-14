@@ -4,7 +4,6 @@
     mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 
     links = {
-      "DankMaterialShell" = {recursive = true;};
       "fish/conf.d/abbreviations.fish" = {};
       "ghostty" = {recursive = true;};
       "helix" = {recursive = true;};
