@@ -13,12 +13,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime" ];
-    };
-
   # TODO: recreate LUKS with --sector-size 4096 to match NVMe native sector size
   # current 512-byte sectors cause read-modify-write amplification
   boot.initrd.luks.devices."crypted"= {
@@ -33,16 +27,23 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" "noatime" "discard=async" ];
+    };
+
+
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
       fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "noatime" ];
+      options = [ "subvol=home" "compress=zstd" "noatime" "discard=async" ];
     };
 
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      options = [ "subvol=nix" "compress=zstd" "noatime" "discard=async" ];
     };
 
   swapDevices = [ ];
