@@ -45,7 +45,10 @@
       },
       "clipboard": {
          "preferences": {
-            "monitoring": true
+            "monitoring": true,
+            "encryption": true,
+            "eraseOnStartup": false,
+            "ignorePasswords": true
          }
       },
       "core": {
