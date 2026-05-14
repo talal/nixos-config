@@ -1,8 +1,0 @@
-[[--scope]]
---when.repositories = ["~/Code/github.com/talal", "~/Code/gitlab.com/talal", "~/.dotfiles"]
-[--scope.signing]
-key = "~/.ssh/git_sign_talal"
-behavior = "drop"
-backend = "ssh"
-[--scope.git]
-sign-on-push = true
