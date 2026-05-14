@@ -1,0 +1,12 @@
+# .sops.yaml
+keys:
+  - &yk age1yubikey1qfpt4tm982aatasezjd9a25yyq9zqyeq7u9wkhm0nqcn9gl2k5twj6p6m49
+  - &bw age1u06z9w3kxnj9vtr64yg38lh2ck9swzfkv2nlfsl4s5et05tm74qsuxn95m
+  - &tp age18kffy5yaw0h6ctmr5xz4fhxvxlsful9qzlagskt5hqf34wxgrfasfh2urk
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *yk
+          - *bw
+          - *tp

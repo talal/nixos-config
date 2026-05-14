@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -6,6 +7,7 @@
 }: {
   imports = [
     # keep-sorted start prefix_order=inputs,./,../../
+    inputs.sops-nix.nixosModules.sops
     ./hardware-configuration.nix
     ../../modules/base.nix
     ../../modules/browser.nix
@@ -18,9 +20,35 @@
     ../../modules/scheduler.nix
     ../../modules/scripts.nix
     ../../modules/ssh-tpm-agent.nix
+    ../../modules/yubikey.nix
     ../../modules/zram-swap.nix
     # keep-sorted end
   ];
+
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+
+    age.keyFile = "/var/lib/sops-nix/key.txt";
+    # This will generate a new key if the key specified above does not exist
+    age.generateKey = true;
+
+    secrets.nexdns_id = {};
+    templates."nextdns.conf" = {
+      path = "/etc/systemd/resolved.conf.d/nextdns.conf";
+      mode = "0444";
+      restartUnits = ["systemd-resolved.service"];
+      content = ''
+        [Resolve]
+        DNS=45.90.28.0#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
+        DNS=2a07:a8c0::#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
+        DNS=45.90.30.0#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
+        DNS=2a07:a8c1::#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
+        DNSOverTLS=yes
+        DNSSEC=yes
+      '';
+    };
+  };
 
   location.provider = "geoclue2";
   time.timeZone = "Europe/Berlin";
@@ -120,7 +148,7 @@
   # DNS
   services.resolved.enable = true;
   networking.networkmanager.dns = "systemd-resolved";
-  environment.etc."systemd/resolved.conf.d/nextdns.conf".source = ./nextdns.conf;
+  # NextDNS config rendered from sops template (see sops.templates."nextdns.conf" above).
 
   # ══════════ Bluetooth ══════════
   hardware.bluetooth = {

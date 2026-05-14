@@ -56,7 +56,6 @@
     fwupd.enable = true;
     gnome.sushi.enable = true; # for Nautilus quick preview
     gvfs.enable = true;
-    pcscd.enable = true; # for YubiKeys
     udisks2.enable = true; # auto-mounting disk
     # keep-sorted end
   };

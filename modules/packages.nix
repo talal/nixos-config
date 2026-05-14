@@ -24,7 +24,6 @@
         proton-authenticator
         resources
         signal-desktop
-        yubioath-flutter
         zeal
         # keep-sorted end
 

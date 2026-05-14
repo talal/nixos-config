@@ -57,12 +57,14 @@
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start
+    age
     bat
     fd
     git
     helix
     moor
     ripgrep
+    sops
     tree
     wl-clipboard
     # keep-sorted end
