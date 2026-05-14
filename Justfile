@@ -44,7 +44,7 @@ check *args: git-add
 # clean the nix store and optimise it
 [group('utils')]
 clean:
-    sudo nix-collect-garbage --delete-older-than 3d
+    sudo nix-collect-garbage --delete-older-than 7d
     sudo nix store optimise
 
 # check system health (AMD P-State, SCX, zram, battery)
