@@ -8,6 +8,7 @@
         unstable.discord
         unstable.ente-desktop
         unstable.obsidian
+        unstable.stremio-linux-shell
         blanket
         czkawka
         gimp
