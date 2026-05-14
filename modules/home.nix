@@ -32,7 +32,7 @@
       flavor = "macchiato";
       accent = "blue";
       eza.enable = false; # IFD
-      ghostty.enable = false; # managed by stow
+      ghostty.enable = false; # uses mkOutOfStoreSymlink
       bottom.enable = false; # IFD
       mpv.enable = false; # don't like
       thunderbird.profile = "default";

@@ -20,12 +20,13 @@
 
   "agent": {
     "dock": "right",
+    "sidebar_side": "right",
     "tool_permissions": {
       "default": "allow"
     },
     "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "gemini-3.1-pro-preview"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6"
     },
     "default_profile": "write",
     "default_model": {
@@ -59,6 +60,7 @@
       "VISUAL": "zeditor --wait"
     }
   },
+  "diff_view_style": "unified",
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // █▀▀ █▀▄ █ ▀█▀ █ █▄ █ █▀▀

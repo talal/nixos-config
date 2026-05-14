@@ -5,15 +5,9 @@
     # Auto-generated files
     "**/hardware-configuration.nix"
     "config/vicinae/**"
+    "config/DankMaterialShell/**"
     # Secrets
     "secrets/**"
-    "**/nextdns.conf"
-    "config/DankMaterialShell/**" # also auto-generated
-    "config/espanso/match/**"
-    "config/git/**"
-    "config/jj/**"
-    "config/pika-backup/**" # also auto-generated
-    "config/ssh/**"
   ];
 
   # keep-sorted start block=yes newline_separated=yes

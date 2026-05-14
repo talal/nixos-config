@@ -60,11 +60,6 @@
     # keep-sorted end
   };
 
-  services.espanso = {
-    enable = true;
-    package = pkgs.espanso-wayland;
-  };
-
   programs = {
     dconf.enable = true;
     gnome-disks.enable = true;

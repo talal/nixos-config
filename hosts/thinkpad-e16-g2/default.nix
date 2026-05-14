@@ -9,9 +9,11 @@
     # keep-sorted start prefix_order=inputs,./,../../
     inputs.sops-nix.nixosModules.sops
     ./hardware-configuration.nix
+    ../../config
     ../../modules/base.nix
     ../../modules/browser.nix
     ../../modules/desktop.nix
+    ../../modules/espanso.nix
     ../../modules/fonts.nix
     ../../modules/home.nix
     ../../modules/kanata.nix
@@ -19,36 +21,13 @@
     ../../modules/podman.nix
     ../../modules/scheduler.nix
     ../../modules/scripts.nix
+    ../../modules/secrets.nix
     ../../modules/ssh-tpm-agent.nix
+    ../../modules/vcs.nix
     ../../modules/yubikey.nix
     ../../modules/zram-swap.nix
     # keep-sorted end
   ];
-
-  sops = {
-    defaultSopsFile = ../../secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-
-    age.keyFile = "/var/lib/sops-nix/key.txt";
-    # This will generate a new key if the key specified above does not exist
-    age.generateKey = true;
-
-    secrets.nexdns_id = {};
-    templates."nextdns.conf" = {
-      path = "/etc/systemd/resolved.conf.d/nextdns.conf";
-      mode = "0444";
-      restartUnits = ["systemd-resolved.service"];
-      content = ''
-        [Resolve]
-        DNS=45.90.28.0#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
-        DNS=2a07:a8c0::#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
-        DNS=45.90.30.0#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
-        DNS=2a07:a8c1::#thinkpad-${config.sops.placeholder.nexdns_id}.dns.nextdns.io
-        DNSOverTLS=yes
-        DNSSEC=yes
-      '';
-    };
-  };
 
   location.provider = "geoclue2";
   time.timeZone = "Europe/Berlin";

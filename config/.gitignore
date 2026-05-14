@@ -12,14 +12,6 @@
 
 !/helix/themes
 
-/espanso/match/packages
-
 /jj/repos
-
-/pika-backup/**
-!/pika-backup/backup.json
-
-/ssh/**
-!/ssh/config
 
 /zed/settings_backup.json

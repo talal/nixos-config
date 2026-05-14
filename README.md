@@ -54,7 +54,3 @@ nixos-install --flake .#<hostname>
 ```bash
 reboot
 ```
-
-```bash
-just stow
-```

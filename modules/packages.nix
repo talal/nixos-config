@@ -32,7 +32,6 @@
         unstable.amd-debug-tools
         unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
         choose
-        delta
         difftastic
         doggo
         duf
@@ -41,7 +40,6 @@
         ffmpeg-full
         fzf
         git-cliff
-        git-crypt
         git-filter-repo
         glow
         hexyl
@@ -59,7 +57,6 @@
         scc
         scooter
         sd
-        stow
         trash-cli
         usbutils
         watchexec
