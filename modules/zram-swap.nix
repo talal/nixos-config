@@ -13,4 +13,7 @@
   };
 
   services.earlyoom.enable = true;
+
+  # Redirect heavy Nix builds to disk to avoid OOM crashes.
+  systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp";
 }

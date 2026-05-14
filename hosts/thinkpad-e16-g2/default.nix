@@ -81,9 +81,10 @@
   # This ensures WiFi, Bluetooth, and CPU Microcode get the binary blobs they need.
   hardware.enableRedistributableFirmware = true;
 
-  boot.tmp.useTmpfs = true;
-  # Redirect heavy Nix builds to disk to avoid OOM crashes.
-  systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp";
+  boot.tmp = {
+    cleanOnBoot = true;
+    useTmpfs = true;
+  };
 
   # Use dbus-broker for better performance.
   services.dbus.implementation = "broker";
