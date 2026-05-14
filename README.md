@@ -1,7 +1,6 @@
 # nixos-config
 
-> [!WARNING]
-> Personal repository; not intended for general use.
+Deterministic NixOS configuration for all my devices.
 
 ## Fresh Install
 
