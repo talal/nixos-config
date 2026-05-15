@@ -2,7 +2,6 @@ include "output-panasonic-tv.kdl"
 include "rules.kdl"
 include "binds.kdl"
 
-// Launching here instead of via systemd so that Vicinae inherits the environment variables.
 spawn-at-startup "/run/wrappers/bin/vicinae-input-server"
 spawn-at-startup "vicinae" "server"
 
@@ -12,17 +11,6 @@ spawn-sh-at-startup "ssh-add -l"
 hotkey-overlay { skip-at-startup; }
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
-
-environment {
-    XDG_CURRENT_DESKTOP "niri"
-    XDG_SESSION_TYPE "wayland"
-
-    QT_QPA_PLATFORM "wayland"
-    QT_QPA_PLATFORMTHEME "gtk3"
-    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-
-}
 
 // Built-in Display
 output "eDP-1" {

@@ -3,23 +3,18 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  vicinaePkg = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
+in {
   imports = [inputs.dms.nixosModules.dank-material-shell];
 
-  security.polkit.enable = true;
-
-  services.udev.extraRules = ''
-    # Allows vicinae to create a virtual keyboard: required for paste support (the current user needs to be in the 'input' group)
-    KERNEL=="uinput", GROUP="input", MODE="0660", RUN+="${pkgs.acl}/bin/setfacl -m g:input:rw /dev/$name"
-  '';
-
-  # Compositor
+  # ══════════ Compositor ══════════
   programs.niri = {
     enable = true;
     package = pkgs.unstable.niri;
   };
 
-  # Shell
+  # ══════════ Shell ══════════
   programs.dank-material-shell = {
     enable = true;
     systemd = {
@@ -31,13 +26,20 @@
     enableClipboardPaste = false;
   };
 
-  # Login Manager
+  # ══════════ Launcher ══════════
+  users.users.talal.extraGroups = ["input"];
+  services.udev.extraRules = ''
+    # Allows vicinae to create a virtual keyboard: required for paste support (the current user needs to be in the 'input' group)
+    KERNEL=="uinput", GROUP="input", MODE="0660", RUN+="${pkgs.acl}/bin/setfacl -m g:input:rw /dev/$name"
+  '';
   security.wrappers.vicinae-input-server = {
     source = "${vicinaePkg}/libexec/vicinae/vicinae-input-server";
     capabilities = "cap_dac_override+ep";
     owner = "root";
     group = "root";
   };
+
+  # ══════════ Login Manager ══════════
   services.greetd = let
     cmd = lib.getExe' pkgs.niri "niri-session";
   in {
@@ -55,7 +57,9 @@
     };
   };
 
-  # keep-sorted start block=yes newline_separated=yes prefix_order=services,programs,environment
+  # keep-sorted start block=yes newline_separated=yes prefix_order=security,services,programs,environment
+  security.polkit.enable = true;
+
   services = {
     # keep-sorted start
     flatpak.enable = true;
@@ -80,6 +84,14 @@
     # Use native Wayland when possible.
     ELECTRON_OZONE_PLATFORM_HINT = "auto"; # this should be enough for most Electron apps
     NIXOS_OZONE_WL = "1"; # apply wayland specific Nixpkgs flags
+
+    # Niri
+    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_TYPE = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORMTHEME = "gtk3";
+    QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };
 
   environment.systemPackages = with pkgs; [
@@ -88,7 +100,6 @@
     adw-gtk3 # GTK theme
     adwaita-icon-theme
     apple-cursor
-    bibata-cursors
     xdg-utils
     xwayland-satellite # for niri xwayland compatibility
     # keep-sorted end

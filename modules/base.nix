@@ -55,6 +55,8 @@
     backupFileExtension = "bak";
   };
 
+  environment.localBinInPath = true;
+
   environment.systemPackages = with pkgs; [
     # keep-sorted start
     age
@@ -62,7 +64,6 @@
     fd
     git
     helix
-    moor
     ripgrep
     sops
     tree

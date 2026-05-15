@@ -50,6 +50,7 @@
         hyperfine
         jq
         just
+        moor
         p7zip
         pciutils
         poppler-utils
