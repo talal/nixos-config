@@ -7,29 +7,22 @@
   pkgs,
   modulesPath,
   ...
-}:
-let
+}: let
   btrfsMountOpts = [
     "compress=zstd"  # Transparent filesystem-level compression (saves space & disk IO)
     "noatime"        # Disables writing access times on file reads (extends SSD lifespan)
     "discard=async"  # Asynchronous background SSD TRIM (improves performance, prevents stutters)
     "space_cache=v2" # Uses the free space tree for faster mounting and block lookups
   ];
-in
-{
+in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "usb_storage"
-    "sd_mod"
-  ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   # TODO: recreate LUKS with --sector-size 4096 to match NVMe native sector size
   # current 512-byte sectors cause read-modify-write amplification
@@ -42,31 +35,28 @@ in
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/A027-776D";
     fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
+    options = ["fmask=0077" "dmask=0077"];
   };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
     fsType = "btrfs";
-    options = [ "subvol=root" ] ++ btrfsMountOpts;
+    options = ["subvol=root"] ++ btrfsMountOpts;
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
     fsType = "btrfs";
-    options = [ "subvol=home" ] ++ btrfsMountOpts;
+    options = ["subvol=home"] ++ btrfsMountOpts;
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
     fsType = "btrfs";
-    options = [ "subvol=nix" ] ++ btrfsMountOpts;
+    options = ["subvol=nix"] ++ btrfsMountOpts;
   };
 
-  swapDevices = [ ];
+  swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
