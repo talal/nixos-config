@@ -42,6 +42,7 @@
     auto-allocate-uids = true;
     download-buffer-size = 268435456; # 256 MiB (default is 64 MiB)
     use-cgroups = true;
+    warn-dirty = false;
 
     # Garnix Cache
     substituters = ["https://cache.garnix.io"]; # cache.nixos.org is added by default

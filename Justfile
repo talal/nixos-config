@@ -6,13 +6,9 @@ alias rs := switch
 default:
     @just --list
 
-[private]
-git-add:
-    git -C {{ flake }} add --intent-to-add --all
-
 [group('rebuild')]
 [private]
-builder goal prefix *args: git-add
+builder goal prefix *args:
     {{ prefix }} nixos-rebuild {{ goal }} \
       --flake {{ flake }} \
       {{ args }}
@@ -38,7 +34,7 @@ update *input:
 
 # check the flake for errors
 [group('dev')]
-check *args: git-add
+check *args:
     nix flake check --option allow-import-from-derivation false {{ args }}
 
 # clean the nix store and optimise it
