@@ -128,8 +128,8 @@ in {
     # keep-sorted start ignore_prefixes=inputs.,unstable.
     adw-gtk3 # GTK theme
     adwaita-icon-theme
-    apple-cursor
     unstable.amd-debug-tools
+    apple-cursor
     choose
     exiftool
     ffmpeg-full

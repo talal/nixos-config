@@ -73,9 +73,93 @@ in {
     programs.firefox = {
       enable = true;
       languagePacks = ["en-GB" "de" "ur"];
+      nativeMessagingHosts = with pkgs; [ff2mpv-rust];
+
+      policies = {
+        # keep-sorted start block=yes
+        AutofillAddressEnabled = false;
+        AutofillCreditCardEnabled = false;
+        Cookies = {
+          Behavior = "reject-tracker-and-partition-foreign"; # Total Cookie Protection
+          BehaviorPrivateBrowsing = "reject-tracker-and-partition-foreign";
+          Locked = true;
+        };
+        DefaultDownloadDirectory = "\${home}/Downloads";
+        DisableFirefoxAccounts = true;
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Category = "strict";
+        };
+        FirefoxHome = {
+          Pocket = false;
+          Snippets = false;
+        };
+        FirefoxSuggest = {
+          WebSuggestions = false;
+          SponsoredSuggestions = false;
+          ImproveSuggest = false;
+          Locked = true;
+        };
+        GenerativeAI = {
+          Enabled = false;
+          Locked = true;
+        };
+        HttpsOnlyMode = "force_enabled";
+        NetworkPrediction = false;
+        OfferToSaveLogins = false;
+        Permissions = {
+          Camera = {
+            BlockNewRequests = true;
+            Locked = true;
+          };
+          Microphone = {
+            BlockNewRequests = true;
+            Locked = true;
+          };
+          Location = {
+            BlockNewRequests = true;
+            Locked = false;
+          };
+          Notifications = {
+            BlockNewRequests = true;
+            Locked = false;
+          };
+        };
+        SearchSuggestEnabled = false; # Stops live keystroke-sending to search engine
+        UserMessaging = {
+          FirefoxLabs = false;
+          ExtensionRecommendations = false;
+          MoreFromMozilla = false;
+          SkipOnboarding = true;
+        };
+        # keep-sorted end
+      };
+
       profiles.default = {
         isDefault = true;
-        extensions.force = true;
+
+        # Hide native tabs, title bar, and sidebar header
+        userChrome = ''
+          #TabsToolbar {
+              visibility: collapse;
+          }
+          #titlebar {
+              visibility: collapse;
+          }
+          #sidebar-header {
+              visibility: collapse !important;
+          }
+          #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
+              #sidebar-header {
+              display: none;
+          }
+        '';
+
+        extensions.force = true; # required when using settings
         settings = {
           # keep-sorted start
           "browser.newtab.url" = "about:blank";

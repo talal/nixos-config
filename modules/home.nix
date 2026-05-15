@@ -209,7 +209,7 @@
         ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
         screenshot-dir = "~/Pictures/Screenshots/mpv";
       };
-      scripts = with pkgs.mpvScripts; [mpris modernz thumbfast];
+      scripts = with pkgs.mpvScripts; [mpris modernz thumbfast sponsorblock];
       scriptOpts = {
         thumbfast = {
           spawn_first = true;
@@ -224,6 +224,9 @@
           hover_effect_color = "#8aadf4";
           seekbarfg_color = "#8aadf4";
           seekbarbg_color = "#1e2030";
+        };
+        ytdl_hook = {
+          ytdl_path = "${lib.getExe pkgs.unstable.yt-dlp}";
         };
       };
       bindings = {
@@ -344,6 +347,16 @@
         require("full-border"):setup()
         require("folder-rules"):setup()
       '';
+    };
+
+    programs.yt-dlp = {
+      enable = true;
+      package = pkgs.unstable.yt-dlp;
+      settings = {
+        embed-metadata = true;
+        sponsorblock-mark = "all";
+        downloader = lib.getExe pkgs.aria2;
+      };
     };
 
     programs.zathura = {
