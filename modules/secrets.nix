@@ -25,7 +25,6 @@ in {
         DNS=45.90.30.0#thinkpad-${config.sops.placeholder.nextdns_id}.dns.nextdns.io
         DNS=2a07:a8c1::#thinkpad-${config.sops.placeholder.nextdns_id}.dns.nextdns.io
         DNSOverTLS=yes
-        DNSSEC=yes
       '';
     };
   };
