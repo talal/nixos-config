@@ -99,7 +99,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     # ══════════ Applications ══════════
-    # keep-sorted start ignore_prefixes=inputs. prefix_order=unstable
+    # keep-sorted start prefix_order=unstable
     unstable.bitwarden-desktop
     unstable.discord
     unstable.ente-desktop
@@ -125,7 +125,7 @@ in {
     # keep-sorted end
 
     # ══════════ Utilities ══════════
-    # keep-sorted start ignore_prefixes=inputs.,unstable.
+    # keep-sorted start prefix_order=unstable
     adw-gtk3 # GTK theme
     adwaita-icon-theme
     unstable.amd-debug-tools

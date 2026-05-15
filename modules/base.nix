@@ -62,7 +62,7 @@
   environment.localBinInPath = true;
 
   environment.systemPackages = with pkgs; [
-    # keep-sorted start ignore_prefixes=inputs. prefix_order=unstable
+    # keep-sorted start prefix_order=unstable
     unstable.jujutsu
     age
     bat
