@@ -19,7 +19,7 @@
           email = "noreply@talal.ch";
           name = "Muhammad Talal Anwar";
           useConfigOnly = true;
-          signingKey = "~/.ssh/git_sign_talal.pub";
+          signingKey = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAgOGxqO9vcaLDD3TYJBhMFAq2MEPfiIXXe0xNaeLjmBBYDzMS6D9ar1HqKHJsbjqFaRQbXJXZ6g7lkH5yNppFo=";
         };
         init.defaultBranch = "main";
         fetch.prune = true;
@@ -116,11 +116,7 @@
           [--scope.user]
           email = "${config.sops.placeholder.uni_email}"
           [--scope.signing]
-          key = "~/.ssh/git_sign_anwar"
-          behavior = "drop"
-          backend = "ssh"
-          [--scope.git]
-          sign-on-push = true
+          key = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPBO4WGcdS6/kn723zUo73ux8Zp6IEFn/WOHQhEsRmAu3M6X4lU+S3oo2wu5/6LjxYR4JPripLzSJ0rIyYBjBZc="
         '';
       };
 
@@ -129,7 +125,7 @@
         content = ''
           [user]
               email = ${config.sops.placeholder.uni_email}
-              signingkey = ~/.ssh/git_sign_anwar.pub
+              signingKey = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPBO4WGcdS6/kn723zUo73ux8Zp6IEFn/WOHQhEsRmAu3M6X4lU+S3oo2wu5/6LjxYR4JPripLzSJ0rIyYBjBZc="
         '';
       };
     };

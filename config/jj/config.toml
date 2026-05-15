@@ -5,9 +5,9 @@ name = "Muhammad Talal Anwar"
 email = "noreply@talal.ch"
 
 [signing]
-key = "~/.ssh/git_sign_talal"
 behavior = "drop"
 backend = "ssh"
+key = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAgOGxqO9vcaLDD3TYJBhMFAq2MEPfiIXXe0xNaeLjmBBYDzMS6D9ar1HqKHJsbjqFaRQbXJXZ6g7lkH5yNppFo="
 
 [git]
 sign-on-push = true
