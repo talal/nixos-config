@@ -12,7 +12,10 @@
     "vm.page-cluster" = 0; # Read 1 page at a time (saves CPU)
   };
 
-  services.earlyoom.enable = true;
+  services.earlyoom = {
+    enable = true;
+    enableNotifications = true;
+  };
 
   # Redirect heavy Nix builds to disk to avoid OOM crashes.
   systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp";
