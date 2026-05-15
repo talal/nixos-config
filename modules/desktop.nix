@@ -96,10 +96,10 @@ in {
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start prefix_order=unstable
-    vicinaePkg
     adw-gtk3 # GTK theme
     adwaita-icon-theme
     apple-cursor
+    vicinaePkg
     xdg-utils
     xwayland-satellite # for niri xwayland compatibility
     # keep-sorted end
