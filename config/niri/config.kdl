@@ -3,6 +3,7 @@ include "rules.kdl"
 include "binds.kdl"
 
 // Launching here instead of via systemd so that Vicinae inherits the environment variables.
+spawn-at-startup "/run/wrappers/bin/vicinae-input-server"
 spawn-at-startup "vicinae" "server"
 
 // Workaround for initialising ssh-tpm-agent so that ssh keys are loaded at startup.

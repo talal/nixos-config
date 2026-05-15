@@ -32,6 +32,12 @@
   };
 
   # Login Manager
+  security.wrappers.vicinae-input-server = {
+    source = "${vicinaePkg}/libexec/vicinae/vicinae-input-server";
+    capabilities = "cap_dac_override+ep";
+    owner = "root";
+    group = "root";
+  };
   services.greetd = let
     cmd = lib.getExe' pkgs.niri "niri-session";
   in {
@@ -78,7 +84,7 @@
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start prefix_order=unstable
-    unstable.vicinae
+    vicinaePkg
     adw-gtk3 # GTK theme
     adwaita-icon-theme
     apple-cursor
