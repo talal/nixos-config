@@ -90,7 +90,10 @@
   services.dbus.implementation = "broker";
 
   # ══════════ Video ══════════
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # ══════════ Audio ══════════
   services.pipewire = {
