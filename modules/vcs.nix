@@ -71,6 +71,7 @@
           #   revert    revert a commit
         '';
       };
+      includes = [{path = "~/.config/git/scopes.gitconfig";}];
       ignores = [
         "*.bak"
         "*.log*"
@@ -106,40 +107,31 @@
     };
 
     # ══════════ Scopes ══════════
-    sops = {
-      secrets.uni_email = {};
-      templates."jj-uni-config" = {
-        path = "${config.home.homeDirectory}/.config/jj/conf.d/uni.toml";
-        content = ''
-          [[--scope]]
-          --when.repositories = ["~/Code/git.mylab.th-luebeck.de", "~/TH-Luebeck/Courses"]
-          [--scope.user]
-          email = "${config.sops.placeholder.uni_email}"
-          [--scope.signing]
-          key = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPBO4WGcdS6/kn723zUo73ux8Zp6IEFn/WOHQhEsRmAu3M6X4lU+S3oo2wu5/6LjxYR4JPripLzSJ0rIyYBjBZc="
-        '';
+    sops.secrets = {
+      "git-scopes" = {
+        sopsFile = ../secrets/vcs.yaml;
+        format = "yaml";
+        key = "git-scopes";
+        path = "${config.home.homeDirectory}/.config/git/scopes.gitconfig";
       };
-
-      templates."git-uni-config" = {
+      "git-gha-scope" = {
+        sopsFile = ../secrets/vcs.yaml;
+        format = "yaml";
+        key = "git-gha-scope";
+        path = "${config.home.homeDirectory}/.config/git/gha.gitconfig";
+      };
+      "git-uni-scope" = {
+        sopsFile = ../secrets/vcs.yaml;
+        format = "yaml";
+        key = "git-uni-scope";
         path = "${config.home.homeDirectory}/.config/git/uni.gitconfig";
-        content = ''
-          [user]
-              email = ${config.sops.placeholder.uni_email}
-              signingKey = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPBO4WGcdS6/kn723zUo73ux8Zp6IEFn/WOHQhEsRmAu3M6X4lU+S3oo2wu5/6LjxYR4JPripLzSJ0rIyYBjBZc="
-        '';
+      };
+      "jj-scopes" = {
+        sopsFile = ../secrets/vcs.yaml;
+        format = "yaml";
+        key = "jj-scopes";
+        path = "${config.home.homeDirectory}/.config/jj/conf.d/scopes.toml";
       };
     };
-
-    programs.git.includes = [
-      {path = "~/.config/git/scopes.gitconfig";}
-      {
-        condition = "gitdir:~/Code/git.mylab.th-luebeck.de/";
-        path = "~/.config/git/uni.gitconfig";
-      }
-      {
-        condition = "gitdir:~/TH-Luebeck/Courses/";
-        path = "~/.config/git/uni.gitconfig";
-      }
-    ];
   };
 }
