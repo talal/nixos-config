@@ -41,21 +41,23 @@ in {
   };
 
   # ══════════ Login Manager ══════════
-  services.greetd = let
-    cmd = lib.getExe' niriPkg "niri-session";
-  in {
+  services.greetd = {
     enable = true;
     useTextGreeter = true;
-    settings = {
-      default_session = {
-        command = "${lib.getExe pkgs.tuigreet} --remember --time --asterisks --cmd ${cmd}";
-        user = "greeter";
-      };
-      initial_session = {
-        command = cmd;
-        user = "talal";
-      };
+    settings.default_session = {
+      command = ''${lib.getExe pkgs.tuigreet} --remember --time --asterisks --cmd ${lib.getExe' niriPkg "niri-session"}'';
+      user = "greeter";
     };
+  };
+  security.pam.services = {
+    greetd.enableGnomeKeyring = true;
+    login.enableGnomeKeyring = true;
+
+    # Disable fingerprint auth for greetd; use password instead.
+    # fprintd's PAM hook would otherwise stack `pam_fprintd.so sufficient` ahead of
+    # pam_unix and the user sees a fingerprint scan request. If fingerprint is used at
+    # login then keyring doesn't get unlocked automatically.
+    greetd.fprintAuth = false;
   };
 
   # keep-sorted start block=yes newline_separated=yes prefix_order=security,services,programs,environment
