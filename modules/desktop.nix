@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: let
+  niriPkg = pkgs.unstable.niri;
   vicinaePkg = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in {
   imports = [inputs.dms.nixosModules.dank-material-shell];
@@ -11,7 +12,7 @@ in {
   # ══════════ Compositor ══════════
   programs.niri = {
     enable = true;
-    package = pkgs.unstable.niri;
+    package = niriPkg;
   };
 
   # ══════════ Shell ══════════
@@ -41,7 +42,7 @@ in {
 
   # ══════════ Login Manager ══════════
   services.greetd = let
-    cmd = lib.getExe' pkgs.niri "niri-session";
+    cmd = lib.getExe' niriPkg "niri-session";
   in {
     enable = true;
     useTextGreeter = true;
