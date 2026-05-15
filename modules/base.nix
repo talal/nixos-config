@@ -4,7 +4,12 @@
   pkgs,
   ...
 }: {
-  # keep-sorted start block=yes newline_separated=yes prefix_order=nixpkgs,nix,home-manager,environment,services,programs,system
+  # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,services,programs,environment,home-manager
+  system.activationScripts.activation-diff = {
+    supportsDryActivation = true;
+    text = ''${lib.getExe pkgs.dix} /run/current-system "$systemConfig"'';
+  };
+
   nixpkgs.config = {
     allowUnfree = true;
     allowAliases = false;
@@ -31,6 +36,7 @@
   };
 
   nix.settings = {
+    trusted-users = ["@wheel"];
     experimental-features = [
       "nix-command"
       "flakes"
@@ -49,25 +55,36 @@
     trusted-public-keys = ["cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="];
   };
 
-  home-manager = {
-    extraSpecialArgs.inputs = inputs; # pass inputs to home-manager
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "bak";
-  };
+  # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
+  # Without this, simple things like 'cargo run' might crash on missing libs.
+  programs.nix-ld.enable = true;
 
   environment.localBinInPath = true;
 
   environment.systemPackages = with pkgs; [
-    # keep-sorted start
+    # keep-sorted start ignore_prefixes=inputs. prefix_order=unstable
+    unstable.jujutsu
     age
     bat
+    difftastic
+    doggo
+    duf
+    dust
     fd
     git
     helix
+    jq
+    just
+    moor
+    p7zip
+    pciutils
+    procs
     ripgrep
+    sd
     sops
+    trash-cli
     tree
+    usbutils
     wl-clipboard
     # keep-sorted end
   ];
@@ -77,13 +94,11 @@
     VISUAL = "hx";
   };
 
-  # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
-  # Without this, simple things like 'cargo run' might crash on missing libs.
-  programs.nix-ld.enable = true;
-
-  system.activationScripts.activation-diff = {
-    supportsDryActivation = true;
-    text = ''${lib.getExe pkgs.dix} /run/current-system "$systemConfig"'';
+  home-manager = {
+    extraSpecialArgs.inputs = inputs; # pass inputs to home-manager
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "bak";
   };
   # keep-sorted end
 }

@@ -12,12 +12,13 @@
     ../../config
     ../../modules/base.nix
     ../../modules/browser.nix
+    ../../modules/catppuccin.nix
     ../../modules/desktop.nix
+    ../../modules/dns.nix
     ../../modules/espanso.nix
     ../../modules/fonts.nix
     ../../modules/home.nix
     ../../modules/kanata.nix
-    ../../modules/packages.nix
     ../../modules/podman.nix
     ../../modules/scheduler.nix
     ../../modules/scripts.nix
@@ -45,7 +46,6 @@
       # Some apps may need to adjust audio priority at runtime
       ++ lib.optional config.security.rtkit.enable "rtkit";
   };
-  nix.settings.trusted-users = ["talal"];
 
   # ══════════ Boot ══════════
   boot = {
@@ -125,10 +125,6 @@
   systemd.network.wait-online.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  # DNS
-  services.resolved.enable = true;
-  networking.networkmanager.dns = "systemd-resolved";
-
   # ══════════ Bluetooth ══════════
   hardware.bluetooth = {
     enable = true;
@@ -144,9 +140,6 @@
   services.libinput.enable = true; # touchpad
 
   # ══════════ Power ══════════
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true; # power management D-Bus
-
   # In my current setup, I use laptop as main display and external monitor as secondary so when
   # I close the lid, it means that I want laptop to suspend and external monitors to turn off.
   services.logind.settings.Login = {

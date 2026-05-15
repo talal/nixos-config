@@ -6,18 +6,11 @@
 }: {
   imports = [inputs.home-manager.nixosModules.home-manager];
 
-  home-manager.users.talal = {
-    imports = [inputs.catppuccin.homeModules.catppuccin];
-
+  home-manager.users.talal = {config, ...}: {
     home.stateVersion = "25.05";
 
     home.username = "talal";
     home.homeDirectory = "/home/talal";
-
-    home.sessionVariables = {
-      # Reference: https://github.com/catppuccin/fzf/blob/main/themes/catppuccin-fzf-macchiato.sh
-      FZF_DEFAULT_OPTS = "--color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796,fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6,marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796,selected-bg:#494D64,border:#6E738D,label:#CAD3F5";
-    };
 
     home.shellAliases = {
       cdr = "cd $(git root)";
@@ -27,15 +20,11 @@
       rm = "trash-put";
     };
 
-    catppuccin = {
-      enable = true; # enable globally
-      flavor = "macchiato";
-      accent = "blue";
-      eza.enable = false; # IFD
-      ghostty.enable = false; # uses mkOutOfStoreSymlink
-      bottom.enable = false; # IFD
-      mpv.enable = false; # don't like
-      thunderbird.profile = "default";
+    sops.secrets."ssh-config" = {
+      sopsFile = ../secrets/ssh-config.yaml;
+      format = "yaml";
+      key = "config";
+      path = "${config.home.homeDirectory}/.ssh/config";
     };
 
     dconf.settings = {
@@ -75,14 +64,6 @@
         "foot.desktop"
       ];
     };
-
-    xdg.configFile."process-compose/settings.yaml".text = ''
-      theme: Catppuccin Macchiato
-      sort:
-        by: NAME
-        isReversed: false
-      disable_exit_confirmation: false
-    '';
 
     # keep-sorted start block=yes newline_separated=yes prefix_order=services,programs
     services.syncthing.enable = true;

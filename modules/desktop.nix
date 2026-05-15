@@ -60,7 +60,7 @@ in {
     greetd.fprintAuth = false;
   };
 
-  # keep-sorted start block=yes newline_separated=yes prefix_order=security,services,programs,environment
+  # keep-sorted start block=yes newline_separated=yes prefix_order=security,services,programs,environment,home-manager
   security.polkit.enable = true;
 
   services = {
@@ -69,7 +69,9 @@ in {
     fwupd.enable = true;
     gnome.sushi.enable = true; # for Nautilus quick preview
     gvfs.enable = true;
+    power-profiles-daemon.enable = true;
     udisks2.enable = true; # auto-mounting disk
+    upower.enable = true; # power management D-Bus
     # keep-sorted end
   };
 
@@ -77,8 +79,6 @@ in {
     dconf.enable = true;
     gnome-disks.enable = true;
   };
-
-  environment.localBinInPath = true;
 
   environment.sessionVariables = {
     # Ensure deadkeys work.
@@ -98,14 +98,102 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    # keep-sorted start prefix_order=unstable
+    # ══════════ Applications ══════════
+    # keep-sorted start ignore_prefixes=inputs. prefix_order=unstable
+    unstable.bitwarden-desktop
+    unstable.discord
+    unstable.ente-desktop
+    unstable.obsidian
+    unstable.stremio-linux-shell
+    blanket
+    czkawka
+    gimp
+    gnome-calculator
+    gnome-text-editor
+    keepassxc
+    libreoffice-still
+    loupe
+    nautilus
+    papers
+    parabolic
+    pdfarranger
+    pika-backup
+    proton-authenticator
+    resources
+    signal-desktop
+    zeal
+    # keep-sorted end
+
+    # ══════════ Utilities ══════════
+    # keep-sorted start ignore_prefixes=inputs.,unstable.
     adw-gtk3 # GTK theme
     adwaita-icon-theme
     apple-cursor
+    unstable.amd-debug-tools
+    choose
+    exiftool
+    ffmpeg-full
+    fzf
+    git-cliff
+    git-filter-repo
+    glow
+    hexyl
+    hunspell
+    hunspellDicts.de_DE
+    hunspellDicts.en_GB-ize
+    hyperfine
+    poppler-utils # for yazi
+    scc
+    scooter
+    unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
     vicinaePkg
+    watchexec
+    wl-screenrec
     xdg-utils
     xwayland-satellite # for niri xwayland compatibility
     # keep-sorted end
   ];
   # keep-sorted end
+
+  home-manager.users.talal = {
+    # ══════════ Dev ══════════
+    home.packages = with pkgs.unstable; [
+      # keep-sorted start
+      devenv
+      exercism
+      jj-starship
+      watchman # for jj fsmonitor
+      yaak
+      zed-editor
+      # keep-sorted end
+
+      # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
+      # For everything else, use devenv.
+
+      # keep-sorted start
+      alejandra # nixfmt is yuck, alejandra is 👌
+      bash-language-server
+      just-lsp
+      keep-sorted
+      marksman # Markdown LSP
+      mdformat
+      nixd
+      prettier # JSON formatting
+      shellcheck
+      shfmt
+      superhtml
+      taplo # TOML LSP
+      tinymist
+      treefmt
+      typst # I use Typst alot so installing globally instead of devenv
+      typstyle
+      uv # for Python scripts
+      vscode-css-languageserver
+      vscode-json-languageserver
+      yaml-language-server
+      yamlfmt
+      zizmor
+      # keep-sorted end
+    ];
+  };
 }

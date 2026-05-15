@@ -14,5 +14,5 @@
   # does not restart manual containers (e.g. podman run) after system reboot.
   systemd.user.services.podman-restart.wantedBy = ["default.target"];
 
-  home-manager.users.talal.home.packages = [pkgs.podman-compose];
+  environment.systemPackages = [pkgs.podman-compose];
 }

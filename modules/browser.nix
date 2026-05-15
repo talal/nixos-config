@@ -22,6 +22,8 @@ in {
         "cnjifjpddelmedmihgijeibhnjfabmlf" # Obsidian Web Clipper
         "ghbmnnjooekpmoecnnnilnnbdlolhkhi" # Google Docs Offline
         "jabopobgcpjmedljpbcaablpmlmfcogm" # WhatFont
+        # Ideally this should be defined in modules/catppuccin.nix and the list merged but
+        # unfortunately the extraOpts is of type lib.types.attrs 😔
         "cmpdlhmnmjhihmcfnigoememnffkimlk" # Catppuccin Macchiato theme
       ];
       # keep-sorted start
@@ -55,19 +57,19 @@ in {
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    (pkgs.brave.override {
+      commandLineArgs = [
+        "--enable-features=BraveCompactHorizontalTabs"
+        # Reference: https://source.chromium.org/chromium/chromium/src/+/main:headless/app/headless_shell_switches.cc;drc=3556fbff47c18193f4a39d2496596e89b8307a15;l=47-55
+        "--password-store=gnome-libsecret"
+      ];
+    })
+
+    google-chrome
+  ];
+
   home-manager.users.talal = {
-    home.packages = with pkgs; [
-      (pkgs.brave.override {
-        commandLineArgs = [
-          "--enable-features=BraveCompactHorizontalTabs"
-          # Reference: https://source.chromium.org/chromium/chromium/src/+/main:headless/app/headless_shell_switches.cc;drc=3556fbff47c18193f4a39d2496596e89b8307a15;l=47-55
-          "--password-store=gnome-libsecret"
-        ];
-      })
-
-      google-chrome
-    ];
-
     programs.firefox = {
       enable = true;
       languagePacks = ["en-GB" "de" "ur"];
