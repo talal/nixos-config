@@ -28,8 +28,6 @@ switch *args: (builder "switch" "sudo" args)
 update *input:
     nix flake update {{ input }} \
       --refresh \
-      --commit-lock-file \
-      --commit-lockfile-summary "flake.lock: update {{ if input == "" { "all inputs" } else { input } }}" \
       --flake {{ flake }}
 
 # check the flake for errors
