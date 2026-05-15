@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   home-manager.users.talal = {
     imports = [inputs.catppuccin.homeModules.catppuccin];
 
