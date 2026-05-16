@@ -1,5 +1,9 @@
-{pkgs, ...}: {
-  home-manager.users.talal = {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  home-manager.users.${config.user} = {
     home.packages = with pkgs; [
       # keep-sorted start block=yes newline_separated=yes
       (writeShellScriptBin "flatpak-list" ''

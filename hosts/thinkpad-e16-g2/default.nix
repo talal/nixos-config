@@ -1,8 +1,6 @@
 {
   inputs,
   pkgs,
-  lib,
-  config,
   ...
 }: {
   imports = [
@@ -14,38 +12,29 @@
     ../../modules/browser.nix
     ../../modules/catppuccin.nix
     ../../modules/desktop.nix
-    ../../modules/dns.nix
     ../../modules/espanso.nix
     ../../modules/fonts.nix
     ../../modules/home.nix
     ../../modules/kanata.nix
+    ../../modules/nextdns.nix
     ../../modules/podman.nix
     ../../modules/scheduler.nix
     ../../modules/scripts.nix
     ../../modules/secrets.nix
     ../../modules/ssh-tpm-agent.nix
+    ../../modules/user.nix
     ../../modules/vcs.nix
     ../../modules/yubikey.nix
     ../../modules/zram-swap.nix
     # keep-sorted end
   ];
 
+  user = "talal";
+
   location.provider = "geoclue2";
   time.timeZone = "Europe/Berlin";
 
   i18n.defaultLocale = "en_GB.UTF-8";
-
-  users.users.talal = {
-    isNormalUser = true;
-    uid = 1000; # make uid predictable
-    description = "Muhammad Talal Anwar";
-    initialPassword = "CHANGEME";
-    extraGroups =
-      ["wheel"]
-      ++ lib.optional config.networking.networkmanager.enable "networkmanager"
-      # Some apps may need to adjust audio priority at runtime
-      ++ lib.optional config.security.rtkit.enable "rtkit";
-  };
 
   # ══════════ Boot ══════════
   boot = {

@@ -30,7 +30,7 @@
     },
     "default_profile": "write",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "enable_thinking": true,
       "provider": "copilot_chat",
       "model": "gemini-3.1-pro-preview"

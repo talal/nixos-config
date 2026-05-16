@@ -1,5 +1,5 @@
-{
-  home-manager.users.talal = {config, ...}: {
+{config, ...}: {
+  home-manager.users.${config.user} = {config, ...}: {
     programs.delta = {
       enable = true;
       enableGitIntegration = true;

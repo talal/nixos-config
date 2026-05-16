@@ -1,5 +1,5 @@
-{
-  home-manager.users.talal = {config, ...}: let
+{config, ...}: {
+  home-manager.users.${config.user} = {config, ...}: let
     dotfilesPath = "${config.home.homeDirectory}/.dotfiles/config";
     mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 

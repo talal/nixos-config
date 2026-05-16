@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   langs = ["en-GB-oxendict" "de-DE"];
 in {
   programs.chromium = {
@@ -69,7 +73,7 @@ in {
     google-chrome
   ];
 
-  home-manager.users.talal = {
+  home-manager.users.${config.user} = {
     programs.firefox = {
       enable = true;
       languagePacks = ["en-GB" "de" "ur"];

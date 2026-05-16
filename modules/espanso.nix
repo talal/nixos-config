@@ -1,10 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.espanso = {
     enable = true;
     package = pkgs.espanso-wayland;
   };
 
-  home-manager.users.talal = {config, ...}: {
+  home-manager.users.${config.user} = {config, ...}: {
     xdg.configFile."espanso/config/default.yml".text = ''
       search_shortcut: 'off'
       show_notifications: false

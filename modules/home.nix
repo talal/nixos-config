@@ -1,17 +1,11 @@
 {
   inputs,
+  config,
   lib,
   pkgs,
   ...
 }: {
-  imports = [inputs.home-manager.nixosModules.home-manager];
-
-  home-manager.users.talal = {config, ...}: {
-    home.stateVersion = "25.05";
-
-    home.username = "talal";
-    home.homeDirectory = "/home/talal";
-
+  home-manager.users.${config.user} = {config, ...}: {
     home.shellAliases = {
       cdr = "cd $(git root)";
       cdtmp = "cd $(mktemp -d)";

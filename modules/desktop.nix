@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   lib,
   pkgs,
   ...
@@ -28,7 +29,7 @@ in {
   };
 
   # ══════════ Launcher ══════════
-  users.users.talal.extraGroups = ["input"];
+  users.users.${config.user}.extraGroups = ["input"];
   services.udev.extraRules = ''
     # Allows vicinae to create a virtual keyboard: required for paste support (the current user needs to be in the 'input' group)
     KERNEL=="uinput", GROUP="input", MODE="0660", RUN+="${pkgs.acl}/bin/setfacl -m g:input:rw /dev/$name"
@@ -133,7 +134,6 @@ in {
     choose
     exiftool
     ffmpeg-full
-    fzf
     git-cliff
     git-filter-repo
     glow
@@ -154,7 +154,7 @@ in {
   ];
   # keep-sorted end
 
-  home-manager.users.talal = {
+  home-manager.users.${config.user} = {
     # ══════════ Dev ══════════
     home.packages = with pkgs.unstable; [
       # keep-sorted start
