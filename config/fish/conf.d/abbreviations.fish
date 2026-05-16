@@ -28,7 +28,7 @@ abbr -a gac "git add --all; and git commit -v"
 abbr -a gb "git branch"
 abbr -a gc "git commit -v"
 abbr -a 'gc!' "git commit --amend"
-abbr -a gcd 'git add --all; and git commit -m "$(date +%Y-%m-%d-%H%M%S)"'
+abbr -a gcd 'git add --all; and git commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'
 abbr -a gd "git diff"
 abbr -a gdf "git df" # will use difftastic instead of delta
 abbr -a gf "git fetch; and git pull"
@@ -40,7 +40,7 @@ abbr -a gscope "git config get user.email; and git config get user.signingKey"
 abbr -a j jj
 abbr -a jb "jj bookmark"
 abbr -a jc "jj commit"
-abbr -a jcd 'jj commit -m "$(date +%Y-%m-%d-%H%M%S)"'
+abbr -a jcd 'jj commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'
 abbr -a jd "jj diff"
 abbr -a jdf "jj diff --tool difft"
 abbr -a jf "jj git fetch"
