@@ -17,8 +17,9 @@
   {
     "context": "Workspace",
     "unbind": {
+      "ctrl-alt-s": "workspace::SaveAll",
       "ctrl-shift-d": "debug_panel::ToggleFocus",
-      "ctrl-alt-s": "workspace::SaveAll"
+      "ctrl-t": "project_symbols::Toggle"
     },
     "bindings": {
       "ctrl-~": "workspace::NewCenterTerminal", // default: workspace::NewTerminal
