@@ -1,26 +1,19 @@
 {
-  inputs,
   pkgs,
   ...
 }: {
   imports = [
     # keep-sorted start prefix_order=inputs,./,../../
-    inputs.sops-nix.nixosModules.sops
     ./hardware-configuration.nix
     ../../config
     ../../modules/base.nix
-    ../../modules/browser.nix
-    ../../modules/catppuccin.nix
-    ../../modules/desktop.nix
-    ../../modules/espanso.nix
-    ../../modules/fonts.nix
+    ../../modules/desktop
     ../../modules/home.nix
     ../../modules/kanata.nix
     ../../modules/nextdns.nix
     ../../modules/podman.nix
     ../../modules/scheduler.nix
     ../../modules/scripts.nix
-    ../../modules/secrets.nix
     ../../modules/ssh-tpm-agent.nix
     ../../modules/user.nix
     ../../modules/vcs.nix

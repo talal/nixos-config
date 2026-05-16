@@ -15,7 +15,7 @@
     '';
 
     sops.secrets."espanso-matches.yaml" = {
-      sopsFile = ../secrets/espanso-matches.yaml;
+      sopsFile = ../../secrets/espanso-matches.yaml;
       format = "yaml";
       key = "";
       path = "${config.home.homeDirectory}/.config/espanso/match/matches.yaml";

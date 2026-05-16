@@ -5,7 +5,10 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.home-manager.nixosModules.home-manager];
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
+  ];
 
   options = {
     user = lib.mkOption {
@@ -112,8 +115,24 @@
       useUserPackages = true;
       backupFileExtension = "bak";
 
-      # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
-      users.${config.user}.home.stateVersion = "25.05";
+      users.${config.user} = {
+        imports = [inputs.sops-nix.homeManagerModules.sops];
+
+        # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
+        home.stateVersion = "25.05";
+
+        sops = {
+          defaultSopsFile = ../secrets/secrets.yaml;
+          defaultSopsFormat = "yaml";
+          age.keyFile = "${config.users.users.${config.user}.home}/.config/sops/age/keys.txt"; # must have no password
+        };
+      };
+    };
+
+    sops = {
+      defaultSopsFile = ../secrets/secrets.yaml;
+      defaultSopsFormat = "yaml";
+      age.keyFile = "/var/lib/sops-nix/key.txt"; # must have no password
     };
     # keep-sorted end
   };

@@ -8,7 +8,15 @@
   niriPkg = pkgs.unstable.niri;
   vicinaePkg = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in {
-  imports = [inputs.dms.nixosModules.dank-material-shell];
+  imports = [
+    # keep-sorted start prefix_order=inputs
+    inputs.dms.nixosModules.dank-material-shell
+    ./browser.nix
+    ./catppuccin.nix
+    ./espanso.nix
+    ./fonts.nix
+    # keep-sorted end
+  ];
 
   # ══════════ Compositor ══════════
   programs.niri = {
