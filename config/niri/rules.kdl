@@ -25,6 +25,7 @@ window-rule { // Block: password managers & 2FA
 
 window-rule { // Block: passwords (bitwarden browser extension)
     match app-id=r#"(?i)(nngceckbapebfimnlniiiahkandclblb)"#
+    match app-id="firefox" title=r#"(^Extension:)"#
     open-floating true
     block-out-from "screen-capture"
 }
