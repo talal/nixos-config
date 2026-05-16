@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # keep-sorted start prefix_order=inputs,./,../../
     ./hardware-configuration.nix
