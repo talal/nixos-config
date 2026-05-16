@@ -99,17 +99,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     # ══════════ Applications ══════════
-    (pkgs.unstable.stremio-linux-shell.overrideAttrs (oldAttrs: {
-      nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [pkgs.makeWrapper];
-      postFixup =
-        (oldAttrs.postFixup or "")
-        + ''
-          wrapProgram $out/bin/stremio \
-            --prefix LD_LIBRARY_PATH : "/run/opengl-driver/lib:/run/opengl-driver-32/lib" \
-            --set LIBVA_DRIVER_NAME radeonsi
-        '';
-    }))
-
     # keep-sorted start prefix_order=unstable
     unstable.bitwarden-desktop
     unstable.discord
