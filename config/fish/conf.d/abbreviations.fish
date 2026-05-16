@@ -23,11 +23,8 @@ abbr -a tl 'eza --tree --all --ignore-glob=".git|.jj" --level'
 # than ammending and force-pushing.
 abbr -a g git
 abbr -a ga "git add"
-abbr -a gaa "git add --all"
 abbr -a gac "git add --all; and git commit -v"
-abbr -a gb "git branch"
 abbr -a gc "git commit -v"
-abbr -a 'gc!' "git commit --amend"
 abbr -a gcd 'git add --all; and git commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'
 abbr -a gd "git diff"
 abbr -a gdf "git df" # will use difftastic instead of delta

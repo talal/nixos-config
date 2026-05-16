@@ -37,7 +37,6 @@
           find-commit = "!f() { git log --pretty=format:'%C(yellow)%h  %Cgreen%ad  %Creset%s%Cblue  <%cn> %Cred%d' --decorate --date=short -S$1; }; f";
           find-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cgreen%ad  %Creset%s%Cblue  <%cn> %Cred%d' --decorate --date=short --grep=$1; }; f";
           root = "rev-parse --show-toplevel";
-          save = "!git add -A && git commit -v -m 'SAVEPOINT (WIP)'";
           undo = "reset HEAD~1 --mixed";
           unstage = "reset HEAD --";
 
