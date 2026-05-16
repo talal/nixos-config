@@ -7,14 +7,7 @@
   pkgs,
   modulesPath,
   ...
-}: let
-  btrfsMountOpts = [
-    "compress=zstd"  # Transparent filesystem-level compression (saves space & disk IO)
-    "noatime"        # Disables writing access times on file reads (extends SSD lifespan)
-    "discard=async"  # Asynchronous background SSD TRIM (improves performance, prevents stutters)
-    "space_cache=v2" # Uses the free space tree for faster mounting and block lookups
-  ];
-in {
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -41,19 +34,19 @@ in {
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
     fsType = "btrfs";
-    options = ["subvol=root"] ++ btrfsMountOpts;
+    options = ["subvol=root" "compress=zstd" "noatime"];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
     fsType = "btrfs";
-    options = ["subvol=home"] ++ btrfsMountOpts;
+    options = ["subvol=home" "compress=zstd" "noatime"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/a0a4b64f-21f9-47a7-a81a-69081858fa27";
     fsType = "btrfs";
-    options = ["subvol=nix"] ++ btrfsMountOpts;
+    options = ["subvol=nix" "compress=zstd" "noatime"];
   };
 
   swapDevices = [];
