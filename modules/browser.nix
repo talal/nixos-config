@@ -89,6 +89,7 @@ in {
         DisableFirefoxStudies = true;
         DisablePocket = true;
         DisableTelemetry = true;
+        DontCheckDefaultBrowser = true;
         EnableTrackingProtection = {
           Value = true;
           Locked = true;
@@ -110,6 +111,8 @@ in {
         };
         HttpsOnlyMode = "force_enabled";
         NetworkPrediction = false;
+        NewTabPage = false;
+        NoDefaultBookmarks = true;
         OfferToSaveLogins = false;
         Permissions = {
           Camera = {
@@ -163,8 +166,6 @@ in {
         settings = {
           # keep-sorted start
           "browser.newtab.url" = "about:blank";
-          "browser.newtabpage.enabled" = false;
-          "browser.shell.checkDefaultBrowser" = false;
           "browser.startup.homepage" = "about:blank";
           "browser.startup.page" = 3;
           "browser.tabs.insertAfterCurrent" = true;
