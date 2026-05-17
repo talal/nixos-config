@@ -1,28 +1,20 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
-    # keep-sorted start prefix_order=inputs,./,../../
+    # keep-sorted start prefix_order=inputs,./,,../../profiles,../../modules
     ./hardware-configuration.nix
-    ../../config
-    ../../modules/base.nix
-    ../../modules/git.nix
-    ../../modules/home.nix
-    ../../modules/jj.nix
-    ../../modules/kanata.nix
-    ../../modules/nextdns.nix
-    ../../modules/podman.nix
-    ../../modules/scheduler.nix
-    ../../modules/scripts.nix
-    ../../modules/ssh-tpm-agent.nix
-    ../../modules/syncthing.nix
-    ../../modules/user.nix
-    ../../modules/yubikey.nix
-    ../../modules/zram-swap.nix
     ../../profiles/desktop.nix
-    ../../users/talal.nix
     # keep-sorted end
   ];
 
   user = "talal";
+  users.users.${config.user}.extraGroups = [
+    "networkmanager"
+    "rtkit"
+  ];
 
   location.provider = "geoclue2";
   time.timeZone = "Europe/Berlin";
@@ -102,11 +94,8 @@
       settings.General.AddressRandomization = "network";
       settings.General.AddressRandomizationRange = "full";
     };
-
-    # Reference: https://docs.syncthing.net/users/firewall.html#local-firewall
-    firewall.allowedTCPPorts = [22000];
-    firewall.allowedUDPPorts = [22000 21027];
   };
+
   systemd.network.wait-online.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 

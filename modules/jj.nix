@@ -1,5 +1,14 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home-manager.users.${config.user} = {config, ...}: {
+    home.packages = with pkgs; [
+      jj-starship
+      watchman # for jj fsmonitor
+    ];
+
     sops.secrets = {
       "jj-scopes" = {
         sopsFile = ../secrets/vcs.yaml;

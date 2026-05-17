@@ -1,11 +1,67 @@
 {
-  inputs,
   config,
   lib,
   pkgs,
   ...
 }: {
+  # keep-sorted start block=yes newline_separated=yes prefix_order=environment,services,programs,home-manager
+  environment.systemPackages =
+    (with pkgs; [
+      # keep-sorted start prefix_order=unstable
+      unstable.amd-debug-tools
+      unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
+      choose
+      exiftool
+      ffmpeg-full
+      glow
+      hexyl
+      hunspell
+      hunspellDicts.de_DE
+      hunspellDicts.en_GB-ize
+      hyperfine
+      poppler-utils # for yazi
+      scc
+      scooter
+      watchexec
+      wl-screenrec
+      xdg-utils
+      # keep-sorted end
+    ])
+    ++ (with pkgs.unstable; [
+      # ══════════ Dev ═════════
+      # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
+      # For everything else, use devenv.
+
+      # keep-sorted start
+      alejandra # nixfmt is yuck, alejandra is 👌
+      bash-language-server
+      devenv
+      exercism
+      just-lsp
+      keep-sorted
+      marksman # Markdown LSP
+      mdformat
+      nixd
+      prettier # JSON formatting
+      shellcheck
+      shfmt
+      superhtml
+      taplo # TOML LSP
+      tinymist
+      treefmt
+      typst # I use Typst alot so installing globally instead of devenv
+      typstyle
+      uv # for Python scripts
+      vscode-css-languageserver
+      vscode-json-languageserver
+      yaml-language-server
+      yamlfmt
+      zizmor
+      # keep-sorted end
+    ]);
+
   home-manager.users.${config.user} = {config, ...}: {
+    # keep-sorted start block=yes newline_separated=yes prefix_order=home,sops
     home.shellAliases = {
       cdr = "cd $(git root)";
       cdtmp = "cd $(mktemp -d)";
@@ -21,22 +77,6 @@
       path = "${config.home.homeDirectory}/.ssh/config";
     };
 
-    dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-        gtk-theme = "adw-gtk3-dark";
-        icon-theme = "Adwaita";
-      };
-
-      "org/gnome/TextEditor" = {
-        custom-font = "monospace 13";
-        restore-session = false;
-        tab-width = inputs.home-manager.lib.hm.gvariant.mkUint32 4;
-        use-system-font = false;
-      };
-    };
-
-    # keep-sorted start block=yes newline_separated=yes prefix_order=services,programs
     programs.atuin = {
       enable = true;
       daemon.enable = true;
@@ -133,82 +173,6 @@
       '';
     };
 
-    programs.foot = {
-      enable = true;
-      settings = {
-        main = {
-          font = "TX\\-02:size=14, Symbols Nerd Font:size=14";
-          underline-offset = 3;
-          pad = "6x0 center";
-        };
-        mouse.hide-when-typing = "yes";
-        colors = {
-          alpha = 0.90;
-          # blur = true; # TODO: enable when foot is updated to latest version
-        };
-      };
-    };
-
-    # Using module instead of home.packages so that systemd/dbus services
-    # and shell integrations are set up automatically.
-    programs.ghostty = {
-      enable = true;
-      package = pkgs.unstable.ghostty;
-    };
-
-    programs.mpv = {
-      enable = true;
-      config = {
-        profile = "gpu-hq";
-        gpu-context = "wayland";
-        hwdec = "auto";
-        vo = "gpu-next";
-        ao = "pipewire";
-
-        osc = false;
-        hr-seek = true;
-        keep-open = true;
-        save-position-on-quit = true;
-        save-watch-history = true;
-        volume = 20;
-
-        slang = "en,eng,de,deu,ger";
-        alang = "ja,jp,jpn,de,deu,ger,en,eng"; # Onii-Chan!
-
-        ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
-        screenshot-dir = "~/Pictures/Screenshots/mpv";
-      };
-      scripts = with pkgs.mpvScripts; [mpris modernz thumbfast sponsorblock];
-      scriptOpts = {
-        thumbfast = {
-          spawn_first = true;
-          network = true;
-          hwdec = true;
-        };
-        modernz = {
-          window_top_bar = false;
-          osc_on_start = true;
-          showonpause = false;
-          hover_effect = "color";
-          hover_effect_color = "#8aadf4";
-          seekbarfg_color = "#8aadf4";
-          seekbarbg_color = "#1e2030";
-        };
-        ytdl_hook = {
-          ytdl_path = "${lib.getExe pkgs.unstable.yt-dlp}";
-        };
-      };
-      bindings = {
-        UP = "add volume 2";
-        DOWN = "add volume -2";
-        "Alt+LEFT" = "seek -60";
-        "Alt+RIGHT" = "seek 60";
-        V = "cycle secondary-sub-visibility";
-        "Ctrl+j" = "cycle secondary-sid";
-        "Ctrl+J" = "cycle secondary-sid down";
-      };
-    };
-
     programs.ripgrep = {
       enable = true;
       arguments = [
@@ -279,19 +243,6 @@
       };
     };
 
-    programs.thunderbird = {
-      enable = true;
-      profiles.default = {
-        isDefault = true;
-        settings = {
-          "app.update.auto" = false;
-          "mail.shell.checkDefaultClient" = false;
-          "mailnews.start_page.enabled" = false;
-          "privacy.donottrackheader.enabled" = true;
-        };
-      };
-    };
-
     programs.yazi = {
       enable = true;
       shellWrapperName = "y";
@@ -328,26 +279,11 @@
       };
     };
 
-    programs.zathura = {
-      enable = true;
-      options = {
-        adjust-open = "width";
-        font = "monospace normal 12";
-        incremental-search = true;
-        scroll-full-overlap = 0.01;
-        scroll-page-aware = true;
-        scroll-step = 100;
-        selection-notification = false;
-      };
-      mappings = {
-        y = ''exec "sh -c 'wl-paste --primary | wl-copy'"'';
-      };
-    };
-
     programs.zoxide = {
       enable = true;
       options = ["--cmd=f"];
     };
     # keep-sorted end
   };
+  # keep-sorted end
 }

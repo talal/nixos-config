@@ -7,18 +7,30 @@
 }: let
   niriPkg = pkgs.unstable.niri;
   vicinaePkg = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
-  # Reference: https://danklinux.com/docs/dankmaterialshell/overview#setting-default-web-browser
-  defaultBrowser = "dms-open.desktop";
 in {
   imports = [
     # keep-sorted start prefix_order=inputs
     inputs.dms.nixosModules.dank-material-shell
+    ../config
+    ../modules/base.nix
     ../modules/browser.nix
     ../modules/catppuccin.nix
+    ../modules/cli.nix
     ../modules/espanso.nix
     ../modules/fonts.nix
-    ../modules/xdg.nix
+    ../modules/git.nix
+    ../modules/gui.nix
+    ../modules/jj.nix
+    ../modules/kanata.nix
+    ../modules/nextdns.nix
+    ../modules/podman.nix
+    ../modules/printing.nix
+    ../modules/scheduler.nix
+    ../modules/scripts.nix
+    ../modules/ssh-tpm-agent.nix
+    ../modules/syncthing.nix
+    ../modules/yubikey.nix
+    ../modules/zram-swap.nix
     # keep-sorted end
   ];
 
@@ -93,100 +105,13 @@ in {
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };
 
-  environment.systemPackages =
-    (with pkgs; [
-      # ══════════ Applications ══════════
-      # keep-sorted start prefix_order=unstable
-      unstable.bitwarden-desktop
-      unstable.discord
-      unstable.ente-desktop
-      unstable.obsidian
-      blanket
-      czkawka
-      gimp
-      gnome-calculator
-      gnome-text-editor
-      keepassxc
-      libreoffice-still
-      loupe
-      nautilus
-      papers
-      parabolic
-      pdfarranger
-      pika-backup
-      proton-authenticator
-      resources
-      signal-desktop
-      zeal
-      # keep-sorted end
-
-      # ══════════ Utilities ══════════
-      # keep-sorted start prefix_order=unstable
-      unstable.amd-debug-tools
-      unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
-      adw-gtk3 # GTK theme
-      adwaita-icon-theme
-      apple-cursor
-      choose
-      exiftool
-      ffmpeg-full
-      git-cliff
-      git-filter-repo
-      glow
-      hexyl
-      hunspell
-      hunspellDicts.de_DE
-      hunspellDicts.en_GB-ize
-      hyperfine
-      poppler-utils # for yazi
-      scc
-      scooter
-      vicinaePkg
-      watchexec
-      wl-screenrec
-      xdg-utils
-      xwayland-satellite # for niri xwayland compatibility
-      # keep-sorted end
-    ])
-    ++ (with pkgs.unstable; [
-      # ══════════ Dev ═════════
-      # keep-sorted start
-      devenv
-      exercism
-      jj-starship
-      watchman # for jj fsmonitor
-      yaak
-      zed-editor
-      # keep-sorted end
-
-      # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
-      # For everything else, use devenv.
-
-      # keep-sorted start
-      alejandra # nixfmt is yuck, alejandra is 👌
-      bash-language-server
-      just-lsp
-      keep-sorted
-      marksman # Markdown LSP
-      mdformat
-      nixd
-      prettier # JSON formatting
-      shellcheck
-      shfmt
-      superhtml
-      taplo # TOML LSP
-      tinymist
-      treefmt
-      typst # I use Typst alot so installing globally instead of devenv
-      typstyle
-      uv # for Python scripts
-      vscode-css-languageserver
-      vscode-json-languageserver
-      yaml-language-server
-      yamlfmt
-      zizmor
-      # keep-sorted end
-    ]);
+  environment.systemPackages = with pkgs; [
+    adw-gtk3 # GTK theme
+    adwaita-icon-theme
+    apple-cursor
+    vicinaePkg
+    xwayland-satellite # for niri xwayland compatibility
+  ];
 
   services = {
     # keep-sorted start
@@ -206,27 +131,10 @@ in {
   };
 
   home-manager.users.${config.user} = {
-    xdg.terminal-exec = {
-      enable = true;
-      settings.default = [
-        "com.mitchellh.ghostty.desktop"
-        "foot.desktop"
-      ];
-    };
-
-    # Using home-manager module instead of NixOS because of the convenience that
-    # xdg.mimeApps.defaultApplicationPackages offers.
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus papers];
-      defaultApplications = {
-        "text/html" = defaultBrowser;
-        "text/markdown" = "org.gnome.TextEditor.desktop";
-        "text/plain" = "org.gnome.TextEditor.desktop";
-        "x-scheme-handler/ente" = "ente.desktop";
-        "x-scheme-handler/http" = defaultBrowser;
-        "x-scheme-handler/https" = defaultBrowser;
-      };
+    dconf.settings."org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "adw-gtk3-dark";
+      icon-theme = "Adwaita";
     };
   };
   # keep-sorted end

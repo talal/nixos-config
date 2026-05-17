@@ -18,7 +18,7 @@
   };
 
   config = {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,environment,services,programs,home-manager
+    # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,users,environment,services,programs,home-manager
     system.activationScripts.activation-diff = {
       supportsDryActivation = true;
       text = ''${lib.getExe pkgs.dix} /run/current-system "$systemConfig"'';
@@ -67,6 +67,14 @@
       # Garnix Cache
       substituters = ["https://cache.garnix.io"]; # cache.nixos.org is added by default
       trusted-public-keys = ["cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="];
+    };
+
+    users.users.${config.user} = {
+      isNormalUser = true;
+      uid = 1000; # make uid predictable
+      home = "/home/${config.user}";
+      initialPassword = "CHANGEME";
+      extraGroups = ["wheel"];
     };
 
     environment.localBinInPath = true;
@@ -120,6 +128,9 @@
 
         # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
         home.stateVersion = "25.05";
+
+        home.username = config.user;
+        home.homeDirectory = "/home/${config.user}";
 
         sops = {
           defaultSopsFile = ../secrets/secrets.yaml;
