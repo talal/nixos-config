@@ -127,13 +127,13 @@ binds {
 
     Mod+1 { focus-workspace "obsidian"; }
     Mod+2 { focus-workspace "remnote"; }
-    // Mod+3 { focus-workspace 3; }
-    // Mod+4 { focus-workspace 4; }
-    // Mod+5 { focus-workspace 5; }
-    // Mod+6 { focus-workspace 6; }
-    // Mod+7 { focus-workspace 7; }
-    // Mod+8 { focus-workspace 8; }
-    // Mod+9 { focus-workspace 9; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
 
     // Move
     Mod+Shift+Page_Down { move-workspace-down; }
@@ -177,4 +177,14 @@ binds {
     Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    // Move workspace to monitor
+    Mod+Shift+Alt+Left  { move-workspace-to-monitor-left; }
+    Mod+Shift+Alt+Down  { move-workspace-to-monitor-down; }
+    Mod+Shift+Alt+Up    { move-workspace-to-monitor-up; }
+    Mod+Shift+Alt+Right { move-workspace-to-monitor-right; }
+    Mod+Shift+Alt+H     { move-workspace-to-monitor-left; }
+    Mod+Shift+Alt+J     { move-workspace-to-monitor-down; }
+    Mod+Shift+Alt+K     { move-workspace-to-monitor-up; }
+    Mod+Shift+Alt+L     { move-workspace-to-monitor-right; }
 }
