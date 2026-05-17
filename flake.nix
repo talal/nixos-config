@@ -1,5 +1,5 @@
 {
-  description = "Talal's NixOS configuration";
+  description = "Talal's NixOS configurations";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
@@ -54,17 +54,29 @@
         };
       })
     ];
+
+    mkHost = {
+      hostname,
+      user ? "talal",
+    }:
+      inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          {
+            # Apply overlays first so that they're available globally.
+            nixpkgs.overlays = overlays;
+
+            # Set config.user. See ./modules/base.nix for more info.
+            inherit user;
+          }
+          ./hosts/${hostname}
+        ];
+      };
   in {
     formatter.${system} = treefmtEval.config.build.wrapper;
     checks.${system}.formatting = treefmtEval.config.build.check self;
-
-    nixosConfigurations.thinkpad = inputs.nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        # Apply overlays first so that they're available globally.
-        {nixpkgs.overlays = overlays;}
-        ./hosts/thinkpad-e16-g2
-      ];
+    nixosConfigurations = {
+      thinkpad = mkHost {hostname = "thinkpad-e16-g2";};
     };
   };
 }

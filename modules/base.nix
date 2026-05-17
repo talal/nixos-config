@@ -74,7 +74,11 @@
       uid = 1000; # make uid predictable
       home = "/home/${config.user}";
       initialPassword = "CHANGEME";
-      extraGroups = ["wheel"];
+      extraGroups =
+        ["wheel"]
+        ++ lib.optional config.networking.networkmanager.enable "networkmanager"
+        # Some apps may need to adjust audio priority at runtime
+        ++ lib.optional config.security.rtkit.enable "rtkit";
     };
 
     environment.localBinInPath = true;

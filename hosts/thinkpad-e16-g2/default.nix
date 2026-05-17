@@ -6,12 +6,6 @@
     # keep-sorted end
   ];
 
-  user = "talal";
-  users.users.talal.extraGroups = [
-    "networkmanager"
-    "rtkit"
-  ];
-
   location.provider = "geoclue2";
   time.timeZone = "Europe/Berlin";
 
