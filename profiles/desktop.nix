@@ -6,7 +6,7 @@
   ...
 }: let
   niriPkg = pkgs.unstable.niri;
-  vicinaePkg = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  vicinaePkg = pkgs.unstable.vicinae;
 in {
   imports = [
     # keep-sorted start prefix_order=inputs
