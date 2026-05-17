@@ -5,6 +5,7 @@
 }: {
   home-manager.users.${config.user} = {config, ...}: {
     home.packages = with pkgs; [
+      git
       git-cliff
       git-filter-repo
     ];

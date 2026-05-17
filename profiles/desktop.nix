@@ -106,11 +106,15 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    # keep-sorted start
     adw-gtk3 # GTK theme
     adwaita-icon-theme
     apple-cursor
     vicinaePkg
+    wl-screenrec
+    xdg-utils
     xwayland-satellite # for niri xwayland compatibility
+    # keep-sorted end
   ];
 
   services = {

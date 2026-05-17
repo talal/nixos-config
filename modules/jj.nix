@@ -4,7 +4,8 @@
   ...
 }: {
   home-manager.users.${config.user} = {config, ...}: {
-    home.packages = with pkgs; [
+    home.packages = with pkgs.unstable; [
+      jujutsu
       jj-starship
       watchman # for jj fsmonitor
     ];

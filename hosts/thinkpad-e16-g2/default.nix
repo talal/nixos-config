@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # keep-sorted start prefix_order=inputs,./,,../../profiles,../../modules
     ./hardware-configuration.nix
@@ -11,7 +7,7 @@
   ];
 
   user = "talal";
-  users.users.${config.user}.extraGroups = [
+  users.users.talal.extraGroups = [
     "networkmanager"
     "rtkit"
   ];
@@ -148,4 +144,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05";
+
+  environment.systemPackages = with pkgs; [
+    unstable.amd-debug-tools
+  ];
 }

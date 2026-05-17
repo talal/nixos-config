@@ -8,23 +8,39 @@
   environment.systemPackages =
     (with pkgs; [
       # keep-sorted start prefix_order=unstable
-      unstable.amd-debug-tools
       unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
+      age
+      bat
       choose
+      difftastic
+      doggo
+      duf
+      dust
       exiftool
+      fd
       ffmpeg-full
+      fzf
       glow
+      helix
       hexyl
-      hunspell
-      hunspellDicts.de_DE
-      hunspellDicts.en_GB-ize
       hyperfine
+      jq
+      just
+      moor
+      p7zip
+      pciutils
       poppler-utils # for yazi
+      procs
+      ripgrep
       scc
       scooter
+      sd
+      sops
+      trash-cli
+      tree
+      usbutils
       watchexec
-      wl-screenrec
-      xdg-utils
+      wl-clipboard
       # keep-sorted end
     ])
     ++ (with pkgs.unstable; [

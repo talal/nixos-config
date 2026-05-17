@@ -79,35 +79,6 @@
 
     environment.localBinInPath = true;
 
-    environment.systemPackages = with pkgs; [
-      # keep-sorted start prefix_order=unstable
-      unstable.jujutsu
-      age
-      bat
-      difftastic
-      doggo
-      duf
-      dust
-      fd
-      fzf
-      git
-      helix
-      jq
-      just
-      moor
-      p7zip
-      pciutils
-      procs
-      ripgrep
-      sd
-      sops
-      trash-cli
-      tree
-      usbutils
-      wl-clipboard
-      # keep-sorted end
-    ];
-
     environment.variables = {
       EDITOR = "hx";
       VISUAL = "hx";

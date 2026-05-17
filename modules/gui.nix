@@ -22,6 +22,9 @@ in {
     gimp
     gnome-calculator
     gnome-text-editor
+    hunspell # for firefox, thunderbird, and libreoffice
+    hunspellDicts.de_DE
+    hunspellDicts.en_GB-ize
     keepassxc
     libreoffice-still
     loupe
