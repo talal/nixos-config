@@ -30,7 +30,7 @@ window-rule { // Block: passwords (bitwarden browser extension)
     block-out-from "screen-capture"
 }
 
-window-rule { // Float: DMS windows
+window-rule { // Float: dms windows
     match app-id=r#"org.quickshell$"#
     match app-id=r#"com.danklinux.dms$"#
     open-floating true
@@ -62,18 +62,12 @@ window-rule { // Media
 window-rule { // Productivity: apps that occupy their own workspace and are maximized to edges
     // Web browsers
     match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
-    // Notes
-    match app-id=r#"(?i)(obsidian|remnote)"#
+
     // Zed
     match app-id="dev.zed.Zed"
     exclude app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
 
     open-maximized-to-edges true
-}
-
-window-rule { // App: GIMP
-    match app-id="^gimp" title="^GIMP Startup$"
-    open-focused false
 }
 
 window-rule { // App: calculator
@@ -87,6 +81,23 @@ window-rule { // App: file manager
     open-floating true
     default-column-width  { proportion 0.55; }
     default-window-height { proportion 0.6;  }
+}
+
+window-rule { // App: gimp
+    match app-id="^gimp" title="^GIMP Startup$"
+    open-focused false
+}
+
+window-rule { // App: obsidian
+    match app-id=r#"(?i)(obsidian)"#
+    open-on-workspace "obsidian"
+    open-maximized-to-edges true
+}
+
+window-rule { // App: remnote
+    match app-id=r#"(?i)(remnote)"#
+    open-on-workspace "remnote"
+    open-maximized-to-edges true
 }
 
 window-rule { // App: resource monitors
