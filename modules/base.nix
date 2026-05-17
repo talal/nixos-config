@@ -74,7 +74,7 @@
       uid = 1000; # make uid predictable
       description = "Muhammad Talal Anwar";
       isNormalUser = true;
-      initialPassword = "CHANGEME";
+      hashedPasswordFile = config.sops.secrets.user_password.path;
       extraGroups =
         ["wheel"]
         ++ lib.optional config.networking.networkmanager.enable "networkmanager"
@@ -120,6 +120,8 @@
       defaultSopsFile = ../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
       age.keyFile = "/var/lib/sops-nix/key.txt"; # must have no password
+
+      secrets.user_password.neededForUsers = true;
     };
     # keep-sorted end
   };
