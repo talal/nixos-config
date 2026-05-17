@@ -13,6 +13,7 @@
   options = {
     user = lib.mkOption {
       type = lib.types.str;
+      default = "talal";
       description = "The primary user account name.";
     };
   };
@@ -70,9 +71,9 @@
     };
 
     users.users.${config.user} = {
-      isNormalUser = true;
       uid = 1000; # make uid predictable
-      home = "/home/${config.user}";
+      description = "Muhammad Talal Anwar";
+      isNormalUser = true;
       initialPassword = "CHANGEME";
       extraGroups =
         ["wheel"]
