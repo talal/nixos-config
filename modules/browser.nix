@@ -148,24 +148,6 @@ in {
 
       profiles.default = {
         isDefault = true;
-
-        # Hide native tabs, title bar, and sidebar header
-        userChrome = ''
-          #TabsToolbar {
-              visibility: collapse;
-          }
-          #titlebar {
-              visibility: collapse;
-          }
-          #sidebar-header {
-              visibility: collapse !important;
-          }
-          #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
-              #sidebar-header {
-              display: none;
-          }
-        '';
-
         extensions.force = true; # required when using settings
         settings = {
           # keep-sorted start

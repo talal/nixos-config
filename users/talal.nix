@@ -3,10 +3,13 @@
   lib,
   ...
 }: {
-  users.users.${config.user} = {
+  # This variable will become available in global NixOS config as `config.user`.
+  user = "talal";
+
+  users.users.talal = {
     isNormalUser = true;
     uid = 1000; # make uid predictable
-    home = "/home/${config.user}";
+    home = "/home/talal";
     initialPassword = "CHANGEME";
     extraGroups =
       ["wheel"]
@@ -15,8 +18,8 @@
       ++ lib.optional config.security.rtkit.enable "rtkit";
   };
 
-  home-manager.users.${config.user} = {osConfig, ...}: {
-    home.username = osConfig.user;
-    home.homeDirectory = "/home/${osConfig.user}";
+  home-manager.users.talal = {
+    home.username = "talal";
+    home.homeDirectory = "/home/talal";
   };
 }

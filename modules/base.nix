@@ -18,7 +18,7 @@
   };
 
   config = {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,services,programs,environment,home-manager
+    # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,environment,services,programs,home-manager
     system.activationScripts.activation-diff = {
       supportsDryActivation = true;
       text = ''${lib.getExe pkgs.dix} /run/current-system "$systemConfig"'';
@@ -69,10 +69,6 @@
       trusted-public-keys = ["cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="];
     };
 
-    # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
-    # Without this, simple things like 'cargo run' might crash on missing libs.
-    programs.nix-ld.enable = true;
-
     environment.localBinInPath = true;
 
     environment.systemPackages = with pkgs; [
@@ -109,6 +105,10 @@
       VISUAL = "hx";
     };
 
+    # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
+    # Without this, simple things like 'cargo run' might crash on missing libs.
+    programs.nix-ld.enable = true;
+
     home-manager = {
       extraSpecialArgs.inputs = inputs; # pass inputs to home-manager
       useGlobalPkgs = true;
@@ -124,7 +124,7 @@
         sops = {
           defaultSopsFile = ../secrets/secrets.yaml;
           defaultSopsFormat = "yaml";
-          age.keyFile = "${config.users.users.${config.user}.home}/.config/sops/age/keys.txt"; # must have no password
+          age.keyFile = "/home/${config.user}/.config/sops/age/keys.txt"; # must have no password
         };
       };
     };

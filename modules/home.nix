@@ -36,32 +36,7 @@
       };
     };
 
-    xdg.mimeApps = let
-      browser = "dms-open.desktop";
-    in {
-      enable = true;
-      defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus papers];
-      defaultApplications = {
-        "text/html" = browser;
-        "text/markdown" = "org.gnome.TextEditor.desktop";
-        "text/plain" = "org.gnome.TextEditor.desktop";
-        "x-scheme-handler/ente" = "ente.desktop";
-        "x-scheme-handler/http" = browser;
-        "x-scheme-handler/https" = browser;
-      };
-    };
-
-    xdg.terminal-exec = {
-      enable = true;
-      settings.default = [
-        "com.mitchellh.ghostty.desktop"
-        "foot.desktop"
-      ];
-    };
-
     # keep-sorted start block=yes newline_separated=yes prefix_order=services,programs
-    services.syncthing.enable = true;
-
     programs.atuin = {
       enable = true;
       daemon.enable = true;
@@ -363,12 +338,6 @@
         scroll-page-aware = true;
         scroll-step = 100;
         selection-notification = false;
-
-        # Tweak catpuccin theme for better readability.
-        recolor = false;
-        highlight-active-color = "rgba(245, 194, 231, 0.5)";
-        highlight-color = "rgba(183, 189, 248, 0.5)";
-        highlight-fg = "#24273a";
       };
       mappings = {
         y = ''exec "sh -c 'wl-paste --primary | wl-copy'"'';

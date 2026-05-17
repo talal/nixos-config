@@ -4,18 +4,21 @@
     ./hardware-configuration.nix
     ../../config
     ../../modules/base.nix
-    ../../modules/desktop
+    ../../modules/git.nix
     ../../modules/home.nix
+    ../../modules/jj.nix
     ../../modules/kanata.nix
     ../../modules/nextdns.nix
     ../../modules/podman.nix
     ../../modules/scheduler.nix
     ../../modules/scripts.nix
     ../../modules/ssh-tpm-agent.nix
+    ../../modules/syncthing.nix
     ../../modules/user.nix
-    ../../modules/vcs.nix
     ../../modules/yubikey.nix
     ../../modules/zram-swap.nix
+    ../../profiles/desktop.nix
+    ../../users/talal.nix
     # keep-sorted end
   ];
 

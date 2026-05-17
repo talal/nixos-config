@@ -6,14 +6,6 @@
   home-manager.users.${config.user} = {
     home.packages = with pkgs; [
       # keep-sorted start block=yes newline_separated=yes
-      (writeShellScriptBin "flatpak-list" ''
-        set -euo pipefail
-        flatpak list --app --columns=application | grep -vF \
-          -e 'Application ID' \
-          -e 'org.flatpak.Builder' \
-          -e 'org.flathub.flatpak-external-data-checker' | sort --unique
-      '')
-
       (writeShellScriptBin "flatpak-update" ''
         flatpak update -y
         flatpak uninstall -y --unused
