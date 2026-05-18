@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -74,6 +75,9 @@
       yamlfmt
       zizmor
       # keep-sorted end
+    ])
+    ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+      gemini-cli
     ]);
 
   home-manager.users.${config.user} = {config, ...}: {

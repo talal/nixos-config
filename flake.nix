@@ -1,6 +1,11 @@
 {
   description = "Talal's NixOS configurations";
 
+  nixConfig = {
+    extra-substituters = ["https://cache.numtide.com"];
+    extra-trusted-public-keys = ["niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -25,6 +30,10 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    # This flake is only built and tested against its pinned nixpkgs-unstable input.
+    # Don't set `nixpkgs.follows`.
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
