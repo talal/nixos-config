@@ -39,7 +39,7 @@
         gpg.format = "ssh";
         commit.gpgSign = true;
         tag.gpgSign = true;
-        url."git@github-talal:".insteadOf = ["git@github.com:" "https://github.com/"];
+        url."git@github-talal:".insteadOf = ["git@github.com:"];
         alias = {
           l = "log --graph --abbrev-commit --pretty='%C(bold yellow)%h%C(reset) %C(green)(%cr)%C(reset)%C(bold red)%d%C(reset) %s %C(blue)<%an>%C(reset)'";
 
