@@ -90,6 +90,8 @@
         ".stfolder/"
         "TODO.md"
         # AI
+        ".agents/"
+        ".gemini/"
         "AGENTS.md"
         "CLAUDE.md"
         "GEMINI.md"
