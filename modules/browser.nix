@@ -77,8 +77,6 @@ in {
     programs.firefox = {
       enable = true;
       languagePacks = ["en-GB" "de" "ur"];
-      nativeMessagingHosts = with pkgs; [ff2mpv-rust];
-
       policies = {
         # keep-sorted start block=yes
         AutofillAddressEnabled = false;
