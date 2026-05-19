@@ -2,13 +2,13 @@
   description = "Talal's NixOS configurations";
 
   nixConfig = {
-    extra-substituters = ["https://cache.numtide.com"];
+    extra-substituters = ["https://cache.numtide.com"]; # for numtide/llm-agents
     extra-trusted-public-keys = ["niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="];
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
+    nixpkgs-unstable.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 
     # keep-sorted start block=yes newline_separated=yes prefix_order=home-manager,sops-nix
     home-manager = {
