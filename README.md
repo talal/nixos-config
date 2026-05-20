@@ -58,7 +58,7 @@ reboot
 
 ## Credits
 
-Thanks to all these people who made their Nix configs public which I learned and borrowed from:
+Special thanks to all these people who made their Nix configs open-source which I learned and borrowed from:
 
 - [getchoo](https://github.com/getchoo/borealis)
 - [isabelroses](https://github.com/isabelroses/dotfiles)
