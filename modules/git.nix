@@ -91,6 +91,7 @@
         "TODO.md"
         # AI
         ".agents/"
+        ".antigravitycli/"
         ".gemini/"
         "AGENTS.md"
         "CLAUDE.md"
