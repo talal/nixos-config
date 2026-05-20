@@ -9,6 +9,7 @@
   environment.systemPackages =
     (with pkgs; [
       # keep-sorted start prefix_order=unstable
+      unstable.cachix
       unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
       age
       bat

@@ -65,9 +65,15 @@
       use-cgroups = true;
       warn-dirty = false;
 
-      # Garnix Cache
-      substituters = ["https://cache.garnix.io"]; # cache.nixos.org is added by default
-      trusted-public-keys = ["cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="];
+      # cache.nixos.org is included by default.
+      substituters = [
+        "https://cache.garnix.io"
+        "https://talal.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+        "talal.cachix.org-1:BHrhoYM/V2GMjBW7aqgQEt1KcPOebRBtq8wUagUwDiw="
+      ];
     };
 
     users.users.${config.user} = {
