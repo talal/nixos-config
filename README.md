@@ -55,3 +55,13 @@ nixos-install --flake .#thinkpad
 ```bash
 reboot
 ```
+
+## Credits
+
+Thanks to all these people who made their Nix configs public which I learned and borrowed from:
+
+- [getchoo](https://github.com/getchoo/borealis)
+- [isabelroses](https://github.com/isabelroses/dotfiles)
+- [max-baz](https://github.com/max-baz/dotfiles)
+- [notashelf](https://github.com/notashelf)
+- [pluie.me](https://tangled.org/pluie.me/flake)
