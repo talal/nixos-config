@@ -162,7 +162,7 @@ in {
     gnome-disks.enable = true;
   };
 
-  home-manager.users.${config.user} = _: {
+  home-manager.users.${config.user} = {
     # keep-sorted start block=yes newline_separated=yes prefix_order=xdg,dconf
     xdg.mimeApps = {
       enable = true;

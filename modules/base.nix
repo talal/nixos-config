@@ -76,7 +76,7 @@
       ];
     };
 
-    users.users.${config.user} = {
+    users.users.talal = {
       uid = 1000; # make uid predictable
       description = "Muhammad Talal Anwar";
       isNormalUser = true;
