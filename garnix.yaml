@@ -1,0 +1,5 @@
+builds:
+  # Define includes explicitly to prevent OOM errors.
+  include:
+    - "checks.x86_64-linux.*"
+    - "nixosConfigurations.thinkpad"
