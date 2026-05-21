@@ -8,6 +8,21 @@ on:
       - main
 permissions: {}
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31
+      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 #v17
+        with:
+          name: talal
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Check formatting
+        run: |
+          system=$(nix eval --raw --impure --expr builtins.currentSystem)
+          nix build -L .#checks."${system}".formatting
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,5 +34,3 @@ jobs:
         with:
           name: talal
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build
-        run: nix build -L .#nixosConfigurations.thinkpad.config.system.build.toplevel
