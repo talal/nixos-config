@@ -34,3 +34,5 @@ jobs:
         with:
           name: talal
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Build
+        run: nix build -L .#nixosConfigurations.thinkpad.config.system.build.toplevel
