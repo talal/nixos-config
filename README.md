@@ -63,5 +63,6 @@ Special thanks to all these people who made their Nix configs open-source which 
 - [getchoo](https://github.com/getchoo/borealis)
 - [isabelroses](https://github.com/isabelroses/dotfiles)
 - [max-baz](https://github.com/max-baz/dotfiles)
+- [Mic92](https://github.com/Mic92/dotfiles)
 - [notashelf](https://github.com/notashelf)
 - [pluie.me](https://tangled.org/pluie.me/flake)
