@@ -79,6 +79,7 @@
     ])
     ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       gemini-cli
+      pi
     ]);
 
   home-manager.users.${config.user} = {config, ...}: {
