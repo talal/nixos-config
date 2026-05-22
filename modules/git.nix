@@ -93,6 +93,7 @@
         ".agents/"
         ".antigravitycli/"
         ".gemini/"
+        ".pi/"
         "AGENTS.md"
         "CLAUDE.md"
         "GEMINI.md"
