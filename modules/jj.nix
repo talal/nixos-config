@@ -3,13 +3,13 @@
   pkgs,
   ...
 }: {
-  home-manager.users.${config.user} = {config, ...}: {
-    home.packages = with pkgs.unstable; [
-      jujutsu
-      jj-starship
-      watchman # for jj fsmonitor
-    ];
+  environment.systemPackages = with pkgs.unstable; [
+    jujutsu
+    jj-starship
+    watchman # for jj fsmonitor
+  ];
 
+  home-manager.users.${config.user} = {config, ...}: {
     sops.secrets = {
       "jj-scopes" = {
         sopsFile = ../secrets/vcs.yaml;
