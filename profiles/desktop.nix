@@ -122,6 +122,7 @@ in {
     czkawka
     gimp
     gnome-calculator
+    gnome-obfuscate
     gnome-text-editor
     hunspell # for firefox, thunderbird, and libreoffice
     hunspellDicts.de_DE
