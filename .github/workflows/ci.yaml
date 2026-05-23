@@ -35,4 +35,5 @@ jobs:
           name: talal
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Build
-        run: nix build -L .#nixosConfigurations.thinkpad.config.system.build.toplevel
+        # run: nix build -L .#nixosConfigurations.thinkpad.config.system.build.toplevel
+        run: nix run 'github:Mic92/nix-fast-build' -- --no-nom --skip-cached --retries=3 --flake '.#nixosConfigurations.thinkpad.config.system.build.toplevel'
