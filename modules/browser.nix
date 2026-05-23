@@ -22,12 +22,14 @@ in {
       # Common Chromium policies
       ExtensionInstallAllowlist = [
         "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+        "mdjildafknihdffpkfmmpnpoiajfjnjd" # Consent-O-Matic
+        "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for YouTube
         "khncfooichmfjbepaaaebmommgaepoid" # Unhook
         "cnjifjpddelmedmihgijeibhnjfabmlf" # Obsidian Web Clipper
         "ghbmnnjooekpmoecnnnilnnbdlolhkhi" # Google Docs Offline
         "jabopobgcpjmedljpbcaablpmlmfcogm" # WhatFont
-        # Ideally this should be defined in modules/catppuccin.nix and the list merged but
-        # unfortunately the extraOpts is of type lib.types.attrs 😔
+        # Ideally, this should be defined in modules/catppuccin.nix and the list merged but
+        # unfortunately programs.chromium.extraOpts is of type lib.types.attrs 😔
         "cmpdlhmnmjhihmcfnigoememnffkimlk" # Catppuccin Macchiato theme
       ];
       # keep-sorted start
