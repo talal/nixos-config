@@ -23,7 +23,6 @@
       fzf
       glow
       helix
-      hexyl
       hyperfine
       jq
       just

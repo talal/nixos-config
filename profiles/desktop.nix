@@ -113,6 +113,7 @@ in {
     unstable.discord
     unstable.ente-desktop
     unstable.obsidian
+    unstable.proton-authenticator
     unstable.yaak
     unstable.zed-editor
     adw-gtk3 # GTK theme
@@ -135,7 +136,6 @@ in {
     parabolic
     pdfarranger
     pika-backup
-    proton-authenticator
     resources
     vicinaePkg
     wl-screenrec
