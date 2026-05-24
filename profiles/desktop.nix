@@ -137,7 +137,6 @@ in {
     pika-backup
     proton-authenticator
     resources
-    signal-desktop
     vicinaePkg
     wl-screenrec
     xdg-utils

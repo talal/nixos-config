@@ -60,9 +60,9 @@ reboot
 
 Special thanks to all these people who made their Nix configs open-source which I learned and borrowed from:
 
-- [getchoo](https://github.com/getchoo/borealis)
-- [isabelroses](https://github.com/isabelroses/dotfiles)
 - [max-baz](https://github.com/max-baz/dotfiles)
-- [Mic92](https://github.com/Mic92/dotfiles)
-- [notashelf](https://github.com/notashelf)
+- [isabelroses](https://github.com/isabelroses/dotfiles)
 - [pluie.me](https://tangled.org/pluie.me/flake)
+- [Mic92](https://github.com/Mic92/dotfiles)
+- [getchoo](https://github.com/getchoo/borealis)
+- [notashelf](https://github.com/notashelf)
