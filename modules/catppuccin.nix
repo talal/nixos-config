@@ -1,8 +1,4 @@
-{
-  inputs,
-  config,
-  ...
-}: {
+{ inputs, config, ... }: {
   home-manager.users.${config.user} = {
     imports = [inputs.catppuccin.homeModules.catppuccin];
 
@@ -10,10 +6,14 @@
       enable = true; # enable globally
       flavor = "macchiato";
       accent = "blue";
-      eza.enable = false; # IFD
-      ghostty.enable = false; # use built-in theme
+
       bottom.enable = false; # IFD
+      eza.enable = false; # IFD (will use term colors)
+      firefox.enable = false; # IFD
+      fzf.enable = false; # IFD (vendored as env var)
+      ghostty.enable = false; # use built-in theme
       mpv.enable = false; # don't like
+      starship.enable = false; # IFD (will use term colors)
       thunderbird.profile = "default";
     };
 

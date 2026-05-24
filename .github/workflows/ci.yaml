@@ -19,10 +19,11 @@ jobs:
         with:
           name: talal
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Check formatting
+      - name: Check flake
         run: |
-          system=$(nix eval --raw --impure --expr builtins.currentSystem)
-          nix build -L .#checks."${system}".formatting
+          # system=$(nix eval --raw --impure --expr builtins.currentSystem)
+          # nix build -L .#checks."${system}".formatting
+          nix flake check --option allow-import-from-derivation false
   build:
     runs-on: ubuntu-latest
     steps:
