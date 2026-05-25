@@ -10,7 +10,6 @@
       "jj/conf.d/commit-template.toml" = {};
       "jj/config.toml" = {};
       "niri" = {recursive = true;};
-      "vicinae" = {recursive = true;};
       "yazi/keymap.toml" = {};
       "zed" = {recursive = true;};
     };

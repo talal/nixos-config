@@ -5,14 +5,9 @@
     nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     nixpkgs-unstable.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 
-    # keep-sorted start block=yes newline_separated=yes prefix_order=home-manager,sops-nix
+    # keep-sorted start block=yes newline_separated=yes prefix_order=home-manager
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,9 +21,19 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # This flake is only built and tested against its pinned nixpkgs-unstable input.
     # Don't set `nixpkgs.follows`.
     llm-agents.url = "github:numtide/llm-agents.nix";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";

@@ -6,7 +6,6 @@
   ...
 }: let
   niriPkg = pkgs.unstable.niri;
-  vicinaePkg = pkgs.unstable.vicinae;
 
   # Reference: https://danklinux.com/docs/dankmaterialshell/overview#setting-default-web-browser
   defaultBrowser = "dms-open.desktop";
@@ -31,6 +30,7 @@ in {
     ../modules/scripts.nix
     ../modules/ssh-tpm-agent.nix
     ../modules/syncthing.nix
+    ../modules/vicinae.nix
     ../modules/yubikey.nix
     ../modules/zram-swap.nix
     # keep-sorted end
@@ -51,21 +51,8 @@ in {
     };
     enableAudioWavelength = false;
     enableCalendarEvents = false;
-    enableClipboardPaste = false; # use Vicinae clipboard
+    enableClipboardPaste = false;
     enableDynamicTheming = false;
-  };
-
-  # ══════════ Launcher ══════════
-  users.users.${config.user}.extraGroups = ["input"];
-  services.udev.extraRules = ''
-    # Allows vicinae to create a virtual keyboard: required for paste support (the current user needs to be in the 'input' group)
-    KERNEL=="uinput", GROUP="input", MODE="0660", RUN+="${pkgs.acl}/bin/setfacl -m g:input:rw /dev/$name"
-  '';
-  security.wrappers.vicinae-input-server = {
-    source = "${vicinaePkg}/libexec/vicinae/vicinae-input-server";
-    capabilities = "cap_dac_override+ep";
-    owner = "root";
-    group = "root";
   };
 
   # ══════════ Login Manager ══════════
@@ -138,7 +125,6 @@ in {
     pdfarranger
     pika-backup
     resources
-    vicinaePkg
     wl-screenrec
     xdg-utils
     xwayland-satellite # for niri xwayland compatibility
