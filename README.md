@@ -84,8 +84,8 @@ SOPS_AGE_KEY_CMD="age-plugin-yubikey --identity" sops updatekeys secrets/**
 Special thanks to all these people who made their Nix configs open-source which I learned and borrowed from:
 
 - [max-baz](https://github.com/max-baz/dotfiles)
-- [isabelroses](https://github.com/isabelroses/dotfiles)
 - [pluie.me](https://tangled.org/pluie.me/flake)
+- [isabelroses](https://github.com/isabelroses/dotfiles)
 - [Mic92](https://github.com/Mic92/dotfiles)
 - [notashelf](https://github.com/notashelf)
 - [amaanq](https://github.com/amaanq/dotfiles)
