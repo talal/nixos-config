@@ -10,13 +10,7 @@ Boot into a live graphical NixOS image, ensure network connection works, open a 
 
 ```bash
 sudo -i
-```
-
-```bash
 nix-env -iA nixos.git
-```
-
-```bash
 git clone https://github.com/talal/nixos-config /tmp/nixos-config && cd /tmp/nixos-config
 ```
 
@@ -33,9 +27,6 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko/
 
 ```bash
 nixos-generate-config --root /mnt
-```
-
-```bash
 cp /mnt/etc/nixos/hardware-configuration.nix ./hosts/thinkpad-e16-g2/hardware-configuration.nix
 ```
 
@@ -56,13 +47,7 @@ chmod 600 /mnt/var/lib/sops-nix/key.txt
 
 ```bash
 git add --intent-to-add --all
-```
-
-```bash
 nixos-install --flake .#thinkpad
-```
-
-```bash
 reboot
 ```
 
