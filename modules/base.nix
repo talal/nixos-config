@@ -53,17 +53,18 @@
 
     nix.settings = {
       trusted-users = ["@wheel"];
+
       experimental-features = [
         "nix-command"
         "flakes"
-        "ca-derivations"
         "auto-allocate-uids"
         "cgroups"
       ];
-      # allow-import-from-derivation = false; # TODO: this breaks devenv
       auto-allocate-uids = true;
-      download-buffer-size = 268435456; # 256 MiB (default is 64 MiB)
       use-cgroups = true;
+
+      # allow-import-from-derivation = false; # TODO: this breaks devenv
+      download-buffer-size = 268435456; # 256 MiB (default is 64 MiB)
       warn-dirty = false;
 
       # cache.nixos.org is included by default.
