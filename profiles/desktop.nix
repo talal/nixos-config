@@ -31,6 +31,7 @@ in {
     ../modules/ssh-tpm-agent.nix
     ../modules/syncthing.nix
     ../modules/vicinae.nix
+    ../modules/yazi.nix
     ../modules/yubikey.nix
     ../modules/zram-swap.nix
     # keep-sorted end

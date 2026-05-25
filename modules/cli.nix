@@ -29,7 +29,6 @@
       moor
       p7zip
       pciutils
-      poppler-utils # for yazi
       procs
       ripgrep
       scc
@@ -262,32 +261,6 @@
           git-log = ["git log" "git show"];
         };
       };
-    };
-
-    programs.yazi = {
-      enable = true;
-      shellWrapperName = "y";
-      settings.mgr.show_hidden = true;
-      plugins = with pkgs; {
-        inherit (yaziPlugins) chmod full-border jump-to-char smart-enter toggle-pane;
-        folder-rules = writeTextDir "main.lua" ''
-          local function setup()
-            ps.sub("cd", function()
-              local cwd = cx.active.current.cwd
-              if cwd:ends_with("Downloads") then
-                ya.emit("sort", { "mtime", reverse = true, dir_first = false })
-              else
-                ya.emit("sort", { "alphabetical", reverse = false, dir_first = true })
-              end
-            end)
-          end
-          return { setup = setup }
-        '';
-      };
-      initLua = ''
-        require("full-border"):setup()
-        require("folder-rules"):setup()
-      '';
     };
 
     programs.yt-dlp = {
