@@ -1,17 +1,10 @@
-/**/themes
-
-# DankMaterialShell
 *dankcolors*
-/DankMaterialShell/*
-!/DankMaterialShell/settings.json
 
-# niri
+/**/themes
+!/helix/themes
+
 /niri/dms/*
 !/niri/dms/colors.kdl
 !/niri/dms/cursor.kdl
-
-!/helix/themes
-
-/jj/repos
 
 /zed/settings_backup.json

@@ -7,7 +7,6 @@
       "fish/conf.d/abbreviations.fish" = {};
       "ghostty" = {recursive = true;};
       "helix" = {recursive = true;};
-      "jj/conf.d/commit-template.toml" = {};
       "jj/config.toml" = {};
       "niri" = {recursive = true;};
       "zed" = {recursive = true;};
