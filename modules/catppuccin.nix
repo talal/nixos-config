@@ -12,12 +12,12 @@
       accent = "blue";
 
       bottom.enable = false; # IFD
-      eza.enable = false; # IFD (will use term colors)
+      eza.enable = false; # IFD (can use term colors)
       firefox.enable = false; # IFD
       fzf.enable = false; # IFD (vendored as env var)
       ghostty.enable = false; # use built-in theme
-      mpv.enable = false; # don't like
-      starship.enable = false; # IFD (will use term colors)
+      mpv.enable = false; # don't need
+      starship.enable = false; # IFD (can use term colors)
       thunderbird.profile = "default";
     };
 

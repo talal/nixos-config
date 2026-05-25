@@ -64,8 +64,15 @@
       use-cgroups = true;
 
       # allow-import-from-derivation = false; # TODO: this breaks devenv
-      download-buffer-size = 268435456; # 256 MiB (default is 64 MiB)
+      accept-flake-config = false; # don't accept other people's nix config
+      http-connections = 50; # (default: 25)
+      keep-going = true; #  continue building derivations even if one fails
+      log-lines = 30; # (default: 10)
       warn-dirty = false;
+
+      # for direnv GC roots
+      keep-derivations = true;
+      keep-outputs = true;
 
       # cache.nixos.org is included by default.
       substituters = [

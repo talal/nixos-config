@@ -18,7 +18,7 @@
         line-numbers = true;
         navigate = true; # use n and N to move between diff sections
         hyperlinks = true;
-        hyperlinks-file-link-format = "zed://file/{path}:{line}";
+        hyperlinks-file-link-format = "file://{path}:{line}";
       };
     };
 
@@ -89,6 +89,7 @@
         ".DS_Store"
         ".stfolder/"
         "TODO.md"
+
         # AI
         ".agents/"
         ".antigravitycli/"
@@ -98,20 +99,24 @@
         "CLAUDE.md"
         "GEMINI.md"
         "llms.txt"
+
         # Dev Tools
         ".env*"
         "!.envrc"
-        ".direnv"
+        ".direnv/"
         ".jj/"
         ".pre-commit-config.yaml"
         ".ruff_cache/"
+
         # Editors
         ".helix/"
         ".zed/"
+
         # Devenv
         ".devenv*"
         "devenv.local.nix"
         "devenv.local.yaml"
+
         # Nix
         ".Trash*"
         "result"

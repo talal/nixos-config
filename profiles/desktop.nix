@@ -22,7 +22,6 @@ in {
     ../modules/fonts.nix
     ../modules/git.nix
     ../modules/jj.nix
-    ../modules/kanata.nix
     ../modules/nextdns.nix
     ../modules/podman.nix
     ../modules/printing.nix
@@ -31,7 +30,6 @@ in {
     ../modules/ssh-tpm-agent.nix
     ../modules/syncthing.nix
     ../modules/vicinae.nix
-    ../modules/yazi.nix
     ../modules/yubikey.nix
     ../modules/zram-swap.nix
     # keep-sorted end
@@ -61,8 +59,16 @@ in {
     enable = true;
     useTextGreeter = true;
     settings.default_session = {
-      command = ''${lib.getExe pkgs.tuigreet} --remember --time --asterisks --cmd ${lib.getExe' niriPkg "niri-session"}'';
       user = "greeter";
+      command = lib.concatStringsSep " " [
+        "${lib.getExe pkgs.tuigreet}"
+        "--time"
+        "--remember"
+        "--remember-user-session"
+        "--asterisks"
+        "--sessions"
+        "${pkgs.niri}/share/wayland-sessions"
+      ];
     };
   };
   security.pam.services = {
@@ -179,6 +185,7 @@ in {
         gtk-theme = "adw-gtk3-dark";
         icon-theme = "Adwaita";
       };
+
       "org/gnome/TextEditor" = {
         custom-font = "monospace 13";
         restore-session = false;
@@ -213,14 +220,19 @@ in {
       enable = true;
       config = {
         profile = "gpu-hq";
-        gpu-context = "wayland";
+        gpu-api = "vulkan";
+        gpu-context = "waylandvk";
         hwdec = "auto";
-        vo = "gpu-next";
+        vo = "gpu-next"; # https://github.com/mpv-player/mpv/wiki/GPU-Next-vs-GPU
         ao = "pipewire";
 
+        border = false;
         osc = false;
+        osd-bar = false;
+
         hr-seek = true;
         keep-open = true;
+        reset-on-next-file = "video-zoom,panscan,video-unscaled,video-rotate,video-align-x,video-align-y";
         save-position-on-quit = true;
         save-watch-history = true;
         volume = 20;
@@ -231,7 +243,7 @@ in {
         ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
         screenshot-dir = "~/Pictures/Screenshots/mpv";
       };
-      scripts = with pkgs.mpvScripts; [mpris modernz thumbfast sponsorblock];
+      scripts = with pkgs.mpvScripts; [modernz thumbfast mpris sponsorblock];
       scriptOpts = {
         thumbfast = {
           spawn_first = true;
@@ -243,10 +255,11 @@ in {
           osc_on_start = true;
           showonpause = false;
           window_top_bar = false;
+
           hover_effect = "color";
           hover_effect_color = "#8aadf4";
-          seekbarfg_color = "#8aadf4";
           seekbarbg_color = "#1e2030";
+          seekbarfg_color = "#8aadf4";
         };
         ytdl_hook = {
           ytdl_path = "${lib.getExe pkgs.unstable.yt-dlp}";

@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../profiles/desktop.nix
     ../../modules/chrony.nix
+    ../../modules/kanata.nix
     # keep-sorted end
   ];
 
@@ -103,6 +104,10 @@
   # ══════════ Input ══════════
   services.fprintd.enable = true; # fingerprint reader
   services.libinput.enable = true; # touchpad
+  services.kanata = {
+    enable = true;
+    devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"]; # thinkpad keyboard
+  };
 
   # ══════════ Power ══════════
   # In my current setup, I use laptop as main display and external monitor as secondary so when

@@ -1,8 +1,27 @@
 {
-  services.kanata = {
-    enable = true;
-    keyboards.default = {
-      devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"]; # thinkpad keyboard
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.services.kanata;
+in {
+  options.services.kanata.devices = lib.mkOption {
+    type = lib.types.listOf lib.types.str;
+    default = [];
+    example = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];
+    description = "Input devices to attach to services.kanata.keyboards.default.";
+  };
+
+  config = lib.mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = cfg.devices != [];
+        message = "services.kanata.devices must not be empty when services.kanata.enable = true.";
+      }
+    ];
+
+    services.kanata.keyboards.default = {
+      inherit (cfg) devices;
       extraDefCfg = ''
         process-unmapped-keys yes
         concurrent-tap-hold yes

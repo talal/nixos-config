@@ -29,6 +29,7 @@
       moor
       p7zip
       pciutils
+      poppler-utils # for yazi
       procs
       ripgrep
       scc
@@ -104,14 +105,12 @@
       settings = {
         update_check = false;
         enter_accept = false;
+        ai.enable = false;
       };
     };
 
     programs.bash = {
       enable = true;
-      initExtra = ''
-        export PS1="\n\[\e[38;2;166;218;149m\]\u@\h\[\e[38;2;202;211;245m\] in \[\e[38;2;138;173;244m\]\w\n\[\e[90m\] \[\e[0m\]"
-      '';
       shellAliases = {
         ".." = "cd ..";
         e = "hx";
@@ -150,6 +149,19 @@
         strict_env = true;
         warn_timeout = 0;
       };
+      # store direnv in cache and not per project
+      # Reference: https://github.com/direnv/direnv/wiki/Customizing-cache-location#hashed-directories
+      stdlib = ''
+        : ''${XDG_CACHE_HOME:=$HOME/.cache}
+        declare -A direnv_layout_dirs
+
+        direnv_layout_dir() {
+          echo "''${direnv_layout_dirs[$PWD]:=$(
+            echo -n "$XDG_CACHE_HOME"/direnv/layouts/
+            echo -n "$PWD" | sha1sum | cut -d ' ' -f 1
+          )}"
+        }
+      '';
     };
 
     programs.eza = {
@@ -196,17 +208,18 @@
     programs.ripgrep = {
       enable = true;
       arguments = [
-        "--smart-case" # case insensitive if pattern lowercase, otherwise case sensitive
-        "--hidden" # search hidden files and directories
         "--glob=!.git" # exclude .git dir, this is needed because of --hidden
         "--glob=!.jj" # see comment above
-        "--hyperlink-format=zed://file/{path}:{line}:{column}"
+        "--hidden" # search hidden files and directories
+        "--hyperlink-format=file://{path}:{line}:{column}"
+        "--max-columns-preview"
+        "--max-columns=120"
+        "--smart-case" # case insensitive if pattern lowercase, otherwise case sensitive
       ];
     };
 
     programs.starship = {
       enable = true;
-      enableBashIntegration = false;
       enableTransience = true;
       settings = {
         format = lib.concatStrings [
@@ -220,6 +233,8 @@
           "$python"
           "$sudo"
           "$cmd_duration"
+          "$fill" # fill needed to push $shell to the right side of prompt line
+          "$shell"
           "$line_break"
           "$jobs"
           "$battery"
@@ -237,11 +252,18 @@
           style = "bold lavender";
         };
         direnv.disabled = false;
-        python.format = "[(venv $virtualenv)](bold peach) ";
         custom.vcs = {
           when = "jj-starship detect";
           shell = ["jj-starship" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
           format = "$output ";
+        };
+        python.format = "[(venv $virtualenv)](bold peach) ";
+        fill.symbol = " ";
+        shell = {
+          disabled = false;
+          format = " [$indicator](bold white)";
+          bash_indicator = "bash";
+          fish_indicator = "";
         };
       };
     };
@@ -260,6 +282,82 @@
           git-diff = ["git add" "git restore"];
           git-log = ["git log" "git show"];
         };
+      };
+    };
+
+    programs.yazi = {
+      enable = true;
+      shellWrapperName = "y";
+      settings.mgr.show_hidden = true;
+
+      plugins = with pkgs; {
+        inherit (yaziPlugins) chmod full-border jump-to-char smart-enter toggle-pane;
+        folder-rules = writeTextDir "main.lua" ''
+          local function setup()
+            ps.sub("cd", function()
+              local cwd = cx.active.current.cwd
+              if cwd:ends_with("Downloads") then
+                ya.emit("sort", { "mtime", reverse = true, dir_first = false })
+              else
+                ya.emit("sort", { "alphabetical", reverse = false, dir_first = true })
+              end
+            end)
+          end
+          return { setup = setup }
+        '';
+      };
+
+      initLua = ''
+        require("full-border"):setup()
+        require("folder-rules"):setup()
+      '';
+
+      keymap.mgr = {
+        prepend_keymap = [
+          {
+            on = "f";
+            run = "plugin jump-to-char";
+            desc = "Jump to char";
+          }
+          {
+            on = "l";
+            run = "plugin smart-enter";
+            desc = "Enter the child directory, or open the file";
+          }
+          {
+            on = ["c" "m"];
+            run = "plugin chmod";
+            desc = "chmod on selected files";
+          }
+          {
+            on = "<C-1>";
+            run = "plugin toggle-pane max-parent";
+            desc = "Maximize or restore the parent pane";
+          }
+          {
+            on = "<C-2>";
+            run = "plugin toggle-pane max-current";
+            desc = "Maximize or restore the current pane";
+          }
+          {
+            on = "<C-3>";
+            run = "plugin toggle-pane max-preview";
+            desc = "Maximize or restore the preview pane";
+          }
+        ];
+
+        append_keymap = [
+          {
+            on = ["g" "."];
+            run = "cd ~/.dotfiles";
+            desc = "Go ~/.dotfiles";
+          }
+          {
+            on = ["g" "r"];
+            run = ''shell -- ya emit cd "$(git root)"'';
+            desc = "cd back to the root of the current Git repository";
+          }
+        ];
       };
     };
 

@@ -8,12 +8,14 @@
     package = pkgs.espanso-wayland;
   };
 
-  home-manager.users.${config.user} = {config, ...}: {
-    xdg.configFile."espanso/config/default.yml".text = ''
+  hjem.users.${config.user} = {
+    xdg.config.files."espanso/config/default.yml".text = ''
       search_shortcut: 'off'
       show_notifications: false
     '';
+  };
 
+  home-manager.users.${config.user} = {config, ...}: {
     sops.secrets."espanso-matches.yaml" = {
       sopsFile = ../secrets/espanso-matches.yaml;
       format = "yaml";
