@@ -88,4 +88,5 @@ Special thanks to all these people who made their Nix configs open-source which 
 - [pluie.me](https://tangled.org/pluie.me/flake)
 - [Mic92](https://github.com/Mic92/dotfiles)
 - [notashelf](https://github.com/notashelf)
+- [amaanq](https://github.com/amaanq/dotfiles)
 - [getchoo](https://github.com/getchoo/borealis)

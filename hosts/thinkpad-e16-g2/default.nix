@@ -3,6 +3,7 @@
     # keep-sorted start prefix_order=inputs,./,,../../profiles,../../modules
     ./hardware-configuration.nix
     ../../profiles/desktop.nix
+    ../../modules/chrony.nix
     # keep-sorted end
   ];
 
