@@ -51,7 +51,8 @@ in {
     };
     enableAudioWavelength = false;
     enableCalendarEvents = false;
-    enableClipboardPaste = false;
+    enableClipboardPaste = false; # use Vicinae clipboard
+    enableDynamicTheming = false;
   };
 
   # ══════════ Launcher ══════════
