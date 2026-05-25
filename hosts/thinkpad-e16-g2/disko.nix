@@ -1,4 +1,8 @@
-# Reference: https://github.com/nix-community/disko/blob/master/example/luks-btrfs-subvolumes.nix
+# This configuration is derived from the example provided by disko repository.
+#
+# Difference from original example:
+#  curl -O https://raw.githubusercontent.com/nix-community/disko/refs/heads/master/example/luks-btrfs-subvolumes.nix && alejandra luks-btrfs-subvolumes.nix && difft --display=inline luks-btrfs-subvolumes.nix disko.nix
+#
 # Usage: nix run github:nix-community/disko/latest ... --arg device '"/dev/nvme0n1"'
 {device ? throw "Set this to your disk device, e.g. /dev/sda", ...}: {
   disko.devices = {
@@ -25,13 +29,9 @@
               content = {
                 type = "luks";
                 name = "crypted";
-                # disable settings.keyFile if you want to use interactive password entry
-                #passwordFile = "/tmp/secret.key"; # Interactive
                 settings = {
                   allowDiscards = true;
-                  # keyFile = "/tmp/secret.key";
                 };
-                # additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
                 content = {
                   type = "btrfs";
                   extraArgs = ["-f"];
@@ -57,10 +57,6 @@
                         "noatime"
                       ];
                     };
-                    # "/swap" = {
-                    #   mountpoint = "/.swapvol";
-                    #   swap.swapfile.size = "20M";
-                    # };
                   };
                 };
               };

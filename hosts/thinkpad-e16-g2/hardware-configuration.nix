@@ -17,8 +17,10 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  # TODO: recreate LUKS with --sector-size 4096 to match NVMe native sector size
-  # current 512-byte sectors cause read-modify-write amplification
+  # NOTE: Verify namespace LBA formats with:
+  #   sudo nix shell nixpkgs#nvme-cli -c nvme id-ns -H /dev/nvme0n1
+  # For the current Kioxia namespace, 512-byte LBA is in use and the 4096-byte
+  # format is reported as degraded, so LUKS sector size 512 is ideal on this host.
   boot.initrd.luks.devices."crypted" = {
     device = "/dev/disk/by-uuid/764f542a-fe5d-4015-aabd-10d0b301b20f";
     allowDiscards = true;
