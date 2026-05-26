@@ -21,41 +21,38 @@ in {
     group = "root";
   };
 
-  hjem.users.${config.user} = {
-    xdg.config.files."vicinae/user_settings.json" = {
-      generator = lib.generators.toJSON {};
-      value = {
-        pop_to_root_on_close = true;
-        font.normal = {
-          family = "Inter";
-          size = 13;
+  home-manager.users.${config.user} = {
+    xdg.configFile."vicinae/user_settings.json".text = lib.generators.toJSON {} {
+      pop_to_root_on_close = true;
+      font.normal = {
+        family = "Inter";
+        size = 13;
+      };
+      theme.dark = {
+        name = "catppuccin-macchiato";
+        icon_theme = "Adwaita";
+      };
+      launcher_window.opacity = 0.9;
+      favorites = ["applications:org.gnome.Calculator"];
+      providers = {
+        browser-extension.enabled = false;
+        clipboard.preferences = {
+          monitoring = true;
+          encryption = true;
+          ignorePasswords = true;
         };
-        theme.dark = {
-          name = "catppuccin-macchiato";
-          icon_theme = "Adwaita";
+        core.enabled = false;
+        developer.enabled = false;
+        font = {
+          enabled = true;
+          entrypoints.browse.alias = "f";
         };
-        launcher_window.opacity = 0.9;
-        favorites = ["applications:org.gnome.Calculator"];
-        providers = {
-          browser-extension.enabled = false;
-          clipboard.preferences = {
-            monitoring = true;
-            encryption = true;
-            ignorePasswords = true;
-          };
-          core.enabled = false;
-          developer.enabled = false;
-          font = {
-            enabled = true;
-            entrypoints.browse.alias = "f";
-          };
-          manage-shortcuts.enabled = false;
-          power.enabled = false;
-          raycast-compat.enabled = false;
-          scripts.enabled = false;
-          system.enabled = false;
-          theme.enabled = false;
-        };
+        manage-shortcuts.enabled = false;
+        power.enabled = false;
+        raycast-compat.enabled = false;
+        scripts.enabled = false;
+        system.enabled = false;
+        theme.enabled = false;
       };
     };
   };

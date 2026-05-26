@@ -12,18 +12,7 @@
   home-manager.users.${config.user} = {config, ...}: {
     xdg.configFile."jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/jj/config.toml";
 
-    sops.secrets = {
-      "jj-scopes" = {
-        sopsFile = ../secrets/vcs.yaml;
-        format = "yaml";
-        key = "jj-scopes";
-        path = "${config.home.homeDirectory}/.config/jj/conf.d/scopes.toml";
-      };
-    };
-  };
-
-  hjem.users.${config.user} = {
-    xdg.config.files."jj/conf.d/commit-template.toml".text = ''
+    xdg.configFile."jj/conf.d/commit-template.toml".text = ''
       [templates]
       draft_commit_description = ''''
       concat(
@@ -62,5 +51,14 @@
       "
       ''''
     '';
+
+    sops.secrets = {
+      "jj-scopes" = {
+        sopsFile = ../secrets/vcs.yaml;
+        format = "yaml";
+        key = "jj-scopes";
+        path = "${config.home.homeDirectory}/.config/jj/conf.d/scopes.toml";
+      };
+    };
   };
 }

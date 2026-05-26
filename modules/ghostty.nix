@@ -52,10 +52,8 @@
         ];
       };
     };
-  };
 
-  hjem.users.${config.user} = {
-    xdg.config.files."ghostty/tab-style.css".text = ''
+    xdg.configFile."ghostty/tab-style.css".text = ''
       /*
         debug: env GTK_DEBUG=interactive ghostty
         https://docs.gtk.org/gtk4/css-overview.html

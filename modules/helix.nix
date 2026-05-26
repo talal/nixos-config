@@ -17,18 +17,13 @@ in {
     VISUAL = "hx";
   };
 
-  hjem.users.${config.user} = {
-    xdg.config.files = {
+  home-manager.users.${config.user} = {config, ...}: {
+    xdg.configFile = {
       "helix/themes/catppuccin_macchiato_upstream.toml".source = "${themeSrc}/themes/default/catppuccin_macchiato.toml";
       "helix/themes/catppuccin_macchiato_transparent.toml".text = ''
         inherits = "catppuccin_macchiato_upstream"
         "ui.background" = {}
       '';
-    };
-  };
-
-  home-manager.users.${config.user} = {config, ...}: {
-    xdg.configFile = {
       "helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/helix/config.toml";
       "helix/languages.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/helix/languages.toml";
     };

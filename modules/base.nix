@@ -7,7 +7,6 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.hjem.nixosModules.default
     inputs.sops-nix.nixosModules.sops
   ];
 
@@ -127,12 +126,6 @@
           age.keyFile = "/home/${config.user}/.config/sops/age/keys.txt"; # must have no password
         };
       };
-    };
-
-    hjem.users.${config.user} = {
-      enable = true;
-      inherit (config) user;
-      directory = "/home/${config.user}";
     };
 
     sops = {
