@@ -13,7 +13,6 @@ in {
   imports = [
     # keep-sorted start prefix_order=inputs
     inputs.dms.nixosModules.dank-material-shell
-    ../config
     ../modules/base.nix
     ../modules/browser.nix
     ../modules/catppuccin.nix
@@ -22,6 +21,7 @@ in {
     ../modules/fish.nix
     ../modules/fonts.nix
     ../modules/git.nix
+    ../modules/helix.nix
     ../modules/jj.nix
     ../modules/nextdns.nix
     ../modules/podman.nix
@@ -157,8 +157,27 @@ in {
     gnome-disks.enable = true;
   };
 
-  home-manager.users.${config.user} = {
+  home-manager.users.${config.user} = {config, ...}: let
+    dotfilesDir = "${config.home.homeDirectory}/.dotfiles";
+    mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+
+  in {
     # keep-sorted start block=yes newline_separated=yes prefix_order=xdg,dconf
+    xdg.configFile = {
+      "ghostty" = {
+        source = mkSymlink "${dotfilesDir}/config/ghostty";
+        recursive = true;
+      };
+      "niri" = {
+        source = mkSymlink "${dotfilesDir}/config/niri";
+        recursive = true;
+      };
+      "zed" = {
+        source = mkSymlink "${dotfilesDir}/config/zed";
+        recursive = true;
+      };
+    };
+
     xdg.mimeApps = {
       enable = true;
       defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus papers];

@@ -100,11 +100,6 @@
 
     environment.localBinInPath = true;
 
-    environment.variables = {
-      EDITOR = "hx";
-      VISUAL = "hx";
-    };
-
     # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
     # Without this, simple things like 'cargo run' might crash on missing libs.
     programs.nix-ld.enable = true;

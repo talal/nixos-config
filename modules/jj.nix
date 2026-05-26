@@ -10,6 +10,8 @@
   ];
 
   home-manager.users.${config.user} = {config, ...}: {
+    xdg.configFile."jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/jj/config.toml";
+
     sops.secrets = {
       "jj-scopes" = {
         sopsFile = ../secrets/vcs.yaml;

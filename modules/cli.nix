@@ -22,7 +22,6 @@
       ffmpeg-full
       fzf
       glow
-      helix
       hyperfine
       jq
       just
@@ -82,7 +81,7 @@
     ]);
 
   home-manager.users.${config.user} = {config, ...}: {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=home,sops
+    # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,sops
     home.shellAliases = {
       cdr = "cd $(git root)";
       cdtmp = "cd $(mktemp -d)";
