@@ -65,8 +65,10 @@
             # Apply overlays first so that they're available globally.
             nixpkgs.overlays = overlays;
 
-            # Set config.user. See ./modules/base.nix for more info.
+            # Set 'config.user'. See ./modules/base.nix for more info.
             inherit user;
+
+            networking.hostName = hostname;
           }
           ./hosts/${hostname}
         ];
@@ -74,8 +76,9 @@
   in {
     formatter.${system} = treefmtEval.config.build.wrapper;
     checks.${system}.formatting = treefmtEval.config.build.check self;
+
     nixosConfigurations = {
-      thinkpad = mkHost {hostname = "thinkpad-e16-g2";};
+      thinkpad = mkHost {hostname = "thinkpad";};
     };
   };
 }

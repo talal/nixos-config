@@ -13,7 +13,6 @@
   options = {
     user = lib.mkOption {
       type = lib.types.str;
-      default = "talal";
       description = "The primary user account name.";
     };
   };

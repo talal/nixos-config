@@ -9,7 +9,6 @@
       package = pkgs.unstable.ghostty;
       settings = {
         command = "fish";
-
         theme = "Catppuccin Macchiato";
         background-opacity = 0.90;
         background-blur = true;

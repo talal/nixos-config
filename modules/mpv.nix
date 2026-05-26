@@ -32,6 +32,7 @@
         ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
         screenshot-dir = "~/Pictures/Screenshots/mpv";
       };
+
       scripts = with pkgs.mpvScripts; [modernz thumbfast mpris sponsorblock];
       scriptOpts = {
         thumbfast = {
@@ -54,6 +55,7 @@
           ytdl_path = "${lib.getExe pkgs.unstable.yt-dlp}";
         };
       };
+
       bindings = {
         UP = "add volume 2";
         DOWN = "add volume -2";

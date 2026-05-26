@@ -162,7 +162,6 @@ in {
   home-manager.users.${config.user} = {config, ...}: let
     dotfilesDir = "${config.home.homeDirectory}/.dotfiles";
     mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-
   in {
     # keep-sorted start block=yes newline_separated=yes prefix_order=xdg,dconf
     xdg.configFile = {
