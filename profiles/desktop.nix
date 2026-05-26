@@ -20,6 +20,7 @@ in {
     ../modules/espanso.nix
     ../modules/fish.nix
     ../modules/fonts.nix
+    ../modules/ghostty.nix
     ../modules/git.nix
     ../modules/helix.nix
     ../modules/jj.nix
@@ -164,10 +165,6 @@ in {
   in {
     # keep-sorted start block=yes newline_separated=yes prefix_order=xdg,dconf
     xdg.configFile = {
-      "ghostty" = {
-        source = mkSymlink "${dotfilesDir}/config/ghostty";
-        recursive = true;
-      };
       "niri" = {
         source = mkSymlink "${dotfilesDir}/config/niri";
         recursive = true;
@@ -229,11 +226,6 @@ in {
           # blur = true; # TODO: enable when foot is updated to latest version
         };
       };
-    };
-
-    programs.ghostty = {
-      enable = true;
-      package = pkgs.unstable.ghostty;
     };
 
     programs.mpv = {

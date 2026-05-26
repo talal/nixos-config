@@ -15,7 +15,6 @@
     # keep-sorted start
     alejandra.enable = true;
     deadnix.enable = true;
-    fish_indent.enable = true;
     just.enable = true;
     keep-sorted.enable = true;
     statix.enable = true;
@@ -31,7 +30,7 @@
 
   programs.prettier = {
     enable = true;
-    includes = ["*.css" "*.json"];
+    includes = ["*.json"];
   };
 
   programs.taplo = {
