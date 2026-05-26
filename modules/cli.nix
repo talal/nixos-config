@@ -79,6 +79,7 @@
       antigravity
       gemini-cli
       pi
+      semble
     ]);
 
   home-manager.users.${config.user} = {config, ...}: {
