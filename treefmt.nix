@@ -4,8 +4,6 @@
   settings.global.excludes = [
     # Auto-generated files
     "**/hardware-configuration.nix"
-    "config/vicinae/**"
-    "config/DankMaterialShell/**"
     # Secrets
     "secrets/**"
   ];
