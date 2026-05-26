@@ -26,6 +26,8 @@
       text = ''${lib.getExe pkgs.dix} /run/current-system "$systemConfig"'';
     };
 
+    system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or "unknown";
+
     nixpkgs.config = {
       allowUnfree = true;
       allowAliases = false;
