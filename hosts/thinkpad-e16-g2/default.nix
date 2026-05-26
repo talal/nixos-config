@@ -9,7 +9,7 @@
   ];
 
   location.provider = "geoclue2";
-  time.timeZone = "Europe/Berlin";
+  services.automatic-timezoned.enable = true;
 
   i18n.defaultLocale = "en_GB.UTF-8";
 
