@@ -19,6 +19,7 @@ in {
     ../modules/catppuccin.nix
     ../modules/cli.nix
     ../modules/espanso.nix
+    ../modules/fish.nix
     ../modules/fonts.nix
     ../modules/git.nix
     ../modules/jj.nix

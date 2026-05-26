@@ -184,27 +184,6 @@
       ignores = [".git/" ".jj/" "*.bak"];
     };
 
-    programs.fish = {
-      enable = true;
-      preferAbbrs = true;
-      binds."ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # Helix suspend/resume
-      interactiveShellInit = ''
-        # Disable fish greeting.
-        set fish_greeting
-
-        function starship_transient_prompt_func
-          echo
-          starship module character
-        end
-
-        # Use moor as pager.
-        set -x MOOR "--quit-if-one-screen --no-linenumbers --wrap --statusbar=bold --terminal-fg"
-        set -x PAGER "moor"
-        set -x MANPAGER "sh -c 'col -bx | bat --language man --style plain'"
-        set -x MANROFFOPT "-c"
-      '';
-    };
-
     programs.ripgrep = {
       enable = true;
       arguments = [
