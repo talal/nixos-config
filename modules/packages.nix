@@ -23,6 +23,7 @@
       just
       moor
       p7zip
+      pandoc
       pciutils
       poppler-utils # for yazi
       procs
@@ -30,6 +31,7 @@
       scooter
       sd
       sops
+      tectonic # for using as pandoc's pdf-engine
       trash-cli
       tree
       usbutils
