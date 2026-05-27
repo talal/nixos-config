@@ -21,6 +21,9 @@
     # keep-sorted end
   };
 
+  settings.formatter.alejandra.priority = 2;
+  settings.formatter.deadnix.priority = 1;
+
   programs.mdformat = {
     enable = true;
     settings.number = true;

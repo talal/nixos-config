@@ -2,12 +2,6 @@ include "output-panasonic-tv.kdl"
 include "rules.kdl"
 include "binds.kdl"
 
-spawn-at-startup "/run/wrappers/bin/vicinae-input-server"
-spawn-at-startup "vicinae" "server"
-
-// Workaround for initialising ssh-tpm-agent so that ssh keys are loaded at startup.
-spawn-sh-at-startup "ssh-add -l"
-
 hotkey-overlay { skip-at-startup; }
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
