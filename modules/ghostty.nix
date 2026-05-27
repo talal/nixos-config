@@ -1,9 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home-manager.users.${config.user} = {
+{pkgs, ...}: {
+  hm = {
     programs.ghostty = {
       enable = true;
       package = pkgs.unstable.ghostty;

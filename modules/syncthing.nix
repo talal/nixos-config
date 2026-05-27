@@ -1,10 +1,10 @@
-{config, ...}: {
+{
   services.syncthing = {
     enable = true;
-    inherit (config) user;
+    user = "talal";
     openDefaultPorts = true;
-    dataDir = "/home/${config.user}";
+    dataDir = "/home/talal";
     # https://docs.syncthing.net/users/config.html#configuration-file-locations
-    configDir = "/home/${config.user}/.local/state/syncthing";
+    configDir = "/home/talal/.local/state/syncthing";
   };
 }

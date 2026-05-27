@@ -1,15 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs.unstable; [
     jujutsu
     jj-starship
     watchman # for jj fsmonitor
   ];
-
-  home-manager.users.${config.user} = {config, ...}: {
+  hm = {config, ...}: {
     xdg.configFile."jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/jj/config.toml";
 
     xdg.configFile."jj/conf.d/commit-template.toml".text = ''

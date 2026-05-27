@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   themeSrc = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "helix";
@@ -17,7 +13,7 @@ in {
     VISUAL = "hx";
   };
 
-  home-manager.users.${config.user} = {config, ...}: {
+  hm = {config, ...}: {
     xdg.configFile = {
       "helix/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/helix/config.toml";
       "helix/languages.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/helix/languages.toml";

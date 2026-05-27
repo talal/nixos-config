@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -12,7 +11,7 @@ in {
     # Allows vicinae to create a virtual keyboard: required for paste support (the current user needs to be in the 'input' group)
     KERNEL=="uinput", GROUP="input", MODE="0660", RUN+="${pkgs.acl}/bin/setfacl -m g:input:rw /dev/$name"
   '';
-  users.users.${config.user}.extraGroups = ["input"];
+  users.users.talal.extraGroups = ["input"];
 
   security.wrappers.vicinae-input-server = {
     source = "${vicinaePkg}/libexec/vicinae/vicinae-input-server";
@@ -21,7 +20,7 @@ in {
     group = "root";
   };
 
-  home-manager.users.${config.user} = {
+  hm = {
     xdg.configFile."vicinae/user_settings.json".text = lib.generators.toJSON {} {
       pop_to_root_on_close = true;
       font.normal = {

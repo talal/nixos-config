@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   lib,
   pkgs,
   ...
@@ -159,7 +158,7 @@ in {
     gnome-disks.enable = true;
   };
 
-  home-manager.users.${config.user} = {config, ...}: let
+  hm = {config, ...}: let
     dotfilesDir = "${config.home.homeDirectory}/.dotfiles";
     mkSymlink = config.lib.file.mkOutOfStoreSymlink;
   in {

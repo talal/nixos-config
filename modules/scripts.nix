@@ -1,9 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home-manager.users.${config.user} = {
+{pkgs, ...}: {
+  hm = {
     home.packages = with pkgs; [
       # keep-sorted start block=yes newline_separated=yes
       (writeShellScriptBin "doctor" ''

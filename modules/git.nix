@@ -1,15 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     git
     git-cliff
     git-filter-repo
   ];
 
-  home-manager.users.${config.user} = {config, ...}: {
+  hm = {config, ...}: {
     programs.delta = {
       enable = true;
       enableGitIntegration = true;

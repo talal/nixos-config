@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   langs = ["en-GB-oxendict" "de-DE"];
   allowedExtensions = [
     "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
@@ -78,7 +74,7 @@ in {
     google-chrome
   ];
 
-  home-manager.users.${config.user} = {
+  hm = {
     programs.firefox = {
       enable = true;
       languagePacks = ["en-GB" "de" "ur"];

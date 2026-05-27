@@ -1,5 +1,5 @@
-{config, ...}: {
-  home-manager.users.${config.user} = {
+{
+  hm = {
     programs.fish = {
       enable = true;
       preferAbbrs = true;

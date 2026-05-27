@@ -1,12 +1,10 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }: {
-  home-manager.users.${config.user} = {
+  hm = {
     programs.mpv = {
-      enable = true;
       config = {
         profile = "gpu-hq";
         gpu-api = "vulkan";

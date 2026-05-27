@@ -54,19 +54,13 @@
       })
     ];
 
-    mkHost = {
-      hostname,
-      user ? "talal",
-    }:
+    mkHost = {hostname}:
       inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           {
             # Apply overlays first so that they're available globally.
             nixpkgs.overlays = overlays;
-
-            # Set 'config.user'. See ./modules/base.nix for more info.
-            inherit user;
 
             networking.hostName = hostname;
           }

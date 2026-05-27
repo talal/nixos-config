@@ -8,14 +8,10 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
-  ];
 
-  options = {
-    user = lib.mkOption {
-      type = lib.types.str;
-      description = "The primary user account name.";
-    };
-  };
+    # Map `hm` to `home-manager.users.talal` to simplify usage within modules.
+    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" "talal"])
+  ];
 
   config = {
     # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,users,environment,services,programs,home-manager
@@ -85,9 +81,10 @@
       ];
     };
 
-    users.users.${config.user} = {
+    users.users.talal = {
       uid = 1000; # make uid predictable
       isNormalUser = true;
+      description = "Muhammad Talal Anwar";
       hashedPasswordFile = config.sops.secrets.user_password.path;
       extraGroups =
         ["wheel"]
@@ -108,21 +105,21 @@
       useUserPackages = true;
       backupFileExtension = "bak";
 
-      users.${config.user} = {
+      users.talal = {
         imports = [inputs.sops-nix.homeManagerModules.sops];
 
         # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
         home.stateVersion = "25.05";
 
-        home.username = config.user;
-        home.homeDirectory = "/home/${config.user}";
+        home.username = "talal";
+        home.homeDirectory = "/home/talal";
 
         sops = {
           defaultSopsFile = ../secrets/secrets.yaml;
           defaultSopsFormat = "yaml";
           # The sops CLI has its own lookup rules and defaults to ~/.config/sops/age/keys.txt
           # therefore plural instead of singular 'key.txt' as filename.
-          age.keyFile = "/home/${config.user}/.config/sops/age/keys.txt"; # must have no password
+          age.keyFile = "/home/talal/.config/sops/age/keys.txt"; # must have no password
         };
       };
     };

@@ -1,11 +1,10 @@
 {
   inputs,
-  config,
   lib,
   pkgs,
   ...
 }: {
-  # keep-sorted start block=yes newline_separated=yes prefix_order=environment,services,programs,home-manager
+  # keep-sorted start block=yes newline_separated=yes prefix_order=environment,services,programs,hm
   environment.systemPackages =
     (with pkgs; [
       # keep-sorted start prefix_order=unstable
@@ -82,7 +81,7 @@
       semble
     ]);
 
-  home-manager.users.${config.user} = {config, ...}: {
+  hm = {config, ...}: {
     # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,sops
     home.shellAliases = {
       cdr = "cd $(git root)";
