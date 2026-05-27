@@ -7,11 +7,11 @@
   niriPkg = pkgs.unstable.niri;
 
   # Reference: https://danklinux.com/docs/dankmaterialshell/overview#setting-default-web-browser
-  defaultBrowser = "dms-open.desktop";
+  # defaultBrowser = "dms-open.desktop";
+  defaultBrowser = "brave-browser.desktop";
 in {
   imports = [
     # keep-sorted start prefix_order=inputs
-    inputs.dms.nixosModules.dank-material-shell
     ../modules/base.nix
     ../modules/browser.nix
     ../modules/catppuccin.nix
@@ -41,19 +41,6 @@ in {
   programs.niri = {
     enable = true;
     package = niriPkg;
-  };
-
-  # ══════════ Shell ══════════
-  programs.dank-material-shell = {
-    enable = true;
-    systemd = {
-      enable = true;
-      restartIfChanged = true;
-    };
-    enableAudioWavelength = false;
-    enableCalendarEvents = false;
-    enableClipboardPaste = false;
-    enableDynamicTheming = false;
   };
 
   # ══════════ Login Manager ══════════
@@ -108,9 +95,12 @@ in {
     # keep-sorted start prefix_order=unstable
     unstable.bitwarden-desktop
     unstable.discord
+    unstable.dms-shell
     unstable.ente-desktop
+    unstable.noctalia-shell
     unstable.obsidian
     unstable.proton-authenticator
+    unstable.quickshell
     unstable.yaak
     unstable.zed-editor
     adw-gtk3 # GTK theme

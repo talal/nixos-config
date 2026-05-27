@@ -70,6 +70,13 @@ window-rule { // Productivity: apps that occupy their own workspace and are maxi
     open-maximized-to-edges true
 }
 
+layer-rule { // Shell: noctalia
+    match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+    background-effect {
+        xray false
+    }
+}
+
 window-rule { // App: calculator
     match app-id="org.gnome.Calculator"
     open-floating true

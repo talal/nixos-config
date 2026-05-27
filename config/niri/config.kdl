@@ -1,6 +1,11 @@
 include "output-panasonic-tv.kdl"
 include "rules.kdl"
-include "binds.kdl"
+// include "dms/binds.kdl"
+include "noctalia/binds.kdl"
+include "binds.kdl" // place after other binds so that we can override
+
+// spawn-at-startup "dms" "run"
+spawn-at-startup "noctalia-shell"
 
 hotkey-overlay { skip-at-startup; }
 
@@ -102,3 +107,8 @@ recent-windows {
 // Recommended to place at the end of the file
 include "dms/colors.kdl"
 include "dms/cursor.kdl"
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}

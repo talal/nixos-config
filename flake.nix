@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     # This flake is only built and tested against its pinned nixpkgs-unstable input.
     # Don't set `nixpkgs.follows`.
     llm-agents.url = "github:numtide/llm-agents.nix";

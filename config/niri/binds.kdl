@@ -18,10 +18,7 @@ binds {
     Mod+T           hotkey-overlay-title="Terminal"             { spawn "ghostty" "+new-window"; }
     Mod+M           hotkey-overlay-title="Task Manager"         { spawn-sh "foot --override=colors.alpha=0.9 --app-id=btop --title=btop btop"; }
     Mod+Shift+M     hotkey-overlay-title=null                   { spawn "resources" "--open-tab-id=processes"; }
-    Mod+N           hotkey-overlay-title="Notepad"              { spawn "dms" "ipc" "call" "notepad" "toggle"; }
-    Mod+Shift+N     hotkey-overlay-title="Notification Center"  { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+V           hotkey-overlay-title="Clipboard Manager"    { spawn "vicinae" "vicinae://launch/clipboard/history"; }
-    Mod+Shift+V     hotkey-overlay-title=null                   { spawn "dms" "ipc" "call" "clipboard" "toggle";  }
     Mod+Space       hotkey-overlay-title="Window Switcher"      { spawn "vicinae" "vicinae://launch/wm/switch-windows"; }
     Mod+Ctrl+Space  hotkey-overlay-title="Emoji Picker"         { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
     Mod+Shift+Space hotkey-overlay-title="File Picker"          { spawn "vicinae" "vicinae://launch/files/search"; }
@@ -37,18 +34,6 @@ binds {
     // ════════════════════════════════ System ════════════════════════════════
     Mod+Shift+Escape { switch-layout "next"; }
     Ctrl+Alt+Delete  { quit; }
-
-    Mod+Alt+L allow-when-locked=true hotkey-overlay-title="Lock Screen"  { spawn "dms" "ipc" "call" "lock" "lock"; }
-    Mod+X     repeat=false           hotkey-overlay-title="Power Menu"   { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
-    Mod+Shift+Comma                  hotkey-overlay-title="DMS Settings" { spawn "dms" "ipc" "call" "settings" "toggle";  }
-
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
-    XF86AudioMute        allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
-
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "3" ""; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "3" ""; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
