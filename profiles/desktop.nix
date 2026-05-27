@@ -15,9 +15,7 @@ in {
     ../modules/base.nix
     ../modules/browser.nix
     ../modules/catppuccin.nix
-    ../modules/cli.nix
     ../modules/espanso.nix
-    ../modules/fish.nix
     ../modules/fonts.nix
     ../modules/ghostty.nix
     ../modules/git.nix
@@ -25,10 +23,12 @@ in {
     ../modules/jj.nix
     ../modules/mpv.nix
     ../modules/nextdns.nix
+    ../modules/packages.nix
     ../modules/podman.nix
     ../modules/printing.nix
     ../modules/scheduler.nix
     ../modules/scripts.nix
+    ../modules/shell.nix
     ../modules/ssh-tpm-agent.nix
     ../modules/syncthing.nix
     ../modules/vicinae.nix

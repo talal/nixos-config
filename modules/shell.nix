@@ -1,85 +1,17 @@
 {
-  inputs,
   lib,
   pkgs,
   ...
 }: {
-  # keep-sorted start block=yes newline_separated=yes prefix_order=environment,services,programs,hm
-  environment.systemPackages =
-    (with pkgs; [
-      # keep-sorted start prefix_order=unstable
-      unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
-      age
-      bat
-      choose
-      difftastic
-      doggo
-      duf
-      dust
-      exiftool
-      fd
-      ffmpeg-full
-      fzf
-      glow
-      hyperfine
-      jq
-      just
-      moor
-      p7zip
-      pciutils
-      poppler-utils # for yazi
-      procs
-      ripgrep
-      scc
-      scooter
-      sd
-      sops
-      trash-cli
-      tree
-      usbutils
-      watchexec
-      wl-clipboard
-      # keep-sorted end
-    ])
-    ++ (with pkgs.unstable; [
-      # ══════════ Dev ═════════
-      # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
-      # For everything else, use devenv.
-
-      # keep-sorted start
-      alejandra # nixfmt is yuck, alejandra is 👌
-      bash-language-server
-      cachix
-      devenv
-      exercism
-      just-lsp
-      keep-sorted
-      marksman # Markdown LSP
-      mdformat
-      nixd
-      prettier # JSON formatting
-      shellcheck
-      shfmt
-      superhtml
-      taplo # TOML LSP
-      tinymist
-      treefmt
-      typst # I use Typst alot so installing globally instead of devenv
-      typstyle
-      uv # for Python scripts
-      vscode-css-languageserver
-      vscode-json-languageserver
-      yaml-language-server
-      yamlfmt
-      zizmor
-      # keep-sorted end
-    ])
-    ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
-      antigravity
-      gemini-cli
-      pi
-      semble
-    ]);
+  # These are tools that are configured via home-manager `programs.` block below,
+  # but are also needed at the system-level (for root user, etc.).
+  environment.systemPackages = with pkgs; [
+    # keep-sorted start
+    bat
+    fd
+    ripgrep
+    # keep-sorted end
+  ];
 
   hm = {config, ...}: {
     # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,sops
@@ -182,6 +114,110 @@
       enable = true;
       hidden = true;
       ignores = [".git/" ".jj/" "*.bak"];
+    };
+
+    programs.fish = {
+      enable = true;
+      preferAbbrs = true;
+
+      interactiveShellInit = ''
+        # Disable fish greeting.
+        set fish_greeting
+
+        function starship_transient_prompt_func
+          echo
+          starship module character
+        end
+
+        # Use moor as pager.
+        set -x MOOR "--quit-if-one-screen --no-linenumbers --wrap --statusbar=bold --terminal-fg"
+        set -x PAGER "moor"
+        set -x MANPAGER "sh -c 'col -bx | bat --language man --style plain'"
+        set -x MANROFFOPT "-c"
+
+        # Define here instead of programs.fish.shellAbbrs so that $EDITOR expands as expected.
+        abbr -a e "$EDITOR"
+      '';
+
+      binds = {
+        "ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # Helix suspend/resume
+      };
+
+      shellAbbrs = {
+        cat = "bat";
+        cp = "cp -r";
+        diff = "difft";
+        mkdir = "mkdir -p";
+        sc = "systemctl --user";
+        shred = "shred --verbose --zero --remove --iterations 100";
+        ssc = "sudo systemctl";
+
+        # eza
+        ls = "eza";
+        ll = "eza --long --all";
+        tree = ''eza --tree --all --ignore-glob=".git|.jj"'';
+        tl = ''eza --tree --all --ignore-glob=".git|.jj" --level'';
+
+        # git
+        g = "git";
+        ga = "git add";
+        gac = "git add --all; and git commit -v";
+        gc = "git commit -v";
+        gcd = ''git add --all; and git commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'';
+        gd = "git diff";
+        gdf = "git df";
+        gf = "git fetch; and git pull";
+        gl = "git l";
+        gp = "git push";
+        gs = "git status --short --branch";
+        gscope = "git config get user.email; and git config get user.signingKey";
+
+        # jujutsu
+        j = "jj";
+        jb = "jj bookmark";
+        jc = "jj commit";
+        jcd = ''jj commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'';
+        jd = "jj diff";
+        jdf = "jj diff --tool difft";
+        jf = "jj git fetch";
+        jl = "jj log";
+        jll = "jj log -r ..";
+        jp = "jj git push";
+        js = "jj status";
+        jtp = "jj tug; and jj git push";
+        jscope = "jj config get user.email; and jj config get signing.key";
+
+        "'!!'" = {
+          position = "anywhere";
+          function = "histreplace";
+        };
+        "'!$'" = {
+          position = "anywhere";
+          function = "histreplace";
+        };
+        dotdot = {
+          regex = "^\\\\.\\\\.+$";
+          function = "multicd";
+        };
+      };
+
+      functions = {
+        histreplace = ''
+          switch $argv[1]
+              case '!!'
+                  echo -- $history[1]
+                  return 0
+              case '!$'
+                  echo -- $history[1] | read -lat tokens
+                  echo -- $tokens[-1]
+                  return 0
+          end
+          return 1
+        '';
+        multicd = ''
+          echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+        '';
+      };
     };
 
     programs.ripgrep = {
@@ -356,5 +392,4 @@
     };
     # keep-sorted end
   };
-  # keep-sorted end
 }
