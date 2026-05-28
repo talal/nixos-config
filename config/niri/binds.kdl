@@ -11,12 +11,11 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // ════════════════════════ Applications / Utilties ═══════════════════════
-    Mod+A           hotkey-overlay-title="Agenda"               { spawn "flatpak" "run" "io.github.alainm23.planify"; }
     Mod+B           hotkey-overlay-title="Browser"              { spawn "brave"; }
     Mod+D           hotkey-overlay-title="Application Launcher" { spawn "vicinae" "toggle"; }
     Mod+E           hotkey-overlay-title="File Explorer"        { spawn "nautilus" "--new-window"; }
     Mod+T           hotkey-overlay-title="Terminal"             { spawn "ghostty" "+new-window"; }
-    Mod+M           hotkey-overlay-title="Task Manager"         { spawn-sh "foot --override=colors.alpha=0.9 --app-id=btop --title=btop btop"; }
+    Mod+M           hotkey-overlay-title="Task Manager"         { spawn-sh "foot --app-id=btop --title=btop btop"; }
     Mod+Shift+M     hotkey-overlay-title=null                   { spawn "resources" "--open-tab-id=processes"; }
     Mod+V           hotkey-overlay-title="Clipboard Manager"    { spawn "vicinae" "vicinae://launch/clipboard/history"; }
     Mod+Space       hotkey-overlay-title="Window Switcher"      { spawn "vicinae" "vicinae://launch/wm/switch-windows"; }
