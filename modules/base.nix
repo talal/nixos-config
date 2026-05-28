@@ -71,14 +71,8 @@
       keep-outputs = true;
 
       # cache.nixos.org is included by default.
-      substituters = [
-        "https://cache.garnix.io"
-        "https://talal.cachix.org"
-      ];
-      trusted-public-keys = [
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-        "talal.cachix.org-1:BHrhoYM/V2GMjBW7aqgQEt1KcPOebRBtq8wUagUwDiw="
-      ];
+      substituters = ["https://talal.cachix.org"];
+      trusted-public-keys = ["talal.cachix.org-1:BHrhoYM/V2GMjBW7aqgQEt1KcPOebRBtq8wUagUwDiw="];
     };
 
     users.users.talal = {
