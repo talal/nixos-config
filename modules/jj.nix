@@ -1,9 +1,10 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs.unstable; [
+{pkgs-unstable, ...}: {
+  environment.systemPackages = with pkgs-unstable; [
     jujutsu
     jj-starship
     watchman # for jj fsmonitor
   ];
+
   hm = {config, ...}: {
     xdg.configFile."jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/jj/config.toml";
 

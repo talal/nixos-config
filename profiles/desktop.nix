@@ -2,9 +2,10 @@
   inputs,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }: let
-  niriPkg = pkgs.unstable.niri;
+  niriPkg = pkgs-unstable.niri;
 
   # Reference: https://danklinux.com/docs/dankmaterialshell/overview#setting-default-web-browser
   # defaultBrowser = "dms-open.desktop";
@@ -90,45 +91,50 @@ in {
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };
 
-  environment.systemPackages = with pkgs; [
-    # keep-sorted start prefix_order=unstable
-    unstable.bitwarden-desktop
-    unstable.discord
-    unstable.dms-shell
-    unstable.ente-desktop
-    unstable.noctalia-shell
-    unstable.obsidian
-    unstable.proton-authenticator
-    unstable.quickshell
-    unstable.yaak
-    unstable.zed-editor
-    adw-gtk3 # GTK theme
-    adwaita-icon-theme
-    apple-cursor
-    blanket
-    czkawka
-    gimp
-    gnome-calculator
-    gnome-obfuscate
-    gnome-text-editor
-    hunspell # for firefox, thunderbird, and libreoffice
-    hunspellDicts.de_DE
-    hunspellDicts.en_GB-ize
-    keepassxc
-    libreoffice-still
-    loupe
-    nautilus
-    papers
-    parabolic
-    pdfarranger
-    pika-backup
-    resources
-    wl-screenrec
-    xdg-utils
-    xwayland-satellite # for niri xwayland compatibility
-    zeal
-    # keep-sorted end
-  ];
+  environment.systemPackages =
+    (with pkgs-unstable; [
+      # keep-sorted start
+      bitwarden-desktop
+      discord
+      dms-shell
+      ente-desktop
+      noctalia-shell
+      obsidian
+      proton-authenticator
+      quickshell
+      yaak
+      zed-editor
+      # keep-sorted end
+    ])
+    ++ (with pkgs; [
+      # keep-sorted start
+      adw-gtk3 # GTK theme
+      adwaita-icon-theme
+      apple-cursor
+      blanket
+      czkawka
+      gimp
+      gnome-calculator
+      gnome-obfuscate
+      gnome-text-editor
+      hunspell # for firefox, thunderbird, and libreoffice
+      hunspellDicts.de_DE
+      hunspellDicts.en_GB-ize
+      keepassxc
+      libreoffice-still
+      loupe
+      nautilus
+      papers
+      parabolic
+      pdfarranger
+      pika-backup
+      resources
+      wl-screenrec
+      xdg-utils
+      xwayland-satellite # for niri xwayland compatibility
+      zeal
+      # keep-sorted end
+    ]);
 
   services = {
     # keep-sorted start

@@ -5,7 +5,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.age-plugin-yubikey
+    age-plugin-yubikey
     yubioath-flutter
   ];
 }

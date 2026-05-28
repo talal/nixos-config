@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   # These are tools that are configured via home-manager `programs.` block below,
@@ -378,7 +379,7 @@
 
     programs.yt-dlp = {
       enable = true;
-      package = pkgs.unstable.yt-dlp;
+      package = pkgs-unstable.yt-dlp;
       settings = {
         embed-metadata = true;
         sponsorblock-mark = "all";

@@ -37,28 +37,16 @@
     latestPkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
     treefmtEval = inputs.treefmt-nix.lib.evalModule latestPkgs ./treefmt.nix;
 
-    overlays = [
-      (final: prev: {
-        dgop = inputs.nixpkgs-unstable.legacyPackages.${final.stdenv.hostPlatform.system}.dgop;
-
-        # Make unstable packages available via pkgs.unstable.<package>
-        unstable = import inputs.nixpkgs-unstable {
-          inherit (final.stdenv.hostPlatform) system;
-          inherit (prev) config;
-        };
-      })
-    ];
+    pkgs-unstable = import inputs.nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
     mkHost = {hostname}:
       inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs pkgs-unstable;};
         modules = [
-          {
-            # Apply overlays first so that they're available globally.
-            nixpkgs.overlays = overlays;
-
-            networking.hostName = hostname;
-          }
+          {networking.hostName = hostname;}
           ./hosts/${hostname}
         ];
       };

@@ -2,9 +2,10 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }: let
-  vicinaePkg = pkgs.unstable.vicinae;
+  vicinaePkg = pkgs-unstable.vicinae;
 in {
   environment.systemPackages = [vicinaePkg];
 

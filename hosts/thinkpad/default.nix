@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   imports = [
     # keep-sorted start prefix_order=inputs,./,,../../profiles,../../modules
     ./hardware-configuration.nix
@@ -139,8 +143,8 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [
-    unstable.amd-debug-tools
+  environment.systemPackages = [
+    pkgs-unstable.amd-debug-tools
   ];
 
   # Before changing this value read the documentation for this option

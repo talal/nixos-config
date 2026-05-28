@@ -1,13 +1,14 @@
 {
   inputs,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   # keep-sorted start block=yes newline_separated=yes prefix_order=environment
   environment.systemPackages =
     (with pkgs; [
-      # keep-sorted start prefix_order=unstable
-      unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
+      # keep-sorted start prefix_order=pkgs-unstable
+      pkgs-unstable.snitch # TODO: not available in nixos-25.11 therefore using nixpkgs-unstable
       age
       choose
       difftastic
@@ -39,7 +40,7 @@
       wl-clipboard
       # keep-sorted end
     ])
-    ++ (with pkgs.unstable; [
+    ++ (with pkgs-unstable; [
       # ══════════ Dev ═════════
       # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
       # For everything else, use devenv.
