@@ -15,7 +15,6 @@ in {
     ../modules/base.nix
     ../modules/browser.nix
     ../modules/catppuccin.nix
-    ../modules/espanso.nix
     ../modules/fonts.nix
     ../modules/ghostty.nix
     ../modules/git.nix
