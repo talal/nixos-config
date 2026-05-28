@@ -1,8 +1,8 @@
 // Reference: https://docs.noctalia.dev/v4/getting-started/keybinds/#example-configurations
 binds {
     // Core Noctalia binds
-    Mod+Space       { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Mod+S           { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Space       { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+S           { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
 
     // Audio & Brightness
     XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
@@ -17,5 +17,6 @@ binds {
     Mod+X     repeat=false           hotkey-overlay-title="Power Menu"        { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+Shift+Comma                  hotkey-overlay-title="Noctalia Settings" { spawn "noctalia-shell" "ipc" "call" "settings" "toggle";  }
 
-    Mod+N hotkey-overlay-title="Notification Center" { spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
+    XF86Favorites       { spawn "noctalia-shell" "ipc" "call" "powerProfile" "set" "performance"; }
+    Shift+XF86Favorites { spawn "noctalia-shell" "ipc" "call" "powerProfile" "set" "balanced"; }
 }

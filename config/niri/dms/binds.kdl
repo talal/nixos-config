@@ -1,6 +1,4 @@
 binds {
-
-
     Mod+X repeat=false hotkey-overlay-title="Power Menu"   {
          spawn "dms" "ipc" "call" "powermenu" "toggle";
     }
