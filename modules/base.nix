@@ -103,7 +103,7 @@
         imports = [inputs.sops-nix.homeManagerModules.sops];
 
         # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
-        home.stateVersion = "25.05";
+        home.stateVersion = "26.05";
 
         home.username = "talal";
         home.homeDirectory = "/home/talal";
