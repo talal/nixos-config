@@ -109,7 +109,7 @@
         home.homeDirectory = "/home/talal";
 
         sops = {
-          defaultSopsFile = ../secrets/secrets.yaml;
+          defaultSopsFile = inputs.self + "/secrets/secrets.yaml";
           defaultSopsFormat = "yaml";
           # The sops CLI has its own lookup rules and defaults to ~/.config/sops/age/keys.txt
           # therefore plural instead of singular 'key.txt' as filename.
@@ -119,7 +119,7 @@
     };
 
     sops = {
-      defaultSopsFile = ../secrets/secrets.yaml;
+      defaultSopsFile = inputs.self + "/secrets/secrets.yaml";
       defaultSopsFormat = "yaml";
       age.keyFile = "/var/lib/sops-nix/key.txt"; # must have no password
 

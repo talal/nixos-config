@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   services.espanso = {
     enable = true;
     package = pkgs.espanso-wayland;
@@ -11,7 +15,7 @@
     '';
 
     sops.secrets."espanso-matches.yaml" = {
-      sopsFile = ../secrets/espanso-matches.yaml;
+      sopsFile = inputs.self + "/secrets/espanso-matches.yaml";
       format = "yaml";
       key = "";
       path = "${config.home.homeDirectory}/.config/espanso/match/matches.yaml";

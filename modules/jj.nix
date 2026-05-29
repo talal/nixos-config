@@ -1,4 +1,8 @@
-{pkgs-unstable, ...}: {
+{
+  inputs,
+  pkgs-unstable,
+  ...
+}: {
   environment.systemPackages = with pkgs-unstable; [
     jujutsu
     jj-starship
@@ -50,7 +54,7 @@
 
     sops.secrets = {
       "jj-scopes" = {
-        sopsFile = ../secrets/vcs.yaml;
+        sopsFile = inputs.self + "/secrets/vcs.yaml";
         format = "yaml";
         key = "jj-scopes";
         path = "${config.home.homeDirectory}/.config/jj/conf.d/scopes.toml";

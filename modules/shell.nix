@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   pkgs-unstable,
@@ -25,7 +26,7 @@
     };
 
     sops.secrets."ssh-config" = {
-      sopsFile = ../secrets/ssh-config.yaml;
+      sopsFile = inputs.self + "/secrets/ssh-config.yaml";
       format = "yaml";
       key = "config";
       path = "${config.home.homeDirectory}/.ssh/config";

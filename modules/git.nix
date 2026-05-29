@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     git
     git-cliff
@@ -121,21 +125,23 @@
     };
 
     # ══════════ Scopes ══════════
-    sops.secrets = {
+    sops.secrets = let
+      sopsFile = inputs.self + "/secrets/vcs.yaml";
+    in {
       "git-scopes" = {
-        sopsFile = ../secrets/vcs.yaml;
+        inherit sopsFile;
         format = "yaml";
         key = "git-scopes";
         path = "${config.home.homeDirectory}/.config/git/scopes.gitconfig";
       };
       "git-gha-scope" = {
-        sopsFile = ../secrets/vcs.yaml;
+        inherit sopsFile;
         format = "yaml";
         key = "git-gha-scope";
         path = "${config.home.homeDirectory}/.config/git/gha.gitconfig";
       };
       "git-uni-scope" = {
-        sopsFile = ../secrets/vcs.yaml;
+        inherit sopsFile;
         format = "yaml";
         key = "git-uni-scope";
         path = "${config.home.homeDirectory}/.config/git/uni.gitconfig";
