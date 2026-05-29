@@ -34,9 +34,6 @@
 
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
-    latestPkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
-    treefmtEval = inputs.treefmt-nix.lib.evalModule latestPkgs ./treefmt.nix;
-
     pkgs-unstable = import inputs.nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
@@ -50,6 +47,8 @@
           ./hosts/${hostname}
         ];
       };
+
+    treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs-unstable ./treefmt.nix;
   in {
     formatter.${system} = treefmtEval.config.build.wrapper;
     checks.${system}.formatting = treefmtEval.config.build.check self;
