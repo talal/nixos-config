@@ -250,8 +250,6 @@ in {
         y = ''exec "sh -c 'wl-paste --primary | wl-copy'"'';
       };
     };
-
-    services.polkit-gnome.enable = true; # needed because noctalia doesn't come with a polkit agent
     # keep-sorted end
   };
   # keep-sorted end
