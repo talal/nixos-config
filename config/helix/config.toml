@@ -48,9 +48,9 @@ C-s = ":update"
 C-A-s = "save_selection" # in jumplist
 C-q = ":quit" # closes a split/view (useful in multi-split layouts)
 
-# WARNING: :buffer-close(-others) closes a file tab entirely across all splits.
-# You might end up losing your windows because a window is just a viewport on a buffer.
-C-A-w = ":buffer-close" # closing last buffer, Helix stays open with empty buffer (mimicks close-tab behavior of editors)
+# WARNING: :buffer-close(-others) closes a file tab entirely across all splits. This means
+# that you might end up losing your windows because a window is just a viewport on a buffer.
+C-A-w = ":buffer-close" # Helix stays open after last buffer is closed (similar to close-tab behavior of other editors)
 C-w.O = ":buffer-close-others" # similar to what C-w.o does for windows
 space.w.O = ":buffer-close-others" # similar to what space.w.o does for windows
 

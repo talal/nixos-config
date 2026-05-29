@@ -12,28 +12,12 @@
   defaultBrowser = "brave-browser.desktop";
 in {
   imports = [
-    # keep-sorted start prefix_order=inputs
-    ../modules/base.nix
-    ../modules/browser.nix
-    ../modules/catppuccin.nix
-    ../modules/fonts.nix
-    ../modules/ghostty.nix
-    ../modules/git.nix
-    ../modules/helix.nix
-    ../modules/jj.nix
-    ../modules/mpv.nix
-    ../modules/nextdns.nix
-    ../modules/packages.nix
-    ../modules/podman.nix
-    ../modules/printing.nix
-    ../modules/scheduler.nix
-    ../modules/scripts.nix
-    ../modules/shell.nix
-    ../modules/ssh-tpm-agent.nix
-    ../modules/syncthing.nix
-    ../modules/vicinae.nix
-    ../modules/yubikey.nix
-    ../modules/zram-swap.nix
+    # keep-sorted start prefix_order=inputs,./
+    ./browser.nix
+    ./fonts.nix
+    ./ghostty.nix
+    ./mpv.nix
+    ./vicinae.nix
     # keep-sorted end
   ];
 
@@ -152,6 +136,10 @@ in {
     dconf.enable = true;
     gnome-disks.enable = true;
   };
+
+  # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
+  # Without this, simple things like 'cargo run' might crash on missing libs.
+  programs.nix-ld.enable = true;
 
   hm = {config, ...}: let
     dotfilesDir = "${config.home.homeDirectory}/.dotfiles";

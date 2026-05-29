@@ -4,18 +4,31 @@
   ...
 }: {
   imports = [
-    # keep-sorted start prefix_order=inputs,./,,../../profiles,../../modules
+    # keep-sorted start prefix_order=inputs,./,../../modules/users/,../../modules/profiles/
     ./hardware-configuration.nix
-    ../../profiles/desktop.nix
+    ../../modules/users/talal.nix
+    ../../modules/profiles/base.nix
+    ../../modules/profiles/desktop
+    ../../modules/catppuccin.nix
     ../../modules/chrony.nix
+    ../../modules/git.nix
+    ../../modules/helix.nix
+    ../../modules/jj.nix
     ../../modules/kanata.nix
+    ../../modules/location.nix
+    ../../modules/nextdns.nix
+    ../../modules/packages.nix
+    ../../modules/podman.nix
+    ../../modules/printing.nix
+    ../../modules/scheduler.nix
+    ../../modules/scripts.nix
+    ../../modules/shell.nix
+    ../../modules/ssh-tpm-agent.nix
+    ../../modules/syncthing.nix
+    ../../modules/yubikey.nix
+    ../../modules/zram-swap.nix
     # keep-sorted end
   ];
-
-  location.provider = "geoclue2";
-  services.automatic-timezoned.enable = true;
-
-  i18n.defaultLocale = "en_GB.UTF-8";
 
   # ══════════ Boot ══════════
   boot = {

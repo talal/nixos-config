@@ -1,6 +1,10 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   security.tpm2.enable = true;
-  users.users.talal.extraGroups = ["tss"];
+  users.users.${config.user}.extraGroups = ["tss"];
 
   services.gnome.gcr-ssh-agent.enable = lib.mkForce false;
 
