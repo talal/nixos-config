@@ -1,32 +1,24 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    # keep-sorted start prefix_order=inputs,./,../../modules/users/,../../modules/profiles/
+    # keep-sorted start prefix_order=inputs,./
     ./hardware-configuration.nix
-    ../../modules/users/talal.nix
-    ../../modules/profiles/base.nix
-    ../../modules/profiles/desktop
-    ../../modules/catppuccin.nix
-    ../../modules/chrony.nix
-    ../../modules/git.nix
-    ../../modules/helix.nix
-    ../../modules/jj.nix
-    ../../modules/kanata.nix
-    ../../modules/location.nix
-    ../../modules/nextdns.nix
-    ../../modules/packages.nix
-    ../../modules/podman.nix
-    ../../modules/printing.nix
-    ../../modules/scheduler.nix
-    ../../modules/scripts.nix
-    ../../modules/shell.nix
-    ../../modules/ssh-tpm-agent.nix
-    ../../modules/syncthing.nix
-    ../../modules/yubikey.nix
-    ../../modules/zram-swap.nix
+    ../../profiles/base
+    ../../profiles/catppuccin.nix
+    ../../profiles/chrony.nix
+    ../../profiles/desktop
+    ../../profiles/dev.nix
+    ../../profiles/kanata.nix
+    ../../profiles/location.nix
+    ../../profiles/nextdns.nix
+    ../../profiles/podman.nix
+    ../../profiles/printing.nix
+    ../../profiles/scheduler.nix
+    ../../profiles/scripts.nix
+    ../../profiles/ssh-tpm-agent.nix
+    ../../profiles/syncthing.nix
+    ../../profiles/users/talal.nix
+    ../../profiles/yubikey.nix
+    ../../profiles/zram-swap.nix
     # keep-sorted end
   ];
 
@@ -156,8 +148,8 @@
     '';
   };
 
-  environment.systemPackages = [
-    pkgs-unstable.amd-debug-tools
+  environment.systemPackages = with pkgs; [
+    amd-debug-tools
   ];
 
   # Before changing this value read the documentation for this option

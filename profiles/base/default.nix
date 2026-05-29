@@ -6,23 +6,28 @@
   ...
 }: {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
-    inputs.sops-nix.nixosModules.sops
-
     # Map `hm` to `home-manager.users.${config.user}` to simplify usage within modules.
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" config.user])
+
+    # keep-sorted start prefix_order=inputs,./
+    inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
+    ./git.nix
+    ./helix.nix
+    ./jj.nix
+    ./shell.nix
+    # keep-sorted end
   ];
 
   options = {
     user = lib.mkOption {
       type = lib.types.str;
-      default = "talal";
       description = "Primary user of the system";
     };
   };
 
   config = {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,environment,security,sops,services,programs,home-manager
+    # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,environment,,services,programs,home-manager
     system.activationScripts.activation-diff = {
       supportsDryActivation = true;
       text = ''${lib.getExe pkgs.dix} /run/current-system "$systemConfig"'';
@@ -85,6 +90,48 @@
 
     environment.localBinInPath = true;
 
+    environment.systemPackages = with pkgs; [
+      # keep-sorted start prefix_order=pkgs-unstable
+      age
+      bat #  cat
+      difftastic # diff
+      doggo # dig
+      duf # df
+      dust # du
+      exiftool
+      fd #  find
+      ffmpeg-full
+      fzf
+      glow
+      hyperfine
+      jq
+      just # make
+      moor # less
+      p7zip
+      pandoc
+      pciutils
+      poppler-utils # for yazi
+      procs
+      ripgrep #  grep
+      scooter
+      sd # sed
+      snitch
+      sops
+      tectonic # for using as pandoc's pdf-engine
+      trash-cli # rm
+      tree
+      usbutils
+      wl-clipboard
+      # keep-sorted end
+    ];
+
+    console = {
+      earlySetup = true; # set virtual console options as early as possible (in initrd)
+      font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+    };
+
+    i18n.defaultLocale = lib.mkDefault "en_GB.UTF-8";
+
     sops = {
       defaultSopsFile = inputs.self + "/secrets/secrets.yaml";
       defaultSopsFormat = "yaml";
@@ -100,14 +147,6 @@
       # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
       users.${config.user}.home.stateVersion = "26.05";
     };
-
-    console = {
-      # Enable setting virtual console options as early as possible (in initrd).
-      earlySetup = true;
-      font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
-    };
-
-    i18n.defaultLocale = lib.mkDefault "en_GB.UTF-8";
     # keep-sorted end
   };
 }

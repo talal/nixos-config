@@ -5,16 +5,6 @@
   pkgs-unstable,
   ...
 }: {
-  # These are tools that are configured via home-manager `programs.` block below,
-  # but are also needed at the system-level (for root user, etc.).
-  environment.systemPackages = with pkgs; [
-    # keep-sorted start
-    bat
-    fd
-    ripgrep
-    # keep-sorted end
-  ];
-
   hm = {config, ...}: {
     # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,sops
     home.shellAliases = {
@@ -122,6 +112,8 @@
       enable = true;
       preferAbbrs = true;
 
+      binds."ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # ctrl-z for suspend/resume
+
       interactiveShellInit = ''
         # Disable fish greeting.
         set fish_greeting
@@ -140,10 +132,6 @@
         # Define here instead of programs.fish.shellAbbrs so that $EDITOR expands as expected.
         abbr -a e "$EDITOR"
       '';
-
-      binds = {
-        "ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # Helix suspend/resume
-      };
 
       shellAbbrs = {
         cat = "bat";

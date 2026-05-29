@@ -6,10 +6,6 @@
   ...
 }: let
   niriPkg = pkgs-unstable.niri;
-
-  # Reference: https://danklinux.com/docs/dankmaterialshell/overview#setting-default-web-browser
-  # defaultBrowser = "dms-open.desktop";
-  defaultBrowser = "brave-browser.desktop";
 in {
   imports = [
     # keep-sorted start prefix_order=inputs,./
@@ -80,12 +76,10 @@ in {
       # keep-sorted start
       bitwarden-desktop
       discord
-      dms-shell
       ente-desktop
       noctalia-shell
       obsidian
       proton-authenticator
-      quickshell
       yaak
       zed-editor
       # keep-sorted end
@@ -145,7 +139,7 @@ in {
     dotfilesDir = "${config.home.homeDirectory}/.dotfiles";
     mkSymlink = config.lib.file.mkOutOfStoreSymlink;
   in {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=xdg,dconf
+    # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,dconf
     xdg.configFile = {
       "niri" = {
         source = mkSymlink "${dotfilesDir}/config/niri";
@@ -157,16 +151,36 @@ in {
       };
     };
 
+    xdg.desktopEntries.browser-selector = {
+      exec = "${pkgs.writeShellScriptBin "browser-selector" ''
+        # Exit immediately if no URLs are passed
+        if [ $# -eq 0 ]; then
+          exit 0
+        fi
+
+        # Loop through all arguments (supports multi-link clicks)
+        for url in "$@"; do
+          if [ -n "$url" ]; then
+            noctalia-shell ipc call plugin:browser-selector open "$url"
+          fi
+        done
+      ''}/bin/browser-selector %U";
+      genericName = "Browser selector";
+      name = "browser-selector";
+      type = "Application";
+      terminal = false;
+    };
+
     xdg.mimeApps = {
       enable = true;
       defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus papers];
       defaultApplications = {
-        "text/html" = defaultBrowser;
+        "text/html" = "browser-selector.desktop";
         "text/markdown" = "org.gnome.TextEditor.desktop";
         "text/plain" = "org.gnome.TextEditor.desktop";
         "x-scheme-handler/ente" = "ente.desktop";
-        "x-scheme-handler/http" = defaultBrowser;
-        "x-scheme-handler/https" = defaultBrowser;
+        "x-scheme-handler/http" = "browser-selector.desktop";
+        "x-scheme-handler/https" = "browser-selector.desktop";
       };
     };
 

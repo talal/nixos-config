@@ -6,6 +6,9 @@
 }: {
   sops.secrets.user_password.neededForUsers = true;
 
+  # Set `config.user` which represents the primary user of the system.
+  user = "talal";
+
   users.users.talal = {
     uid = 1000; # make uid predictable
     isNormalUser = true;
@@ -19,9 +22,6 @@
   };
 
   home-manager.users.talal = {
-    home.username = "talal";
-    home.homeDirectory = "/home/talal";
-
     imports = [inputs.sops-nix.homeManagerModules.sops];
     sops = {
       defaultSopsFile = inputs.self + "/secrets/secrets.yaml";
