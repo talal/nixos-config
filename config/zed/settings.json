@@ -50,7 +50,7 @@
   "buffer_font_size": 18,
   "ui_font_size": 19,
   "agent_buffer_font_size": 17,
-  "agent_ui_font_size": 19,
+  "agent_ui_font_size": 20,
   "terminal": {
     "dock": "right",
     "blinking": "on",
