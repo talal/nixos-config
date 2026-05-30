@@ -99,7 +99,7 @@ in {
       hunspellDicts.de_DE
       hunspellDicts.en_GB-ize
       keepassxc
-      libreoffice-still
+      libreoffice-fresh
       loupe
       nautilus
       papers
