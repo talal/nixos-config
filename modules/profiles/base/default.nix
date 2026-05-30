@@ -45,6 +45,10 @@
     nixpkgs.config = {
       allowUnfree = true;
       allowAliases = false;
+      permittedInsecurePackages = [
+        # EOL but still used by bitwarden-desktop
+        "electron-39.8.10"
+      ];
     };
 
     nix = {
