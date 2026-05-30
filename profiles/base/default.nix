@@ -61,7 +61,8 @@
     };
 
     nix.settings = {
-      trusted-users = ["@wheel"];
+      allowed-users = ["@wheel"]; # can do anything with the nix daemon
+      trusted-users = ["@wheel"]; # can manage the nix store
 
       experimental-features = [
         "nix-command"
