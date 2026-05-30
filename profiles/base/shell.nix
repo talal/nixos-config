@@ -5,6 +5,33 @@
   pkgs-unstable,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    # keep-sorted start prefix_order=pkgs-unstable
+    bat #  cat
+    difftastic # diff
+    doggo # dig
+    duf # df
+    dust # du
+    exiftool
+    fd #  find
+    fzf
+    glow
+    hyperfine
+    jq
+    just # make
+    moor # less
+    p7zip
+    pandoc
+    procs # ps
+    ripgrep #  grep
+    scooter # interactive find-and-replace
+    sd # sed
+    snitch # ss/netstat
+    tectonic # for using as pandoc's pdf-engine
+    trash-cli # rm
+    # keep-sorted end
+  ];
+
   hm = {config, ...}: {
     # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,sops
     home.shellAliases = {

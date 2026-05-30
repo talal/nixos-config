@@ -93,32 +93,10 @@
     environment.systemPackages = with pkgs; [
       # keep-sorted start prefix_order=pkgs-unstable
       age
-      bat #  cat
-      difftastic # diff
-      doggo # dig
-      duf # df
-      dust # du
-      exiftool
-      fd #  find
       ffmpeg-full
-      fzf
-      glow
-      hyperfine
-      jq
-      just # make
-      moor # less
-      p7zip
-      pandoc
       pciutils
-      poppler-utils # for yazi
-      procs
-      ripgrep #  grep
-      scooter
-      sd # sed
-      snitch
+      poppler-utils
       sops
-      tectonic # for using as pandoc's pdf-engine
-      trash-cli # rm
       tree
       usbutils
       wl-clipboard
