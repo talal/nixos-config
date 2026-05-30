@@ -6,6 +6,10 @@ alias rs := switch
 default:
     @just --list
 
+# test the new system configuration without setting it as boot default
+test *args:
+    sudo nixos-rebuild test --flake {{ flake }} {{ args }}
+
 # switch to the new system configuration
 switch *args:
     sudo nixos-rebuild switch --flake {{ flake }} {{ args }}
@@ -20,7 +24,7 @@ check *args:
 
 # clean the nix store and optimise it
 clean:
-    sudo nix-collect-garbage --delete-older-than 7d
+    sudo nix-collect-garbage --delete-older-than 3d
     sudo nix store optimise
 
 [private]
