@@ -34,19 +34,15 @@
 
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
+
     pkgs-unstable = import inputs.nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
 
-    mkHost = {hostname}:
-      inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs pkgs-unstable;};
-        modules = [
-          {networking.hostName = hostname;}
-          ./hosts/${hostname}
-        ];
-      };
+    mkHost = import ./lib/mkHost.nix {
+      inherit inputs pkgs-unstable;
+    };
 
     treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs-unstable ./treefmt.nix;
   in {

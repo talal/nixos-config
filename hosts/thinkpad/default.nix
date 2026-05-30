@@ -1,22 +1,29 @@
-{pkgs, ...}: {
-  imports = [
+{
+  myModules,
+  pkgs,
+  ...
+}: {
+  imports = with myModules; [
     # keep-sorted start prefix_order=inputs,./
     ./hardware-configuration.nix
-    ../../profiles/base
-    ../../profiles/desktop
-    ../../profiles/dev.nix
-    ../../profiles/kanata.nix
-    ../../profiles/location.nix
-    ../../profiles/nextdns.nix
-    ../../profiles/podman.nix
-    ../../profiles/printing.nix
-    ../../profiles/scheduler.nix
-    ../../profiles/scripts.nix
-    ../../profiles/ssh-tpm-agent.nix
-    ../../profiles/syncthing.nix
-    ../../profiles/users/talal.nix
-    ../../profiles/yubikey.nix
-    ../../profiles/zram-swap.nix
+    profiles.audio
+    profiles.base
+    profiles.bluetooth
+    profiles.btrfs
+    profiles.desktop
+    profiles.dev
+    profiles.kanata
+    profiles.location
+    profiles.nextdns
+    profiles.printing
+    profiles.scheduler
+    profiles.scripts
+    profiles.ssh-tpm-agent
+    profiles.syncthing
+    profiles.users.talal
+    profiles.virtualisation.podman
+    profiles.yubikey
+    profiles.zram-swap
     # keep-sorted end
   ];
 
@@ -49,8 +56,6 @@
   };
 
   # ══════════ Performance ══════════
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # This ensures WiFi, Bluetooth, and CPU Microcode get the binary blobs they need.
   hardware.enableRedistributableFirmware = true;
 
@@ -68,16 +73,6 @@
     enable32Bit = true;
   };
 
-  # ══════════ Audio ══════════
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-  };
-
-  # Allows Pipewire to use realtime scheduler for better performance.
-  security.rtkit.enable = true;
-
   # ══════════ Network ══════════
   networking = {
     networkmanager = {
@@ -93,17 +88,7 @@
     };
   };
 
-  systemd.network.wait-online.enable = false;
-  systemd.services.NetworkManager-wait-online.enable = false;
-
-  # ══════════ Bluetooth ══════════
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
-
   # ══════════ Disk ══════════
-  services.btrfs.autoScrub.enable = true;
   services.fstrim.enable = true;
 
   # ══════════ Input ══════════
@@ -133,22 +118,30 @@
   # long‑term life and minimal degradation.
   systemd.services.battery-charge-threshold = {
     description = "Set battery charge thresholds to maximize health";
-    wantedBy = ["multi-user.target"];
-    after = ["multi-user.target"];
-    startLimitBurst = 5;
     serviceConfig = {
       Type = "oneshot";
       Restart = "on-failure";
+      RestartSec = "3s";
     };
+    startLimitBurst = 5;
     script = ''
       echo 55 > /sys/class/power_supply/BAT0/charge_control_start_threshold
       echo 60 > /sys/class/power_supply/BAT0/charge_control_end_threshold
     '';
+    # Trigger on boot AND when system prepares to go to sleep
+    wantedBy = ["multi-user.target" "sleep.target"];
+    # Delay execution until AFTER the system wake-up phase is complete
+    after = ["multi-user.target" "systemd-suspend.service" "systemd-hibernate.service"];
   };
 
   environment.systemPackages = with pkgs; [
     amd-debug-tools
   ];
+
+  hm = {
+    # Need the rocm variant otherwise GPU doesn't show.
+    programs.btop.package = pkgs.btop-rocm;
+  };
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).

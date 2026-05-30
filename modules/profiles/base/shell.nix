@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   pkgs,
   pkgs-unstable,
@@ -32,7 +31,7 @@
     # keep-sorted end
   ];
 
-  hm = {config, ...}: {
+  hm = {
     # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,sops
     home.shellAliases = {
       cdr = "cd $(git root)";
@@ -40,13 +39,6 @@
       o = "xdg-open";
       zed = "zeditor";
       rm = "trash-put";
-    };
-
-    sops.secrets."ssh-config" = {
-      sopsFile = inputs.self + "/secrets/ssh-config.yaml";
-      format = "yaml";
-      key = "config";
-      path = "${config.home.homeDirectory}/.ssh/config";
     };
 
     programs.atuin = {
@@ -88,7 +80,6 @@
 
     programs.btop = {
       enable = true;
-      package = pkgs.btop-rocm; # need the rocm variant otherwise GPU doesn't show
       settings.theme_background = false;
     };
 
