@@ -37,7 +37,12 @@
 
     pkgs-unstable = import inputs.nixpkgs-unstable {
       inherit system;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "electron-39.8.10" # EOL but still used by bitwarden-desktop
+        ];
+      };
     };
 
     mkHost = import ./lib/mkHost.nix {
