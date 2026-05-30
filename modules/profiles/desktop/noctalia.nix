@@ -8,20 +8,10 @@
 in {
   environment.systemPackages = [noctaliaPkg];
 
-  systemd.user.services.noctalia = {
-    description = "Noctalia Shell";
-    wantedBy = ["graphical-session.target"];
-    partOf = ["graphical-session.target"];
-    after = ["graphical-session.target"];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${lib.getExe noctaliaPkg}";
-      Restart = "always";
-      RestartSec = 5;
-      # Prevent systemd from killing child processes (apps launched by Noctalia) on restart.
-      KillMode = "process";
-    };
-  };
+  # NOTE: We do not manage noctalia via systemd.user.services here.
+  # Quickshell-based apps can have memory leaks causing systemd to trap them in a crash-loop.
+  # This results in massive log dumps filling up the RAM disk (/run/user/...) and leaving orphaned processes.
+  # Instead, noctalia is launched directly via niri's `spawn-at-startup`.
 
   hm = {
     home.packages = [

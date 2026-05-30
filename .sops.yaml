@@ -1,8 +1,8 @@
 keys:
   - &yk age1yubikey1qfpt4tm982aatasezjd9a25yyq9zqyeq7u9wkhm0nqcn9gl2k5twj6p6m49
   - &bw age1u06z9w3kxnj9vtr64yg38lh2ck9swzfkv2nlfsl4s5et05tm74qsuxn95m
-  - &system age18kffy5yaw0h6ctmr5xz4fhxvxlsful9qzlagskt5hqf34wxgrfasfh2urk
-  - &user age13jr4dv5lzxnp0glh43k0n48sgsr2xc5a6tkr53a3rw4al6n8jf7qzxq778
+  - &system age1w0yy4j4z833exerp34877xxfjfr0x9zwuawz7hgwt65ckz8w4pjqluweec
+  - &user age1gea4qxnzalw5f8fuj7qt05fsx2rn65pujegd93a8qeshs9g8mdxqh8lts2
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:

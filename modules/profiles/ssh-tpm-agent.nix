@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   security.tpm2.enable = true;
@@ -21,7 +22,7 @@
       Install.WantedBy = ["default.target"];
       Service = {
         Type = "oneshot";
-        ExecStart = "ssh-add -l";
+        ExecStart = "${pkgs.openssh}/bin/ssh-add -l";
       };
     };
   };

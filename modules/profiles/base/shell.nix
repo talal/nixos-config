@@ -206,8 +206,6 @@
         "--glob=!.jj" # see comment above
         "--hidden" # search hidden files and directories
         "--hyperlink-format=file://{path}:{line}:{column}"
-        "--max-columns-preview"
-        "--max-columns=120"
         "--smart-case" # case insensitive if pattern lowercase, otherwise case sensitive
       ];
     };

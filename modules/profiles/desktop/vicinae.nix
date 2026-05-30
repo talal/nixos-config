@@ -22,38 +22,42 @@ in {
     group = "root";
   };
 
-  systemd.user.services = {
-    vicinae = {
-      description = "Vicinae Server";
-      wantedBy = ["graphical-session.target"];
-      partOf = ["graphical-session.target"];
-      after = ["graphical-session.target"];
-      serviceConfig = {
-        Environment = "USE_LAYER_SHELL=1";
-        Type = "simple";
-        ExecStart = "${lib.getExe vicinaePkg} server";
-        Restart = "always";
-        RestartSec = 5;
-        # Prevent systemd from killing child processes (apps launched by Vicinae) on restart
-        KillMode = "process";
-      };
-    };
-
-    vicinae-input-server = {
-      description = "Vicinae Input Server";
-      wantedBy = ["graphical-session.target"];
-      partOf = ["graphical-session.target"];
-      after = ["graphical-session.target"];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${config.security.wrapperDir}/vicinae-input-server";
-        Restart = "on-failure";
-        RestartSec = 5;
-      };
-    };
-  };
-
   hm = {
+    systemd.user.services = {
+      vicinae = {
+        Unit = {
+          Description = "Vicinae Server";
+          PartOf = ["graphical-session.target"];
+          After = ["graphical-session.target"];
+        };
+        Service = {
+          Environment = "USE_LAYER_SHELL=1";
+          Type = "simple";
+          ExecStart = "${lib.getExe vicinaePkg} server";
+          Restart = "always";
+          RestartSec = 5;
+          # Prevent systemd from killing child processes (apps launched by Vicinae) on restart
+          KillMode = "process";
+        };
+        Install.WantedBy = ["graphical-session.target"];
+      };
+
+      vicinae-input-server = {
+        Unit = {
+          Description = "Vicinae Input Server";
+          PartOf = ["graphical-session.target"];
+          After = ["graphical-session.target"];
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${config.security.wrapperDir}/vicinae-input-server";
+          Restart = "on-failure";
+          RestartSec = 5;
+        };
+        Install.WantedBy = ["graphical-session.target"];
+      };
+    };
+
     xdg.configFile."vicinae/user_settings.json".text = lib.generators.toJSON {} {
       pop_to_root_on_close = true;
       font.normal = {
