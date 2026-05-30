@@ -32,7 +32,7 @@
   ];
 
   hm = {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,sops
+    # keep-sorted start block=yes newline_separated=yes prefix_order=home,sops
     home.shellAliases = {
       cdr = "cd $(git root)";
       cdtmp = "cd $(mktemp -d)";
