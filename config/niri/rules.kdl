@@ -90,6 +90,13 @@ window-rule { // App: file manager
     default-window-height { proportion 0.6;  }
 }
 
+window-rule { // App: ghostty
+    match app-id="com.mitchellh.ghostty"
+    background-effect {
+        blur true
+    }
+}
+
 window-rule { // App: gimp
     match app-id="^gimp" title="^GIMP Startup$"
     open-focused false
@@ -113,13 +120,5 @@ window-rule { // App: resource monitors
     open-floating true
     default-column-width  { proportion 0.65; }
     default-window-height { proportion 0.75; }
-}
-
-window-rule { // App: terminals
-    match app-id="com.mitchellh.ghostty"
-    match app-id="foot"
-    background-effect {
-        blur true
-    }
 }
 // keep-sorted end

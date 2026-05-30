@@ -217,9 +217,9 @@ in {
           pad = "6x0 center";
         };
         mouse.hide-when-typing = "yes";
-        colors = {
+        colors-dark = {
           alpha = 0.90;
-          # blur = true; # TODO: enable when foot is updated to latest version
+          blur = true;
         };
       };
     };
