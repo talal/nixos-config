@@ -22,18 +22,16 @@ in {
     group = "root";
   };
 
-  hm = {
-    systemd.user.services.vicinae = {
-      Unit = {
-        Description = "Vicinae server daemon";
-        After = ["graphical-session.target"];
-        PartOf = ["graphical-session.target"];
-      };
-      Install.WantedBy = ["graphical-session.target"];
-      Service = {
+  systemd.user.services = {
+    vicinae = {
+      description = "Vicinae Server";
+      wantedBy = ["graphical-session.target"];
+      partOf = ["graphical-session.target"];
+      after = ["graphical-session.target"];
+      serviceConfig = {
         Environment = "USE_LAYER_SHELL=1";
         Type = "simple";
-        ExecStart = "${lib.getExe' vicinaePkg "vicinae"} server";
+        ExecStart = "${lib.getExe vicinaePkg} server";
         Restart = "always";
         RestartSec = 5;
         # Prevent systemd from killing child processes (apps launched by Vicinae) on restart
@@ -41,21 +39,21 @@ in {
       };
     };
 
-    systemd.user.services.vicinae-input-server = {
-      Unit = {
-        Description = "Vicinae Input Server";
-        After = ["graphical-session.target"];
-        PartOf = ["graphical-session.target"];
-      };
-      Install.WantedBy = ["graphical-session.target"];
-      Service = {
+    vicinae-input-server = {
+      description = "Vicinae Input Server";
+      wantedBy = ["graphical-session.target"];
+      partOf = ["graphical-session.target"];
+      after = ["graphical-session.target"];
+      serviceConfig = {
         Type = "simple";
         ExecStart = "${config.security.wrapperDir}/vicinae-input-server";
         Restart = "on-failure";
         RestartSec = 5;
       };
     };
+  };
 
+  hm = {
     xdg.configFile."vicinae/user_settings.json".text = lib.generators.toJSON {} {
       pop_to_root_on_close = true;
       font.normal = {

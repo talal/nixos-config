@@ -5,7 +5,6 @@ include "noctalia/binds.kdl"
 include "binds.kdl" // place after other binds so that we can override
 
 // spawn-at-startup "dms" "run"
-spawn-at-startup "noctalia-shell"
 
 hotkey-overlay { skip-at-startup; }
 

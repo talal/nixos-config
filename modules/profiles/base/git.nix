@@ -10,6 +10,21 @@
   ];
 
   hm = {config, ...}: {
+    programs.fish.shellAbbrs = {
+      g = "git";
+      ga = "git add";
+      gac = "git add --all; and git commit -v";
+      gc = "git commit -v";
+      gcd = ''git add --all; and git commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'';
+      gd = "git diff";
+      gdf = "git df";
+      gf = "git fetch; and git pull";
+      gl = "git l";
+      gp = "git push";
+      gs = "git status --short --branch";
+      gscope = "git config get user.email; and git config get user.signingKey";
+    };
+
     programs.delta = {
       enable = true;
       enableGitIntegration = true;

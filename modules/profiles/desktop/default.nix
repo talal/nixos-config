@@ -1,75 +1,24 @@
 {
   inputs,
-  lib,
   pkgs,
   pkgs-unstable,
   ...
-}: let
-  niriPkg = pkgs-unstable.niri;
-in {
+}: {
   imports = [
     # keep-sorted start prefix_order=inputs,./
     ./browser.nix
     ./fonts.nix
     ./ghostty.nix
+    ./greetd.nix
     ./mpv.nix
+    ./niri.nix
+    ./noctalia.nix
     ./vicinae.nix
     # keep-sorted end
   ];
 
-  # ══════════ Compositor ══════════
-  programs.niri = {
-    enable = true;
-    package = niriPkg;
-  };
-
-  # ══════════ Login Manager ══════════
-  services.greetd = {
-    enable = true;
-    useTextGreeter = true;
-    settings.default_session = {
-      user = "greeter";
-      command = lib.concatStringsSep " " [
-        "${lib.getExe pkgs.tuigreet}"
-        "--time"
-        "--remember"
-        "--remember-user-session"
-        "--asterisks"
-        "--sessions"
-        "${pkgs.niri}/share/wayland-sessions"
-      ];
-    };
-  };
-  security.pam.services = {
-    greetd.enableGnomeKeyring = true;
-    login.enableGnomeKeyring = true;
-
-    # Disable fingerprint auth for greetd; use password instead.
-    # fprintd's PAM hook would otherwise stack `pam_fprintd.so sufficient` ahead of
-    # pam_unix and the user sees a fingerprint scan request. If fingerprint is used at
-    # login then keyring doesn't get unlocked automatically.
-    greetd.fprintAuth = false;
-  };
-
   # keep-sorted start block=yes newline_separated=yes prefix_order=security,environment,services,programs,home-manager
   security.polkit.enable = true;
-
-  environment.sessionVariables = {
-    # Ensure deadkeys work.
-    GTK_IM_MODULE = "simple";
-
-    # Use native Wayland when possible.
-    ELECTRON_OZONE_PLATFORM_HINT = "auto"; # this should be enough for most Electron apps
-    NIXOS_OZONE_WL = "1"; # apply wayland specific Nixpkgs flags
-
-    # Niri
-    XDG_CURRENT_DESKTOP = "niri";
-    XDG_SESSION_TYPE = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-    QT_QPA_PLATFORMTHEME = "gtk3";
-    QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-  };
 
   environment.systemPackages =
     (with pkgs-unstable; [
@@ -77,7 +26,6 @@ in {
       bitwarden-desktop
       discord
       ente-desktop
-      noctalia-shell
       obsidian
       proton-authenticator
       yaak
@@ -109,7 +57,6 @@ in {
       resources
       wl-screenrec
       xdg-utils
-      xwayland-satellite # for niri xwayland compatibility
       zeal
       # keep-sorted end
     ]);
@@ -135,52 +82,22 @@ in {
   # Without this, simple things like 'cargo run' might crash on missing libs.
   programs.nix-ld.enable = true;
 
-  hm = {config, ...}: let
-    dotfilesDir = "${config.home.homeDirectory}/.dotfiles";
-    mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  in {
+  hm = {config, ...}: {
     # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,dconf
     xdg.configFile = {
-      "niri" = {
-        source = mkSymlink "${dotfilesDir}/config/niri";
-        recursive = true;
-      };
       "zed" = {
-        source = mkSymlink "${dotfilesDir}/config/zed";
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/zed";
         recursive = true;
       };
-    };
-
-    xdg.desktopEntries.browser-selector = {
-      exec = "${pkgs.writeShellScriptBin "browser-selector" ''
-        # Exit immediately if no URLs are passed
-        if [ $# -eq 0 ]; then
-          exit 0
-        fi
-
-        # Loop through all arguments (supports multi-link clicks)
-        for url in "$@"; do
-          if [ -n "$url" ]; then
-            noctalia-shell ipc call plugin:browser-selector open "$url"
-          fi
-        done
-      ''}/bin/browser-selector %U";
-      genericName = "Browser selector";
-      name = "browser-selector";
-      type = "Application";
-      terminal = false;
     };
 
     xdg.mimeApps = {
       enable = true;
       defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus papers];
       defaultApplications = {
-        "text/html" = "browser-selector.desktop";
         "text/markdown" = "org.gnome.TextEditor.desktop";
         "text/plain" = "org.gnome.TextEditor.desktop";
         "x-scheme-handler/ente" = "ente.desktop";
-        "x-scheme-handler/http" = "browser-selector.desktop";
-        "x-scheme-handler/https" = "browser-selector.desktop";
       };
     };
 
