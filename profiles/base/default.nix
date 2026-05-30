@@ -12,6 +12,8 @@
     # keep-sorted start prefix_order=inputs,./
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
+    ./catppuccin.nix
+    ./chrony.nix
     ./git.nix
     ./helix.nix
     ./jj.nix

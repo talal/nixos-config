@@ -3,8 +3,6 @@
     # keep-sorted start prefix_order=inputs,./
     ./hardware-configuration.nix
     ../../profiles/base
-    ../../profiles/catppuccin.nix
-    ../../profiles/chrony.nix
     ../../profiles/desktop
     ../../profiles/dev.nix
     ../../profiles/kanata.nix
