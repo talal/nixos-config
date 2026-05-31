@@ -48,7 +48,7 @@
       hunspellDicts.de_DE
       hunspellDicts.en_GB-ize
       keepassxc
-      libreoffice-fresh
+      libreoffice-still
       loupe
       nautilus
       papers
