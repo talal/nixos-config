@@ -10,25 +10,22 @@
   mpv,
   glib,
   wrapGAppsHook4,
+  nodejs,
 }:
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "losange";
   version = "0.10.1";
+
+  __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "tymmesyde";
     repo = "losange";
-    rev = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-mr54/vnaopLwG9lhFiZJGgxWH/VaGitROVEeV7GSyHM=";
   };
 
-  cargoLock = {
-    lockFile = "${src}/Cargo.lock";
-    outputHashes = {
-      "localsearch-0.1.0" = "sha256-wWmusHYmT7wtN+mgGvTMUbp0JXYsbpZRfb5qQfQLdlQ=";
-      "stremio-core-0.1.0" = "sha256-RCU9oHBLbeuZk/cx4V17jf3Cx30XS8TMIx9W+WnIoj8=";
-    };
-  };
+  cargoHash = "sha256-LJ8EpxEIN8wojSmQ+WVshYRxGFAC9sUk5tnh3I2J408=";
 
   buildInputs = [
     mpv
@@ -52,15 +49,26 @@ rustPlatform.buildRustPackage rec {
     install -Dm444 $src/data/xyz.timtimtim.Losange.desktop -t $out/share/applications/
     install -Dm444 $src/data/xyz.timtimtim.Losange.metainfo.xml -t $out/share/metainfo/
 
+    # The application fails if '-o' is passed without an argument (e.g. when opened using a launcher)
+    # therefore we match upstream's shell wrapper to handle empty URL cases.
     substituteInPlace $out/share/applications/xyz.timtimtim.Losange.desktop \
-      --replace "Exec=sh -c \"/usr/bin/losange -o '%u'\"" "Exec=losange"
+      --replace-fail "Exec=sh -c \"/usr/bin/losange -o '%u'\"" "Exec=sh -c \"losange -o '%u'\""
+  '';
+
+  # Node.js is required to run `server.js`
+  # Losange will automatically download the required version of `server.js` at runtime.
+  preFixup = ''
+    gappsWrapperArgs+=(
+      --prefix PATH : "${lib.makeBinPath [nodejs]}"
+    )
   '';
 
   meta = {
     mainProgram = "losange";
     description = "A simple Stremio client for GNOME";
     homepage = "https://github.com/tymmesyde/Losange";
-    license = lib.licenses.gpl3;
+    license = lib.licenses.gpl3Only;
     platforms = lib.platforms.linux;
+    maintainers = with lib.maintainers; [talal];
   };
-}
+})

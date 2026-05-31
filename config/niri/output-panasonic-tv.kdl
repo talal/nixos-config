@@ -23,7 +23,7 @@ output "Panasonic Industry Company Panasonic-TV 0x01010101" {
 }
 
 window-rule {
-    match app-id=r#"(?i)(stremio|planify)"#
+    match app-id=r#"(?i)(stremio|losange)"#
     match app-id="chrome" title=r#"(?i)(calendar)"#
 
     open-on-output "Panasonic Industry Company Panasonic-TV 0x01010101"
