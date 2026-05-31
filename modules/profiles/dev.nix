@@ -40,7 +40,7 @@
       # keep-sorted end
     ])
     ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
-      antigravity
+      antigravity-cli
       gemini-cli
       nono
       pi
