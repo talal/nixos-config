@@ -1,12 +1,8 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   hm = {
     programs.ghostty = {
       enable = true;
-      package = pkgs-unstable.ghostty;
+      package = pkgs.unstable.ghostty;
       settings = {
         command = "fish";
         theme = "Catppuccin Macchiato";

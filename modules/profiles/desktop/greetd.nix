@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   services.greetd = {
@@ -16,7 +15,7 @@
         "--remember-user-session"
         "--asterisks"
         "--sessions"
-        "${pkgs-unstable.niri}/share/wayland-sessions"
+        "${pkgs.unstable.niri}/share/wayland-sessions"
       ];
     };
   };

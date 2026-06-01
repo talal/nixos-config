@@ -35,21 +35,20 @@
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
 
-    pkgs-unstable = import inputs.nixpkgs-unstable {
-      inherit system;
-      config = {
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          "electron-39.8.10" # EOL but still used by bitwarden-desktop
-        ];
-      };
-    };
+    overlays = [
+      (final: prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          inherit (final.stdenv.hostPlatform) system;
+          inherit (prev) config;
+        };
+      })
+    ];
 
     mkHost = import ./lib/mkHost.nix {
-      inherit inputs pkgs-unstable;
+      inherit inputs overlays;
     };
 
-    treefmtEval = inputs.treefmt-nix.lib.evalModule pkgs-unstable ./treefmt.nix;
+    treefmtEval = inputs.treefmt-nix.lib.evalModule inputs.nixpkgs-unstable.legacyPackages.${system} ./treefmt.nix;
   in {
     formatter.${system} = treefmtEval.config.build.wrapper;
     checks.${system}.formatting = treefmtEval.config.build.check self;

@@ -2,13 +2,12 @@
   inputs,
   config,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
   # For everything else, use devenv.
   users.users.${config.user}.packages =
-    (with pkgs-unstable; [
+    (with pkgs.unstable; [
       # keep-sorted start
       alejandra # nixfmt is yuck, alejandra is 👌
       bash-language-server

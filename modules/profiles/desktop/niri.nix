@@ -1,7 +1,7 @@
-{pkgs-unstable, ...}: {
+{pkgs, ...}: {
   programs.niri = {
     enable = true;
-    package = pkgs-unstable.niri;
+    package = pkgs.unstable.niri;
   };
 
   environment.sessionVariables = {
@@ -22,7 +22,7 @@
   };
 
   environment.systemPackages = [
-    pkgs-unstable.xwayland-satellite
+    pkgs.unstable.xwayland-satellite
   ];
 
   hm = {config, ...}: {

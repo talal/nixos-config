@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -354,7 +353,7 @@
 
     programs.yt-dlp = {
       enable = true;
-      package = pkgs-unstable.yt-dlp;
+      package = pkgs.unstable.yt-dlp;
       settings = {
         embed-metadata = true;
         sponsorblock-mark = "all";

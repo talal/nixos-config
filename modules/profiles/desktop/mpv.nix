@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   hm = {
@@ -52,7 +51,7 @@
           seekbarfg_color = "#8aadf4";
         };
         ytdl_hook = {
-          ytdl_path = "${lib.getExe pkgs-unstable.yt-dlp}";
+          ytdl_path = "${lib.getExe pkgs.unstable.yt-dlp}";
         };
       };
 

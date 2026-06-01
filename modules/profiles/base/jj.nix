@@ -1,9 +1,9 @@
 {
   inputs,
-  pkgs-unstable,
+  pkgs,
   ...
 }: {
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs.unstable; [
     jujutsu
     jj-starship
     watchman # for jj fsmonitor

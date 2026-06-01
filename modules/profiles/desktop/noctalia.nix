@@ -1,10 +1,9 @@
 {
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }: let
-  noctaliaPkg = pkgs-unstable.noctalia-shell;
+  noctaliaPkg = pkgs.unstable.noctalia-shell;
 in {
   environment.systemPackages = [noctaliaPkg];
 

@@ -1,6 +1,6 @@
 {
   inputs,
-  pkgs-unstable,
+  overlays,
   ...
 }: let
   lib = inputs.nixpkgs.lib;
@@ -10,11 +10,12 @@
 in
   {hostname}:
     lib.nixosSystem {
-      specialArgs = {
-        inherit inputs pkgs-unstable myModules;
-      };
+      specialArgs = {inherit inputs myModules;};
       modules = [
-        {networking.hostName = hostname;}
+        {
+          networking.hostName = hostname;
+          nixpkgs.overlays = overlays;
+        }
         ../hosts/${hostname}
       ];
     }

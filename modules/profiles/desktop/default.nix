@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   imports = [
@@ -21,7 +20,7 @@
   security.polkit.enable = true;
 
   environment.systemPackages =
-    (with pkgs-unstable; [
+    (with pkgs.unstable; [
       # keep-sorted start
       bitwarden-desktop
       discord
