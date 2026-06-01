@@ -5,7 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    # keep-sorted start prefix_order=pkgs-unstable
+    # keep-sorted start
     bat #  cat
     difftastic # diff
     doggo # dig

@@ -21,8 +21,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # This flake is only built and tested against its pinned nixpkgs-unstable input.
-    # Don't set `nixpkgs.follows`.
+    # Don't set `nixpkgs.follows` as this flake is only built and tested against its
+    # own pinned nixpkgs-unstable input.
     llm-agents.url = "github:numtide/llm-agents.nix";
 
     treefmt-nix = {

@@ -1,5 +1,4 @@
 {pkgs-unstable, ...}: {
-  # ══════════ Compositor ══════════
   programs.niri = {
     enable = true;
     package = pkgs-unstable.niri;

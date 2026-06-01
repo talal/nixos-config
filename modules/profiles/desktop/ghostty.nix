@@ -1,4 +1,8 @@
-{pkgs-unstable, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   hm = {
     programs.ghostty = {
       enable = true;
@@ -24,9 +28,6 @@
         adjust-underline-position = 2;
         adjust-underline-thickness = -1;
 
-        gtk-wide-tabs = false;
-        gtk-custom-css = "tab-style.css";
-
         keybind = [
           "ctrl+enter=unbind"
           "ctrl+shift+q=unbind"
@@ -45,41 +46,42 @@
           "ctrl+shift+k=goto_split:up"
           "ctrl+shift+l=goto_split:right"
         ];
+
+        gtk-wide-tabs = false;
+        gtk-custom-css = pkgs.writeText "ghostty-tab-style.css" ''
+          /*
+            debug: env GTK_DEBUG=interactive ghostty
+            https://docs.gtk.org/gtk4/css-overview.html
+            https://docs.gtk.org/gtk4/css-properties.html
+          */
+
+          headerbar,
+          tabbar,
+          tabbar tabbox,
+          tabbar tabbox tab,
+          tabbar tabbox button {
+            min-height: 0;
+            padding: 0;
+            margin: 0;
+          }
+
+          tabbar {
+            background-color: #232638;
+          }
+
+          tabbar tabbox {
+            font-family: "JetBrains Mono", monospace;
+          }
+
+          tabbar tabbox tab {
+            padding: 1px 10px;
+          }
+
+          tabbar tabbox tab label {
+            font-size: 13px;
+          }
+        '';
       };
     };
-
-    xdg.configFile."ghostty/tab-style.css".text = ''
-      /*
-        debug: env GTK_DEBUG=interactive ghostty
-        https://docs.gtk.org/gtk4/css-overview.html
-        https://docs.gtk.org/gtk4/css-properties.html
-      */
-
-      headerbar,
-      tabbar,
-      tabbar tabbox,
-      tabbar tabbox tab,
-      tabbar tabbox button {
-        min-height: 0;
-        padding: 0;
-        margin: 0;
-      }
-
-      tabbar {
-        background-color: #232638;
-      }
-
-      tabbar tabbox {
-        font-family: "JetBrains Mono", monospace;
-      }
-
-      tabbar tabbox tab {
-        padding: 1px 10px;
-      }
-
-      tabbar tabbox tab label {
-        font-size: 13px;
-      }
-    '';
   };
 }

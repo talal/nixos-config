@@ -45,8 +45,10 @@
     includes = ["*.md"];
   };
 
-  settings.formatter.alejandra.priority = 2;
-
-  settings.formatter.deadnix.priority = 1;
+  settings.formatter = {
+    # Run Alejandra after deadnix
+    alejandra.priority = 2;
+    deadnix.priority = 1;
+  };
   # keep-sorted end
 }

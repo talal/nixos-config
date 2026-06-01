@@ -102,7 +102,7 @@
     environment.localBinInPath = true;
 
     environment.systemPackages = with pkgs; [
-      # keep-sorted start prefix_order=pkgs-unstable
+      # keep-sorted start
       age
       ffmpeg-full
       pciutils
