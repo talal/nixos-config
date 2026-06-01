@@ -48,7 +48,7 @@
         ];
 
         gtk-wide-tabs = false;
-        gtk-custom-css = pkgs.writeText "ghostty-tab-style.css" ''
+        gtk-custom-css = "${pkgs.writeText "ghostty-tab-style.css" ''
           /*
             debug: env GTK_DEBUG=interactive ghostty
             https://docs.gtk.org/gtk4/css-overview.html
@@ -80,7 +80,7 @@
           tabbar tabbox tab label {
             font-size: 13px;
           }
-        '';
+        ''}";
       };
     };
   };
