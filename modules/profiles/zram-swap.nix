@@ -15,6 +15,14 @@
   services.earlyoom = {
     enable = true;
     enableNotifications = true;
+    freeMemThreshold = 5;
+    reportInterval = 0;
+    extraArgs = [
+      "--avoid"
+      "(niri*|ghostty)"
+      "--prefer"
+      "(nix|electron|brave|chrom(e|ium)|Isolated Web Co)"
+    ];
   };
 
   # Redirect heavy Nix builds to disk to avoid OOM crashes.
