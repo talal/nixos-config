@@ -100,6 +100,13 @@
   };
 
   # ══════════ Power ══════════
+  services.power-profiles-daemon.enable = true;
+  services.upower = {
+    enable = true; # power management D-Bus
+    criticalPowerAction = "suspend";
+    allowRiskyCriticalPowerAction = true;
+  };
+
   # In my current setup, I use laptop as main display and external monitor as secondary so when
   # I close the lid, it means that I want laptop to suspend and external monitors to turn off.
   services.logind.settings.Login = {

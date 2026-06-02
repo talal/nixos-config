@@ -67,9 +67,7 @@
     fwupd.enable = true;
     gnome.sushi.enable = true; # for Nautilus quick preview
     gvfs.enable = true;
-    power-profiles-daemon.enable = true;
     udisks2.enable = true; # auto-mounting disk
-    upower.enable = true; # power management D-Bus
     # keep-sorted end
   };
 
