@@ -34,6 +34,7 @@
 
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
+    latestPkgs = inputs.nixpkgs-unstable.legacyPackages.${system};
 
     overlays = [
       (final: prev: {
@@ -48,7 +49,7 @@
       inherit inputs overlays;
     };
 
-    treefmtEval = inputs.treefmt-nix.lib.evalModule inputs.nixpkgs-unstable.legacyPackages.${system} ./treefmt.nix;
+    treefmtEval = inputs.treefmt-nix.lib.evalModule latestPkgs ./treefmt.nix;
   in {
     formatter.${system} = treefmtEval.config.build.wrapper;
     checks.${system}.formatting = treefmtEval.config.build.check self;

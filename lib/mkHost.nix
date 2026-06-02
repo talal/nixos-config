@@ -4,8 +4,8 @@
   ...
 }: let
   lib = inputs.nixpkgs.lib;
-  findModulesLib = import ./findModules.nix {inherit lib;};
-  inherit (findModulesLib) findModules;
+
+  inherit (import ./findModules.nix {inherit lib;}) findModules;
   myModules = findModules ../modules;
 in
   {hostname}:
