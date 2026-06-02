@@ -129,8 +129,6 @@
       enable = true;
       preferAbbrs = true;
 
-      binds."ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # ctrl-z for suspend/resume
-
       interactiveShellInit = ''
         # Disable fish greeting.
         set fish_greeting
@@ -150,6 +148,11 @@
         abbr -a e "$EDITOR"
       '';
 
+      binds = {
+        "ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # suspend/resume
+        "alt-w".command = "commandline -a \" | wl-copy\"";
+      };
+
       shellAbbrs = {
         cat = "bat";
         cp = "cp -r";
@@ -165,6 +168,11 @@
         tree = ''eza --tree --all --ignore-glob=".git|.jj"'';
         tl = ''eza --tree --all --ignore-glob=".git|.jj" --level'';
 
+        dotdot = {
+          regex = "^\\\\.\\\\.+$";
+          function = "multicd";
+        };
+
         "'!!'" = {
           position = "anywhere";
           function = "histreplace";
@@ -172,10 +180,6 @@
         "'!$'" = {
           position = "anywhere";
           function = "histreplace";
-        };
-        dotdot = {
-          regex = "^\\\\.\\\\.+$";
-          function = "multicd";
         };
       };
 
