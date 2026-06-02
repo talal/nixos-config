@@ -219,9 +219,10 @@
           "$shlvl"
           "$directory"
           "\${custom.vcs}"
-          "$docker_context"
+          "$nix_shell"
           "$direnv"
           "$python"
+          "$docker_context"
           "$sudo"
           "$cmd_duration"
           "$fill" # fill needed to push $shell to the right side of prompt line
@@ -242,13 +243,14 @@
           truncation_length = 8;
           style = "bold lavender";
         };
-        direnv.disabled = false;
         custom.vcs = {
           when = "jj-starship detect";
           shell = ["jj-starship" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
           format = "$output ";
         };
-        python.format = "[(venv $virtualenv)](bold peach) ";
+        nix_shell.format = "[($name/)$state]($style) ";
+        direnv.disabled = false;
+        python.format = "[(py $virtualenv)](bold peach) ";
         fill.symbol = " ";
         shell = {
           disabled = false;
