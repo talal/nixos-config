@@ -30,25 +30,25 @@ in {
         (defsrc
           esc
           tab            u i
-          caps a s d f h j k l ;
+          caps a s d f h j k l ; '
                        n m , .
                      spc
         )
 
         (deflayer default
           caps
-          @tabmeh                  _  @i
-          @escext @a @s @d @f _ @j @k @l @;
+          @tabmeh               _  @i
+          @escext @a @s @d @f _ @j @k @l @; _
                               _ _  _  _
-                          @spchyp
+                        @spchyp
         )
 
         (deflayer extend
           _
           _                           pgdn pgup
-          _  lmet lalt lsft lctl left down up   rght _
+          _  lmet lalt lsft lctl left down up   rght bspc del
                                  _    _    home end
-          _
+                                 enter
         )
 
         (defvar
