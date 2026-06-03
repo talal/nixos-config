@@ -1,20 +1,10 @@
 {
   inputs,
   pkgs,
+  findModulesList,
   ...
 }: {
-  imports = [
-    # keep-sorted start prefix_order=inputs,./
-    ./browser.nix
-    ./fonts.nix
-    ./ghostty.nix
-    ./greetd.nix
-    ./mpv.nix
-    ./niri.nix
-    ./noctalia.nix
-    ./vicinae.nix
-    # keep-sorted end
-  ];
+  imports = findModulesList ./.;
 
   # keep-sorted start block=yes newline_separated=yes prefix_order=security,environment,services,programs,home-manager
   security.polkit.enable = true;

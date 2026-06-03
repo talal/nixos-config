@@ -3,23 +3,18 @@
   config,
   lib,
   pkgs,
+  findModulesList,
   ...
 }: {
-  imports = [
-    # Map `hm` to `home-manager.users.${config.user}` to simplify usage within modules.
-    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" config.user])
+  imports =
+    [
+      # Map `hm` to `home-manager.users.${config.user}` to simplify usage within modules.
+      (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" config.user])
 
-    # keep-sorted start prefix_order=inputs,./
-    inputs.home-manager.nixosModules.home-manager
-    inputs.sops-nix.nixosModules.sops
-    ./catppuccin.nix
-    ./chrony.nix
-    ./git.nix
-    ./helix.nix
-    ./jj.nix
-    ./shell.nix
-    # keep-sorted end
-  ];
+      inputs.home-manager.nixosModules.home-manager
+      inputs.sops-nix.nixosModules.sops
+    ]
+    ++ (findModulesList ./.);
 
   options = {
     user = lib.mkOption {
