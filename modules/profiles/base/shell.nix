@@ -149,11 +149,22 @@
       '';
 
       binds = {
+        "alt-w".command = "fish_commandline_append \" | wl-copy\"";
         "ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # suspend/resume
-        "alt-w".command = "commandline -a \" | wl-copy\"";
+      };
+
+      functions = {
+        multicd = ''
+          echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+        '';
       };
 
       shellAbbrs = {
+        dotdot = {
+          regex = ''^\.\.+$'';
+          function = "multicd";
+        };
+
         cat = "bat";
         cp = "cp -r";
         diff = "difft";
@@ -167,38 +178,6 @@
         ll = "eza --long --all";
         tree = ''eza --tree --all --ignore-glob=".git|.jj"'';
         tl = ''eza --tree --all --ignore-glob=".git|.jj" --level'';
-
-        dotdot = {
-          regex = "^\\\\.\\\\.+$";
-          function = "multicd";
-        };
-
-        "'!!'" = {
-          position = "anywhere";
-          function = "histreplace";
-        };
-        "'!$'" = {
-          position = "anywhere";
-          function = "histreplace";
-        };
-      };
-
-      functions = {
-        histreplace = ''
-          switch $argv[1]
-              case '!!'
-                  echo -- $history[1]
-                  return 0
-              case '!$'
-                  echo -- $history[1] | read -lat tokens
-                  echo -- $tokens[-1]
-                  return 0
-          end
-          return 1
-        '';
-        multicd = ''
-          echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
-        '';
       };
     };
 
