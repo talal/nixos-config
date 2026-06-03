@@ -6,8 +6,8 @@ lib: let
     filterAttrs (_: v: v != {}) (
       mapAttrs' (name: type: let
         fullPath = dir + "/${name}";
-        isNixModule = type == "regular" && hasSuffix ".nix" name && name != "default.nix";
-        isDir = type == "directory";
+        isNixModule = type == "regular" && hasSuffix ".nix" name && name != "default.nix" && !(lib.hasPrefix "_" name);
+        isDir = type == "directory" && !(lib.hasPrefix "_" name);
         isDirModule = isDir && readDir fullPath ? "default.nix";
       in {
         name = removeSuffix ".nix" name;
