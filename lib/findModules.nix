@@ -1,4 +1,4 @@
-{lib, ...}: let
+lib: let
   inherit (builtins) readDir isPath;
   inherit (lib) hasSuffix removeSuffix mapAttrs' filterAttrs collect;
 
