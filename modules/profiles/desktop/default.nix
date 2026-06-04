@@ -23,7 +23,6 @@
     ])
     ++ (with pkgs; [
       # keep-sorted start
-      (callPackage ../../../pkgs/losange {})
       adw-gtk3 # GTK theme
       adwaita-icon-theme
       apple-cursor
