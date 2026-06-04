@@ -48,6 +48,12 @@ overview {
     backdrop-color "#1e1e2e" // catppuccin mocha base
 }
 
+cursor {
+    xcursor-theme "macOS"
+    xcursor-size 32
+    hide-after-inactive-ms 5000
+}
+
 layout {
     empty-workspace-above-first
 
@@ -104,11 +110,10 @@ recent-windows {
     }
 }
 
-// Recommended to place at the end of the file
-include "dms/colors.kdl"
-include "dms/cursor.kdl"
-
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
 }
+
+// Recommended to place at the end of the file
+include "noctalia.kdl"
