@@ -45,6 +45,11 @@
           showonpause = false;
           window_top_bar = false;
 
+          fullscreen_button = false;
+          info_button = false;
+          ontop_button = false;
+          speed_button = true;
+
           hover_effect = "color";
           hover_effect_color = "#8aadf4";
           seekbarbg_color = "#1e2030";
