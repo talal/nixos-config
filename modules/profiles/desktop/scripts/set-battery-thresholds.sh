@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 set -euo pipefail
 
 BAT_PATH="/sys/class/power_supply/BAT0"

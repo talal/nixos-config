@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 echo -e "\n🩺 \033[1mSystem Health Check\033[0m"
 
 echo -e "\n🔹 \033[1mAMD P-State\033[0m"
