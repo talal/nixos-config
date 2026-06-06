@@ -2,8 +2,11 @@
   inputs,
   config,
   pkgs,
+  findModulesList,
   ...
 }: {
+  imports = findModulesList ./.;
+
   # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
   # For everything else, use devenv.
   users.users.${config.user}.packages =

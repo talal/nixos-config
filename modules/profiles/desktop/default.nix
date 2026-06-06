@@ -112,56 +112,6 @@
       };
     };
 
-    programs.foot = {
-      enable = true;
-      settings = {
-        main = {
-          font = "TX\\-02:size=14, Symbols Nerd Font:size=14";
-          underline-offset = 3;
-          pad = "6x0 center";
-        };
-        mouse.hide-when-typing = "yes";
-        colors-dark = {
-          alpha = 0.90;
-          blur = true;
-        };
-      };
-    };
-
-    programs.thunderbird = {
-      enable = true;
-      profiles.default = {
-        isDefault = true;
-        settings = {
-          "app.update.auto" = false;
-          "mail.shell.checkDefaultClient" = false;
-          "mailnews.start_page.enabled" = false;
-          "privacy.donottrackheader.enabled" = true;
-        };
-      };
-    };
-
-    programs.zathura = {
-      enable = true;
-      options = {
-        adjust-open = "width";
-        font = "monospace normal 12";
-        incremental-search = true;
-        scroll-full-overlap = 0.01;
-        scroll-page-aware = true;
-        scroll-step = 100;
-        selection-notification = false;
-
-        # Tweak catpuccin theme for better readability.
-        recolor = false;
-        highlight-active-color = "rgba(245, 194, 231, 0.5)";
-        highlight-color = "rgba(183, 189, 248, 0.5)";
-        highlight-fg = "#24273a";
-      };
-      mappings = {
-        y = ''exec "sh -c 'wl-paste --primary | wl-copy'"'';
-      };
-    };
     # keep-sorted end
   };
   # keep-sorted end

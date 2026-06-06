@@ -70,5 +70,15 @@
         "Ctrl+J" = "cycle secondary-sid down";
       };
     };
+
+    programs.yt-dlp = {
+      enable = true;
+      package = pkgs.unstable.yt-dlp;
+      settings = {
+        embed-metadata = true;
+        sponsorblock-mark = "all";
+        downloader = lib.getExe pkgs.aria2;
+      };
+    };
   };
 }

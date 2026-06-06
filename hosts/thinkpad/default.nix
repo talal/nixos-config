@@ -17,7 +17,7 @@
     profiles.nextdns
     profiles.printing
     profiles.scheduler
-    profiles.scripts
+    profiles.shell
     profiles.ssh-tpm-agent
     profiles.syncthing
     profiles.users.talal
