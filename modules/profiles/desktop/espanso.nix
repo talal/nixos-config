@@ -4,7 +4,7 @@
   ...
 }: {
   services.espanso = {
-    enable = true;
+    enable = false;
     package = pkgs.espanso-wayland;
   };
 

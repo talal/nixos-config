@@ -142,7 +142,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    amd-debug-tools
+    unstable.amd-debug-tools
   ];
 
   hm = {

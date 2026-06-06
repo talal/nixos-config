@@ -4,22 +4,31 @@
   pkgs,
   ...
 }: let
-  vicinaePkg = pkgs.unstable.vicinae;
+  # Override the vicinae package to use our wrapper for the input server.
+  vicinaePkg = pkgs.unstable.vicinae.overrideAttrs (old: {
+    postFixup =
+      (old.postFixup or "")
+      + ''
+        wrapProgram $out/bin/vicinae \
+          --set VICINAE_INPUT_SERVER_BIN "${config.security.wrapperDir}/vicinae-input-server"
+      '';
+  });
 in {
   environment.systemPackages = [vicinaePkg];
+
+  # Create a security wrapper to give the input server the permissions it needs.
+  security.wrappers.vicinae-input-server = {
+    source = "${pkgs.unstable.vicinae}/libexec/vicinae/vicinae-input-server";
+    capabilities = "cap_dac_override+ep";
+    owner = "root";
+    group = "root";
+  };
 
   services.udev.extraRules = ''
     # Allows vicinae to create a virtual keyboard: required for paste support (the current user needs to be in the 'input' group)
     KERNEL=="uinput", GROUP="input", MODE="0660", RUN+="${pkgs.acl}/bin/setfacl -m g:input:rw /dev/$name"
   '';
   users.users.${config.user}.extraGroups = ["input"];
-
-  security.wrappers.vicinae-input-server = {
-    source = "${vicinaePkg}/libexec/vicinae/vicinae-input-server";
-    capabilities = "cap_dac_override+ep";
-    owner = "root";
-    group = "root";
-  };
 
   hm = {
     systemd.user.services = {
@@ -40,21 +49,6 @@ in {
         };
         Install.WantedBy = ["graphical-session.target"];
       };
-
-      vicinae-input-server = {
-        Unit = {
-          Description = "Vicinae Input Server";
-          PartOf = ["graphical-session.target"];
-          After = ["graphical-session.target"];
-        };
-        Service = {
-          Type = "simple";
-          ExecStart = "${config.security.wrapperDir}/vicinae-input-server";
-          Restart = "on-failure";
-          RestartSec = 5;
-        };
-        Install.WantedBy = ["graphical-session.target"];
-      };
     };
 
     xdg.configFile."vicinae/user_settings.json".text = lib.generators.toJSON {} {
@@ -67,7 +61,10 @@ in {
         name = "catppuccin-macchiato";
         icon_theme = "Adwaita";
       };
-      launcher_window.opacity = 0.9;
+      launcher_window = {
+        opacity = 0.9;
+        layer_shell.layer = "overlay";
+      };
       favorites = ["applications:org.gnome.Calculator"];
       providers = {
         browser-extension.enabled = false;
