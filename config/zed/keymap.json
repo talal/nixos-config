@@ -6,12 +6,12 @@
     },
     "bindings": {
       // Toggles via Hyper key (super+ctrl+alt+shift)
-      "super-ctrl-alt-shift-enter": "agent::ToggleFocus", // use enter, space+a is used for code actions
-      "super-ctrl-alt-shift-d": "debug_panel::ToggleFocus",
-      "super-ctrl-alt-shift-e": "project_panel::ToggleFocus",
-      "super-ctrl-alt-shift-g": "git_panel::ToggleFocus",
-      "super-ctrl-alt-shift-o": "outline_panel::ToggleFocus",
-      "super-ctrl-alt-shift-t": "terminal_panel::ToggleFocus"
+      // "super-ctrl-alt-shift-enter": "agent::ToggleFocus", // use enter, space+a is used for code actions
+      // "super-ctrl-alt-shift-d": "debug_panel::ToggleFocus",
+      // "super-ctrl-alt-shift-e": "project_panel::ToggleFocus",
+      // "super-ctrl-alt-shift-g": "git_panel::ToggleFocus",
+      // "super-ctrl-alt-shift-o": "outline_panel::ToggleFocus",
+      // "super-ctrl-alt-shift-t": "terminal_panel::ToggleFocus"
     }
   },
   {
