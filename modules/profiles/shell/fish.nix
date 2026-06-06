@@ -1,4 +1,4 @@
-_: {
+{
   hm = {
     programs.fish = {
       enable = true;

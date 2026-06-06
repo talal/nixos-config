@@ -38,7 +38,6 @@ in {
     };
 
     xdg.mimeApps = {
-      enable = true;
       defaultApplications = lib.genAttrs [
         "text/html"
         "x-scheme-handler/http"

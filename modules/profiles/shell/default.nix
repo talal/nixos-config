@@ -7,13 +7,13 @@
 
   environment.systemPackages = with pkgs; [
     # keep-sorted start
-    bat #  cat
+    bat # cat
     difftastic # diff
     doggo # dig
     duf # df
     dust # du
     exiftool
-    fd #  find
+    fd # find
     fzf
     glow
     hyperfine
@@ -23,7 +23,7 @@
     p7zip
     pandoc
     procs # ps
-    ripgrep #  grep
+    ripgrep # grep
     scooter # interactive find-and-replace
     sd # sed
     snitch # ss/netstat
@@ -33,7 +33,7 @@
   ];
 
   hm = {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=home,sops
+    # keep-sorted start block=yes newline_separated=yes
     home.shellAliases = {
       cdr = "cd $(git root)";
       cdtmp = "cd $(mktemp -d)";

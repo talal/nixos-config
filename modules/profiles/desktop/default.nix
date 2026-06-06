@@ -9,6 +9,12 @@
   # keep-sorted start block=yes newline_separated=yes prefix_order=security,environment,services,programs,home-manager
   security.polkit.enable = true;
 
+  environment.sessionVariables = {
+    # Use native Wayland when possible.
+    ELECTRON_OZONE_PLATFORM_HINT = "auto"; # this should be enough for most Electron apps
+    NIXOS_OZONE_WL = "1"; # apply wayland specific Nixpkgs flags
+  };
+
   environment.systemPackages =
     (with pkgs.unstable; [
       # keep-sorted start
@@ -63,11 +69,11 @@
   programs = {
     dconf.enable = true;
     gnome-disks.enable = true;
-  };
 
-  # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
-  # Without this, simple things like 'cargo run' might crash on missing libs.
-  programs.nix-ld.enable = true;
+    # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
+    # Without this, simple things like 'cargo run' might crash on missing libs.
+    nix-ld.enable = true;
+  };
 
   hm = {config, ...}: {
     # keep-sorted start block=yes newline_separated=yes prefix_order=home,xdg,dconf
@@ -111,7 +117,6 @@
         use-system-font = false;
       };
     };
-
     # keep-sorted end
   };
   # keep-sorted end

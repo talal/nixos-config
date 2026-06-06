@@ -3,7 +3,7 @@
     enable = true;
     powerOnBoot = false;
     settings.General = {
-      Experimental = true; # newer codes and battery info for devices
+      Experimental = true; # newer codecs and battery info for devices
       Privacy = "device";
     };
   };

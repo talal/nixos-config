@@ -1,5 +1,5 @@
 {
-  description = "Talal's NixOS configurations";
+  description = "Talal's Nix configurations";
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";

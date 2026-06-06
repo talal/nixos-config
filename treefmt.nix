@@ -15,6 +15,8 @@
     deadnix.enable = true;
     just.enable = true;
     keep-sorted.enable = true;
+    shellcheck.enable = true;
+    shfmt.enable = true;
     statix.enable = true;
     yamlfmt.enable = true;
     zizmor.enable = true;
@@ -46,9 +48,10 @@
   };
 
   settings.formatter = {
-    # Run Alejandra after deadnix
-    alejandra.priority = 2;
+    # Priority: deadnix → statix → Alejandra
     deadnix.priority = 1;
+    statix.priority = 2;
+    alejandra.priority = 3;
   };
   # keep-sorted end
 }

@@ -25,9 +25,9 @@ fi
 # The "Safety Dance" to make the script robust for all cases (going up or down),
 # we must temporarily drop the Start threshold to 0 before applying the new values.
 echo "Applying settings..."
-echo "0" | sudo tee "$BAT_PATH/charge_control_start_threshold" > /dev/null
-echo "$2" | sudo tee "$BAT_PATH/charge_control_end_threshold" > /dev/null
-echo "$1" | sudo tee "$BAT_PATH/charge_control_start_threshold" > /dev/null
+echo "0" | sudo tee "$BAT_PATH/charge_control_start_threshold" >/dev/null
+echo "$2" | sudo tee "$BAT_PATH/charge_control_end_threshold" >/dev/null
+echo "$1" | sudo tee "$BAT_PATH/charge_control_start_threshold" >/dev/null
 
 # Verification
 print_current_thresholds

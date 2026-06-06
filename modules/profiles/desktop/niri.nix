@@ -8,10 +8,6 @@
     # Ensure deadkeys work.
     GTK_IM_MODULE = "simple";
 
-    # Use native Wayland when possible.
-    ELECTRON_OZONE_PLATFORM_HINT = "auto"; # this should be enough for most Electron apps
-    NIXOS_OZONE_WL = "1"; # apply wayland specific Nixpkgs flags
-
     # Niri
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";

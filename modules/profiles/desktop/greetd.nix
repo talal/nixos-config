@@ -24,10 +24,11 @@
     greetd.enableGnomeKeyring = true;
     login.enableGnomeKeyring = true;
 
-    # Disable fingerprint auth for greetd; use password instead.
-    # fprintd's PAM hook would otherwise stack `pam_fprintd.so sufficient` ahead of
-    # pam_unix and the user sees a fingerprint scan request. If fingerprint is used at
-    # login then keyring doesn't get unlocked automatically.
+    # Disable fingerprint auth for greetd and use password instead so that login keyring
+    # gets unlocked automatically.
+    # If we don't disable this then fprintd's PAM hook would stack `pam_fprintd.so sufficient`
+    # ahead of pam_unix and the user would see a fingerprint scan request instead of
+    # password entry during login.
     greetd.fprintAuth = false;
   };
 }

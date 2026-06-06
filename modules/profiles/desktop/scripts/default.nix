@@ -2,7 +2,7 @@
   hm = {
     home.packages = with pkgs; [
       # keep-sorted start block=yes newline_separated=yes
-      (writeShellScriptBin "doctor" (builtins.readFile ./doctor.sh))
+      (writeShellScriptBin "doctor" (builtins.readFile ./doctor.bash))
 
       (writeShellScriptBin "flatpak-update" ''
         flatpak update -y
@@ -16,7 +16,7 @@
         mv "$tmpfile" "$1"
       '')
 
-      (writeShellScriptBin "set-battery-thresholds" (builtins.readFile ./set-battery-thresholds.sh))
+      (writeShellScriptBin "set-battery-thresholds" (builtins.readFile ./set-battery-thresholds.bash))
       # keep-sorted end
     ];
   };
