@@ -60,10 +60,27 @@
     "bindings": {
       "ctrl-alt-s": "editor::SaveLocation",
       "ctrl-alt-w": "pane::CloseActiveItem",
-      // Create a new minor mode (space.l) for text formatting.
+      "ctrl-q": "pane::CloseActiveItem",
+
+      // Line Selection (Aligns with Helix x/X)
+      "shift-x": "editor::SelectUp",
+
+      // Splits/Pane Navigation (Aligns with Helix C-h/j/k/l)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+
+      // AST Parent Node Navigation (Aligns with Helix tab/S-tab)
+      "tab": "editor::SelectLargerSyntaxNode",
+      "shift-tab": "editor::SelectSmallerSyntaxNode",
+
+      // space.l minor mode formatting & toggles
       "space l f": "editor::Format",
       "space l q": "editor::Rewrap",
-      "space l s": "editor::SortLinesCaseInsensitive"
+      "space l s": "editor::SortLinesCaseInsensitive",
+      "space l i": "editor::ToggleInlayHints",
+      "space l z": "editor::ToggleSoftWrap"
     }
   }
 ]
