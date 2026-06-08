@@ -45,8 +45,7 @@
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   "theme": "Catppuccin Macchiato",
-  "buffer_font_family": "TX-02",
-  "buffer_font_fallbacks": ["Symbols Nerd Font"],
+  "buffer_font_family": "TX02 Nerd Font",
   "buffer_font_size": 18,
   "ui_font_size": 19,
   "agent_buffer_font_size": 17,
