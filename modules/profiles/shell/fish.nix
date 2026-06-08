@@ -26,6 +26,7 @@
       binds = {
         "alt-w".command = "fish_commandline_append \" | wl-copy\"";
         "ctrl-z".command = "fg 2>/dev/null; commandline -f repaint"; # suspend/resume
+        "alt-comma".command = "history-token-search-forward"; # alt-. is history-token-search-backward
       };
 
       functions = {

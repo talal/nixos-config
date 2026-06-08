@@ -37,64 +37,65 @@ in {
 
         (deflayer default
           caps
-          @tabmeh _  _  _  _  _ _ _  @i _  _  _ _
-          @escext @a @s @d @f _ _ @j @k @l @; _ _
-          @num    _  _  _  _  _ _ _  _  _  _
-          @num    _          @sym
+          @tabmeh _  _  _  _  _   _ _  @i _  _  _ _
+          @escext @a @s @d @f _   _ @j @k @l @; _ _
+          _       _  _  _  _  _   _ _  _  _  _
+          @num    @sym          _
         )
 
         (deflayer extend
           _
-          _  _    _    _    _    _  _    pgdn pgup _    _    _   _
-          _  lmet lalt lsft lctl _  left down up   rght bspc del _
-          _  _    _    _    _    _  _    _    home end  _
+          _  _    _    _    _    _   _    pgdn pgup bspc _   _ _
+          _  lmet lalt lsft lctl _   left down up   rght del _ _
+          _  _    _    _    _    _   _    _    home end  _
           _  _                   enter
         )
 
+
         (deflayer number
           _
-          _  _ _ _ _ _ _ 7 8 9 _ _ _
-          _  _ _ _ _ _ _ 4 5 6 _ _ _
-          _  _ _ _ _ _ _ 1 2 3 _
-          _  _        0
+          _  _   _ _  _  _     _ 7 8 9 _ _ _
+          _  min / @* @+ eql   _ 4 5 6 _ _ _
+          _  _   _ _  _  _     _ 1 2 3 _
+          _  _               0
         )
 
         (deflayer symbols
           _
-          _  @! @@ @# @$  @%  @^  @&  @*   min  @+ _ _
-          _  @_ @{ @} @:  apo @dq eql lpar rpar _  _ _
-          _  \  @[ @] grv _   _   @~  @<   @>   _
-          _  _              _
+          _  @! @@   @#  @$ @%    @^ @& @* _    _   _ _
+          _  @_ lpar [   @{ eql   _  @} ]  rpar min _ _
+          _  \  @~   grv @+ _     _  _  _  _    _
+          _  _                  _
         )
 
         (defvar
           ;; Reference: https://github.com/jtroo/kanata/blob/main/docs/config.adoc#tap-hold
-          ;; tap-repress-timeout
+          ;; Hold timeout: Reduced slightly to 175ms for snappier typing.
+          ;; If you get accidental modifiers when typing fast, increase to 200.
           tt 200
-          ;; hold-timeout
-          ht 200
+          ht 175
         )
 
         (defalias
           ;; ══════════ Layers ══════════
           escext (tap-hold-press $tt $ht esc (layer-while-held extend))
-          num    (layer-while-held number)
-          sym    (tap-hold-release $tt $ht spc (layer-while-held symbols))
+          num (layer-while-held number)
+          sym (layer-while-held symbols)
 
           ;; ══════════ Home Row Mods ══════════
           tabmeh (tap-hold-press $tt $ht tab (multi lctl lalt lsft))
 
-          a (tap-hold-release $ht $ht a lmet)
-          s (tap-hold-release $ht $ht s lalt)
-          d (tap-hold-release $ht $ht d lsft)
-          f (tap-hold-release $ht $ht f lctl)
+          a (tap-hold-release $tt $ht a lmet)
+          s (tap-hold-release $tt $ht s lalt)
+          d (tap-hold-release $tt $ht d lsft)
+          f (tap-hold-release $tt $ht f lctl)
 
-          j (tap-hold-release $ht $ht j rctl)
-          k (tap-hold-release $ht $ht k rsft)
-          l (tap-hold-release $ht $ht l lalt)
-          ; (tap-hold-release $ht $ht ; lmet)
+          j (tap-hold-release $tt $ht j rctl)
+          k (tap-hold-release $tt $ht k rsft)
+          l (tap-hold-release $tt $ht l lalt)
+          ; (tap-hold-release $tt $ht ; rmet)
 
-          i (tap-hold-release $ht $ht i ralt)
+          i (tap-hold-release $tt $ht i ralt)
 
           ;; ══════════ Symbol Aliases ══════════
           !  S-1
@@ -113,8 +114,6 @@ in {
           ~  S-grv
           :  S-;
 
-          [  [
-          ]  ]
           {  S-[
           }  S-]
           <  S-,
