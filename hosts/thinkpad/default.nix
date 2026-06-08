@@ -107,12 +107,12 @@
     allowRiskyCriticalPowerAction = true;
   };
 
-  # In my current setup, I use laptop as main display and external monitor as secondary so when
-  # I close the lid, it means that I want laptop to suspend and external monitors to turn off.
   services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
-    HandleLidSwitchDocked = "suspend";
-    HandleLidSwitchExternalPower = "suspend";
+    # niri's lid-close event takes care of locking the screen and suspend.
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+
     HandlePowerKey = "suspend";
     HandlePowerKeyLongPress = "poweroff";
   };

@@ -39,6 +39,10 @@ input {
     trackpoint { accel-profile "flat"; }
 }
 
+switch-events {
+    lid-close { spawn "sh" "-c" "noctalia-shell ipc call lockScreen lock && systemctl suspend"; }
+}
+
 // ════════════════════════════════ Appearance ════════════════════════════════
 
 animations { slowdown 0.5; }
