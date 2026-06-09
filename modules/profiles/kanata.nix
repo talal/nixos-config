@@ -32,7 +32,7 @@ in {
           tab  q w e r t y u i o p [ ]
           caps a s d f g h j k l ; ' \
           lsft z x c v b n m , . /
-          102d lalt      spc
+          102d lalt      spc     ralt
         )
 
         (deflayer default
@@ -40,7 +40,7 @@ in {
           @tabmeh _  _  _  _  _   _ _  @i _  _  _ _
           @escext @a @s @d @f _   _ @j @k @l @; _ _
           _       _  _  _  _  _   _ _  _  _  _
-          @num    @sym          _
+          @num    @sym          _            @sym
         )
 
         (deflayer extend
@@ -48,7 +48,7 @@ in {
           _  _    _    _    _    _   _    pgdn pgup bspc _   _ _
           _  lmet lalt lsft lctl _   left down up   rght del _ _
           _  _    _    _    _    _   _    _    home end  _
-          _  _                   enter
+          _  _                   enter                   _
         )
 
 
@@ -57,7 +57,7 @@ in {
           _  _   _ _  _  _   _   7 8 9 _ _ _
           _  min / @* @+ _   eql 4 5 6 _ _ _
           _  _   _ _  _  _   _   1 2 3 _
-          _  _             0
+          _  _             0           _
         )
 
         (deflayer symbols
@@ -65,7 +65,7 @@ in {
           _  @! @@   @# @$ @%   @^  @& @* @+   _   _ _
           _  @_ lpar [  @{ @:   eql @} ]  rpar min _ _
           _  _  _    _  _  _    _   _  _  _    _
-          _  _                _
+          _  _                _                _
         )
 
         (defvar
