@@ -73,7 +73,7 @@ in {
           ;; Hold timeout: Reduced slightly to 175ms for snappier typing.
           ;; If you get accidental modifiers when typing fast, increase to 200.
           tt 200
-          ht 175
+          ht 200
         )
 
         (defalias
