@@ -135,10 +135,8 @@
       echo 55 > /sys/class/power_supply/BAT0/charge_control_start_threshold
       echo 60 > /sys/class/power_supply/BAT0/charge_control_end_threshold
     '';
-    # Trigger on boot AND when system prepares to go to sleep
-    wantedBy = ["multi-user.target" "sleep.target"];
-    # Delay execution until AFTER the system wake-up phase is complete
-    after = ["multi-user.target" "systemd-suspend.service" "systemd-hibernate.service"];
+    wantedBy = ["multi-user.target"];
+    after = ["multi-user.target"];
   };
 
   environment.systemPackages = with pkgs; [
