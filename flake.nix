@@ -29,6 +29,11 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    tx-02 = {
+      url = "github:talal/TX-02";
+      flake = false;
+    };
     # keep-sorted end
   };
 

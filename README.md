@@ -68,6 +68,7 @@ SOPS_AGE_KEY_CMD="age-plugin-yubikey --identity" sops updatekeys -y secrets/**
 ### Step 6: Install
 
 ```bash
+export NIX_CONFIG="access-tokens = github.com=ghp_yourtoken"
 git add --intent-to-add --all
 nixos-install --flake .#thinkpad
 reboot
