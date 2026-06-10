@@ -29,12 +29,5 @@
       # therefore plural instead of singular 'key.txt' as filename.
       age.keyFile = "/home/talal/.config/sops/age/keys.txt"; # must have no password
     };
-
-    sops.secrets."ssh-config" = {
-      sopsFile = inputs.self + "/secrets/ssh-config.yaml";
-      format = "yaml";
-      key = "config";
-      path = "/home/talal/.ssh/config";
-    };
   };
 }
