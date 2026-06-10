@@ -22,6 +22,7 @@
       marksman # Markdown LSP
       mdformat
       nixd
+      nixfmt # for contributing to nixpkgs
       prettier # JSON formatting
       scc
       shellcheck
