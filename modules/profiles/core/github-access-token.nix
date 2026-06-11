@@ -12,7 +12,5 @@
     };
   };
 
-  nix.extraOptions = ''
-    !include ${config.sops.templates.access-token-prelude.path}
-  '';
+  nix.extraOptions = "!include ${config.sops.templates.access-token-prelude.path}";
 }
