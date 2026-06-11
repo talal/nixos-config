@@ -11,6 +11,7 @@
       eza.enable = false; # IFD (can use term colors)
       firefox.enable = false; # IFD
       fzf.enable = false; # IFD (vendored as env var)
+      gemini-cli.enable = false;
       ghostty.enable = false; # use built-in theme
       mpv.enable = false; # don't need
       starship.enable = false; # IFD (can use term colors)
