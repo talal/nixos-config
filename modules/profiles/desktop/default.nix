@@ -15,47 +15,6 @@
     NIXOS_OZONE_WL = "1"; # apply wayland specific Nixpkgs flags
   };
 
-  environment.systemPackages =
-    (with pkgs.unstable; [
-      # keep-sorted start
-      bitwarden-desktop
-      discord
-      ente-desktop
-      obsidian
-      proton-authenticator
-      yaak
-      zed-editor
-      # keep-sorted end
-    ])
-    ++ (with pkgs; [
-      # keep-sorted start
-      adw-gtk3 # GTK theme
-      adwaita-icon-theme
-      apple-cursor
-      blanket
-      czkawka
-      gimp
-      gnome-calculator
-      gnome-obfuscate
-      gnome-text-editor
-      hunspell # for firefox, thunderbird, and libreoffice
-      hunspellDicts.de_DE
-      hunspellDicts.en_GB-ize
-      keepassxc
-      libreoffice-still
-      loupe
-      nautilus
-      papers
-      parabolic
-      pdfarranger
-      pika-backup
-      resources
-      wl-screenrec
-      xdg-utils
-      zeal
-      # keep-sorted end
-    ]);
-
   services = {
     # keep-sorted start
     flatpak.enable = true;
