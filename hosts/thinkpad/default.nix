@@ -7,9 +7,9 @@
     # keep-sorted start prefix_order=inputs,./
     ./hardware-configuration.nix
     profiles.audio
-    profiles.base
     profiles.bluetooth
     profiles.btrfs
+    profiles.core
     profiles.desktop
     profiles.dev
     profiles.kanata
