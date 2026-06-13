@@ -25,7 +25,7 @@
         # Loop through all arguments (supports multi-link clicks)
         for url in "$@"; do
           if [ -n "$url" ]; then
-            noctalia-shell ipc call plugin:browser-selector open "$url"
+            noctalia msg plugin talal/browser-selector:service all open "$url"
           fi
         done
       '')

@@ -36,6 +36,13 @@ window-rule { // Float: dms windows
     open-floating true
 }
 
+window-rule { // Float: noctalia settings
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
 window-rule { // Float: picture-in-picture
     match title=r#"(?i)^picture-in-picture$"#
     open-floating true
@@ -71,7 +78,7 @@ window-rule { // Productivity: apps that occupy their own workspace and are maxi
 }
 
 layer-rule { // Shell: noctalia
-    match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
+    match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
     background-effect {
         xray false
     }
