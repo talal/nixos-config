@@ -5,8 +5,8 @@ binds {
     XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
     XF86AudioMicMute { spawn-sh "noctalia msg mic-mute"; }
 
-    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
-    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up 2"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down 2"; }
 
     XF86Favorites       { spawn-sh "noctalia msg power-set performance"; }
     Shift+XF86Favorites { spawn-sh "noctalia msg power-set balanced"; }
