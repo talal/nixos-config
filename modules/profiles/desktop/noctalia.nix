@@ -1,11 +1,13 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
-}: let
-  noctaliaPkg = pkgs.unstable.noctalia-shell;
-in {
-  environment.systemPackages = [noctaliaPkg];
+}: {
+  environment.systemPackages = [
+    pkgs.unstable.noctalia-shell
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 
   # NOTE: We do not manage noctalia via systemd.user.services here.
   # Quickshell-based apps can have memory leaks causing systemd to trap them in a crash-loop.

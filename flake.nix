@@ -25,6 +25,11 @@
     # own pinned nixpkgs-unstable input.
     llm-agents.url = "github:numtide/llm-agents.nix";
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
