@@ -38,7 +38,7 @@ input {
 }
 
 switch-events {
-    lid-close { spawn "sh" "-c" "noctalia-shell ipc call lockScreen lock && systemctl suspend"; }
+    lid-close { spawn "sh" "-c" "noctalia msg session lock-and-suspend"; }
 }
 
 // ════════════════════════════════ Appearance ════════════════════════════════
