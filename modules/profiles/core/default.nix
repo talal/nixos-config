@@ -12,7 +12,6 @@
       (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" config.user])
 
       inputs.home-manager.nixosModules.home-manager
-      inputs.sops-nix.nixosModules.sops
     ]
     ++ (findModulesList ./.);
 
@@ -60,11 +59,6 @@
       users.${config.user}.home.stateVersion = "26.05";
     };
 
-    sops = {
-      defaultSopsFile = inputs.self + "/secrets/secrets.yaml";
-      defaultSopsFormat = "yaml";
-      age.keyFile = "/var/lib/sops-nix/key.txt"; # must have no password
-    };
     # keep-sorted end
   };
 }
