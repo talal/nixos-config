@@ -15,6 +15,7 @@ binds {
     Mod+X     repeat=false           hotkey-overlay-title="Power Menu"        { spawn-sh "noctalia msg panel-toggle session"; }
     Mod+Shift+Comma                  hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
 
+    Mod+A hotkey-overlay-title="Control Center" { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
     Mod+N hotkey-overlay-title="Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Shift+N  hotkey-overlay-title="Notification Center" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
 }
