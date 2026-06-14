@@ -1,0 +1,62 @@
+{
+  "atuin": {
+    "hash": "sha256-4V9Rz37PlBLB1E3JVVYzrJwe9XXlKAFAO5gxWW/cTCw=",
+    "lastModified": "2026-03-02",
+    "rev": "68aa64b77573c235044b614e752a781701af4eec"
+  },
+  "bat": {
+    "hash": "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg=",
+    "lastModified": "2025-06-29",
+    "rev": "6810349b28055dce54076712fc05fc68da4b8ec0"
+  },
+  "bottom": {
+    "hash": "sha256-dfukdk70ug1lRGADKBnvMhkl+3tsY7F+UAwTS2Qyapk=",
+    "lastModified": "2025-04-18",
+    "rev": "eadd75acd0ecad4a58ade9a1d6daa3b97ccec07c"
+  },
+  "btop": {
+    "hash": "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=",
+    "lastModified": "2024-09-23",
+    "rev": "f437574b600f1c6d932627050b15ff5153b58fa3"
+  },
+  "delta": {
+    "hash": "sha256-lztkxX9O41YossvRzpR7tqxMhDNT1Efy2JvkCwtsiXQ=",
+    "lastModified": "2026-06-03",
+    "rev": "011516f5d14f66b771b3e716f29c77231e008c74"
+  },
+  "fish": {
+    "hash": "sha256-3KNWYXfOMzZovdjwjBpjSH8cVlD4CO2QmQcCyQE4Dac=",
+    "lastModified": "2026-03-13",
+    "rev": "5fc5ae9c2ec22eb376cb03ce76f0d262a38960f3"
+  },
+  "foot": {
+    "hash": "sha256-lFa5EpoLkrZcC80YDHyVOTnwYOCNybznlD80NkgVLYs=",
+    "lastModified": "2026-04-25",
+    "rev": "99384a83ee9246cd0a38aeee07d8300367724602"
+  },
+  "helix": {
+    "hash": "sha256-F05ohJp7c9Pdnjq8+srfhAt1ogHjjBz50k1ftHOHGVg=",
+    "lastModified": "2026-02-18",
+    "rev": "91e071bf9b9b2b8ae176a5581fcb61c789c55cab"
+  },
+  "television": {
+    "hash": "sha256-83C03FX2vb5UHq5sbad8XLoF/2EfX0NC+fUA0Xi60fw=",
+    "lastModified": "2025-08-04",
+    "rev": "4d9cfc97b0a5a6a2854c9e5f6f8fdae6a9343232"
+  },
+  "thunderbird": {
+    "hash": "sha256-07gT37m1+OhRTbUk51l0Nhx+I+tl1il5ayx2ow23APY=",
+    "lastModified": "2024-11-01",
+    "rev": "0289f3bd9566f9666682f66a3355155c0d0563fc"
+  },
+  "yazi": {
+    "hash": "sha256-Og33IGS9pTim6LEH33CO102wpGnPomiperFbqfgrJjw=",
+    "lastModified": "2026-05-14",
+    "rev": "41f24ed142e34109a9a65a5dfe58c1b4eb6d2fd9"
+  },
+  "zathura": {
+    "hash": "sha256-upyfc4OSx9xKUoM/JdRfuXiw38ffoSB/Utm2jpyXgy8=",
+    "lastModified": "2025-08-02",
+    "rev": "9f29c2c1622c70436f0e0b98fea9735863596c1e"
+  }
+}

@@ -9,6 +9,7 @@
     profiles.audio
     profiles.bluetooth
     profiles.btrfs
+    profiles.catppuccin
     profiles.core
     profiles.desktop
     profiles.dev

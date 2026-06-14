@@ -8,8 +8,6 @@
     "cnjifjpddelmedmihgijeibhnjfabmlf" # Obsidian Web Clipper
     "ghbmnnjooekpmoecnnnilnnbdlolhkhi" # Google Docs Offline
     "jabopobgcpjmedljpbcaablpmlmfcogm" # WhatFont
-    # Ideally, this should be defined in modules/catppuccin.nix and the list merged but
-    # unfortunately programs.chromium.extraOpts is of type lib.types.attrs 😔
     "cmpdlhmnmjhihmcfnigoememnffkimlk" # Catppuccin Macchiato theme
   ];
 in {
