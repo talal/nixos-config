@@ -216,8 +216,8 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
         "sops-nix": "sops-nix",
-        "treefmt-nix": "treefmt-nix_2",
-        "tx-02": "tx-02"
+        "talal-fonts": "talal-fonts",
+        "treefmt-nix": "treefmt-nix_3"
       }
     },
     "sops-nix": {
@@ -255,6 +255,27 @@
         "type": "github"
       }
     },
+    "talal-fonts": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
+        "treefmt-nix": "treefmt-nix_2"
+      },
+      "locked": {
+        "lastModified": 1781442626,
+        "narHash": "sha256-d61xSmu5+uTNfdOfMP2xqHkochcwZgNEZWy1a2dCW40=",
+        "owner": "talal",
+        "repo": "fonts",
+        "rev": "2352b7a362164bf32e13c75bf8c3ef4f3081e459",
+        "type": "github"
+      },
+      "original": {
+        "owner": "talal",
+        "repo": "fonts",
+        "type": "github"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
@@ -279,7 +300,8 @@
     "treefmt-nix_2": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "talal-fonts",
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -296,19 +318,23 @@
         "type": "github"
       }
     },
-    "tx-02": {
-      "flake": false,
+    "treefmt-nix_3": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
       "locked": {
-        "lastModified": 1781175298,
-        "narHash": "sha256-ObWCcoawziQcfiEjRDJ19N4N7mvHe3eXtZ5jpG8aMIg=",
-        "owner": "talal",
-        "repo": "TX-02",
-        "rev": "076387f0aa83322c404314ee0684bd0777bd32ea",
+        "lastModified": 1780220602,
+        "narHash": "sha256-eynAfOmbmxJnkp7YewvCEbShNnnYJ9gLLqkzsYtBPeM=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "db947814a175b7ca6ded66e21383d938df01c227",
         "type": "github"
       },
       "original": {
-        "owner": "talal",
-        "repo": "TX-02",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     }

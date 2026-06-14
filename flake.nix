@@ -30,14 +30,14 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
+    talal-fonts = {
+      url = "github:talal/fonts";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    tx-02 = {
-      url = "github:talal/TX-02";
-      flake = false;
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     # keep-sorted end
   };
@@ -53,6 +53,8 @@
           inherit (prev) config;
         };
       })
+
+      inputs.talal-fonts.overlays.default
     ];
 
     mkHost = import ./lib/mkHost.nix {
