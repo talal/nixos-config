@@ -26,7 +26,7 @@
     llm-agents.url = "github:numtide/llm-agents.nix";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia/e3d292656c340e5d766e11c3e4be922a39f7ac51";
+      url = "github:noctalia-dev/noctalia/fbd80d484d1f677643b704b3918d433440a1c564";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
