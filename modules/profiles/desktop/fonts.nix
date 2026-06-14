@@ -13,6 +13,7 @@
       departure-mono
       fira-code
       ibm-plex
+      ibm-writer
       inter
       iosevka
       jetbrains-mono

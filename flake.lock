@@ -263,11 +263,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1781442626,
-        "narHash": "sha256-d61xSmu5+uTNfdOfMP2xqHkochcwZgNEZWy1a2dCW40=",
+        "lastModified": 1781454885,
+        "narHash": "sha256-t41VBslS+slr8oqyVTdXodWmMe5RlEQ8C5Hod6jJIxk=",
         "owner": "talal",
         "repo": "fonts",
-        "rev": "2352b7a362164bf32e13c75bf8c3ef4f3081e459",
+        "rev": "a7a73c9277236c42133592e3de055d854edde16c",
         "type": "github"
       },
       "original": {
