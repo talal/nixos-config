@@ -11,6 +11,7 @@
       # keep-sorted start
       atkinson-hyperlegible-next
       departure-mono
+      fira-code
       ibm-plex
       inter
       iosevka
@@ -18,7 +19,6 @@
       lato
       libertinus
       lilex
-      merriweather
       nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
