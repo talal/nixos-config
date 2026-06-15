@@ -2,7 +2,7 @@
 order = ["default"]
 
 [bar.default]
-background_opacity = 0.84999999999999998
+background_opacity = 0.94999999999999996
 center = ["clock", "date"]
 end = [
   "bar",
