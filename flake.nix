@@ -16,10 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Don't set `nixpkgs.follows` as this flake is only built and tested against its
-    # own pinned nixpkgs-unstable input.
-    llm-agents.url = "github:numtide/llm-agents.nix";
-
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
