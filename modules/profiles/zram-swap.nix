@@ -19,7 +19,7 @@
     reportInterval = 0;
     extraArgs = [
       "--avoid"
-      "(niri*|ghostty)"
+      "(niri*|ghostty|foot)"
       "--prefer"
       "(nix|electron|brave|chrom(e|ium)|Isolated Web Co)"
     ];
