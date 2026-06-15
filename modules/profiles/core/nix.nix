@@ -39,6 +39,7 @@
       http-connections = 50; # (default: 25)
       keep-going = true; #  continue building derivations even if one fails
       log-lines = 30; # (default: 10)
+      use-xdg-base-directories = true;
       warn-dirty = false;
 
       # for direnv GC roots
