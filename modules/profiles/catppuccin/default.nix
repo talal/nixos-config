@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2023 Catppuccin
 # Source: https://github.com/catppuccin/nix
+#
 # The following programs are intentionally excluded from this profile:
 # - bottom: IFD
 # - eza: IFD (can use term colors)

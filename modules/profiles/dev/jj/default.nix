@@ -26,7 +26,7 @@
       jscope = "jj config get user.email; and jj config get signing.key";
     };
 
-    xdg.configFile."jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/jj/config.toml";
+    xdg.configFile."jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/profiles/dev/jj/config.toml";
 
     xdg.configFile."jj/conf.d/commit-template.toml".text = ''
       [templates]

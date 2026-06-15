@@ -1,6 +1,6 @@
 include "output-panasonic-tv.kdl"
 include "rules.kdl"
-include "noctalia/binds.kdl"
+include "noctalia-binds.kdl"
 include "binds.kdl" // place after other binds so that we can override
 
 spawn-at-startup "noctalia"

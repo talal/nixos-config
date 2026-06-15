@@ -34,7 +34,6 @@
       auto-allocate-uids = true;
       use-cgroups = true;
 
-      # allow-import-from-derivation = false; # TODO: this breaks devenv
       accept-flake-config = false; # don't accept other people's nix config
       http-connections = 50; # (default: 25)
       keep-going = true; #  continue building derivations even if one fails

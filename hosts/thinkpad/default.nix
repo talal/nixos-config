@@ -109,7 +109,7 @@
   };
 
   services.logind.settings.Login = {
-    # niri's lid-close event takes care of locking the screen and suspend.
+    # We use niri's lid-close event instead.
     HandleLidSwitch = "ignore";
     HandleLidSwitchDocked = "ignore";
     HandleLidSwitchExternalPower = "ignore";

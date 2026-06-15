@@ -23,7 +23,7 @@
 
   hm = {config, ...}: {
     xdg.configFile."niri" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/niri";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/profiles/desktop/niri/config";
       recursive = true;
     };
   };

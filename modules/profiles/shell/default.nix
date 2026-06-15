@@ -1,36 +1,5 @@
-{
-  pkgs,
-  findModulesList,
-  ...
-}: {
+{findModulesList, ...}: {
   imports = findModulesList ./.;
-
-  environment.systemPackages = with pkgs; [
-    # keep-sorted start
-    bat # cat
-    difftastic # diff
-    doggo # dig
-    duf # df
-    dust # du
-    exiftool
-    fd # find
-    fzf
-    glow
-    hyperfine
-    jq
-    just # make
-    moor # less
-    p7zip
-    pandoc
-    procs # ps
-    ripgrep # grep
-    scooter # interactive find-and-replace
-    sd # sed
-    snitch # ss/netstat
-    tectonic # for using as pandoc's pdf-engine
-    trash-cli # rm
-    # keep-sorted end
-  ];
 
   hm = {
     # keep-sorted start block=yes newline_separated=yes

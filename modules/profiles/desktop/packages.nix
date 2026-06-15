@@ -8,7 +8,6 @@
       obsidian
       proton-authenticator
       yaak
-      zed-editor
       # keep-sorted end
     ])
     ++ (with pkgs; [

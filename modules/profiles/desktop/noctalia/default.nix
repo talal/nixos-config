@@ -15,6 +15,8 @@
   # Instead, noctalia is launched directly via niri's `spawn-at-startup`.
 
   hm = {
+    xdg.configFile."noctalia/config.toml".source = ./config.toml;
+
     home.packages = [
       (pkgs.writeShellScriptBin "browser-selector" ''
         # Exit immediately if no URLs are passed

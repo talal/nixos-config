@@ -23,7 +23,7 @@
   };
 
   config = {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=system,nixpkgs,nix,environment,,services,programs,home-manager,sops
+    # keep-sorted start block=yes newline_separated=yes prefix_order=system,environment,,services,programs,home-manager,sops
     system.activationScripts.activation-diff = {
       supportsDryActivation = true;
       text = ''${lib.getExe pkgs.dix} /run/current-system "$systemConfig"'';
@@ -58,7 +58,6 @@
       # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
       users.${config.user}.home.stateVersion = "26.05";
     };
-
     # keep-sorted end
   };
 }

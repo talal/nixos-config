@@ -1,9 +1,0 @@
-*dankcolors*
-/**/themes
-
-/niri/dms/*
-!/niri/dms/colors.kdl
-!/niri/dms/cursor.kdl
-!/niri/dms/binds.kdl
-
-/zed/settings_backup.json
