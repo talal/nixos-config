@@ -12,8 +12,8 @@
       atkinson-hyperlegible-next
       departure-mono
       fira-code
+      hanken-grotesk
       ibm-plex
-      ibm-writer
       inter
       iosevka
       jetbrains-mono
