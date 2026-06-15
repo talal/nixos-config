@@ -1,5 +1,8 @@
 {
   hm = {
+    # Reference: https://github.com/nix-community/home-manager/issues/8200
+    home.file.".mozilla/native-messaging-hosts".enable = false;
+
     programs.firefox = {
       enable = true;
       languagePacks = ["en-GB" "de" "ur"];
