@@ -43,6 +43,7 @@
     console = {
       earlySetup = true; # set virtual console options as early as possible (in initrd)
       font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+      keyMap = lib.mkDefault "us";
     };
 
     i18n.defaultLocale = lib.mkDefault "en_GB.UTF-8";

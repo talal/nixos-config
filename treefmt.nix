@@ -48,7 +48,7 @@
   };
 
   settings.formatter = {
-    # Priority: deadnix → statix → Alejandra
+    # Priority: deadnix -> statix -> Alejandra
     deadnix.priority = 1;
     statix.priority = 2;
     alejandra.priority = 3;

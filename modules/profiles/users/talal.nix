@@ -9,9 +9,9 @@
   user = "talal";
 
   users.users.talal = {
-    uid = 1000; # make uid predictable
-    isNormalUser = true;
     description = "Muhammad Talal Anwar";
+    isNormalUser = true;
+    uid = 1000; # make uid predictable
     hashedPasswordFile = config.sops.secrets.user_password.path;
     extraGroups =
       ["wheel"]

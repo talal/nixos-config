@@ -76,6 +76,9 @@
   "helix_mode": true,
   "relative_line_numbers": "enabled",
   "which_key": { "enabled": true, "delay_ms": 0 },
+  "experimental.theme_overrides": {
+    "vim.helix_jump_label.foreground": "#f4dbd6" // Catppuccin Macchiato Rosewater
+  },
 
   // ══════════ Languages ══════════
   "file_types": {

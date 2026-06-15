@@ -35,6 +35,7 @@
       use-cgroups = true;
 
       accept-flake-config = false; # don't accept other people's nix config
+      allow-import-from-derivation = false;
       http-connections = 50; # (default: 25)
       keep-going = true; #  continue building derivations even if one fails
       log-lines = 30; # (default: 10)

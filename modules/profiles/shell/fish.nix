@@ -33,6 +33,14 @@
         multicd = ''
           echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
         '';
+
+        nedit = ''
+          set -l target (readlink -f $argv[1])
+          rm -f $argv[1]
+          cp $target $argv[1]
+          chmod +w $argv[1]
+          $EDITOR $argv[1]
+        '';
       };
 
       shellAbbrs = {

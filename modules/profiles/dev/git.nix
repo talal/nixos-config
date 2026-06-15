@@ -108,6 +108,7 @@
         # AI
         ".agents/"
         ".antigravitycli/"
+        ".claude/"
         ".gemini/"
         ".pi/"
         "AGENTS.md"
@@ -117,7 +118,6 @@
 
         # Dev Tools
         ".env*"
-        "!.envrc"
         ".direnv/"
         ".jj/"
         ".pre-commit-config.yaml"
