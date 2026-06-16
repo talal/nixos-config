@@ -1,5 +1,5 @@
 {
-  description = "Talal's Nix configurations";
+  description = "Talal's NixOS configurations";
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
@@ -16,9 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # I update this input frequently therefore don't pin nixpkgs to my input.
+    # Use upstream's nixpkgs input instead.
     noctalia = {
       url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     talal-fonts = {

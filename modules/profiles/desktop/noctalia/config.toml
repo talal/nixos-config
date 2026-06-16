@@ -5,7 +5,7 @@ order = ["default"]
 background_opacity = 0.94999999999999996
 center = ["clock", "date"]
 end = [
-  "bar",
+  "privacy",
   "tray",
   "caffeine",
   "input_volume",
@@ -126,7 +126,7 @@ hideInactive = true
 inactiveColor = "outline"
 
 [plugins]
-enabled = ["talal/browser-selector", "talal/privacy-indicator"]
+enabled = ["talal/browser-selector"]
 
 [[plugins.source]]
 kind = "git"
@@ -206,6 +206,10 @@ show_label = false
 
 [widget.output_volume]
 show_label = false
+
+[widget.privacy]
+active_color = "error"
+hide_inactive = true
 
 [widget.volume]
 show_label = false
