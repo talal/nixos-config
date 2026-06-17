@@ -2,7 +2,7 @@
   hm = {
     xdg.mimeApps = {
       enable = true;
-      defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus papers];
+      defaultApplicationPackages = with pkgs; [helix loupe mpv nautilus zathura];
       defaultApplications = {
         "text/markdown" = "org.gnome.TextEditor.desktop";
         "text/plain" = "org.gnome.TextEditor.desktop";
