@@ -38,7 +38,7 @@ input {
 }
 
 switch-events {
-    lid-close { spawn "sh" "-c" "noctalia msg session lock-and-suspend"; }
+    lid-close { spawn "sh" "-c" "noctalia msg session lock && sleep 3 && systemctl suspend"; }
 }
 
 // ════════════════════════════════ Appearance ════════════════════════════════
