@@ -41,6 +41,12 @@ name = "rust"
 text-width = 100
 
 [[language]]
+name = "text"
+scope = "text"
+file-types = ["txt"]
+soft-wrap.enable = true
+
+[[language]]
 name = "toml"
 formatter.command = "taplo"
 formatter.args = [
