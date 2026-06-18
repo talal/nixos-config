@@ -17,6 +17,7 @@
     profiles.location
     profiles.nextdns
     profiles.printing
+    profiles.scanner
     profiles.scheduler
     profiles.shell
     profiles.ssh-tpm-agent
