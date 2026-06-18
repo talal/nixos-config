@@ -19,6 +19,11 @@
 
   environment.systemPackages = [
     pkgs.unstable.xwayland-satellite
+
+    # Noctalia sometimes dies during suspend which leads to red screen therefore
+    # installing hyprlock as a fallback lockscreen.
+    # Reference: https://niri-wm.github.io/niri/FAQ.html#how-do-i-recover-from-a-dead-screen-locker-from-a-red-screen
+    pkgs.hyprlock
   ];
 
   hm = {config, ...}: {

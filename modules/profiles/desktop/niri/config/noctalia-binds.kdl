@@ -11,7 +11,7 @@ binds {
     XF86Favorites       { spawn-sh "noctalia msg power-set performance"; }
     Shift+XF86Favorites { spawn-sh "noctalia msg power-set balanced"; }
 
-    Mod+Alt+L allow-when-locked=true hotkey-overlay-title="Lock Screen"       { spawn-sh "noctalia msg session lock"; }
+    Mod+Alt+L allow-when-locked=true hotkey-overlay-title="Lock Screen"       { spawn-sh "noctalia msg session lock || hyprlock"; }
     Mod+X     repeat=false           hotkey-overlay-title="Power Menu"        { spawn-sh "noctalia msg panel-toggle session"; }
     Mod+Shift+Comma                  hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
 
