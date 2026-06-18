@@ -5,7 +5,6 @@
   ...
 }: {
   environment.systemPackages = [
-    pkgs.unstable.noctalia-shell
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
