@@ -119,6 +119,9 @@ temperature_night = 3000
 [osd]
 position = "bottom_center"
 
+[osd.kinds]
+media = false
+
 [plugin_settings."talal/privacy-indicator"]
 activeColor = "error"
 enableToast = false
