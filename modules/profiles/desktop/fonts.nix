@@ -26,7 +26,7 @@
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
       tx-02
-      tx-02.NF
+      tx-02.nf
       # keep-sorted end
     ];
   };
