@@ -10,8 +10,8 @@
     packages = with pkgs; [
       # keep-sorted start
       atkinson-hyperlegible-next
+      cascadia-code
       departure-mono
-      fira-code
       hanken-grotesk
       ibm-plex
       inter
