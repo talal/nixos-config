@@ -32,26 +32,6 @@ in {
   users.users.${config.user}.extraGroups = ["input"];
 
   hm = {
-    systemd.user.services = {
-      vicinae = {
-        Unit = {
-          Description = "Vicinae Server";
-          PartOf = ["graphical-session.target"];
-          After = ["graphical-session.target"];
-        };
-        Service = {
-          Environment = "USE_LAYER_SHELL=1";
-          Type = "simple";
-          ExecStart = "${lib.getExe vicinaePkg} server";
-          Restart = "always";
-          RestartSec = 5;
-          # Prevent systemd from killing child processes (apps launched by Vicinae) on restart
-          KillMode = "process";
-        };
-        Install.WantedBy = ["graphical-session.target"];
-      };
-    };
-
     xdg.configFile."vicinae/user_settings.json".text = lib.generators.toJSON {} {
       pop_to_root_on_close = true;
       font.normal = {

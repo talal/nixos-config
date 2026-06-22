@@ -4,6 +4,7 @@ include "noctalia-binds.kdl"
 include "binds.kdl" // place after other binds so that we can override
 
 spawn-at-startup "noctalia"
+spawn-at-startup "vicinae" "server"
 
 hotkey-overlay { skip-at-startup; }
 
