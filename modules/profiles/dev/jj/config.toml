@@ -21,8 +21,7 @@ watchman.register-snapshot-trigger = true
 default-command = "status"
 diff-editor = ":builtin"
 revsets-use-glob-by-default = true
-# Reference: https://dandavison.github.io/delta/configuration.html#jujutsu
-pager = "delta"
+pager = ["hunk", "pager"]
 diff-formatter = ":git"
 
 # Reference: https://docs.jj-vcs.dev/latest/config/#generating-diffs-by-external-command

@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hunk = {
+      url = "github:modem-dev/hunk";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # I update this input frequently therefore don't pin nixpkgs to my input.
     # Use upstream's nixpkgs input instead.
     noctalia = {
