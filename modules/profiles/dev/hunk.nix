@@ -1,18 +1,18 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   hm = {
-    imports = [
-      inputs.hunk.homeManagerModules.default
+    home.packages = [
+      inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.hunk
     ];
 
-    programs.hunk = {
-      enable = true;
-      enableGitIntegration = true;
-      settings = {
-        theme = "catppuccin-mocha";
-        mode = "auto";
-        line_numbers = true;
-        wrap_lines = true;
-      };
+    xdg.configFile."hunk/config.toml".source = (pkgs.formats.toml {}).generate "hunk-config" {
+      theme = "catppuccin-mocha";
+      mode = "auto";
+      line_numbers = true;
+      wrap_lines = true;
     };
   };
 }

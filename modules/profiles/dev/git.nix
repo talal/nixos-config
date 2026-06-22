@@ -50,11 +50,14 @@
         fetch.prune = true;
         push.autoSetupRemote = true;
         rebase.autoStash = true;
-        merge.conflictStyle = "zdiff3";
+        # merge.conflictStyle = "zdiff3";
         gpg.format = "ssh";
         commit.gpgSign = true;
         tag.gpgSign = true;
+        core.pager = "hunk pager";
+
         url."git@github-talal:".insteadOf = ["git@github.com:"];
+
         alias = {
           l = "log --graph --abbrev-commit --pretty='%C(bold yellow)%h%C(reset) %C(green)(%cr)%C(reset)%C(bold red)%d%C(reset) %s %C(blue)<%an>%C(reset)'";
 
@@ -70,6 +73,7 @@
           dl = "-c diff.external=difft log -p --ext-diff";
           ds = "-c diff.external=difft show --ext-diff";
         };
+
         # NOTE: leave an empty line at the top of the template for our actual commit message.
         commit.template = builtins.toFile "commit-template.txt" ''
 
@@ -95,7 +99,11 @@
           #   revert    revert a commit
         '';
       };
-      includes = [{path = "~/.config/git/scopes.gitconfig";}];
+
+      includes = [
+        {path = "~/.config/git/scopes.gitconfig";}
+      ];
+
       ignores = [
         "*.bak"
         "*.log*"
