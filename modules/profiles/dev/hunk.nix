@@ -3,11 +3,11 @@
   pkgs,
   ...
 }: {
-  hm = {
-    home.packages = [
-      inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.hunk
-    ];
+  environment.systemPackages = [
+    inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.hunk
+  ];
 
+  hm = {
     xdg.configFile."hunk/config.toml".source = (pkgs.formats.toml {}).generate "hunk-config.toml" {
       theme = "catppuccin-mocha";
       mode = "auto";
