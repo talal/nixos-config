@@ -14,11 +14,15 @@
     # Adds the path to NIX_PATH for legacy tool compatibility.
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
-    # Cleanup
-    optimise.automatic = true;
+    # Cleanup: optimise nix store after gc and ensure they don't overlap.
     gc = {
       automatic = true;
+      dates = "Sun 14:00";
       options = "--delete-older-than 7d";
+    };
+    optimise = {
+      automatic = true;
+      dates = "Sun 15:00";
     };
 
     settings = {
