@@ -49,7 +49,6 @@
           function = "multicd";
         };
 
-        cat = "bat";
         cp = "cp -r";
         diff = "difft";
         mkdir = "mkdir -p";

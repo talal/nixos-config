@@ -4,11 +4,12 @@
   hm = {
     # keep-sorted start block=yes newline_separated=yes
     home.shellAliases = {
-      cdr = "cd $(git root)";
+      cat = "bat";
+      cdr = "cd $(jj root 2>/dev/null || git root 2>/dev/null)";
       cdtmp = "cd $(mktemp -d)";
       o = "xdg-open";
-      zed = "zeditor";
       rm = "trash-put";
+      zed = "zeditor";
     };
 
     programs.atuin = {
@@ -24,6 +25,7 @@
 
     programs.bash = {
       enable = true;
+      # Extra aliases to mimic the behavior of my fish abbreviations.
       shellAliases = {
         ".." = "cd ..";
         e = "hx";
