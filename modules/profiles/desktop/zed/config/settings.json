@@ -1,6 +1,5 @@
 {
   // ══════════ General ══════════
-  "disable_ai": true,
   "cli_default_open_behavior": "new_window",
   "restore_on_startup": "launchpad",
   "load_direnv": "shell_hook",
@@ -14,8 +13,11 @@
     "Presentation": {
       "settings": {
         "disable_ai": true,
-        "theme": "One Light",
-        "helix_mode": false,
+        "theme": {
+          "mode": "light",
+          "light": "One Light",
+          "dark": "One Dark"
+        },
         "relative_line_numbers": "disabled",
         "which_key": { "enabled": false }
       }
@@ -30,19 +32,27 @@
     "default_profile": "write",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-6",
-      "effort": "medium",
-      "enable_thinking": true
+      "model": "claude-sonnet-5",
+      "enable_thinking": true,
+      "effort": "medium"
     },
     "inline_assistant_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-6"
+      "model": "claude-sonnet-5",
+      "enable_thinking": false
     }
   },
-  "edit_predictions": { "provider": "zed", "mode": "subtle" },
+  "edit_predictions": {
+    "provider": "zed",
+    "mode": "subtle"
+  },
 
   // ══════════ Appearance ══════════
-  "theme": "Catppuccin Macchiato",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Macchiato"
+  },
   "buffer_font_family": "TX02 Nerd Font",
   "buffer_font_size": 18,
   "ui_font_size": 19,
