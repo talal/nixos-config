@@ -2,7 +2,7 @@
   environment.systemPackages =
     (with pkgs.unstable; [
       # keep-sorted start
-      bitwarden-desktop
+      # bitwarden-desktop # using Flatpak atm due to Electron EOL issues
       discord
       ente-desktop
       obsidian
