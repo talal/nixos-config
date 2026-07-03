@@ -43,10 +43,19 @@
 
     programs.bottom = {
       enable = true;
-      settings.flags = {
-        basic = true;
-        hide_table_gap = true;
-        process_memory_as_value = true;
+      settings = {
+        flags = {
+          basic = true;
+          table_gap = "none";
+        };
+        processes = {
+          default_grouped = true;
+          hide_k_threads = true;
+          default_memory_value = true;
+        };
+        memory_graph = {
+          short_gpu_names = true;
+        };
       };
     };
 
