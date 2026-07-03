@@ -7,6 +7,7 @@
       ente-desktop
       obsidian
       proton-authenticator
+      remnote
       yaak
       # keep-sorted end
     ])
