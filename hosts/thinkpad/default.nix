@@ -82,11 +82,15 @@
       wifi.backend = "iwd";
     };
     useDHCP = false; # NetworkManager already does this
-
     wireless.iwd = {
       enable = true;
-      settings.General.AddressRandomization = "network";
-      settings.General.AddressRandomizationRange = "full";
+      settings = {
+        General = {
+          EnableNetworkConfiguration = false; # let NetworkManager handle DHCP/IP
+          AddressRandomization = "network";
+          AddressRandomizationRange = "full";
+        };
+      };
     };
   };
 
