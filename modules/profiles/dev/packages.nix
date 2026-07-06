@@ -23,6 +23,7 @@
     scc
     shellcheck
     shfmt
+    skills
     superhtml
     taplo # TOML LSP
     tinymist
