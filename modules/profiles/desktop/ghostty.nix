@@ -3,6 +3,7 @@
     programs.ghostty = {
       enable = true;
       package = pkgs.unstable.ghostty;
+      clearDefaultKeybinds = true;
       settings = {
         command = "fish";
         theme = "Catppuccin Macchiato";
@@ -25,20 +26,11 @@
         adjust-underline-thickness = -1;
 
         keybind = [
-          "ctrl+enter=unbind"
-          "ctrl+shift+q=unbind"
-          "ctrl+shift+w=unbind"
-
           "global:ctrl+backquote=toggle_quick_terminal"
 
-          # Use ctrl-shift-<key> to prevent conflict with Helix which uses ctrl-<key>.
-          # ctrl+page_down/up is set to previous/next tab by default.
-          # "ctrl+shift+page_down=move_tab:1"
-          # "ctrl+shift+page_up=move_tab:-1"
-          # "ctrl+shift+h=goto_split:left"
-          # "ctrl+shift+j=goto_split:down"
-          # "ctrl+shift+k=goto_split:up"
-          # "ctrl+shift+l=goto_split:right"
+          "ctrl+==increase_font_size:1"
+          "ctrl+-=decrease_font_size:1"
+          "ctrl+0=reset_font_size"
 
           # Use ctrl-a as Ghostty prefix followed by Helix-style keybinds.
           "ctrl+a>s=new_split:down"
@@ -51,7 +43,7 @@
           "ctrl+a>x=close_surface"
           "ctrl+a>z=toggle_split_zoom"
 
-          "ctrl+a>t=new_tab"
+          "ctrl+a>c=new_tab"
           "ctrl+a>n=next_tab"
           "ctrl+a>p=previous_tab"
           "ctrl+a>q=close_tab:this"
