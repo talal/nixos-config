@@ -6,6 +6,10 @@ version_check = false
 [terminal]
 default_shell = "fish"
 
+[theme]
+name = "catppuccin"
+auto_switch = false
+
 [keys]
 prefix = "ctrl+space"
 split_horizontal = "prefix+s"
