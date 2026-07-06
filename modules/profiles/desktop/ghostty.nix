@@ -30,17 +30,32 @@
 
           "global:ctrl+backquote=toggle_quick_terminal"
 
-          # Tabs
-          # ctrl+page_down/up will switch tabs by default.
+          # Use ctrl-shift-<key> to prevent conflict with Helix which uses ctrl-<key>.
           "ctrl+shift+page_down=move_tab:1"
           "ctrl+shift+page_up=move_tab:-1"
-          "ctrl+shift+alt+t=prompt_surface_title"
+          # ctrl+page_down/up is set to previous/next tab by default.
 
-          # Splits: use ctrl+shift+<key> since ctrl+<key> is used for Helix splits.
           "ctrl+shift+h=goto_split:left"
           "ctrl+shift+j=goto_split:down"
           "ctrl+shift+k=goto_split:up"
           "ctrl+shift+l=goto_split:right"
+
+          # Use ctrl-a as Ghostty prefix followed by Helix-style keybinds.
+          "ctrl+a>v=new_split:right"
+          "ctrl+a>s=new_split:down"
+
+          "ctrl+a>o=toggle_split_zoom"
+          "ctrl+a>h=goto_split:left"
+          "ctrl+a>j=goto_split:down"
+          "ctrl+a>k=goto_split:up"
+          "ctrl+a>l=goto_split:right"
+          "ctrl+a>x=close_surface"
+
+          "ctrl+a>t=new_tab"
+          "ctrl+a>shift+t=prompt_tab_title"
+          "ctrl+a>n=next_tab"
+          "ctrl+a>p=previous_tab"
+          "ctrl+a>q=close_tab:this"
         ];
 
         gtk-wide-tabs = false;
