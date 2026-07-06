@@ -4,6 +4,7 @@
       enable = true;
       options = {
         adjust-open = "width";
+        database = "sqlite";
         font = "monospace normal 12";
         incremental-search = true;
         scroll-full-overlap = 0.01;
