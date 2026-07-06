@@ -39,20 +39,14 @@ x = "select_line_below"
 X = "select_line_above"
 
 # Splits: use ctrl+<key> since ctrl+shift+<key> is used for Ghostty splits.
-C-h = "jump_view_left"
-C-j = "jump_view_down"
-C-k = "jump_view_up"
-C-l = "jump_view_right"
+# C-h = "jump_view_left"
+# C-j = "jump_view_down"
+# C-k = "jump_view_up"
+# C-l = "jump_view_right"
 
 C-s = ":update"
 C-A-s = "save_selection" # in jumplist
 C-q = ":quit" # closes a split/view (useful in multi-split layouts)
-
-# WARNING: :buffer-close(-others) closes a file tab entirely across all splits. This means
-# that you might end up losing your windows because a window is just a viewport on a buffer.
-C-A-w = ":buffer-close" # Helix stays open after last buffer is closed (similar to close-tab behavior of other editors)
-C-w.O = ":buffer-close-others" # similar to what C-w.o does for windows
-space.w.O = ":buffer-close-others" # similar to what space.w.o does for windows
 
 # Open Yazi file explorer
 C-e = [
@@ -75,7 +69,15 @@ S-tab = "extend_parent_node_start"
 x = "select_line_below"
 X = "select_line_above"
 
-# Create a new minor mode (space.l) for common tasks.
+# Create a new minor mode for buffer tasks: space.b
+[keys.normal.space.b]
+b = "buffer_picker"
+# WARNING: :buffer-close(-others) closes a file tab entirely across all splits. This means
+# that you might end up losing your windows because a window is just a viewport on a buffer.
+q = ":buffer-close" # Helix stays open after last buffer is closed (similar to close-tab behavior of other editors)
+O = ":buffer-close-others" # similar to what space.w.o does for windows
+
+# Create a new minor mode for common tasks: space.l
 [keys.normal.space.l]
 f = ":format"
 i = ":toggle lsp.display-inlay-hints"
