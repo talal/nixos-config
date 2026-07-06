@@ -1,0 +1,12 @@
+onboarding = false
+
+[update]
+version_check = false
+
+[terminal]
+default_shell = "fish"
+
+[keys]
+prefix = "ctrl+space"
+split_horizontal = "prefix+s"
+settings = "prefix+,"
