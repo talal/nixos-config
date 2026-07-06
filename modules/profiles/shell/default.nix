@@ -49,6 +49,7 @@
           table_gap = "none";
         };
         processes = {
+          columns = ["pid" "name" "cpu%" "mem%" "gpu%" "gmem%" "read" "write" "user" "time" "priority"];
           default_grouped = true;
           hide_k_threads = true;
           default_memory_value = true;
