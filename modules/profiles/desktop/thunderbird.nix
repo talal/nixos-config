@@ -2,6 +2,7 @@
   hm = {
     programs.thunderbird = {
       enable = true;
+      languagePacks = ["en-GB" "de" "ur"];
       profiles.default = {
         isDefault = true;
         settings = {
