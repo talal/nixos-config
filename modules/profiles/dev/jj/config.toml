@@ -20,9 +20,9 @@ watchman.register-snapshot-trigger = true
 [ui]
 default-command = "status"
 diff-editor = ":builtin"
-revsets-use-glob-by-default = true
-pager = ["hunk", "pager"]
 diff-formatter = ":git"
+pager = ["hunk", "pager"]
+revsets-use-glob-by-default = true
 
 # Reference: https://docs.jj-vcs.dev/latest/config/#generating-diffs-by-external-command
 [merge-tools.difft]
