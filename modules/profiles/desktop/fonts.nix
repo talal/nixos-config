@@ -8,23 +8,32 @@
       emoji = ["Noto Color Emoji"];
     };
     packages = with pkgs; [
+      # Prose
       # keep-sorted start
       atkinson-hyperlegible-next
-      cascadia-code
-      departure-mono
       hanken-grotesk
-      ibm-plex
       inter
-      iosevka
-      jetbrains-mono
       lato
       libertinus
-      lilex
-      nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
+      # keep-sorted end
+
+      # Code
+      # keep-sorted start
+      cascadia-code
+      departure-mono
+      ibm-plex
+      iosevka
+      iosevka-ss08
+      iosevka-ss08.fixed
+      iosevka-ss08.term
+      jetbrains-mono
+      lilex
+      nerd-fonts.symbols-only
+      pragmata-pro
       tx-02
       tx-02.nf
       # keep-sorted end
