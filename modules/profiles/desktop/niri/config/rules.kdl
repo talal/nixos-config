@@ -43,7 +43,7 @@ window-rule { // Float: dms windows
 }
 
 window-rule { // Float: noctalia settings
-  match app-id="dev.noctalia.Noctalia.Settings"
+  match app-id="dev.noctalia.Noctalia" title=r#"(Settings$)"#
 
   open-floating true
   default-column-width { proportion 0.75; }
