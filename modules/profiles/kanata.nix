@@ -37,10 +37,10 @@ in {
 
         (deflayer default
           caps
-          @tabmeh _  _  _  _  _   _ _  @i _  _  _ _
+          @tabnum _  _  _  _  _   _ _  @i _  _  _ _
           @escext @a @s @d @f _   _ @j @k @l @; _ _
           _       _  _  _  _  _   _ _  _  _  _
-          @num    @sym          _            @sym
+          nop0    @sym          _            @sym
         )
 
         (deflayer extend
@@ -54,13 +54,13 @@ in {
 
         (deflayer number
           _
-          _  _   _ _  _  _   _   7 8 9 _ _ _
-          _  min / @* @+ _   eql 4 5 6 _ _ _
-          _  _   _ _  _  _   _   1 2 3 _
-          _  _             0           _
+          _  _ _ _ _ _   _   7 8 9 _ _ _
+          _  _ _ _ _ _   eql 4 5 6 _ _ _
+          _  _ _ _ _ _   _   1 2 3 _
+          _  _         0           _
         )
 
-        (deflayer symbols
+        (deflayer symbol
           _
           _  @! @@   @# @$  @%   @^  @& @* @+   _   _ _
           _  @_ lpar [  @{  @:   eql @} ]  rpar min _ _
@@ -79,12 +79,11 @@ in {
         (defalias
           ;; ══════════ Layers ══════════
           escext (tap-hold-press $tt $ht esc (layer-while-held extend))
-          num (layer-while-held number)
-          sym (layer-while-held symbols)
+          tabnum (tap-hold-press $tt $ht tab (layer-while-held number))
+          ;; tabmeh (tap-hold-press $tt $ht tab (multi lctl lalt lsft))
+          sym (layer-while-held symbol)
 
           ;; ══════════ Home Row Mods ══════════
-          tabmeh (tap-hold-press $tt $ht tab (multi lctl lalt lsft))
-
           a (tap-hold-release $tt $ht a lmet)
           s (tap-hold-release $tt $ht s lalt)
           d (tap-hold-release $tt $ht d lsft)
