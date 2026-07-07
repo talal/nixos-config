@@ -25,12 +25,6 @@ in {
     group = "root";
   };
 
-  services.udev.extraRules = ''
-    # Allows vicinae to create a virtual keyboard: required for paste support (the current user needs to be in the 'input' group)
-    KERNEL=="uinput", GROUP="input", MODE="0660", RUN+="${pkgs.acl}/bin/setfacl -m g:input:rw /dev/$name"
-  '';
-  users.users.${config.user}.extraGroups = ["input"];
-
   hm = {
     xdg.configFile."vicinae/user_settings.json".text = lib.generators.toJSON {} {
       pop_to_root_on_close = true;
