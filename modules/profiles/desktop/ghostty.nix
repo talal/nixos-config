@@ -3,7 +3,6 @@
     programs.ghostty = {
       enable = true;
       package = pkgs.unstable.ghostty;
-      clearDefaultKeybinds = true;
       settings = {
         command = "fish";
         theme = "Catppuccin Macchiato";
@@ -26,11 +25,12 @@
         adjust-underline-thickness = -1;
 
         keybind = [
-          "global:ctrl+backquote=toggle_quick_terminal"
+          "ctrl+enter=unbind"
+          "ctrl+shift+q=unbind"
+          "ctrl+shift+t=unbind"
+          "ctrl+shift+w=unbind"
 
-          "ctrl+==increase_font_size:1"
-          "ctrl+-=decrease_font_size:1"
-          "ctrl+0=reset_font_size"
+          "global:ctrl+backquote=toggle_quick_terminal"
 
           # Use ctrl-a as Ghostty prefix followed by Helix-style keybinds.
           "ctrl+a>s=new_split:down"
