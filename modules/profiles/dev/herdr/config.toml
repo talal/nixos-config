@@ -11,6 +11,7 @@ name = "catppuccin"
 
 [ui]
 prompt_new_tab_name = false
+sidebar_width = 20
 
 [keys]
 prefix = "ctrl+space"
