@@ -14,6 +14,7 @@
     jq
     just # make
     moor # less
+    oxipng
     p7zip
     pandoc
     procs # ps
