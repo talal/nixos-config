@@ -72,6 +72,7 @@ X = "select_line_above"
 # Create a new minor mode for buffer tasks: space.b
 [keys.normal.space.b]
 b = "buffer_picker"
+r = ":reload"
 # WARNING: :buffer-close(-others) closes a file tab entirely across all splits. This means
 # that you might end up losing your windows because a window is just a viewport on a buffer.
 q = ":buffer-close" # Helix stays open after last buffer is closed (similar to close-tab behavior of other editors)
