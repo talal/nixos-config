@@ -40,7 +40,7 @@ in {
           @tabmeh _  _  _  _  _   _ _  @i _  _  _ _
           @escext @a @s @d @f _   _ @j @k @l @; _ _
           _       _  _  _  _  _   _ _  _  _  _
-          nop0    @sym          _            @sym
+          @num    @sym          _            @sym
         )
 
         (deflayer extend
@@ -49,6 +49,15 @@ in {
           _  lmet lalt lsft lctl _   left down up   rght del _ _
           _  _    _    _    _    _   _    _    home end  _
           _  _                   enter                   _
+        )
+
+
+        (deflayer number
+          _
+          _  _   _ _  _  _   _   7 8 9 _ _ _
+          _  min / @* @+ _   eql 4 5 6 _ _ _
+          _  _   _ _  _  _   _   1 2 3 _
+          _  _             0           _
         )
 
         (deflayer symbols
@@ -70,6 +79,7 @@ in {
         (defalias
           ;; ══════════ Layers ══════════
           escext (tap-hold-press $tt $ht esc (layer-while-held extend))
+          num (layer-while-held number)
           sym (layer-while-held symbols)
 
           ;; ══════════ Home Row Mods ══════════
