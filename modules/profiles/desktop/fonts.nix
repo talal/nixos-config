@@ -10,6 +10,7 @@
     packages = with pkgs; [
       # Prose
       # keep-sorted start
+      atkinson-hyperlegible-mono
       atkinson-hyperlegible-next
       hanken-grotesk
       inter
@@ -25,7 +26,7 @@
       # keep-sorted start
       cascadia-code
       departure-mono
-      ibm-plex
+      ibm-plex # only need IBM Plex Mono
       iosevka
       iosevka-ss08
       iosevka-ss08.fixed
