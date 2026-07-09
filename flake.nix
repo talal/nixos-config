@@ -26,10 +26,9 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # I update this input frequently therefore don't pin nixpkgs to my input.
-    # Use upstream's nixpkgs input instead.
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/v5.0.0-beta2";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     talal-fonts = {
