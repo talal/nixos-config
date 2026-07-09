@@ -15,7 +15,7 @@ window-rule { // Block: email & comms
 }
 
 layer-rule { // Block: notifications
-    match namespace=r#"(?i)(notifications|dms:notification|dms:slideout)"#
+    match namespace=r#"(?i)(notification)"#
 
     block-out-from "screen-capture"
 }
@@ -33,13 +33,6 @@ window-rule { // Block: passwords (bitwarden browser extension)
 
     open-floating true
     block-out-from "screen-capture"
-}
-
-window-rule { // Float: dms windows
-    match app-id=r#"org.quickshell$"#
-    match app-id=r#"com.danklinux.dms$"#
-
-    open-floating true
 }
 
 window-rule { // Float: noctalia settings
@@ -89,20 +82,22 @@ window-rule { // Media
     default-column-width {}
 }
 
-window-rule { // Productivity: apps that occupy their own workspace and are maximized to edges
-    // Web browsers
-    match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
-    // Zed
-    match app-id="dev.zed.Zed"
-    exclude app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
-
-    open-maximized-to-edges true
-}
-
 layer-rule { // Shell: noctalia
     match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
 
     background-effect { xray false; }
+}
+
+window-rule { // App: browsers maximized
+    match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
+
+    open-maximized-to-edges true
+}
+
+window-rule { // App: browsers workspace
+    match at-startup=true app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
+
+    open-on-workspace "browser"
 }
 
 window-rule { // App: calculator
@@ -152,5 +147,12 @@ window-rule { // App: resource monitors
     open-floating true
     default-column-width  { proportion 0.65; }
     default-window-height { proportion 0.75; }
+}
+
+window-rule { // App: zed
+    match app-id="dev.zed.Zed"
+    exclude app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
+
+    open-maximized-to-edges true
 }
 // keep-sorted end

@@ -111,7 +111,7 @@ binds {
 
     Mod+1 { focus-workspace "obsidian"; }
     Mod+2 { focus-workspace "remnote"; }
-    Mod+3 { focus-workspace 3; }
+    Mod+3 { focus-workspace "browser"; }
     Mod+4 { focus-workspace 4; }
     Mod+5 { focus-workspace 5; }
     Mod+6 { focus-workspace 6; }

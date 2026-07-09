@@ -18,6 +18,7 @@ output "eDP-1" {
 }
 workspace "obsidian" { open-on-output "eDP-1"; }
 workspace "remnote"  { open-on-output "eDP-1"; }
+workspace "browser"  { open-on-output "eDP-1"; }
 
 input {
     disable-power-key-handling // managed by logind
