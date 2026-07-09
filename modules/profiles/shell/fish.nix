@@ -35,10 +35,12 @@
         '';
 
         nedit = ''
-          set -l target (readlink -f $argv[1])
-          rm -f $argv[1]
-          cp $target $argv[1]
-          chmod +w $argv[1]
+          if test -L $argv[1]
+            set -l target (readlink -f $argv[1])
+            rm $argv[1]
+            cp $target $argv[1]
+            chmod +w $argv[1]
+          end
           $EDITOR $argv[1]
         '';
       };
