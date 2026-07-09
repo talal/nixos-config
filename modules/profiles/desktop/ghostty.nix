@@ -25,31 +25,25 @@
         adjust-underline-thickness = -1;
 
         keybind = [
-          "ctrl+enter=unbind"
-          "ctrl+shift+q=unbind"
-          "ctrl+shift+t=unbind"
-          "ctrl+shift+w=unbind"
-
           "global:ctrl+backquote=toggle_quick_terminal"
 
-          # Use ctrl-a as Ghostty prefix followed by Helix-style keybinds.
-          "ctrl+a>s=new_split:down"
-          "ctrl+a>v=new_split:right"
+          "ctrl+enter=unbind" # conflicts with WM keybind
+          "ctrl+shift+q=unbind" # prevent accidental quit
 
-          "ctrl+a>h=goto_split:left"
-          "ctrl+a>j=goto_split:down"
-          "ctrl+a>k=goto_split:up"
-          "ctrl+a>l=goto_split:right"
-          "ctrl+a>x=close_surface"
-          "ctrl+a>z=toggle_split_zoom"
+          # Remap from 'close_tab:this' to 'close_surface' because the latter will also
+          # close current tab if it has has only pane (i.e. root pane). This prevents
+          # accidental closure of tabs which have multiple panes in them.
+          "ctrl+shift+w=close_surface"
 
-          "ctrl+a>c=new_tab"
-          "ctrl+a>n=next_tab"
-          "ctrl+a>p=previous_tab"
-          "ctrl+a>q=close_tab:this"
-          "ctrl+a>shift+page_down=move_tab:1"
-          "ctrl+a>shift+page_up=move_tab:-1"
-          "ctrl+a>shift+t=prompt_tab_title"
+          # ctrl+page_down/up are set to next/previous_tab by default.
+          "ctrl+shift+page_down=move_tab:1"
+          "ctrl+shift+page_up=move_tab:-1"
+
+          # ctrl+arrow_keys are already set by default.
+          "ctrl+alt+h=goto_split:left"
+          "ctrl+alt+j=goto_split:down"
+          "ctrl+alt+k=goto_split:up"
+          "ctrl+alt+l=goto_split:right"
         ];
 
         gtk-wide-tabs = false;
