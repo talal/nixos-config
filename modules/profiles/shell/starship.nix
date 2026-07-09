@@ -49,7 +49,7 @@
         };
         nix_shell.format = "[($name/)$state]($style) ";
         direnv.disabled = false;
-        python.format = "[(py $virtualenv)](bold peach) ";
+        python.format = "[(py $virtualenv)](bold green) ";
         fill.symbol = " ";
         shell = {
           disabled = false;
