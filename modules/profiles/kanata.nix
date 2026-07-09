@@ -37,7 +37,7 @@ in {
 
         (deflayer default
           caps
-          @tabnum _  _  _  _  _   _ _  @i _  _  _ _
+          @tabmeh _  _  _  _  _   _ _  @i _  _  _ _
           @escext @a @s @d @f _   _ @j @k @l @; _ _
           _       _  _  _  _  _   _ _  _  _  _
           nop0    @sym          _            @sym
@@ -49,15 +49,6 @@ in {
           _  lmet lalt lsft lctl _   left down up   rght del _ _
           _  _    _    _    _    _   _    _    home end  _
           _  _                   enter                   _
-        )
-
-
-        (deflayer number
-          _
-          _  _ _ _ _ _   _   7 8 9 _ _ _
-          _  _ _ _ _ _   eql 4 5 6 _ _ _
-          _  _ _ _ _ _   _   1 2 3 _
-          _  _         0           _
         )
 
         (deflayer symbol
@@ -79,8 +70,7 @@ in {
         (defalias
           ;; ══════════ Layers ══════════
           escext (tap-hold-press $tt $ht esc (layer-while-held extend))
-          tabnum (tap-hold-press $tt $ht tab (layer-while-held number))
-          ;; tabmeh (tap-hold-press $tt $ht tab (multi lctl lalt lsft))
+          tabmeh (tap-hold-press $tt $ht tab (multi lctl lalt lsft))
           sym (layer-while-held symbol)
 
           ;; ══════════ Home Row Mods ══════════
