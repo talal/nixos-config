@@ -23,6 +23,7 @@
           "$battery"
           "$os"
           "$container"
+          "\${env_var.ZMX_SESSION}"
           "$character"
         ];
         character = {
@@ -33,6 +34,13 @@
         directory = {
           truncation_length = 8;
           style = "bold lavender";
+        };
+        env_var.ZMX_SESSION = {
+          description = "zmx session name";
+          # format = "[$symbol$env_value]($style) ";
+          # symbol = " ";
+          format = "[$env_value]($style) ";
+          style = "bold red";
         };
         custom.vcs = {
           when = "jj-starship detect";
