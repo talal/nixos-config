@@ -3,6 +3,7 @@
     # keep-sorted start
     age
     ffmpeg-full
+    lm_sensors
     pciutils
     poppler-utils
     sops
