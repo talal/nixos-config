@@ -48,6 +48,9 @@
   },
 
   // ══════════ Appearance ══════════
+  "tab_bar": {
+    "show": true
+  },
   "theme": {
     "mode": "dark",
     "light": "One Light",

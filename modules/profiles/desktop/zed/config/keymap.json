@@ -5,37 +5,17 @@
       "ctrl-shift-w": "workspace::CloseWindow"
     },
     "bindings": {
-      // Toggles via Hyper key (super+ctrl+alt+shift)
-      // "super-ctrl-alt-shift-enter": "agent::ToggleFocus", // use enter, space+a is used for code actions
-      // "super-ctrl-alt-shift-d": "debug_panel::ToggleFocus",
-      // "super-ctrl-alt-shift-e": "project_panel::ToggleFocus",
-      // "super-ctrl-alt-shift-g": "git_panel::ToggleFocus",
-      // "super-ctrl-alt-shift-o": "outline_panel::ToggleFocus",
-      // "super-ctrl-alt-shift-t": "terminal_panel::ToggleFocus"
+      // Toggles via Meh key (ctrl+alt+shift)
+      "ctrl-alt-shift-h": "workspace::ToggleLeftDock",
+      "ctrl-alt-shift-j": "workspace::ToggleBottomDock",
+      "ctrl-alt-shift-k": "editor::ToggleTabBar",
+      "ctrl-alt-shift-l": "workspace::ToggleRightDock"
     }
   },
   {
     "context": "Workspace",
-    "unbind": {
-      "ctrl-alt-s": "workspace::SaveAll",
-      "ctrl-shift-d": "debug_panel::ToggleFocus",
-      "ctrl-t": "project_symbols::Toggle"
-    },
     "bindings": {
       "ctrl-~": "workspace::NewCenterTerminal", // default: workspace::NewTerminal
-
-      // Toggles via Meh key (ctrl+alt+shift)
-      "ctrl-alt-(": "workspace::ToggleLeftDock",
-      "ctrl-alt-)": "workspace::ToggleRightDock"
-    }
-  },
-  {
-    "context": "Terminal",
-    "unbind": {
-      "ctrl-shift-w": "pane::CloseActiveItem"
-    },
-    "bindings": {
-      "ctrl-alt-w": "pane::CloseActiveItem"
     }
   },
   {
@@ -55,12 +35,11 @@
   {
     "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
     "unbind": {
-      "ctrl-s": "editor::SaveLocation"
+      "ctrl-s": "editor::SaveLocation",
+      "space b": "tab_switcher::ToggleAll"
     },
     "bindings": {
       "ctrl-alt-s": "editor::SaveLocation",
-      "ctrl-alt-w": "pane::CloseActiveItem",
-      "ctrl-q": "pane::CloseActiveItem",
 
       // Line Selection (Aligns with Helix x/X)
       "shift-x": "editor::SelectUp",
@@ -75,12 +54,23 @@
       "tab": "editor::SelectLargerSyntaxNode",
       "shift-tab": "editor::SelectSmallerSyntaxNode",
 
-      // space.l minor mode formatting & toggles
+      // space.b minor mode for buffer tasks
+      "space b b": "tab_switcher::ToggleAll",
+      "space b q": "pane::CloseActiveItem",
+      "space b o": "pane::CloseOtherItems",
+
+      // space.l minor mode for code tasks
       "space l f": "editor::Format",
       "space l q": "editor::Rewrap",
       "space l s": "editor::SortLinesCaseInsensitive",
       "space l i": "editor::ToggleInlayHints",
       "space l z": "editor::ToggleSoftWrap"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "shift-tab": "editor::SelectSmallerSyntaxNode"
     }
   }
 ]

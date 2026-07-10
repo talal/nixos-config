@@ -1,6 +1,6 @@
 [
   {
-    "label": "Typst: watch file with worktree as root",
+    "label": "Typst: watch file with worktree set as root",
     "command": "typst",
     "args": [
       "watch",
@@ -8,7 +8,8 @@
       "--root=\"$ZED_WORKTREE_ROOT\"",
       "\"$ZED_RELATIVE_FILE\""
     ],
-    "reveal": "never",
+    "use_new_terminal": true,
+    "reveal": "no_focus",
     "hide": "always"
   }
 ]
