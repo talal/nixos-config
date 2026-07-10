@@ -15,7 +15,7 @@
       jb = "jj bookmark";
       jc = "jj commit";
       jcd = ''jj commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'';
-      jd = "hunk diff";
+      jd = "jj diff";
       jdf = "jj diff --tool difft";
       jf = "jj git fetch";
       jl = "jj log";

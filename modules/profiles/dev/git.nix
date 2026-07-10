@@ -16,7 +16,7 @@
       gac = "git add --all; and git commit -v";
       gc = "git commit -v";
       gcd = ''git add --all; and git commit -m "wip: $(date +%Y-%m-%d-%H%M%S)"'';
-      gd = "hunk diff";
+      gd = "git diff";
       gdf = "git df";
       gf = "git fetch; and git pull";
       gl = "git l";
