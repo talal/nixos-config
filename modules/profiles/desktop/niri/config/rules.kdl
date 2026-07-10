@@ -1,6 +1,6 @@
-// keep-sorted start block=yes newline_separated=yes by_regex=(?-s)^(?:layer|window)-rule\s+{\s+//\s+(.*) prefix_order=Block,Float,,App
+// keep-sorted start block=yes newline_separated=yes by_regex=(?-s)^(?:layer|window)-rule\s+{\s+//\s+(.*) prefix_order=Block,Float,,Workspace,App
 window-rule { // Block: apps with personal data
-    match app-id=r#"(?i)(obsidian|ente|planify|calcure)"#
+    match app-id=r#"(?i)(obsidian|remnote|ente|planify|calcure)"#
     match app-id="chrome" title=r#"(?i)(calendar)"#
 
     block-out-from "screen-capture"
@@ -88,16 +88,26 @@ layer-rule { // Shell: noctalia
     background-effect { xray false; }
 }
 
-window-rule { // App: browsers maximized
-    match app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
-
-    open-maximized-to-edges true
-}
-
-window-rule { // App: browsers workspace
+window-rule { // Workspace: browsers
     match at-startup=true app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
 
     open-on-workspace "browser"
+    open-maximized-to-edges true
+}
+
+window-rule { // Workspace: code
+    match at-startup=true app-id="com.mitchellh.ghostty"
+    match at-startup=true app-id="dev.zed.Zed"
+
+    open-on-workspace "code"
+    open-maximized-to-edges true
+}
+
+window-rule { // Workspace: notes
+    match app-id=r#"(?i)(obsidian|remnote)"#
+
+    open-on-workspace "notes"
+    open-maximized-to-edges true
 }
 
 window-rule { // App: calculator
@@ -127,32 +137,11 @@ window-rule { // App: gimp
     open-focused false
 }
 
-window-rule { // App: obsidian
-    match app-id=r#"(?i)(obsidian)"#
-
-    open-on-workspace "obsidian"
-    open-maximized-to-edges true
-}
-
-window-rule { // App: remnote
-    match app-id=r#"(?i)(remnote)"#
-
-    open-on-workspace "remnote"
-    open-maximized-to-edges true
-}
-
 window-rule { // App: resource monitors
     match app-id=r#"(?i)(btop|bottom|resources)"#
 
     open-floating true
     default-column-width  { proportion 0.65; }
     default-window-height { proportion 0.75; }
-}
-
-window-rule { // App: zed
-    match app-id="dev.zed.Zed"
-    exclude app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
-
-    open-maximized-to-edges true
 }
 // keep-sorted end
