@@ -15,7 +15,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-~": "workspace::NewCenterTerminal", // default: workspace::NewTerminal
+      "ctrl-~": "workspace::NewCenterTerminal" // default: workspace::NewTerminal
     }
   },
   {
