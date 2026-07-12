@@ -1,6 +1,6 @@
 // keep-sorted start block=yes newline_separated=yes by_regex=(?-s)^(?:layer|window)-rule\s+{\s+//\s+(.*) prefix_order=Block,Float,,Workspace,App
 window-rule { // Block: apps with personal data
-    match app-id=r#"(?i)(obsidian|remnote|ente|planify|calcure)"#
+    match app-id=r#"(?i)(obsidian|remnote|thymer|ente|planify|calcure)"#
     match app-id="chrome" title=r#"(?i)(calendar)"#
 
     block-out-from "screen-capture"
@@ -104,7 +104,7 @@ window-rule { // Workspace: code
 }
 
 window-rule { // Workspace: notes
-    match app-id=r#"(?i)(obsidian|remnote)"#
+    match app-id=r#"(?i)(obsidian|remnote|thymer)"#
 
     open-on-workspace "notes"
     open-maximized-to-edges true
