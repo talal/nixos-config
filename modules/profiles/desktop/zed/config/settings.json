@@ -116,6 +116,9 @@
         "external": { "command": "alejandra", "arguments": ["--quiet", "--"] }
       }
     },
+    "PHP": {
+      "language_servers": ["phpantom_lsp"]
+    },
     "Python": {
       "language_servers": ["ty", "ruff"],
       "code_actions_on_format": {
