@@ -6,5 +6,5 @@ result-*
 *dankcolors*
 **/themes
 
-/modules/profiles/desktop/niri/dms/*
-/modules/profiles/desktop/zed/settings_backup.json
+modules/profiles/desktop/niri/dms/*
+modules/profiles/desktop/zed/config/settings_backup.json
