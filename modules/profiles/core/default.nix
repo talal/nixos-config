@@ -48,13 +48,14 @@
 
     i18n.defaultLocale = lib.mkDefault "en_GB.UTF-8";
 
-    time.timeZone = lib.mkDefault "Europe/Berlin";
-
-    networking.nftables.enable = lib.mkDefault true;
     networking.firewall = {
       enable = true;
       allowPing = true;
     };
+
+    networking.nftables.enable = lib.mkDefault true;
+
+    time.timeZone = lib.mkDefault "Europe/Berlin";
 
     home-manager = {
       extraSpecialArgs.inputs = inputs; # pass inputs to home-manager
