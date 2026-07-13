@@ -3,23 +3,14 @@
   lib,
   pkgs,
   ...
-}: let
-  vicinae = pkgs.unstable.vicinae; # base derivation
-  # Override the base derivation to use our wrapper for the input server.
-  vicinaePkg = vicinae.overrideAttrs (old: {
-    postFixup =
-      (old.postFixup or "")
-      + ''
-        wrapProgram $out/bin/vicinae \
-          --set VICINAE_INPUT_SERVER_BIN "${config.security.wrapperDir}/vicinae-input-server"
-      '';
-  });
-in {
-  environment.systemPackages = [vicinaePkg];
+}: {
+  environment.systemPackages = [pkgs.unstable.vicinae];
+
+  environment.sessionVariables.VICINAE_INPUT_SERVER_BIN = "${config.security.wrapperDir}/vicinae-input-server";
 
   # Create a security wrapper to give the input server the permissions it needs.
   security.wrappers.vicinae-input-server = {
-    source = "${vicinae}/libexec/vicinae/vicinae-input-server";
+    source = "${pkgs.unstable.vicinae}/libexec/vicinae/vicinae-input-server";
     capabilities = "cap_dac_override+ep";
     owner = "root";
     group = "root";
