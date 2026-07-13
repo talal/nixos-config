@@ -50,6 +50,12 @@
 
     time.timeZone = lib.mkDefault "Europe/Berlin";
 
+    networking.nftables.enable = lib.mkDefault true;
+    networking.firewall = {
+      enable = true;
+      allowPing = true;
+    };
+
     home-manager = {
       extraSpecialArgs.inputs = inputs; # pass inputs to home-manager
       useGlobalPkgs = true;
