@@ -1,10 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = [
-    inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.hunk
+    pkgs.unstable.hunk
   ];
 
   hm = {

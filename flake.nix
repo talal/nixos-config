@@ -21,8 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hunk.url = "github:modem-dev/hunk/v0.17.0";
-
     noctalia.url = "github:noctalia-dev/noctalia/v5.0.0-beta2";
 
     talal-fonts = {
