@@ -16,6 +16,7 @@
       (callPackage ../../../pkgs/thymer.nix {})
       adw-gtk3 # GTK theme
       adwaita-icon-theme
+      anki
       apple-cursor
       blanket
       czkawka
