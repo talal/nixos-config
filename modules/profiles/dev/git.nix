@@ -5,7 +5,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     git
-    git-cliff
     git-filter-repo
   ];
 
@@ -23,18 +22,6 @@
       gp = "git push";
       gs = "git status --short --branch";
       gscope = "git config get user.email; and git config get user.signingKey";
-    };
-
-    programs.delta = {
-      enable = false;
-      enableGitIntegration = true;
-      options = {
-        dark = true;
-        line-numbers = true;
-        navigate = true; # use n and N to move between diff sections
-        hyperlinks = true;
-        hyperlinks-file-link-format = "file://{path}:{line}";
-      };
     };
 
     programs.gh.enable = true;
