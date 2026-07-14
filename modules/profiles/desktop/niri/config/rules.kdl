@@ -39,7 +39,7 @@ window-rule { // Float: noctalia settings
   match app-id="dev.noctalia.Noctalia" title=r#"(Settings$)"#
 
   open-floating true
-  default-column-width { proportion 0.75; }
+  default-column-width  { proportion 0.75; }
   default-window-height { proportion 0.95; }
 }
 

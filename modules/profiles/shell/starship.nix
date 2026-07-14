@@ -37,8 +37,6 @@
         };
         env_var.ZMX_SESSION = {
           description = "zmx session name";
-          # format = "[$symbol$env_value]($style) ";
-          # symbol = " ";
           format = "[$env_value]($style) ";
           style = "bold red";
         };

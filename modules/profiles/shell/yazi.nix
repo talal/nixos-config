@@ -68,7 +68,7 @@
           }
           {
             on = ["g" "r"];
-            run = ''shell -- ya emit cd "$(git root)"'';
+            run = ''shell -- ya emit cd "$(jj root 2>/dev/null || git root 2>/dev/null)"'';
             desc = "cd back to the root of the current Git repository";
           }
         ];

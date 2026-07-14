@@ -9,7 +9,6 @@
     # keep-sorted start
     alejandra # nixfmt is yuck, alejandra is 👌
     bash-language-server
-    choose
     devenv
     exercism
     just-lsp
@@ -23,7 +22,6 @@
     scc
     shellcheck
     shfmt
-    skills
     superhtml
     taplo # TOML LSP
     tinymist

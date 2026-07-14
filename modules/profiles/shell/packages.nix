@@ -6,10 +6,11 @@
     doggo # dig
     duf # df
     dust # du
+    # choose # awk/cut
     exiftool
     fd # find
     fzf
-    glow
+    # glow
     hyperfine
     jq
     just # make

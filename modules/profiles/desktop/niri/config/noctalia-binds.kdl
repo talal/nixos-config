@@ -1,11 +1,11 @@
-// Reference: https://docs.noctalia.dev/v4/getting-started/keybinds/#example-configurations
+// Reference: https://docs.noctalia.dev/v5/compositor-settings/niri/?section=ipc-keybinds#ipc-keybinds
 binds {
     XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
     XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
-    XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMute    { spawn-sh "noctalia msg volume-mute"; }
     XF86AudioMicMute { spawn-sh "noctalia msg mic-mute"; }
 
-    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up 2"; }
+    XF86MonBrightnessUp   { spawn-sh "noctalia msg brightness-up 2"; }
     XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down 2"; }
 
     XF86Favorites       { spawn-sh "noctalia msg power-set performance"; }
@@ -15,7 +15,7 @@ binds {
     Mod+X     repeat=false           hotkey-overlay-title="Power Menu"        { spawn-sh "noctalia msg panel-toggle session"; }
     Mod+Shift+Comma                  hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
 
-    Mod+A hotkey-overlay-title="Control Center" { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
-    Mod+N hotkey-overlay-title="Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
-    Mod+Shift+N  hotkey-overlay-title="Notification Center" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+    Mod+A       hotkey-overlay-title="Control Center"      { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
+    Mod+N       hotkey-overlay-title="Control Center"      { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Shift+N hotkey-overlay-title="Notification Center" { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
 }
