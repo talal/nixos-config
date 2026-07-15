@@ -17,7 +17,6 @@
         ankiAddons.review-heatmap
       ])
       # keep-sorted start
-      (callPackage ../../../pkgs/thymer.nix {})
       adw-gtk3 # GTK theme
       adwaita-icon-theme
       apple-cursor
