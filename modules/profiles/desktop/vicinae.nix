@@ -36,7 +36,6 @@
         browser-extension.enabled = false;
         clipboard.preferences = {
           monitoring = true;
-          encryption = true;
           ignorePasswords = true;
         };
         core.enabled = false;
