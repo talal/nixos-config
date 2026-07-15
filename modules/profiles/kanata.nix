@@ -32,14 +32,14 @@ in {
           tab  q w e r t y u i o p [ ]
           caps a s d f g h j k l ; ' \
           lsft z x c v b n m , . /
-          102d lalt      spc     ralt
+          102d lalt    spc       ralt
         )
 
         (deflayer default
           caps
           @tabmeh _  _  _  _  _   _ _  @i _  _  _ _
           @escext @a @s @d @f _   _ @j @k @l @; _ _
-          _       _  _  _  _  _   _ _  _  _  _
+          _       _  _  _  @v _   _ _  _  _  _
           nop0    @sym          _            @sym
         )
 
@@ -49,6 +49,14 @@ in {
           _  lmet lalt lsft lctl _   left down up   rght del _ _
           _  _    _    _    _    _   _    _    home end  _
           _  _                   enter                   _
+        )
+
+        (deflayer number
+          _
+          _  _ _ _ _ _   _   7 8 9 _   _ _
+          _  _ _ _ _ _   eql 4 5 6 min _ _
+          _  _ _ _ _ _   _   1 2 3 _
+          _  _         0           _
         )
 
         (deflayer symbol
@@ -72,6 +80,7 @@ in {
           escext (tap-hold-press $tt $ht esc (layer-while-held extend))
           tabmeh (tap-hold-press $tt $ht tab (multi lctl lalt lsft))
           sym (layer-while-held symbol)
+          v (tap-hold-release $tt $ht v (layer-while-held number))
 
           ;; ══════════ Home Row Mods ══════════
           a (tap-hold-release $tt $ht a lmet)
