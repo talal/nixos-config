@@ -45,9 +45,20 @@
           shell = ["jj-starship" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
           format = "$output ";
         };
-        nix_shell.format = "[($name/)$state]($style) ";
-        direnv.disabled = false;
-        python.format = "[(py $virtualenv)](bold green) ";
+        nix_shell = {
+          format = "[$state( $name)]($style) ";
+          impure_msg = "[ ](bold blue)";
+          pure_msg = "[ ](bold green)";
+          unknown_msg = "[ ](bold red)";
+        };
+        direnv = {
+          disabled = false;
+          symbol = " ";
+        };
+        python = {
+          format = "[($symbol$virtualenv)](bold green) ";
+          symbol = "  ";
+        };
         fill.symbol = " ";
         shell = {
           disabled = false;
