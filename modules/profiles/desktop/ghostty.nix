@@ -17,6 +17,7 @@
         font-size = 14;
         font-family = [
           "TX-02"
+          "IBM Plex Sans Arabic"
           "Symbols Nerd Font"
         ];
         adjust-cell-height = "15%";

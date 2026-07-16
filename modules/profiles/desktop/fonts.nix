@@ -13,6 +13,7 @@
       atkinson-hyperlegible-mono
       atkinson-hyperlegible-next
       hanken-grotesk
+      ibm-plex
       inter
       lato
       libertinus
@@ -26,13 +27,11 @@
       # keep-sorted start
       cascadia-code
       departure-mono
-      ibm-plex # only need IBM Plex Mono
       iosevka
       iosevka-ss08
       iosevka-ss08.fixed
       iosevka-ss08.term
       jetbrains-mono
-      lilex
       nerd-fonts.symbols-only
       pragmata-pro
       tx-02
