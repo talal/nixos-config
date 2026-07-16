@@ -1,16 +1,12 @@
 {
   // ══════════ General ══════════
-  "icon_theme": {
-    "mode": "dark",
-    "light": "Zed (Default)",
-    "dark": "Zed (Default)"
-  },
   "cli_default_open_behavior": "new_window",
   "restore_on_startup": "launchpad",
   "load_direnv": "shell_hook",
   "telemetry": { "diagnostics": false, "metrics": false },
   "auto_install_extensions": {
-    "catppuccin": true
+    "catppuccin": true,
+    "catppuccin-icons": true
   },
 
   // ══════════ Profiles ══════════
@@ -22,6 +18,11 @@
           "mode": "dark",
           "light": "One Light",
           "dark": "One Dark"
+        },
+        "icon_theme": {
+          "mode": "dark",
+          "light": "Zed (Default)",
+          "dark": "Zed (Default)"
         },
         "relative_line_numbers": "disabled",
         "which_key": { "enabled": false },
@@ -72,6 +73,11 @@
     "light": "One Light",
     "dark": "Catppuccin Macchiato"
   },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Catppuccin Macchiato"
+  },
   "buffer_font_family": "TX02 Nerd Font",
   "buffer_font_size": 18,
   "ui_font_size": 19,
@@ -108,6 +114,11 @@
   "which_key": { "enabled": true, "delay_ms": 0 },
   "experimental.theme_overrides": {
     "vim.helix_jump_label.foreground": "#f4dbd6" // Catppuccin Macchiato Rosewater
+  },
+
+  // ══════════ Aliases ══════════
+  "command_aliases": {
+    "gd": "git::Diff"
   },
 
   // ══════════ Languages ══════════
