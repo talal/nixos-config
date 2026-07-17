@@ -26,6 +26,11 @@
   programs.mdformat = {
     enable = true;
     settings.number = true;
+    plugins = p: [
+      p.mdformat-gfm
+      p.mdformat-mkdocs
+      p.mdformat-simple-breaks
+    ];
   };
 
   programs.prettier = {
