@@ -12,10 +12,6 @@
       # keep-sorted end
     ])
     ++ (with pkgs; [
-      (anki.withAddons [
-        ankiAddons.anki-connect
-        ankiAddons.review-heatmap
-      ])
       # keep-sorted start
       adw-gtk3 # GTK theme
       adwaita-icon-theme
