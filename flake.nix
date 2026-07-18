@@ -2,8 +2,8 @@
   description = "Talal's NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
-    nixpkgs-unstable.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst";
+    nixpkgs-unstable.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
 
     # keep-sorted start block=yes newline_separated=yes prefix_order=home-manager,sops
     home-manager = {
@@ -25,7 +25,7 @@
 
     talal-fonts = {
       url = "github:talal/fonts";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     treefmt-nix = {

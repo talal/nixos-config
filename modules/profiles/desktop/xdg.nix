@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  environment.systemPackages = [pkgs.xdg-utils];
+
   hm = {
     xdg.mimeApps = {
       enable = true;

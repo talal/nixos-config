@@ -82,6 +82,6 @@ Special thanks to all these people who made their Nix configs open-source which 
 - [pluie.me](https://tangled.org/pluie.me/flake)
 - [max-baz](https://github.com/max-baz/dotfiles)
 - [Mic92](https://github.com/Mic92/dotfiles)
-- [ners](https://github.com/ners/trilby)
 - [getchoo](https://github.com/getchoo/borealis)
+- [ners](https://github.com/ners/trilby)
 - [amaanq](https://github.com/amaanq/dotfiles)

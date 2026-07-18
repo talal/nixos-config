@@ -2,7 +2,7 @@
   environment.systemPackages =
     (with pkgs.unstable; [
       # keep-sorted start
-      # bitwarden-desktop # using Flatpak atm due to Electron EOL issues
+      bitwarden-desktop
       discord
       ente-desktop
       obsidian
@@ -37,7 +37,6 @@
       pika-backup
       resources
       wl-screenrec
-      xdg-utils
       zeal
       # keep-sorted end
     ]);
