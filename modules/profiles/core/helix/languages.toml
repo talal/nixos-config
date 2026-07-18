@@ -17,8 +17,9 @@ formatter = { command = "prettier", args = ["--parser", "json"] }
 
 [[language]]
 name = "markdown"
+indent = { tab-width = 4, unit = "    " }
 soft-wrap.enable = true
-formatter = { command = "mdformat", args = ["--number", "--align-semantic-breaks-in-lists", "-"] }
+formatter = { command = "mdfmt", args = ["format", "-"] }
 # Continue lists and blockquotes when enter or 'o' is pressed.
 comment-tokens = ["-", "- [ ]", ">"]
 

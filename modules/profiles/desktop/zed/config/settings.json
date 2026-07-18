@@ -135,7 +135,7 @@
     },
     "Markdown": {
       "formatter": {
-        "external": { "command": "mdformat", "arguments": ["--number", "-"] }
+        "external": { "command": "mdfmt", "arguments": ["format", "-"] }
       }
     },
     "Nix": {
