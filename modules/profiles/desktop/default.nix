@@ -21,6 +21,11 @@
   };
 
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     gnome-disks.enable = true;
 
     # Allows to run unpatched dynamic binaries, e.g. those downloaded by cargo/rustup.
