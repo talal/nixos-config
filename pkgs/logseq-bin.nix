@@ -10,11 +10,11 @@
   commandLineArgs ? [],
 }: let
   pname = "logseq-bin";
-  version = "2.0.1";
+  version = "2.0.1-alpha+nightly.20260716";
 
   src = fetchurl {
-    url = "https://github.com/logseq/logseq/releases/download/${version}/Logseq-linux-x86_64-${version}.zip";
-    sha256 = "05vs60g7gkjb5hy597cja2dp5c4vsaakf6936bw5ws03fkrz26wq";
+    url = "https://github.com/logseq/logseq/releases/download/nightly/Logseq-linux-x86_64-${version}.zip";
+    sha256 = "0b8w2fzjj53jk7h50y983z6a7wch12f8a7x5j5gjkx2mbicaj4ns";
   };
 
   icon = fetchurl {
