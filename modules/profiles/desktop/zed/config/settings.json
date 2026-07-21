@@ -135,7 +135,7 @@
     },
     "Markdown": {
       "formatter": {
-        "external": { "command": "mdfmt", "arguments": ["format", "-"] }
+        "external": { "command": "dprint", "arguments": ["fmt", "--stdin", "md"] }
       }
     },
     "Nix": {

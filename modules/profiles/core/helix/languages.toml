@@ -13,13 +13,13 @@ formatter = { command = "superhtml", args = ["fmt", "--stdin"] }
 
 [[language]]
 name = "json"
-formatter = { command = "prettier", args = ["--parser", "json"] }
+formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
 
 [[language]]
 name = "markdown"
 indent = { tab-width = 4, unit = "    " }
 soft-wrap.enable = true
-formatter = { command = "mdfmt", args = ["format", "-"] }
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 # Continue lists and blockquotes when enter or 'o' is pressed.
 comment-tokens = ["-", "- [ ]", ">"]
 

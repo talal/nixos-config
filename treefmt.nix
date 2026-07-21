@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   projectRootFile = "flake.nix";
 
   settings.global.excludes = [
@@ -23,19 +23,16 @@
     # keep-sorted end
   };
 
-  programs.mdformat = {
+  programs.dprint = {
     enable = true;
-    settings.number = true;
-    plugins = p: [
-      p.mdformat-gfm
-      p.mdformat-mkdocs
-      p.mdformat-simple-breaks
-    ];
-  };
-
-  programs.prettier = {
-    enable = true;
-    includes = ["*.json"];
+    settings.plugins = pkgs.dprint-plugins.getPluginList (
+      plugins:
+        with plugins; [
+          dprint-plugin-json
+          dprint-plugin-markdown
+        ]
+    );
+    includes = ["*.json" "*.md"];
   };
 
   programs.taplo = {

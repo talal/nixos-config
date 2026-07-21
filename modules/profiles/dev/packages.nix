@@ -10,6 +10,7 @@
     alejandra # nixfmt is yuck, alejandra is 👌
     bash-language-server
     devenv
+    dprint
     exercism
     just-lsp
     keep-sorted
@@ -17,7 +18,6 @@
     nixd
     nixfmt # for contributing to nixpkgs
     nixpkgs-review
-    prettier # JSON formatting
     scc
     shellcheck
     shfmt
