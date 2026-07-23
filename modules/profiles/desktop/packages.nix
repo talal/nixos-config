@@ -13,7 +13,6 @@
     ])
     ++ (with pkgs; [
       # keep-sorted start
-      (callPackage ../../../pkgs/logseq-bin.nix {})
       adw-gtk3 # GTK theme
       adwaita-icon-theme
       apple-cursor
