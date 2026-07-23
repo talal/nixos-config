@@ -25,12 +25,14 @@ input {
 
     keyboard {
         xkb {
-            layout "us,pk"
+            layout  "us,pk"
+            variant ",pak_urdu_phonetic"
             options "compose:ralt"
         }
         numlock
         repeat-delay 250 // in milliseconds (default 600)
         repeat-rate  35  // characters per second (default 25)
+        track-layout "window"
     }
 
     focus-follows-mouse max-scroll-amount="20%"
