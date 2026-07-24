@@ -140,11 +140,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1783429716,
-        "narHash": "sha256-PajPMov7Y7G1Ew2fGisBYA6RUs/F91tiiaMhb0sE2ww=",
+        "lastModified": 1784917514,
+        "narHash": "sha256-7mOjVIUDrmb2p4Ad2h8UA1veKY1Vd2YUZqSPn12CB3s=",
         "owner": "talal",
         "repo": "fonts",
-        "rev": "827a80e166d733c3803942fe5cad2b5c88e7506c",
+        "rev": "ff91de5384286697d37c66a7c3ea17716e062844",
         "type": "github"
       },
       "original": {

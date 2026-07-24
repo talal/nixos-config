@@ -4,7 +4,7 @@
     fontconfig.defaultFonts = {
       sansSerif = ["Inter" "Noto Naskh Arabic"];
       serif = ["Noto Serif" "Noto Naskh Arabic"];
-      monospace = ["IBM Plex Mono" "Symbols Nerd Font"];
+      monospace = ["IBM Plex Mono" "NoName Fixed" "Symbols Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
     packages = with pkgs; [
@@ -27,13 +27,13 @@
       # keep-sorted start
       cascadia-code
       departure-mono
+      noname-fixed
       iosevka
       iosevka-ss08
       iosevka-ss08.fixed
       iosevka-ss08.term
       jetbrains-mono
       nerd-fonts.symbols-only
-      pragmata-pro
       tx-02
       tx-02.nf
       # keep-sorted end
