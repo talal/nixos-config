@@ -21,7 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia.url = "github:noctalia-dev/noctalia/v5.0.0-beta.3";
+    noctalia.url = "github:noctalia-dev/noctalia/v5.0.0-beta.4";
 
     talal-fonts = {
       url = "github:talal/fonts";
