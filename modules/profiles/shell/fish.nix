@@ -54,6 +54,7 @@
         cp = "cp -r";
         diff = "difft";
         mkdir = "mkdir -p";
+        o = "open";
         sc = "systemctl --user";
         shred = "shred --verbose --zero --remove --iterations 100";
         ssc = "sudo systemctl";

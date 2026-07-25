@@ -7,7 +7,6 @@
       cat = "bat";
       cdr = "cd $(jj root 2>/dev/null || git root 2>/dev/null)";
       cdtmp = "cd $(mktemp -d)";
-      o = "xdg-open";
       rm = "trash-put";
       zed = "zeditor";
     };
@@ -30,6 +29,7 @@
         ".." = "cd ..";
         e = "hx";
         g = "git";
+        o = "xdg-open";
       };
     };
 
