@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    logseq-og = {
+      url = "github:talal/logseq-og";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     noctalia.url = "github:noctalia-dev/noctalia/v5.0.0-beta.4";
 
     talal-fonts = {

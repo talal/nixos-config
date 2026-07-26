@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   environment.systemPackages =
     (with pkgs.unstable; [
       # keep-sorted start
@@ -26,6 +30,7 @@
       hunspellDicts.de_DE
       hunspellDicts.en_GB-ize
       hyprpicker
+      inputs.logseq-og.packages.${pkgs.stdenv.hostPlatform.system}.default
       keepassxc
       libreoffice-still
       loupe

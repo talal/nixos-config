@@ -27,13 +27,13 @@
       # keep-sorted start
       cascadia-code
       departure-mono
-      noname-fixed
       iosevka
       iosevka-ss08
       iosevka-ss08.fixed
       iosevka-ss08.term
       jetbrains-mono
       nerd-fonts.symbols-only
+      noname-fixed
       tx-02
       tx-02.nf
       # keep-sorted end
