@@ -26,6 +26,18 @@
 
     programs.gh.enable = true;
 
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        dark = true;
+        line-numbers = true;
+        navigate = true; # use n and N to move between diff sections
+        hyperlinks = true;
+        hyperlinks-file-link-format = "file://{path}:{line}";
+      };
+    };
+
     programs.git = {
       enable = true;
       settings = {
@@ -39,11 +51,10 @@
         fetch.prune = true;
         push.autoSetupRemote = true;
         rebase.autoStash = true;
-        # merge.conflictStyle = "zdiff3";
+        merge.conflictStyle = "zdiff3";
         gpg.format = "ssh";
         commit.gpgSign = true;
         tag.gpgSign = true;
-        core.pager = "hunk pager";
 
         url."git@github-talal:".insteadOf = ["git@github.com:"];
 
@@ -58,9 +69,9 @@
           unstage = "reset HEAD --";
 
           # Reference: https://difftastic.wilfred.me.uk/git.html#regular-usage
-          df = "-c diff.external=difft diff";
-          dl = "-c diff.external=difft log -p --ext-diff";
-          ds = "-c diff.external=difft show --ext-diff";
+          df = "-c diff.external=difft diff"; # `git diff` with difftastic
+          dl = "-c diff.external=difft log -p --ext-diff"; # `git log` with patches shown with difftastic
+          ds = "-c diff.external=difft show --ext-diff"; # show the most recent commit with difftastic
         };
 
         # NOTE: leave an empty line at the top of the template for our actual commit message.
