@@ -79,8 +79,8 @@
         settings = {
           # keep-sorted start
           "browser.newtab.url" = "about:blank";
-          "browser.startup.homepage" = "about:blank";
-          "browser.startup.page" = 3;
+          "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
+          # "browser.startup.page" = 3;
           "browser.tabs.insertAfterCurrent" = true;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.uidensity" = 1;
