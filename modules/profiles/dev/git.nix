@@ -8,6 +8,11 @@
     git-filter-repo
   ];
 
+  environment.variables = {
+    # Reference: https://dandavison.github.io/delta/environment-variables.html#pager-environment-variables
+    DELTA_PAGER = "less -R";
+  };
+
   hm = {config, ...}: {
     programs.fish.shellAbbrs = {
       g = "git";
@@ -117,8 +122,8 @@
         ".agents/"
         ".antigravitycli/"
         ".claude/"
+        ".codex/"
         ".gemini/"
-        ".pi/"
         "AGENTS.md"
         "CLAUDE.md"
         "GEMINI.md"
