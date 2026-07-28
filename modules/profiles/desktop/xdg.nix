@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   environment.systemPackages = [pkgs.xdg-utils];
 
+  xdg.portal.xdgOpenUsePortal = true;
+
   hm = {
     xdg.mimeApps = {
       enable = true;
