@@ -12,12 +12,14 @@
       # Store direnv cache in ~/.cache instead of per project.
       # Reference: https://github.com/direnv/direnv/wiki/Customizing-cache-location#hashed-directories
       stdlib = ''
-        : ''${XDG_CACHE_HOME:=$HOME/.cache}
+        : "''${XDG_CACHE_HOME:="''${HOME}/.cache"}"
         declare -A direnv_layout_dirs
         direnv_layout_dir() {
+          local hash path
           echo "''${direnv_layout_dirs[$PWD]:=$(
-            echo -n "$XDG_CACHE_HOME"/direnv/layouts/
-            echo -n "$PWD" | sha1sum | cut -d ' ' -f 1
+            hash="$(sha1sum - <<< "$PWD" | head -c40)"
+            path="''${PWD//[^a-zA-Z0-9]/-}"
+            echo "''${XDG_CACHE_HOME}/direnv/layouts/''${hash}''${path}"
           )}"
         }
       '';
