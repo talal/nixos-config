@@ -19,6 +19,12 @@
     }
   },
   {
+    "context": "Terminal",
+    "unbind": {
+      "ctrl-t": "project_symbols::Toggle"
+    }
+  },
+  {
     "context": "!Terminal",
     "unbind": {
       // Disable because I keep hitting this key combo accidentally.
