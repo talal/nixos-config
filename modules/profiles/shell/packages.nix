@@ -25,6 +25,7 @@
     snitch # ss/netstat
     tectonic # for using as pandoc's pdf-engine
     trash-cli # rm
+    unstable.tuxedo # TUI for todo.txt
     # keep-sorted end
   ];
 }

@@ -113,6 +113,8 @@
         ".DS_Store"
         ".stfolder/"
         "TODO.md"
+        "todo.txt"
+        "done.txt"
 
         # AI
         ".agents/"
@@ -123,28 +125,23 @@
         "AGENTS.md"
         "CLAUDE.md"
         "GEMINI.md"
-        "llms.txt"
 
         # Dev Tools
         ".env*"
         ".direnv/"
         ".jj/"
-        ".pre-commit-config.yaml"
-        ".ruff_cache/"
 
         # Editors
         ".helix/"
         ".zed/"
 
-        # Devenv
-        ".devenv*"
-        "devenv.local.nix"
-        "devenv.local.yaml"
-
         # Nix
         ".Trash*"
         "result"
         "result-*"
+
+        # Python
+        ".ruff_cache/"
       ];
     };
 
