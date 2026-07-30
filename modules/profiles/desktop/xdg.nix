@@ -12,6 +12,10 @@
         "text/plain" = "org.gnome.TextEditor.desktop";
         "x-scheme-handler/ente" = "ente.desktop";
       };
+      associations.removed = {
+        "video/*" = "umpv.desktop";
+        "audio/*" = "umpv.desktop";
+      };
     };
 
     xdg.terminal-exec = {
