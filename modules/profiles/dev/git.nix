@@ -6,12 +6,8 @@
   environment.systemPackages = with pkgs; [
     git
     git-filter-repo
+    unstable.lumen
   ];
-
-  environment.variables = {
-    # Reference: https://dandavison.github.io/delta/environment-variables.html#pager-environment-variables
-    DELTA_PAGER = "less -R";
-  };
 
   hm = {config, ...}: {
     programs.fish.shellAbbrs = {
