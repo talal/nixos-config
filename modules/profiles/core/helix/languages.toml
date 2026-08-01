@@ -61,7 +61,7 @@ formatter.args = [
 [[language]]
 name = "typst"
 soft-wrap.enable = true
-formatter = { command = "typstyle", args = ["--line-width=90"] }
+formatter = { command = "typstyle", args = ["--line-width=100"] }
 [language.auto-pairs]
 # defaults
 '(' = ')'
