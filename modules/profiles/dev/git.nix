@@ -7,6 +7,7 @@
     git
     git-filter-repo
     unstable.lumen
+    unstable.tuicr
   ];
 
   hm = {config, ...}: {
