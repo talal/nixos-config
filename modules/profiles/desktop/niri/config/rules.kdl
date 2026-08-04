@@ -58,7 +58,8 @@ window-rule { // Float: temporary modal dialog windows
     match title=r#"(?i)(wants to open|wants to save|file to save to|print)"#
     match app-id="anki" title=r#"(^Options|Statistics)"#
     match app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
-    match app-id="yaak-app" title=r#"(Settings$)"#
+    match app-id="md.Obsidian" title=r#"Settings"#
+    match app-id="yaak-app" title=r#"Settings"#
 
     open-floating true
 }
@@ -105,7 +106,7 @@ window-rule { // Workspace: code
 }
 
 window-rule { // Workspace: notes
-    match app-id=r#"(?i)(obsidian|remnote)"#
+    match at-startup=true app-id=r#"(?i)(obsidian|remnote)"#
 
     open-on-workspace "notes"
     open-maximized-to-edges true
