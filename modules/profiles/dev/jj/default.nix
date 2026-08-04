@@ -55,15 +55,15 @@
       TYPES:
         feat      new feature
         fix       bug fix
-        docs      documentation only changes
-        refactor  code restructure (no behavior change)
-        style     code formatting (no logic change)
-        perf      performance improvement
         test      adding or updating tests (no production code)
-        chore     maintenance tasks, deps, tooling
-        build     build system, external dependencies (npm, make, cargo, ...)
+        perf      performance improvement (no new feature or bug fix)
+        refactor  code rewrite/restructure (no behavior change)
+        chore     misc. changes; no src/test file changed (maintenance, deps, ...)
+        build     build system/tooling related changes (just, cargo, npm, ...)
+        style     code formatting (no logic change)
+        docs      documentation only changes
         ci        CI/CD changes (GH actions, Jenkins, ...)
-        revert    revert a commit
+        revert    reverting an existing commit
       "
       ''''
     '';
