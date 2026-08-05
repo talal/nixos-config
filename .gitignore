@@ -1,7 +1,9 @@
+!AGENTS.md
+
+*.html
 .Trash*
 result
 result-*
-*.html
 
 *dankcolors*
 **/themes
