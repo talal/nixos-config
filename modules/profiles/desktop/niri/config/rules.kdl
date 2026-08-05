@@ -91,7 +91,7 @@ layer-rule { // Shell: noctalia
 }
 
 window-rule { // Workspace: browsers
-    match at-startup=true app-id=r#"(?i)(brave-browser|google-chrome|firefox)"#
+    match at-startup=true app-id=r#"(?i)(brave|google-chrome|firefox)"#
 
     open-on-workspace "browser"
     open-maximized-to-edges true
