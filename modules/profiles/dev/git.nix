@@ -44,7 +44,7 @@
       enable = true;
       settings = {
         user = {
-          email = "noreply@talal.ch";
+          email = "noreply@talal.io";
           name = "Muhammad Talal Anwar";
           useConfigOnly = true;
           signingKey = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAgOGxqO9vcaLDD3TYJBhMFAq2MEPfiIXXe0xNaeLjmBBYDzMS6D9ar1HqKHJsbjqFaRQbXJXZ6g7lkH5yNppFo=";
