@@ -21,6 +21,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     noctalia.url = "github:noctalia-dev/noctalia/v5.0.0-beta.7";
 
     talal-fonts = {
