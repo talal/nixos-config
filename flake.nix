@@ -23,7 +23,7 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    noctalia.url = "github:noctalia-dev/noctalia/v5.0.0-beta.7";
+    noctalia.url = "github:noctalia-dev/noctalia/v5.0.0-beta.8";
 
     talal-fonts = {
       url = "github:talal/fonts";
