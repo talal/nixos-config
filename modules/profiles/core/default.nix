@@ -38,8 +38,6 @@
 
     environment.localBinInPath = true;
 
-    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-
     console = {
       earlySetup = true; # set virtual console options as early as possible (in initrd)
       font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
