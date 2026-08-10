@@ -4,8 +4,7 @@
   pkgs,
   ...
 }: {
-  # NOTE: only install packages for common files (JSON, TOML, etc.) and scripts.
-  # For everything else, use nix devshells.
+  # NOTE: don't install language packages (e.g. Go, Rust, etc.); use nix devshells instead.
   users.users.${config.user}.packages = with pkgs.unstable; [
     # keep-sorted start
     alejandra # nixfmt is yuck, alejandra is 👌
@@ -20,6 +19,9 @@
     nixd
     nixfmt # for contributing to nixpkgs
     nixpkgs-review
+    radicle-desktop
+    radicle-node
+    radicle-tui
     scc
     shellcheck
     shfmt
