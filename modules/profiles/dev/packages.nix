@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   pkgs,
   ...
@@ -12,13 +11,13 @@
     devenv
     dprint
     exercism
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
     just-lsp
     keep-sorted
     marksman # Markdown LSP
     nixd
     nixfmt # for contributing to nixpkgs
     nixpkgs-review
+    pi-coding-agent
     radicle-desktop
     radicle-node
     radicle-tui
