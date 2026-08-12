@@ -42,7 +42,7 @@ input {
 }
 
 switch-events {
-    lid-close { spawn "sh" "-c" "noctalia msg session lock-and-suspend"; }
+    lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
 }
 
 // ════════════════════════════════ Appearance ════════════════════════════════

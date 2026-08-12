@@ -114,7 +114,8 @@
   };
 
   services.logind.settings.Login = {
-    # We use niri's lid-close event instead.
+    # Use niri's lid-close event instead.
+    # See ../../modules/profiles/desktop/niri/config/config.kdl
     HandleLidSwitch = "ignore";
     HandleLidSwitchDocked = "ignore";
     HandleLidSwitchExternalPower = "ignore";
