@@ -17,6 +17,7 @@ formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
 
 [[language]]
 name = "markdown"
+text-width = 79
 indent = { tab-width = 4, unit = "    " }
 soft-wrap.enable = true
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
