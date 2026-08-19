@@ -9,6 +9,7 @@
     "ghbmnnjooekpmoecnnnilnnbdlolhkhi" # Google Docs Offline
     "jabopobgcpjmedljpbcaablpmlmfcogm" # WhatFont
     "cmpdlhmnmjhihmcfnigoememnffkimlk" # Catppuccin Macchiato theme
+    "likgccmbimhjbgkjambclfkhldnlhbnn" # Yomitan Popup Dictionary
   ];
 in {
   programs.chromium = {
