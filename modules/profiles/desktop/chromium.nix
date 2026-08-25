@@ -10,6 +10,7 @@
     "jabopobgcpjmedljpbcaablpmlmfcogm" # WhatFont
     "cmpdlhmnmjhihmcfnigoememnffkimlk" # Catppuccin Macchiato theme
     "likgccmbimhjbgkjambclfkhldnlhbnn" # Yomitan Popup Dictionary
+    "hkledmpjpaehamkiehglnbelcpdflcab" # asbplayer
   ];
 in {
   programs.chromium = {
