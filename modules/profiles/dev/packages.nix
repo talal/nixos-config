@@ -28,7 +28,6 @@
     superhtml
     taplo # TOML LSP
     tinymist
-    treefmt
     typst
     typstyle
     uv # for Python scripts
