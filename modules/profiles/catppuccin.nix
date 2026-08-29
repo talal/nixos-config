@@ -31,7 +31,6 @@ in {
       eza.enable = false; # IFD (can use term colors)
       firefox.enable = false; # IFD
       fzf.enable = false; # IFD
-      gemini-cli.enable = false; # don't need (can use term colors)
       ghostty.enable = false; # uses built-in theme
       helix.enable = false; # installed manually (see below)
       mpv.enable = false; # don't need
