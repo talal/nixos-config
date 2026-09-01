@@ -2,14 +2,7 @@
   inputs,
   pkgs,
   ...
-}: let
-  helixThemeSrc = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "helix";
-    rev = "91e071bf9b9b2b8ae176a5581fcb61c789c55cab";
-    hash = "sha256-F05ohJp7c9Pdnjq8+srfhAt1ogHjjBz50k1ftHOHGVg=";
-  };
-in {
+}: {
   environment.variables = {
     FZF_DEFAULT_OPTS_FILE = "${pkgs.writeText "fzf-opts" ''
       --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796
@@ -20,32 +13,36 @@ in {
     ''}";
   };
 
-  hm = {config, ...}: {
+  hm = {
     imports = [inputs.catppuccin.homeModules.catppuccin];
     catppuccin = {
-      enable = true; # enable globally
       flavor = "macchiato";
       accent = "lavender";
 
-      bottom.enable = false; # IFD
-      eza.enable = false; # IFD (can use term colors)
-      firefox.enable = false; # IFD
-      fzf.enable = false; # IFD
-      ghostty.enable = false; # uses built-in theme
-      helix.enable = false; # installed manually (see below)
-      mpv.enable = false; # don't need
-      starship.enable = false; # IFD (can use term colors)
-      zed.enable = false; # uses extension
-      thunderbird.profile = "default";
-    };
+      # Modules for following programs are available but explicitly disabled:
+      # bottom     # IFD
+      # eza        # IFD (can use term colors)
+      # firefox    # IFD
+      # fish       # uses Alabaster
+      # fzf        # IFD
+      # ghostty    # uses Alabaster
+      # helix      # installed manually (see below)
+      # mpv        # don't need
+      # starship   # IFD (can use term colors)
+      # television # don't need
+      # zed        # uses Alabaster
 
-    xdg.configFile = {
-      "helix/themes/catppuccin_${config.catppuccin.flavor}_upstream.toml".source = "${helixThemeSrc}/themes/default/catppuccin_${config.catppuccin.flavor}.toml";
-
-      "helix/themes/catppuccin_${config.catppuccin.flavor}_transparent.toml".text = ''
-        inherits = "catppuccin_${config.catppuccin.flavor}_upstream"
-        "ui.background" = {}
-      '';
+      # keep-sorted start block=yes
+      atuin.enable = true;
+      bat.enable = true;
+      foot.enable = true;
+      thunderbird = {
+        enable = true;
+        profile = "default";
+      };
+      yazi.enable = true;
+      zathura.enable = true;
+      # keep-sorted end
     };
 
     programs.zathura.options = {

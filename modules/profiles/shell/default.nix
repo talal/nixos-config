@@ -101,18 +101,6 @@
       settings.updates.auto_update = true;
     };
 
-    programs.television = {
-      enable = true;
-      settings = {
-        shell_integration.channel_triggers = {
-          dirs = ["cd" "tree" "ls" "ll" "eza"];
-          env = ["export" "unset"];
-          git-diff = ["git add" "git restore"];
-          git-log = ["git log" "git show"];
-        };
-      };
-    };
-
     programs.zoxide = {
       enable = true;
       options = ["--cmd=f"];

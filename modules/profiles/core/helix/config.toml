@@ -1,4 +1,4 @@
-theme = "catppuccin_macchiato_transparent"
+theme = "alabaster-dark"
 
 [editor]
 auto-format = false

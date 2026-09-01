@@ -1,0 +1,211 @@
+# alabaster-dark.toml
+#
+# A Helix port of "Alabaster Dark" by Nikita Prokopov (tonsky).
+# Ported directly from the original Sublime Text color scheme (the OG
+# reference implementation):
+#   https://github.com/tonsky/sublime-scheme-alabaster
+#   https://tonsky.me/blog/syntax-highlighting/  (the philosophy)
+#
+# Alabaster's philosophy: only 4 things get color — strings, constants,
+# comments, and definitions (functions/types). Everything else (keywords,
+# variables, operators) stays the foreground color. Punctuation is dimmed.
+# Tags get their own gold+underline treatment, distinct from definitions.
+#
+# Minimal by construction, not just by color count: Helix resolves scopes
+# by longest-prefix match, so a broad key like "keyword" already covers
+# every unlisted child (keyword.control.conditional, keyword.operator,
+# etc.) automatically. Sub-scopes are only listed here when their color
+# actually differs from their parent — nothing is repeated for show.
+
+# ---- Diagnostics (gutter) ----
+warning = { fg = "diff-change" }
+error = { fg = "error" }
+info = { fg = "definition" }
+hint = { fg = "punctuation" }
+diagnostic = { underline = { color = "punctuation", style = "curl" } }
+
+# ---- Diagnostics (inline, editing area) ----
+"diagnostic.error" = { underline = { color = "error", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "diff-change", style = "curl" } }
+"diagnostic.info" = { underline = { color = "definition", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "punctuation", style = "curl" } }
+"diagnostic.unnecessary" = { fg = "punctuation", modifiers = ["dim"] }
+"diagnostic.deprecated" = { fg = "punctuation", modifiers = ["crossed_out"] }
+
+# ---- Interface: background / text ----
+"ui.background" = { bg = "bg" }
+"ui.background.separator" = { fg = "punctuation" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "active", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "punctuation" }
+"ui.text.info" = { fg = "fg", bg = "panel" }
+"ui.text.directory" = { fg = "definition" }
+
+# ---- Interface: cursor ----
+"ui.cursor" = { fg = "bg", bg = "punctuation" }
+"ui.cursor.primary" = { fg = "bg", bg = "active" }
+"ui.cursor.match" = { fg = "active", underline = { style = "line" } }
+"ui.match" = { fg = "active", underline = { style = "line" } }
+
+# ---- Interface: debug ----
+"ui.debug.breakpoint" = { fg = "error" }
+"ui.debug.active" = { fg = "active" }
+
+# ---- Interface: gutter / line numbers ----
+"ui.gutter" = { bg = "bg" }
+"ui.gutter.selected" = { bg = "cursorline" }
+"ui.linenr" = { fg = "punctuation" }
+"ui.linenr.selected" = { fg = "active", modifiers = ["bold"] }
+
+# ---- Interface: statusline ----
+"ui.statusline" = { fg = "fg", bg = "panel" }
+"ui.statusline.inactive" = { fg = "punctuation", bg = "panel" }
+"ui.statusline.normal" = { fg = "bg", bg = "active", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "diff-add", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "constant", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "punctuation" }
+
+# ---- Interface: bufferline ----
+"ui.bufferline" = { fg = "punctuation", bg = "panel" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "panel" }
+
+# ---- Interface: popups / pickers / menus ----
+"ui.popup" = { fg = "fg", bg = "panel" }
+"ui.popup.info" = { fg = "fg", bg = "panel" }
+"ui.picker.header" = { fg = "punctuation", bg = "panel" }
+"ui.picker.header.column" = { fg = "fg" }
+"ui.picker.header.column.active" = { fg = "active", modifiers = ["bold"] }
+"ui.window" = { fg = "punctuation" }
+"ui.help" = { fg = "fg", bg = "panel" }
+"ui.menu" = { fg = "fg", bg = "panel" }
+"ui.menu.selected" = { fg = "bg", bg = "active" }
+"ui.menu.scroll" = { fg = "active", bg = "panel" }
+
+# ---- Interface: virtual text ----
+"ui.virtual.ruler" = { bg = "cursorline" }
+"ui.virtual.whitespace" = { fg = "punctuation" }
+"ui.virtual.indent-guide" = { fg = "indent-guide" }
+"ui.virtual.inlay-hint" = { fg = "punctuation" }
+"ui.virtual.inlay-hint.type" = { fg = "definition" }
+"ui.virtual.wrap" = { fg = "punctuation" }
+"ui.virtual.jump-label" = { fg = "diff-change", modifiers = ["bold"] }
+
+# ---- Interface: selection / highlight ----
+# "ui.selection" and "ui.cursorline"/"ui.cursorcolumn" are set once here;
+# Helix falls the .primary and .secondary variants back to these parents
+# automatically since they're not overridden separately.
+"ui.selection" = { bg = "selection" }
+"ui.highlight" = { bg = "selection" }
+"ui.highlight.frameline" = { bg = "error-bg" }
+"ui.cursorline" = { bg = "cursorline" }
+"ui.cursorcolumn" = { bg = "cursorline" }
+
+"tabstop" = { bg = "selection" }
+
+# ---- Syntax: the 4 colored categories (Alabaster's core idea) ----
+
+# Strings
+"string" = { fg = "string" }
+"string.special.url" = { fg = "string", modifiers = ["underlined"] }
+"string.special.symbol" = { fg = "constant" }
+
+# Constants (numbers, booleans, chars) — escape sequences get the subtle
+# background wash Sublime uses to set them apart within strings
+"constant" = { fg = "constant" }
+"constant.character.escape" = { fg = "constant", bg = "escape-bg" }
+
+# Comments — Alabaster's signature loud yellow, unusual and deliberate
+"comment" = { fg = "comment" }
+"comment.unused" = { fg = "punctuation", modifiers = ["dim"] }
+
+# Definitions (functions, types, constructors)
+"function" = { fg = "definition" }
+"function.builtin" = { fg = "fg" }
+"constructor" = { fg = "definition" }
+"type" = { fg = "fg" }
+"type.enum.variant" = { fg = "constant" }
+
+# ---- Syntax: everything else stays foreground (Alabaster minimalism) ----
+# Includes scopes outside tonsky's `entity.name - entity.name.tag` rule,
+# such as `special` (derives, preprocessor directives) and `label` (CSS
+# selectors, goto labels) — neither gets colored in the original scheme.
+"attribute" = { fg = "fg" }
+"variable" = { fg = "fg" }
+"keyword" = { fg = "fg" }
+"namespace" = { fg = "fg" }
+"special" = { fg = "fg" }
+"label" = { fg = "fg" }
+
+# ---- Punctuation — dimmed teal-grey (matches the dark teal background) ----
+"punctuation" = { fg = "punctuation" }
+"operator" = { fg = "punctuation" }
+
+# ---- Tags — deliberately NOT the same as definitions in the original ----
+"tag" = { fg = "active", underline = { style = "line" } }
+
+# ---- Markup (Markdown/docs) ----
+"markup.heading" = { fg = "definition", modifiers = ["bold"] }
+"markup.heading.marker" = { fg = "punctuation" }
+"markup.list" = { fg = "fg" }
+"markup.list.checked" = { fg = "string" }
+"markup.list.unchecked" = { fg = "punctuation" }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "string", modifiers = ["underlined"] }
+"markup.link.label" = { fg = "definition" }
+"markup.link.text" = { fg = "definition" }
+"markup.quote" = { fg = "comment" }
+"markup.raw" = { fg = "string" }
+
+# ---- Diff / version control — ported from Sublime's HSL diff colors ----
+"diff.plus" = { fg = "diff-add" }
+"diff.minus" = { fg = "diff-delete" }
+"diff.delta" = { fg = "diff-change" }
+"diff.delta.moved" = { fg = "definition" }
+"diff.delta.conflict" = { fg = "error" }
+
+[palette]
+# Core colors — exact values from the Sublime Alabaster Dark scheme
+fg = "#CECECE" # foreground
+bg = "#0E1415" # background
+
+# "active" in Sublime drives caret, highlight, find_highlight, brackets,
+# AND tags — all the same gold. Kept unified here for fidelity.
+active = "#CD974B"
+
+# The 4 semantic colors, verbatim from Sublime's rules
+string = "#95CB82" # Strings
+constant = "#CC8BC9" # Constants
+comment = "#DFDF8E" # Comments
+definition = "#71ADE7" # Definitions (entity.name, excluding tags)
+
+# Punctuation — Sublime's teal-tinted grey, not a flat neutral grey
+punctuation = "#708B8D"
+
+# Selection — Sublime's original #293334 reads almost invisible against
+# `bg`; brightened here (still dark teal, matching `punctuation`'s hue)
+# so selected text is actually easy to spot, used for both primary and
+# secondary selections (the original has no such distinction)
+selection = "#3D5457"
+
+# Errors — from Sublime's "Mistakes" rule (invalid/error scopes),
+# a real red+dark-red-bg combo, not reused from comment yellow
+error = "#CC3333"
+error-bg = "#2B1D1E"
+
+# Diff colors — converted from Sublime's exact HSL values
+# markup.inserted: hsl(100, 50%, 50%) / markup.deleted: hsl(2, 65%, 50%)
+# markup.changed:  hsl(30, 85%, 50%)
+diff-add = "#6ABF40"
+diff-delete = "#D2322D"
+diff-change = "#EC8013"
+
+# Derived background shades (Sublime specifies these as translucent
+# white overlays on `bg` — flattened to solid hex here since Helix
+# palette colors are opaque)
+cursorline = "#1D2323" # ~= background + ffffff10 (line_highlight)
+indent-guide = "#222B2D" # subtle: ~20% punctuation blended into bg, for a barely-there indent guide
+escape-bg = "#262B2C" # ~= background + ffffff10 (escape/placeholder wash)
+panel = "#1A2021" # subtle UI panel tone derived from bg, for statusline/menu/popup/picker surfaces

@@ -5,7 +5,7 @@
       package = pkgs.unstable.ghostty;
       settings = {
         command = "fish";
-        theme = "Catppuccin Macchiato";
+        theme = "alabaster-dark";
         background-opacity = 0.90;
         background-blur = true;
         mouse-hide-while-typing = true;
@@ -66,7 +66,7 @@
           }
 
           tabbar {
-            background-color: #232638;
+            background-color: #141a1b;
           }
 
           tabbar tabbox {
@@ -77,11 +77,48 @@
             padding: 1px 10px;
           }
 
+          tabbar tabbox tab:checked {
+            background-color: #3d5457;
+          }
+
           tabbar tabbox tab label {
             font-size: 13px;
           }
         ''}";
       };
     };
+
+    xdg.configFile."ghostty/themes/alabaster-dark".text = ''
+      # Alabaster Dark — ported from kitty-alabaster (alabaster-dark.conf)
+      # Original author: Anmol Mathias (MIT license)
+      # Upstream (kitty): https://raw.githubusercontent.com/anmolmathias/kitty-alabaster/master/alabaster-dark.conf
+      # Adapted from Nikita Prokopov's Alabaster color scheme, ported here for Ghostty.
+
+      background = #0e1415
+      foreground = #cecece
+
+      cursor-color = #cd974b
+      cursor-text = #000000
+
+      selection-background = #293334
+      selection-foreground = #cecece
+
+      palette = 0=#000000
+      palette = 1=#e25d56
+      palette = 2=#73ca50
+      palette = 3=#e9bf57
+      palette = 4=#4a88e4
+      palette = 5=#915caf
+      palette = 6=#23acdd
+      palette = 7=#cecece
+      palette = 8=#777777
+      palette = 9=#f36868
+      palette = 10=#88db3f
+      palette = 11=#f0bf7a
+      palette = 12=#6f8fdb
+      palette = 13=#e987e9
+      palette = 14=#4ac9e2
+      palette = 15=#ffffff
+    '';
   };
 }
