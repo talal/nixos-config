@@ -1,4 +1,4 @@
-{...}: {
+{
   hm = {
     programs.television = {
       enable = true;
