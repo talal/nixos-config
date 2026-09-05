@@ -26,12 +26,13 @@
       # Code
       # keep-sorted start
       cascadia-code
-      departure-mono
+      ia-writer-mono
       iosevka
       iosevka-ss08
       iosevka-ss08.fixed
       iosevka-ss08.term
       jetbrains-mono
+      kawkab-mono-font
       nerd-fonts.symbols-only
       noname-fixed
       tx-02
