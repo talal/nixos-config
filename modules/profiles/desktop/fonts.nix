@@ -13,6 +13,8 @@
       atkinson-hyperlegible-mono
       atkinson-hyperlegible-next
       hanken-grotesk
+      ia-writer-duospace
+      ia-writer-mono
       ibm-plex
       inter
       lato
@@ -26,7 +28,6 @@
       # Code
       # keep-sorted start
       cascadia-code
-      ia-writer-mono
       iosevka
       iosevka-ss08
       iosevka-ss08.fixed
