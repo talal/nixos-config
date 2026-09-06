@@ -24,6 +24,7 @@
       # eza        # IFD (can use term colors)
       # firefox    # IFD
       # fish       # uses Alabaster
+      # foot       # uses Alabaster
       # fzf        # IFD
       # ghostty    # uses Alabaster
       # helix      # installed manually (see below)
@@ -35,7 +36,6 @@
       # keep-sorted start block=yes
       atuin.enable = true;
       bat.enable = true;
-      foot.enable = true;
       thunderbird = {
         enable = true;
         profile = "default";
