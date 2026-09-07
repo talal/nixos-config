@@ -31,6 +31,7 @@
       # mpv        # don't need
       # starship   # IFD (can use term colors)
       # television # don't need
+      # yazi       # uses Alabaster
       # zed        # uses Alabaster
 
       # keep-sorted start block=yes
@@ -40,7 +41,6 @@
         enable = true;
         profile = "default";
       };
-      yazi.enable = true;
       zathura.enable = true;
       # keep-sorted end
     };

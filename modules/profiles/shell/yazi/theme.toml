@@ -1,0 +1,152 @@
+# theme.toml — Alabaster Dark for Yazi
+# Structurally ported from the user's Catppuccin Macchiato theme.toml —
+# same keys, same layout, colors re-derived from tonsky's Alabaster Dark:
+#   https://github.com/tonsky/sublime-scheme-alabaster
+#
+# Color-role mapping (Catppuccin hue -> Alabaster equivalent):
+#   lavender b7bdf8 (primary UI accent)      -> #cd974b  gold   (active)
+#   pink     f5bde6 (secondary accent)       -> #cc8bc9  magenta (constant)
+#   teal     8bd5ca (info / identity)        -> #71ade7  blue   (definition)
+#   green    a6da95 (success / positive)     -> #6abf40  green  (diff-add)
+#   red      ed8796 (danger / cut / error)   -> #cc3333  red    (error)
+#   yellow   eed49f (misc labels)            -> #dfdf8e  yellow (comment)
+#   surface0/1, overlay0/1/2 (dim/panel)     -> #708b8d  grey   (punctuation)
+#                                                #1a2021  panel
+#   base/text                                -> #0e1415 / #cecece
+
+[app]
+overall = { bg = "#0e1415" }
+
+[mgr]
+cwd = { fg = "#71ade7" }
+
+find_keyword  = { fg = "#cd974b", italic = true }
+find_position = { fg = "#cc8bc9", bg = "reset", italic = true }
+
+marker_copied   = { fg = "#6abf40", bg = "#6abf40" }
+marker_cut      = { fg = "#cc3333", bg = "#cc3333" }
+marker_marked   = { fg = "#71ade7", bg = "#71ade7" }
+marker_selected = { fg = "#cd974b", bg = "#cd974b" }
+
+count_copied   = { fg = "#0e1415", bg = "#6abf40" }
+count_cut      = { fg = "#0e1415", bg = "#cc3333" }
+count_selected = { fg = "#0e1415", bg = "#cd974b" }
+
+border_symbol = "│"
+border_style  = { fg = "#708b8d" }
+
+syntect_theme = "~/.config/yazi/alabaster-dark.tmTheme"
+
+[tabs]
+active   = { fg = "#0e1415", bg = "#cd974b", bold = true }
+inactive = { fg = "#cecece", bg = "#1a2021" }
+
+[mode]
+normal_main = { fg = "#0e1415", bg = "#cd974b", bold = true }
+normal_alt  = { fg = "#cd974b", bg = "#1a2021"}
+
+select_main = { fg = "#0e1415", bg = "#6abf40", bold = true }
+select_alt  = { fg = "#6abf40", bg = "#1a2021"}
+
+unset_main  = { fg = "#0e1415", bg = "#dfdf8e", bold = true }
+unset_alt   = { fg = "#dfdf8e", bg = "#1a2021"}
+
+[indicator]
+parent = { fg = "#0e1415", bg = "#cecece" }
+current = { fg = "#0e1415", bg = "#cd974b" }
+preview = { fg = "#0e1415", bg = "#cecece" }
+
+[status]
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#6abf40", bg = "#1a2021" }
+progress_error  = { fg = "#dfdf8e", bg = "#cc3333" }
+
+perm_type  = { fg = "#71ade7" }
+perm_read  = { fg = "#95cb82" }
+perm_write = { fg = "#cc3333" }
+perm_exec  = { fg = "#6abf40" }
+perm_sep   = { fg = "#708b8d" }
+
+[input]
+border   = { fg = "#cd974b" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+[pick]
+border   = { fg = "#cd974b" }
+active   = { fg = "#cc8bc9" }
+inactive = {}
+
+[confirm]
+border     = { fg = "#cd974b" }
+title      = { fg = "#cd974b" }
+body       = {}
+list       = {}
+btn_yes    = { reversed = true }
+btn_no     = {}
+
+[cmp]
+border = { fg = "#cd974b" }
+
+[tasks]
+border  = { fg = "#cd974b" }
+title   = {}
+hovered = { fg = "#cc8bc9", bold = true }
+
+[which]
+mask            = { bg = "#1a2021" }
+cand            = { fg = "#71ade7" }
+rest            = { fg = "#708b8d" }
+desc            = { fg = "#cc8bc9" }
+separator       = "  "
+separator_style = { fg = "#708b8d" }
+
+[help]
+on      = { fg = "#71ade7" }
+run     = { fg = "#cc8bc9" }
+desc    = { fg = "#708b8d" }
+hovered = { bg = "#3d5457", bold = true }
+footer  = { fg = "#cecece", bg = "#1a2021" }
+
+[notify]
+title_info  = { fg = "#71ade7" }
+title_warn  = { fg = "#ec8013" }
+title_error = { fg = "#cc3333" }
+
+[filetype]
+rules = [
+	# Media
+	{ mime = "image/*", fg = "#71ade7" },
+	{ mime = "{audio,video}/*", fg = "#dfdf8e" },
+
+	# Archives
+	{ mime = "application/*zip", fg = "#cc8bc9" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#cc8bc9" },
+
+	# Documents
+	{ mime = "application/{pdf,doc,rtf}", fg = "#6abf40" },
+
+	# Virtual file system
+	{ mime = "vfs/{absent,stale}", fg = "#708b8d" },
+
+	# Special file
+	{ url = "*", is = "orphan", bg = "#2b1d1e" },
+	{ url = "*", is = "exec"  , fg = "#6abf40" },
+
+	# Dummy file
+	{ url = "*", is = "dummy", bg = "#2b1d1e" },
+	{ url = "*/", is = "dummy", bg = "#2b1d1e" },
+
+	# Fallback
+	{ url = "*/", fg = "#cd974b" }
+]
+
+[spot]
+border = { fg = "#cd974b" }
+title  = { fg = "#cd974b" }
+tbl_cell = { fg = "#cd974b", reversed = true }
+tbl_col = { bold = true }

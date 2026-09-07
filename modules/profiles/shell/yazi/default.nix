@@ -1,5 +1,15 @@
 {pkgs, ...}: {
-  hm = {
+  hm = {config, ...}: {
+    xdg.configFile = {
+      "yazi/alabaster-dark.tmTheme".source =
+        config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/.dotfiles/modules/profiles/shell/yazi/alabaster-dark.tmTheme";
+
+      "yazi/theme.toml".source =
+        config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/.dotfiles/modules/profiles/shell/yazi/theme.toml";
+    };
+
     programs.yazi = {
       enable = true;
       settings.mgr.show_hidden = true;
