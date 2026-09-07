@@ -31,6 +31,7 @@
         opacity = 0.9;
         layer_shell.layer = "overlay";
       };
+      tray.enabled = false;
       favorites = ["applications:org.gnome.Calculator"];
       providers = {
         browser-extension.enabled = false;
