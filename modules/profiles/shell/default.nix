@@ -1,5 +1,19 @@
-{findModulesList, ...}: {
+{
+  findModulesList,
+  pkgs,
+  ...
+}: {
   imports = findModulesList ./.;
+
+  environment.variables = {
+    FZF_DEFAULT_OPTS_FILE = "${pkgs.writeText "fzf-opts" ''
+      --color=bg+:#3D5457,bg:#0E1415,spinner:#CD974B,hl:#CD974B
+      --color=fg:#CECECE,header:#DFDF8E,info:#71ADE7,pointer:#CD974B
+      --color=marker:#6ABF40,fg+:#CECECE,prompt:#71ADE7,hl+:#CD974B
+      --color=selected-bg:#1A2021
+      --color=border:#708B8D,label:#CECECE
+    ''}";
+  };
 
   hm = {
     # keep-sorted start block=yes newline_separated=yes

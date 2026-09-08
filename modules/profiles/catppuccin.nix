@@ -1,18 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  environment.variables = {
-    FZF_DEFAULT_OPTS_FILE = "${pkgs.writeText "fzf-opts" ''
-      --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796
-      --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6
-      --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796
-      --color=selected-bg:#494D64
-      --color=border:#6E738D,label:#CAD3F5
-    ''}";
-  };
-
+{inputs, ...}: {
   hm = {
     imports = [inputs.catppuccin.homeModules.catppuccin];
     catppuccin = {
@@ -25,12 +11,12 @@
       # firefox    # IFD
       # fish       # uses Alabaster
       # foot       # uses Alabaster
-      # fzf        # IFD
+      # fzf        # uses Alabaster
       # ghostty    # uses Alabaster
-      # helix      # installed manually (see below)
+      # helix      # uses Alabaster
       # mpv        # don't need
       # starship   # IFD (can use term colors)
-      # television # don't need
+      # television # uses Alabaster
       # yazi       # uses Alabaster
       # zed        # uses Alabaster
 
