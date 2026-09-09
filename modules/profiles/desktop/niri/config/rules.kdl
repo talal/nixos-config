@@ -58,7 +58,7 @@ window-rule { // Float: temporary modal dialog windows
     match title=r#"(?i)(wants to open|wants to save|file to save to|print)"#
     match app-id="anki" title=r#"(^Options|Statistics)"#
     match app-id="dev.zed.Zed" title=r#"(^About|Settings$)"#
-    match app-id="md.Obsidian" title=r#"Settings"#
+    match app-id="md.obsidian.Obsidian" title=r#"Settings"#
     match app-id="vicinae" title=r#"Settings"#
     match app-id="yaak-app" title=r#"Settings"#
 
