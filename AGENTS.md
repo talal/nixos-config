@@ -18,10 +18,9 @@ Conventions and instructions for coding agents.
 
 - **Do not install packages globally.** Add the program/service to the relevant profile.
 - **Never run a `nixos-rebuild` command.**
-- Never create Git commits unless explicitly asked.
+- Never create Git commits.
 - Never push to Git remotes.
-- Never create a GitHub issue.
-- Never create a GitHub pull request.
+- Never create a GitHub issue or pull request.
 
 ## Coding Standards
 
