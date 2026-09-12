@@ -21,8 +21,6 @@ text-width = 79
 indent = { tab-width = 4, unit = "    " }
 soft-wrap.enable = true
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
-# Continue lists and blockquotes when enter or 'o' is pressed.
-# comment-tokens = ["-", "- [ ]", ">"]
 
 [[language]]
 name = "nix"
@@ -63,16 +61,6 @@ formatter.args = [
 name = "typst"
 soft-wrap.enable = true
 formatter = { command = "typstyle", args = ["--line-width=100"] }
-[language.auto-pairs]
-# defaults
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'$' = '$'
-'"' = '"'
-# additional pairs
-'*' = '*'
-'_' = '_'
 
 [[language]]
 # TODO: default behavior in next Helix release.
