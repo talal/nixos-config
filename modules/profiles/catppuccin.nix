@@ -34,8 +34,8 @@
     programs.zathura.options = {
       # Tweak catpuccin theme for better readability.
       recolor = false;
-      highlight-active-color = "rgba(245, 194, 231, 0.5)";
-      highlight-color = "rgba(183, 189, 248, 0.5)";
+      highlight-active-color = "rgba(106, 159, 181, 0.65)";
+      highlight-color = "rgba(244, 191, 117, 0.55)";
       highlight-fg = "#24273a";
     };
   };
