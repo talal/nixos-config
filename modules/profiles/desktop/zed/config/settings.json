@@ -72,10 +72,12 @@
   "experimental.theme_overrides": {
     "vim.helix_jump_label.foreground": "#ff6b35"
   },
+  "search": { "regex": true },
 
   // ══════════ Aliases ══════════
   "command_aliases": {
-    "gd": "git::Diff"
+    "gd": "git::Diff",
+    "sm": "editor::SelectAllMatches"
   },
 
   // ══════════ Languages ══════════
