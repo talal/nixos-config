@@ -40,7 +40,7 @@
   "ui_font_size": 19,
   "agent_buffer_font_size": 17,
   "agent_ui_font_size": 20,
-  "markdown_preview_font_size": 20,
+  "markdown_preview": { "font_size": 20 },
 
   // ══════════ Terminal ══════════
   "terminal": {
