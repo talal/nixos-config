@@ -7,6 +7,20 @@
       monospace = ["IBM Plex Mono" "NoName Fixed" "Symbols Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
+    fontconfig.localConf = ''
+      <?xml version='1.0'?>
+      <!DOCTYPE fontconfig SYSTEM 'urn:fontconfig:fonts.dtd'>
+      <fontconfig>
+        <alias binding="same">
+          <family>termono</family>
+          <prefer>
+            <family>TX-02</family>
+            <family>NoName Fixed Terminal</family>
+            <family>Symbols Nerd Font</family>
+          </prefer>
+        </alias>
+      </fontconfig>
+    '';
     packages = with pkgs; [
       # Prose
       # keep-sorted start
