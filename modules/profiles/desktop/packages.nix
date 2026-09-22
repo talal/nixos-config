@@ -34,6 +34,7 @@
       parabolic
       pdfarranger
       pika-backup
+      ptyxis # for RTL text
       resources
       wl-screenrec
       zeal
