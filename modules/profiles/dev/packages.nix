@@ -17,7 +17,6 @@
     nixd
     nixfmt # for contributing to nixpkgs
     nixpkgs-review
-    pi-coding-agent
     radicle-desktop
     radicle-node
     radicle-tui
