@@ -1,12 +1,14 @@
 {pkgs, ...}: {
   fonts = {
     fontDir.enable = true;
+
     fontconfig.defaultFonts = {
       sansSerif = ["Inter" "Noto Naskh Arabic"];
       serif = ["Noto Serif" "Noto Naskh Arabic"];
       monospace = ["IBM Plex Mono" "NoName Fixed" "Symbols Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
+
     fontconfig.localConf = ''
       <?xml version='1.0'?>
       <!DOCTYPE fontconfig SYSTEM 'urn:fontconfig:fonts.dtd'>
@@ -21,6 +23,7 @@
         </alias>
       </fontconfig>
     '';
+
     packages = with pkgs; [
       # Prose
       # keep-sorted start
@@ -29,14 +32,15 @@
       hanken-grotesk
       ia-writer-duospace
       ia-writer-mono
+      ia-writer-quattro
       ibm-plex
       inter
-      lato
       libertinus
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
+      source-sans
       # keep-sorted end
 
       # Code
