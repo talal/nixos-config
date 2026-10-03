@@ -17,9 +17,9 @@
     nixd
     nixfmt # for contributing to nixpkgs
     nixpkgs-review
-    radicle-desktop
-    radicle-node
-    radicle-tui
+    # radicle-desktop
+    # radicle-node
+    # radicle-tui
     scc
     shellcheck
     shfmt
