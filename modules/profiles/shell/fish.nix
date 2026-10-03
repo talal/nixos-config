@@ -67,7 +67,7 @@
         ll = "eza --long --all";
         tree = ''eza --tree --all --ignore-glob=".git|.jj"'';
         tl = ''eza --tree --all --ignore-glob=".git|.jj" --level'';
-        tg = ''tree -a -I ".git|.jj" --gitignore'';
+        tg = ''tree -a --dirsfirst -I ".git|.jj" --gitignore'';
       };
     };
 
