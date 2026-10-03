@@ -34,9 +34,12 @@
       options = {
         dark = true;
         line-numbers = true;
+        # TODO: navigate doesn't work with moor.
         navigate = true; # use n and N to move between diff sections
-        hyperlinks = true;
-        hyperlinks-file-link-format = "file://{path}:{line}";
+        # TODO: moor pager does not parse OSC 8 hyperlink sequences and results in broken
+        # diff output. Either disable hyperlinks or use `delta.pager "less -RFX"`.
+        # hyperlinks = true;
+        # hyperlinks-file-link-format = "file://{path}:{line}";
       };
     };
 
