@@ -41,6 +41,7 @@
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
       source-sans
+      source-serif
       # keep-sorted end
 
       # Code
