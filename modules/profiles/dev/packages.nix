@@ -17,6 +17,7 @@
     nixd
     nixfmt # for contributing to nixpkgs
     nixpkgs-review
+    oxfmt
     # radicle-desktop
     # radicle-node
     # radicle-tui

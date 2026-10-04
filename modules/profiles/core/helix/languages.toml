@@ -7,6 +7,10 @@ name = "bash"
 formatter = { command = "shfmt", args = ["--simplify"] }
 
 [[language]]
+name = "css"
+formatter = { command = "oxfmt", args = ["--stdin-filepath", "dummy.css"] }
+
+[[language]]
 name = "html"
 language-servers = ["superhtml"]
 formatter = { command = "superhtml", args = ["fmt", "--stdin"] }
