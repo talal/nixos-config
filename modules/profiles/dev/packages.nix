@@ -30,7 +30,6 @@
     tinymist
     typst
     typstyle
-    uv # for Python scripts
     vscode-css-languageserver
     vscode-json-languageserver
     watchexec
