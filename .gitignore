@@ -1,10 +1,11 @@
 *.html
+*.bak
 .Trash*
 result
 result-*
 
-*dankcolors*
-**/themes
+**/themes/**
+!/modules/profiles/core/helix/config/themes/*.toml
 
 modules/profiles/desktop/niri/dms/*
 modules/profiles/desktop/zed/config/settings_backup.json

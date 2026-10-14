@@ -7,18 +7,9 @@
   };
 
   hm = {config, ...}: {
-    xdg.configFile = {
-      "helix/config.toml".source =
-        config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/.dotfiles/modules/profiles/core/helix/config.toml";
-
-      "helix/languages.toml".source =
-        config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/.dotfiles/modules/profiles/core/helix/languages.toml";
-
-      "helix/themes/alabaster-dark.toml".source =
-        config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/.dotfiles/modules/profiles/core/helix/alabaster-dark.toml";
+    xdg.configFile."helix" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/profiles/core/helix/config";
+      recursive = true;
     };
   };
 }
