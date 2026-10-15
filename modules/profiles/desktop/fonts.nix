@@ -27,8 +27,8 @@
     packages = with pkgs; [
       # Prose
       # keep-sorted start
-      atkinson-hyperlegible-mono
       atkinson-hyperlegible-next
+      eb-garamond
       hanken-grotesk
       ia-writer-duospace
       ia-writer-mono
