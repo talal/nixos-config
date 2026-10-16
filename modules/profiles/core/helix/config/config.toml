@@ -47,6 +47,7 @@ C-l = "jump_view_right"
 C-s = ":update"
 C-A-s = "save_selection" # in jumplist
 C-q = ":quit" # closes a split/view (useful in multi-split layouts)
+C-A-q = ":quit!"
 
 # Open Yazi file explorer
 C-e = [
