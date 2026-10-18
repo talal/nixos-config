@@ -68,6 +68,9 @@
         V = "cycle secondary-sub-visibility";
         "Ctrl+j" = "cycle secondary-sid";
         "Ctrl+J" = "cycle secondary-sid down";
+        # These need to be defined manually because of Sponsorblock which overrides these keybinds.
+        "G" = "add sub-scale  0.1";
+        "F" = "add sub-scale -0.1";
       };
     };
 
