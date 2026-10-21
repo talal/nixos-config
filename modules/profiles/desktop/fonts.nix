@@ -46,11 +46,9 @@
 
       # Code
       # keep-sorted start
+      (iosevka-bin.override {variant = "SS08";})
       cascadia-code
       iosevka
-      iosevka-ss08
-      iosevka-ss08.fixed
-      iosevka-ss08.term
       jetbrains-mono
       kawkab-mono-font
       nerd-fonts.symbols-only
