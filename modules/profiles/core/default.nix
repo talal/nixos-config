@@ -26,7 +26,7 @@
     # keep-sorted start block=yes newline_separated=yes prefix_order=system,environment,,services,programs,home-manager,sops
     system.activationScripts.activation-diff = {
       supportsDryActivation = true;
-      text = ''${lib.getExe pkgs.unstable.dix} /run/current-system "$systemConfig"'';
+      text = ''${lib.getExe pkgs.unstable.dix} diff /run/current-system "$systemConfig"'';
     };
 
     system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or "unknown";
