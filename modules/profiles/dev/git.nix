@@ -129,6 +129,7 @@
         "AGENTS.md"
         "CLAUDE.md"
         "GEMINI.md"
+        "skills-lock.json"
 
         # Dev Tools
         ".env*"
@@ -137,6 +138,7 @@
 
         # Editors
         ".helix/"
+        ".vscode/"
         ".zed/"
 
         # Nix
