@@ -1,19 +1,11 @@
 {
   inputs,
-  config,
   lib,
   pkgs,
   findModulesList,
   ...
 }: {
-  imports =
-    [
-      # Map `hm` to `home-manager.users.${config.user}` to simplify usage within modules.
-      (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" config.user])
-
-      inputs.home-manager.nixosModules.home-manager
-    ]
-    ++ (findModulesList ./.);
+  imports = findModulesList ./.;
 
   options = {
     user = lib.mkOption {
@@ -23,7 +15,7 @@
   };
 
   config = {
-    # keep-sorted start block=yes newline_separated=yes prefix_order=system,environment,,services,programs,home-manager,sops
+    # keep-sorted start block=yes newline_separated=yes prefix_order=system,environment,,services,programs
     system.activationScripts.activation-diff = {
       supportsDryActivation = true;
       text = ''${lib.getExe pkgs.unstable.dix} diff /run/current-system "$systemConfig"'';
@@ -54,16 +46,6 @@
     networking.nftables.enable = lib.mkDefault true;
 
     time.timeZone = lib.mkDefault "Europe/Berlin";
-
-    home-manager = {
-      extraSpecialArgs.inputs = inputs; # pass inputs to home-manager
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      backupFileExtension = "bak";
-
-      # Check before updating: https://nix-community.github.io/home-manager/release-notes.xhtml
-      users.${config.user}.home.stateVersion = "26.05";
-    };
     # keep-sorted end
   };
 }
