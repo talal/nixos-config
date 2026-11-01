@@ -7,6 +7,7 @@
     # keep-sorted start prefix_order=inputs,./
     ./hardware-configuration.nix
     profiles.audio
+    profiles.blocker
     profiles.bluetooth
     profiles.btrfs
     profiles.catppuccin
