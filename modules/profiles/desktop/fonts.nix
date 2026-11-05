@@ -27,27 +27,33 @@
     packages = with pkgs; [
       # Prose
       # keep-sorted start
+      arial
       atkinson-hyperlegible-next
-      eb-garamond
+      calibri
       hanken-grotesk
+      helvetica
       ia-writer-duospace
       ia-writer-mono
       ia-writer-quattro
-      ibm-plex
       inter
+      lato
       libertinus
+      minion-pro
+      myriad-pro
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
+      open-sans
       source-sans
       source-serif
+      univers
       # keep-sorted end
 
       # Code
       # keep-sorted start
       (iosevka-bin.override {variant = "SS08";})
-      cascadia-code
+      ibm-plex
       iosevka
       jetbrains-mono
       kawkab-mono-font

@@ -107,11 +107,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1793148911,
-        "narHash": "sha256-XmyScCcJBSQ8vsFgR6FnvVwC3k/lRByNDoqTDbpi2uY=",
+        "lastModified": 1793880335,
+        "narHash": "sha256-+Ky0FJ9sSLKw/69XCgNN9rsS8EiSRgrmL4EkLmJ6+PM=",
         "owner": "talal",
         "repo": "fonts",
-        "rev": "089ae7c480f154a328bcfcb687c0777aa0d89233",
+        "rev": "7ce5aa4cac19cea4402449ba217ba6a7feb53132",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780220602,
-        "narHash": "sha256-eynAfOmbmxJnkp7YewvCEbShNnnYJ9gLLqkzsYtBPeM=",
+        "lastModified": 1791885023,
+        "narHash": "sha256-C3alQ2MEt0zVrUSho5NUDo3jmhbff72++bfwoqT9Omo=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "db947814a175b7ca6ded66e21383d938df01c227",
+        "rev": "0d6d739a833ba9a9c93034862e4a7b061a062a1c",
         "type": "github"
       },
       "original": {
