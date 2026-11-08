@@ -14,7 +14,7 @@
       <!DOCTYPE fontconfig SYSTEM 'urn:fontconfig:fonts.dtd'>
       <fontconfig>
         <alias binding="same">
-          <family>termono</family>
+          <family>Termono</family>
           <prefer>
             <family>TX-02</family>
             <family>NoName Fixed Terminal</family>
@@ -25,6 +25,29 @@
     '';
 
     packages = with pkgs; [
+      # System
+      # keep-sorted start
+      inter
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-color-emoji
+      # keep-sorted end
+
+      # Code
+      # keep-sorted start
+      (iosevka-bin.override {variant = "SS08";})
+      consolas
+      ibm-plex
+      iosevka
+      jetbrains-mono
+      lilex
+      nerd-fonts.symbols-only
+      noname-fixed
+      tx-02
+      tx-02.nf
+      # keep-sorted end
+
       # Prose
       # keep-sorted start
       arial
@@ -35,32 +58,14 @@
       ia-writer-duospace
       ia-writer-mono
       ia-writer-quattro
-      inter
       lato
       libertinus
       minion-pro
       myriad-pro
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-color-emoji
       open-sans
       source-sans
       source-serif
       univers
-      # keep-sorted end
-
-      # Code
-      # keep-sorted start
-      (iosevka-bin.override {variant = "SS08";})
-      ibm-plex
-      iosevka
-      jetbrains-mono
-      kawkab-mono-font
-      nerd-fonts.symbols-only
-      noname-fixed
-      tx-02
-      tx-02.nf
       # keep-sorted end
     ];
   };

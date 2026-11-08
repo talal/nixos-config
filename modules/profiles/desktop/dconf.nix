@@ -28,7 +28,7 @@ in {
         visual-bell = false;
         use-system-font = false;
         cursor-shape = "ibeam";
-        font-name = "termono 14";
+        font-name = "Termono 14";
       };
 
       "org/gnome/Ptyxis/Profiles/${ptyxisProfileUUID}" = {

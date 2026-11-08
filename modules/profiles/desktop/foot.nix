@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         main = {
-          font = "termono:size=14";
+          font = "Termono:size=14";
           underline-offset = 3;
           pad = "6x0 center";
         };
