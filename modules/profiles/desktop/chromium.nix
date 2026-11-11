@@ -63,7 +63,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    (pkgs.unstable.brave-origin.override {
+    (brave-origin.override {
       commandLineArgs = [
         # Reference: https://source.chromium.org/chromium/chromium/src/+/main:headless/app/headless_shell_switches.cc;drc=3556fbff47c18193f4a39d2496596e89b8307a15;l=47-55
         "--password-store=gnome-libsecret"
