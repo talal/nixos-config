@@ -60,7 +60,6 @@
         sc = "systemctl --user";
         shred = "shred --verbose --zero --remove --iterations 100";
         ssc = "sudo systemctl";
-        t = "tuxedo";
 
         # eza
         ls = "eza";
