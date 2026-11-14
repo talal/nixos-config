@@ -66,6 +66,7 @@
           }
 
           tabbar {
+            /* Slightly lighter than #0e1415 bg (between bg and #1a2021 panel) for subtle tabbar separation */
             background-color: #141a1b;
           }
 
@@ -98,8 +99,10 @@
       foreground = #cecece
 
       cursor-color = #cd974b
+      # Verbatim from upstream kitty-alabaster (Foot uses #0e1415 bg instead)
       cursor-text = #000000
 
+      # Verbatim from upstream kitty-alabaster / Sublime Alabaster (other themes brighten to #3d5457 for contrast)
       selection-background = #293334
       selection-foreground = #cecece
 

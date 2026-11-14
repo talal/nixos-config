@@ -70,6 +70,7 @@
   "relative_line_numbers": "enabled",
   "which_key": { "enabled": true, "delay_ms": 0 },
   "experimental.theme_overrides": {
+    // Brighter orange-red than the #ec8013 used in Helix/Foot so jump labels stand out in Zed
     "vim.helix_jump_label.foreground": "#ff6b35"
   },
   "search": { "regex": true },
