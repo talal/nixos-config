@@ -63,6 +63,7 @@ formatter.args = [
 
 [[language]]
 name = "typst"
+text-width = 100
 soft-wrap.enable = true
 formatter = { command = "typstyle", args = ["--line-width=100"] }
 
