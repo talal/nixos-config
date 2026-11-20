@@ -27,7 +27,7 @@
       hunspellDicts.en_GB-ize
       hyprpicker
       keepassxc
-      libreoffice-still
+      libreoffice-fresh
       loupe
       nautilus
       papers
